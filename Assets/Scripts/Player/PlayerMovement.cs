@@ -30,12 +30,14 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 
     void Update()
     {
-        //if (photonView.IsMine)
-        MoveThePlayer();
-       /* else
+        if (photonView.IsMine)
         {
-            //characterController.transform.position = TargetPosition;//Vector3.Lerp(transform.position, TargetPosition, 0.5f);
-        }*/
+            MoveThePlayer();
+        }  
+        else
+        {
+            return;
+        }
     }
 
     #endregion
@@ -78,7 +80,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            TargetPosition = (Vector3)stream.ReceiveNext();
+            transform.position = (Vector3)stream.ReceiveNext();
         }
     }
 

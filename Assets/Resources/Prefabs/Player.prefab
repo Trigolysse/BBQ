@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8827100772442632578}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8827100771555083361
 Camera:
@@ -62,7 +62,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -103,7 +103,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8827100772442632578}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8451822068716442230
 Camera:
@@ -116,7 +116,7 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 2
+  m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 8827100772427584095}
   - component: {fileID: 8827100772427584094}
   - component: {fileID: 8827100772427584088}
-  - component: {fileID: 8827100772427584089}
+  - component: {fileID: 2999405041310735977}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -234,11 +234,11 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 8827100772427584089}
+  - {fileID: 8827100772427584094}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8827100772427584089
+--- !u!114 &2999405041310735977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,12 +247,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8827100772427584093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e518698c5c717a498460f2a6534b64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
+  componentsToDisable:
+  - {fileID: 8827100772442632701}
+  - {fileID: 8451822068716442230}
+  - {fileID: 8827100771555083361}
 --- !u!1 &8827100772442632579
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,8 +282,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8827100771888510860}
   - {fileID: 8827100771555083366}
+  - {fileID: 8827100771888510860}
   - {fileID: 8827100772610010421}
   m_Father: {fileID: 8827100772427584092}
   m_RootOrder: 0
@@ -304,8 +305,6 @@ MonoBehaviour:
   invert: 0
   can_Unlock: 1
   sensivity: 2.25
-  smooth_Steps: 10
-  smooth_Weight: 0.4
   roll_Angle: 10
   roll_Speed: 3
   default_Look_Limits: {x: -70, y: 80}
@@ -365,22 +364,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6139d29e8e244a9419b9e0f86f21563f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6139d29e8e244a9419b9e0f86f21563f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6427876
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6139d29e8e244a9419b9e0f86f21563f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6139d29e8e244a9419b9e0f86f21563f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7660445
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6139d29e8e244a9419b9e0f86f21563f,
         type: 3}
@@ -395,7 +394,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6139d29e8e244a9419b9e0f86f21563f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6139d29e8e244a9419b9e0f86f21563f,
         type: 3}
