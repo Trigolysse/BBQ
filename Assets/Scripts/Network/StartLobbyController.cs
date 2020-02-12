@@ -14,17 +14,30 @@ public class StartLobbyController : MonoBehaviourPunCallbacks
     [SerializeField]
     private int RoomSize; //Manual set the number of player in the room at one time.
     private GameObject canvas;
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        foreach (var room in roomList) {
+            Debug.Log(room);
+        }
+
+        base.OnRoomListUpdate(roomList);
+    }
+
     private void Start()
     {
         canvas = GameObject.Find("Canvas");
-        //canvas.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+        //canvas.GetComponent<Image>().color = new Color32(255, 0, 0, 255); 
     }
+
     public override void OnConnectedToMaster() //Callback function for when the first connection is established successfully.
     {
         //canvas.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
         PhotonNetwork.AutomaticallySyncScene = true; //Makes it so whatever scene the master client has loaded is the scene all other clients will load
         quickStartButton.SetActive(true);
+        PhotonNetwork.JoinLobby();
     }
+
     public void QuickStart() //Paired to the Quick Start button
     {
         //canvas.GetComponent<Image>().color = new Color32(255, 69, 0, 255);
@@ -34,11 +47,13 @@ public class StartLobbyController : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRandomRoom(); //First tries to join an existing room
         Debug.Log("Quick start");
     }
+
     public override void OnJoinRandomFailed(short returnCode, string message) //Callback function for if we fail to join a rooom
     {
         Debug.Log("Failed to join a room");
         CreateRoom();
     }
+
     void CreateRoom() //trying to create our own room
     {
         Debug.Log("Creating room now");
