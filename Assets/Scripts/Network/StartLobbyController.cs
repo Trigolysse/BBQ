@@ -24,6 +24,13 @@ public class StartLobbyController : MonoBehaviourPunCallbacks
         base.OnRoomListUpdate(roomList);
     }
 
+    private void UpdateRoomListUI()
+    {
+        /*GameObject newText = Instantiate(textObject, chatPanel.transform);
+        newMessage.textObject = newText.GetComponent<Text>();
+        newMessage.textObject.text = newMessage.text;*/
+    }
+
     private void Start()
     {
         canvas = GameObject.Find("Canvas");

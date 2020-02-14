@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void CreatePlayer()
     {
         Debug.Log("Creating Player");
-        PhotonNetwork.Instantiate(Path.Combine("Prefabs", Tags.PLAYER_TAG), new Vector3(0,0,0), Quaternion.identity);
+        PhotonNetwork.Instantiate(Path.Combine("Prefabs", Tags.PLAYER_TAG), new Vector3(0,13,0), Quaternion.identity);
     }
 
     public void quitGame()
