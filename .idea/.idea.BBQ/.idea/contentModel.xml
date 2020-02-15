@@ -193,6 +193,11 @@
           </e>
         </e>
         <e p="read me.txt" t="Include" />
+        <e p="Sauce distributor" t="Include">
+          <e p="Shaders" t="Include">
+            <e p="SDR_Structures.shader" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Chat" t="Include">
             <e p="ChatManager.cs" t="Include" />
@@ -226,6 +231,7 @@
             <e p="WeaponName.cs" t="Include" />
           </e>
         </e>
+        <e p="TurretNRV.cs" t="Include" />
         <e p="unity-ui-extensions" t="Include">
           <e p="Scripts" t="Include">
             <e p="Effects" t="Include">
