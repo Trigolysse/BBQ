@@ -25,8 +25,8 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
 
     #region Public Fields
 
-    public float sprint_Speed = 10f;
-    public float move_Speed = 5f;
+    public float sprint_Speed;
+    public float move_Speed;
     public float crouch_Speed = 2f;
     public float sprint_Treshold = 10f;
 
