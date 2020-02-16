@@ -3,12 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 {
     #region Private Fields
 
-    private Rigidbody rigidbody;
+    private CharacterController characterController;
     private Vector3 moveDirection;
     private float gravity = 20f;
     private float verticalVelocity;
@@ -18,7 +17,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 
     #region Public Fields
 
-    public float speed = 10f;
+    public float speed = 5f;
     public float jump_Force = 10f;
 
     #endregion
@@ -26,18 +25,16 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
     #region Mono Callbacks
     void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
     }
 
     void Update()
     {
         if (photonView.IsMine)
-        {
             MoveThePlayer();
-        }  
         else
         {
-            return;
+            //characterController.transform.position = TargetPosition;//Vector3.Lerp(transform.position, TargetPosition, 0.5f);
         }
     }
 
@@ -47,20 +44,23 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 
     void MoveThePlayer()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        moveDirection = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
+        moveDirection = transform.TransformDirection(moveDirection);
+        moveDirection *= speed * Time.deltaTime;
+        ApplyGravity();
+        characterController.Move(moveDirection);
+    }
 
-        Vector3 forward = rigidbody.transform.forward;
-        Vector3 tempVect = new Vector3(h, 0, v);
-        
-        tempVect = tempVect.normalized * speed;
-        rigidbody.MovePosition(transform.position + tempVect * Time.deltaTime);
-    } 
-
+    void ApplyGravity()
+    {
+        verticalVelocity -= gravity * Time.deltaTime;
+        PlayerJump();
+        moveDirection.y = verticalVelocity * Time.deltaTime;
+    }
 
     void PlayerJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (characterController.isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             verticalVelocity = jump_Force;
         }
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            transform.position = (Vector3)stream.ReceiveNext();
+            TargetPosition = (Vector3)stream.ReceiveNext();
         }
     }
 
