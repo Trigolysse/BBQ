@@ -15,8 +15,9 @@ namespace Com.Repsol.FPS.Launcher
 
         private void Start()
         {
-            Screen.SetResolution(1000, 600, FullScreenMode.Windowed);
+            //Screen.SetResolution(1920, 1080, FullScreenMode.Windowed, 180);
             Connect();
+            
         }
 
         public void Connect()
