@@ -15,8 +15,6 @@ public class TurretNRV : MonoBehaviour
 
     private void Start()
     {
-        maxFocusRange = 40f;
-        strength = 20;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
