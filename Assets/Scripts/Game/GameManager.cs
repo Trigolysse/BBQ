@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             chatInputField.Select();
             chatInputField.ActivateInputField();
 
+
             if (!isShowing && chatInputField.text != "")
             {
                 chatManager.sendMessage(chatInputField.text);
