@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.Return))
         {
             isShowing = !isShowing;
+            menu.SetActive(isShowing);
             chatInputField.gameObject.SetActive(isShowing);
             chatInputField.Select();
             chatInputField.ActivateInputField();

@@ -8,21 +8,23 @@ using UnityEngine.UIElements;
 public class TurretNRV : MonoBehaviour
 {
     private Transform player;
+    [SerializeField]
+    private float maxFocusRange = 40f;
+    [SerializeField]
+    private float strength = 20;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         float distance = Vector2.Distance(player.position, transform.position);
-        if (distance < 40)
+        if (distance < maxFocusRange)
         {
-            Vector2 v2 = player.position - transform.position;
-            v2.Normalize();
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(v2), 1f * Time.deltaTime);
+            Quaternion targetRotation = Quaternion.LookRotation(player.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Mathf.Min(strength * Time.deltaTime, 1));
         }
     }
 }
