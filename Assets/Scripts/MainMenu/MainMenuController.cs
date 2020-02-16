@@ -23,10 +23,10 @@ public class MainMenuController : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
- 
+
     public void NavigateToMultiplayerMainMenu()
     {
         PhotonNetwork.LoadLevel(multiplayerMenuIndex);

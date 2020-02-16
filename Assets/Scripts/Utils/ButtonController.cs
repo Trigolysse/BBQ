@@ -41,7 +41,7 @@ public class ButtonController : MonoBehaviourPunCallbacks, IPointerEnterHandler,
     {
         if (!button.interactable)
             return;
-        
+
         text.color = Color.white;
         button.GetComponent<RectTransform>().sizeDelta = new Vector2(500, 30);
         button.GetComponent<Image>().sprite = defaultSprite;
@@ -51,5 +51,5 @@ public class ButtonController : MonoBehaviourPunCallbacks, IPointerEnterHandler,
     void Update()
     {
     }
-    
+
 }

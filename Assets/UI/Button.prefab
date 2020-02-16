@@ -129,10 +129,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5591978539061518297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3806f2e717cdcc644a9fbfd76048455f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9afa2797b80d202488dadf4e4bb0a490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 5591978540474293939}
+  text: {fileID: 0}
+  defaultSprite: {fileID: 21300000, guid: ada7ecc1902e61946950bc66ed83b88a, type: 3}
+  highlightedSprite: {fileID: 21300000, guid: bd5ddc667997ce140bab8d675db2213e, type: 3}
 --- !u!1 &5591978540474290509
 GameObject:
   m_ObjectHideFlags: 0
