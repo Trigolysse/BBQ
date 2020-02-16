@@ -468,6 +468,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ff05c39c8891e4d99b9a6c0bdf2084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprint_Speed: 10
+  move_Speed: 5
+  crouch_Speed: 2
+  sprint_Treshold: 10
 --- !u!1 &8827100772442632579
 GameObject:
   m_ObjectHideFlags: 0
