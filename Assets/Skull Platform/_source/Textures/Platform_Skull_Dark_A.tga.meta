@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/UI/53559-blurborder.png.meta
-guid: 7c0cdf271bdb4cd4ea6196d500cc199f
+guid: 9b330db3d7cd81f40af138f4900ca0cf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
-=======
-guid: 9b330db3d7cd81f40af138f4900ca0cf
-timeCreated: 1511390749
-licenseType: Store
-TextureImporter:
-  fileIDToRecycleName: {}
-  externalObjects: {}
-  serializedVersion: 4
->>>>>>> d0b4e90cb6bb1de855fd72978e28f8a3248801cf:Assets/Skull Platform/_source/Textures/Platform_Skull_Dark_A.tga.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -43,11 +33,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-<<<<<<< HEAD:Assets/UI/53559-blurborder.png.meta
     mipBias: -100
-=======
-    mipBias: -1
->>>>>>> d0b4e90cb6bb1de855fd72978e28f8a3248801cf:Assets/Skull Platform/_source/Textures/Platform_Skull_Dark_A.tga.meta
     wrapU: -1
     wrapV: -1
     wrapW: -1
@@ -89,7 +75,6 @@ TextureImporter:
     sprites: []
     outline: []
     physicsShape: []
-<<<<<<< HEAD:Assets/UI/53559-blurborder.png.meta
     bones: []
     spriteID: 
     internalID: 0
@@ -98,8 +83,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-=======
->>>>>>> d0b4e90cb6bb1de855fd72978e28f8a3248801cf:Assets/Skull Platform/_source/Textures/Platform_Skull_Dark_A.tga.meta
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

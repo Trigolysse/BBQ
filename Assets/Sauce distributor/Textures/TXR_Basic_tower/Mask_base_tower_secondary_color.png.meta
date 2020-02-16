@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/UI/MainMenu/SelectedButton.png.meta
-guid: bd5ddc667997ce140bab8d675db2213e
-=======
 guid: 2fd45427067e4f64885acedf7d9860f4
->>>>>>> d0b4e90cb6bb1de855fd72978e28f8a3248801cf:Assets/Sauce distributor/Textures/TXR_Basic_tower/Mask_base_tower_secondary_color.png.meta
 TextureImporter:
-  fileIDToRecycleName: {}
+  internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -36,19 +32,12 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: 2
+    aniso: -1
     mipBias: -100
-<<<<<<< HEAD:Assets/UI/MainMenu/SelectedButton.png.meta
-    wrapU: 1
-    wrapV: 1
+    wrapU: -1
+    wrapV: -1
     wrapW: -1
-  nPOTScale: 0
-=======
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
   nPOTScale: 1
->>>>>>> d0b4e90cb6bb1de855fd72978e28f8a3248801cf:Assets/Sauce distributor/Textures/TXR_Basic_tower/Mask_base_tower_secondary_color.png.meta
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
@@ -69,25 +58,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
-    buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-<<<<<<< HEAD:Assets/UI/MainMenu/SelectedButton.png.meta
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-=======
-  - serializedVersion: 2
->>>>>>> d0b4e90cb6bb1de855fd72978e28f8a3248801cf:Assets/Sauce distributor/Textures/TXR_Basic_tower/Mask_base_tower_secondary_color.png.meta
-    buildTarget: Standalone
-    maxTextureSize: 8192
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -96,43 +69,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD:Assets/UI/MainMenu/SelectedButton.png.meta
     forceMaximumCompressionQuality_BC6H_BC7: 0
-=======
-  - serializedVersion: 2
-    buildTarget: iPhone
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Windows Store Apps
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
->>>>>>> d0b4e90cb6bb1de855fd72978e28f8a3248801cf:Assets/Sauce distributor/Textures/TXR_Basic_tower/Mask_base_tower_secondary_color.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
@@ -140,10 +77,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

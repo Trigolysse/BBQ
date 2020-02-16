@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/UI/MainMenu/BBA 2.png.meta
 guid: 1d51c828876185143a698d886ce6c234
-=======
-guid: 8a0b3cd76d2fb6f45b5ed6d3a9be28d5
->>>>>>> d0b4e90cb6bb1de855fd72978e28f8a3248801cf:Assets/Sauce distributor/Bonus/UI_Basic_lvl1.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -85,11 +81,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD:Assets/UI/MainMenu/BBA 2.png.meta
     forceMaximumCompressionQuality_BC6H_BC7: 0
-=======
-    forceMaximumCompressionQuality_BC6H_BC7: 1
->>>>>>> d0b4e90cb6bb1de855fd72978e28f8a3248801cf:Assets/Sauce distributor/Bonus/UI_Basic_lvl1.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
