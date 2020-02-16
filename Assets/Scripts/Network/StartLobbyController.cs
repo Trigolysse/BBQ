@@ -13,6 +13,9 @@ public class StartLobbyController : MonoBehaviourPunCallbacks
     private GameObject quickCancelButton; //button used to stop searing for a game to join.
     [SerializeField]
     private int RoomSize; //Manual set the number of player in the room at one time.
+    [SerializeField]
+    private GameObject roomSlotObject;
+
     private GameObject canvas;
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -22,6 +25,13 @@ public class StartLobbyController : MonoBehaviourPunCallbacks
         }
 
         base.OnRoomListUpdate(roomList);
+    }
+
+    private void UpdateRoomListUI()
+    {
+        GameObject newRoomSlot = Instantiate(roomSlotObject, this.transform);
+        //newRoomSlot.textObject = newText.GetComponent<Text>();
+        //newRoomSlot.textObject.text = newMessage.text;
     }
 
     private void Start()

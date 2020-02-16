@@ -17,6 +17,7 @@ public class StartRoomController : MonoBehaviourPunCallbacks
         Debug.Log("Joined Room");
         StartGame();
     }
+
     private void StartGame() //Function for loading into the multiplayer scene.
     {
         if (PhotonNetwork.IsMasterClient)

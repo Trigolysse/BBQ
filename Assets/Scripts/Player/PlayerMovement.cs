@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 {
     #region Private Fields
 
-    private CharacterController characterController;
+    private Rigidbody rigidbody;
     private Vector3 moveDirection;
     private float gravity = 20f;
     private float verticalVelocity;
@@ -17,7 +18,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 
     #region Public Fields
 
-    public float speed = 5f;
+    public float speed = 10f;
     public float jump_Force = 10f;
 
     #endregion
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
     #region Mono Callbacks
     void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -46,23 +47,20 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 
     void MoveThePlayer()
     {
-        moveDirection = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
-        moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= speed * Time.deltaTime;
-        ApplyGravity();
-        characterController.Move(moveDirection);
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        Vector3 forward = rigidbody.transform.forward;
+        Vector3 tempVect = new Vector3(h, 0, v);
+        
+        tempVect = tempVect.normalized * speed;
+        rigidbody.MovePosition(transform.position + tempVect * Time.deltaTime);
     } 
 
-    void ApplyGravity()
-    {
-        verticalVelocity -= gravity * Time.deltaTime;
-        PlayerJump();
-        moveDirection.y = verticalVelocity * Time.deltaTime;
-    }
 
     void PlayerJump()
     {
-        if (characterController.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             verticalVelocity = jump_Force;
         }

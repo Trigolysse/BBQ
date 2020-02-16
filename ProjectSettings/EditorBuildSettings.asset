@@ -5,10 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: "Assets/Scenes/Les sc\xE8nes/MainMenu.unity"
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/MainMenu.unity
+    guid: c09f4b0b2a9226946aa44a3dd8ffdfa6
   - enabled: 1
-    path: "Assets/Scenes/Les sc\xE8nes/BBQ.unity"
+    path: Assets/Scenes/Multiplayer MainMenu.unity
+    guid: 1d738835db47d4c44bc711e1a015db1c
+  - enabled: 1
+    path: Assets/Scenes/BBQ.unity
     guid: 6121ca4eb0b58ba428e1285335f4464b
+  - enabled: 1
+    path: Assets/Scenes/Earth.unity
+    guid: d1c210aa06a104168940a3577552b305
   m_configObjects: {}
