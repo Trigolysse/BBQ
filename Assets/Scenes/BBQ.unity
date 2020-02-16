@@ -3281,6 +3281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform_Skull_04 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1270209658541690, guid: 56cf5416ea25c6042ac013ea267b75ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4070410396011874, guid: 56cf5416ea25c6042ac013ea267b75ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 271.02002
