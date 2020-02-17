@@ -13,8 +13,10 @@ public class MainMenuController : MonoBehaviourPunCallbacks
     Button multiplayerButton;
 
     [SerializeField]
-    int multiplayerMenuIndex;
-
+    private int multiplayerMenuIndex;
+    [SerializeField]
+    private int localPlayIndex;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +29,14 @@ public class MainMenuController : MonoBehaviourPunCallbacks
     }
 
 
-    public void NavigateToMultiplayerMainMenu()
+    public void NavigateToMultiplayerMenu()
     {
         PhotonNetwork.LoadLevel(multiplayerMenuIndex);
+    }
+
+    public void NavigateToLocalPlay()
+    {
+        PhotonNetwork.LoadLevel(localPlayIndex);
     }
 
     public override void OnConnectedToMaster()

@@ -161,6 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1001 &104630629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -632,6 +634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &348968960
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &419321640 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1808467618, guid: 29f393efdc386ee41aee6077912722cf,
@@ -1137,6 +1143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &530084404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,6 +1897,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &910850014 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 939335178, guid: 29f393efdc386ee41aee6077912722cf,
@@ -1929,6 +1939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &911028168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 952783352, guid: 29f393efdc386ee41aee6077912722cf,
@@ -1989,6 +2001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1001 &935659851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2118,6 +2132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &974770026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,6 +2260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &982024706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 939335178, guid: 29f393efdc386ee41aee6077912722cf,
@@ -2284,6 +2302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &986890907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 952783352, guid: 29f393efdc386ee41aee6077912722cf,
@@ -2344,6 +2364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1001 &1027375957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2453,6 +2475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &1074745625 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1808467618, guid: 29f393efdc386ee41aee6077912722cf,
@@ -2728,6 +2752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &1368704676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1808467618, guid: 29f393efdc386ee41aee6077912722cf,
@@ -2808,6 +2834,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &1425149954 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1808467618, guid: 29f393efdc386ee41aee6077912722cf,
@@ -2868,6 +2896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &1474089297 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1808467618, guid: 29f393efdc386ee41aee6077912722cf,
@@ -3017,6 +3047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &1488716708
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,6 +3508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &1615546335 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1808467618, guid: 29f393efdc386ee41aee6077912722cf,
@@ -3576,6 +3610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &1705307415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 939335178, guid: 29f393efdc386ee41aee6077912722cf,
@@ -3616,6 +3652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &1707690159 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 952783352, guid: 29f393efdc386ee41aee6077912722cf,
@@ -3823,6 +3861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &1893839679 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 952783352, guid: 29f393efdc386ee41aee6077912722cf,
@@ -4256,6 +4296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 0
+  strength: 0
 --- !u!1 &2011744726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 939335178, guid: 29f393efdc386ee41aee6077912722cf,
@@ -4296,6 +4338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!1 &2018091776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 952783352, guid: 29f393efdc386ee41aee6077912722cf,
@@ -4449,6 +4493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adad16902cc04c74c95da82bbdb14189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 40
+  strength: 20
 --- !u!54 &2086495090
 Rigidbody:
   m_ObjectHideFlags: 0
