@@ -38,6 +38,7 @@ public class MouseLook : MonoBehaviour
     {
         //GameManager.Instance.setMenu(false);
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -63,6 +64,7 @@ public class MouseLook : MonoBehaviour
             {
                 //GameManager.Instance.setMenu(true);
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             else
             {

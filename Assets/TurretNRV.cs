@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Photon.Realtime;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
 public class TurretNRV : MonoBehaviour
 {
@@ -13,7 +8,7 @@ public class TurretNRV : MonoBehaviour
     [SerializeField]
     private float strength = 20;
 
-    private void Start()
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }

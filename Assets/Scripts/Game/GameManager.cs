@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     #region Private Fields
 
-    public GameObject menu;
+ 
     public GameObject chatMenu;
     public GameObject playerController;
     private bool isShowing;
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void setMenu(bool b)
     {
-        menu.SetActive(b);
+        
     }
 
     #region MonoBehaviour CallBacks
@@ -42,14 +42,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         Instance = this;
     
         CreatePlayer();
-        menu.SetActive(false);
+        
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
             isShowing = !isShowing;
-            menu.SetActive(isShowing);
+         
             chatInputField.gameObject.SetActive(isShowing);
             chatInputField.Select();
             chatInputField.ActivateInputField();
