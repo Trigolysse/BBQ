@@ -18,9 +18,9 @@ public class TurretNRV : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
+    void LateUpdate()
     {
-        float distance = Vector2.Distance(player.position, transform.position);
+        float distance = Vector3.Distance(player.position, transform.position);
         if (distance < maxFocusRange)
         {
             Quaternion targetRotation = Quaternion.LookRotation(player.position - transform.position);
