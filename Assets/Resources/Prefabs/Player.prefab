@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &8430974300165770464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241983053475835852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7646ebec5f975ca4985317cd9914c25a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCam: {fileID: 8827100771555083361}
-  ball: {fileID: 7504584056804134123, guid: da81afba2b1d1224bbd366678f013066, type: 3}
 --- !u!1 &8827100771555083367
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +162,7 @@ GameObject:
   - component: {fileID: 2999405041310735977}
   - component: {fileID: 2494913793198429903}
   - component: {fileID: 5085280035956180277}
+  - component: {fileID: 619260971537140047}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -285,6 +272,20 @@ MonoBehaviour:
   move_Speed: 5
   crouch_Speed: 2
   sprint_Treshold: 10
+--- !u!114 &619260971537140047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8827100772427584093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7646ebec5f975ca4985317cd9914c25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 8827100771555083361}
+  ball: {fileID: 0}
 --- !u!1 &8827100772442632579
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,12 +525,6 @@ PrefabInstance:
     - {fileID: 20176831017129482, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
     - {fileID: 54436517532814138, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
---- !u!1 &1241983053475835852 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1778574915019774, guid: b9ca752c3df4dec4cadafd04fc5d444b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1241366885690199090}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1240065625247511444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4399724542279590, guid: b9ca752c3df4dec4cadafd04fc5d444b,
