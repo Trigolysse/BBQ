@@ -6,9 +6,8 @@
     <e p="D:\BBQ" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Affichage.cs" t="Include" />
-        <e p="Deplacement.cs" t="Include" />
-        <e p="Followplayer.cs" t="Include" />
+        <e p="Crosshair.cs" t="Include" />
+        <e p="EscapeMenu.cs" t="Include" />
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
             <e p="Code" t="Include">
@@ -181,7 +180,6 @@
             </e>
           </e>
         </e>
-        <e p="PlayerSprintAndCrouch.cs" t="Include" />
         <e p="Sauce distributor" t="Include">
           <e p="Shaders" t="Include">
             <e p="SDR_Structures.shader" t="Include" />
@@ -208,6 +206,13 @@
             <e p="MouseLook.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerSetup.cs" t="Include" />
+            <e p="PlayerSprintAndCrouch.cs" t="Include" />
+          </e>
+          <e p="Random scripts" t="Include">
+            <e p="Affichage.cs" t="Include" />
+            <e p="Deplacement.cs" t="Include" />
+            <e p="Followplayer.cs" t="Include" />
+            <e p="TurretNRV.cs" t="Include" />
           </e>
           <e p="Utils" t="Include">
             <e p="ButtonController.cs" t="Include" />
@@ -220,7 +225,7 @@
             <e p="WeaponName.cs" t="Include" />
           </e>
         </e>
-        <e p="TurretNRV.cs" t="Include" />
+        <e p="Tir.cs" t="Include" />
         <e p="unity-ui-extensions" t="Include">
           <e p="Scripts" t="Include">
             <e p="Effects" t="Include">
