@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7646ebec5f975ca4985317cd9914c25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCam: {fileID: 8827100771555083361}
   ball: {fileID: 7504584056804134123, guid: da81afba2b1d1224bbd366678f013066, type: 3}
 --- !u!1 &8827100771555083367
 GameObject:

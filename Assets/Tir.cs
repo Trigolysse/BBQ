@@ -7,6 +7,7 @@ using UnityEngine;
 public class Tir : MonoBehaviour
 {
     private Ray ray;
+    public Camera mainCam;
 
     private RaycastHit hit;
 
@@ -26,18 +27,20 @@ public class Tir : MonoBehaviour
             ray = Camera.main.ScreenPointToRay(Centre);
             //Debug.Log("Feu");
             
-            if (Physics.Raycast(ray,out hit, Camera.main.farClipPlane))
+            if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
             {
                 //Debug.Log("tir dans l anus!!!" + hit.transform.name);
                 //hit.rigidbody.AddForceAtPosition(transform.TransformDirection(Vector3.up)*100000,hit.normal);
+                
+                if (hit.transform.gameObject.tag == "Planet")
+                {
+                    Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    GameObject Go=Instantiate(ball,hit.point,Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                    Destroy(Go,10f);
+                }
             }
 
-            if (hit.transform.gameObject.tag == "Planet")
-            {
-                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-                GameObject Go=Instantiate(ball,hit.point,Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
-                Destroy(Go,10f);
-            }
+           
         }
 
        
