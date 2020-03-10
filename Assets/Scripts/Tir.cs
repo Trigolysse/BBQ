@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -18,15 +18,15 @@ public class Tir : MonoBehaviourPunCallbacks
 
     private RaycastHit hit;
     private float nextTimeToFire;
+    private WeaponManager weaponManager;
 
     #endregion
 
-
     #region Mono Callbacks
 
-    void Start()
+    void Awake()
     {
-        
+        weaponManager = GetComponent<WeaponManager>();
     }
 
     void Update()
@@ -43,7 +43,7 @@ public class Tir : MonoBehaviourPunCallbacks
         if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / 7; //weaponManager.GetCurrentSelectedWeapon().fireRate
-            //ShootAnimation();
+            weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
             photonView.RPC("Shoot", RpcTarget.All);
         }
     }
