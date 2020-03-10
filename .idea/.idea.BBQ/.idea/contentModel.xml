@@ -214,6 +214,7 @@
             <e p="Followplayer.cs" t="Include" />
             <e p="TurretNRV.cs" t="Include" />
           </e>
+          <e p="Tir.cs" t="Include" />
           <e p="Utils" t="Include">
             <e p="ButtonController.cs" t="Include" />
             <e p="TagHolder.cs" t="Include" />
@@ -225,7 +226,6 @@
             <e p="WeaponName.cs" t="Include" />
           </e>
         </e>
-        <e p="Tir.cs" t="Include" />
         <e p="unity-ui-extensions" t="Include">
           <e p="Scripts" t="Include">
             <e p="Effects" t="Include">

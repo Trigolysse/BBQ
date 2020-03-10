@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -10,6 +10,7 @@ public class Tir : MonoBehaviourPunCallbacks
     #region Public Fields
 
     public Camera mainCam;
+    public GameObject EmptyPrefab;
 
     #endregion
 
@@ -41,7 +42,7 @@ public class Tir : MonoBehaviourPunCallbacks
         // if Time is greater than the nextTimeToFire
         if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
-            nextTimeToFire = Time.time + 1f / 20; //weaponManager.GetCurrentSelectedWeapon().fireRate
+            nextTimeToFire = Time.time + 1f / 7; //weaponManager.GetCurrentSelectedWeapon().fireRate
             //ShootAnimation();
             photonView.RPC("Shoot", RpcTarget.All);
         }
@@ -62,7 +63,9 @@ public class Tir : MonoBehaviourPunCallbacks
             }
             if (hit.transform.CompareTag("Planet"))
             {
-                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"); 
+                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                GameObject Go = Instantiate(EmptyPrefab,hit.point,Quaternion.FromToRotation(Vector3.forward,hit.normal)) as GameObject;
+                Destroy(Go,8f);    
             }
             if (hit.transform.CompareTag(Tags.PLAYER_TAG))
             {
