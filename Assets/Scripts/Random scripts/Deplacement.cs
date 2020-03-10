@@ -7,7 +7,7 @@ public class Deplacement : MonoBehaviour
 {
     private NavMeshAgent Agentenemy;
 
-    public Transform target;
+    public Transform Target;
 
     public float Attackdistance;
 
@@ -23,7 +23,7 @@ public class Deplacement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        Target = GameObject.FindGameObjectWithTag("Player").transform;
         Agentenemy = GetComponent<NavMeshAgent>();
         InitialPosition = transform.position;
     }
@@ -40,7 +40,7 @@ public class Deplacement : MonoBehaviour
             Agentenemy.SetDestination(InitialPosition);
         } */
         
-        Distance = Vector3.Distance(target.position, transform.position);
-        Agentenemy.SetDestination(target.position);
+        Distance = Vector3.Distance(Target.position, transform.position);
+        Agentenemy.SetDestination(Target.position);
     }
 }

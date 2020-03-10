@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
     private float gravity = 20f;
     private float verticalVelocity;
     private Vector3 TargetPosition;
+    private int Life;
+
+    public int Life1 => Life;
 
     #endregion
 
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         {
             //characterController.transform.position = TargetPosition;//Vector3.Lerp(transform.position, TargetPosition, 0.5f);
         }
+        
     }
 
     #endregion
