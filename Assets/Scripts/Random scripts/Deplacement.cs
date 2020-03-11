@@ -23,7 +23,6 @@ public class Deplacement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Target = GameObject.FindGameObjectWithTag("Player").transform;
         Agentenemy = GetComponent<NavMeshAgent>();
         InitialPosition = transform.position;
     }
