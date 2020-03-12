@@ -11,7 +11,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        //AssignRemoteLayer();
+        AssignRemoteLayer();
         // If this player is not you
         if (!photonView.IsMine)
         {
@@ -30,7 +30,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             //Camera.main.gameObject.SetActive(false);
         }
 
-        //RegisterPlayer();
+        RegisterPlayer();
     }
     
     private void OnDisable()
