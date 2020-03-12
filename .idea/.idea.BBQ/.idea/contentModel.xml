@@ -7,6 +7,7 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="EscapeMenu.cs" t="Include" />
+        <e p="Essai.cs" t="Include" />
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
             <e p="Code" t="Include">
@@ -140,10 +141,8 @@
               <e p="PhotonPlayer" t="Include">
                 <e p="Editor" t="Include">
                   <e p="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.asmdef" t="Include" />
-                  <e p="PlayerNumberingInspector.cs" t="Include" />
                   <e p="PunTeamsInspector.cs" t="Include" />
                 </e>
-                <e p="PlayerNumbering.cs" t="Include" />
                 <e p="PunPlayerScores.cs" t="Include" />
                 <e p="PunTeams.cs" t="Include" />
               </e>
@@ -195,6 +194,7 @@
           <e p="MainMenu" t="Include">
             <e p="MainMenuController.cs" t="Include" />
             <e p="MultiplayerMenuController.cs" t="Include" />
+            <e p="PlayerNameInputField2.cs" t="Include" />
           </e>
           <e p="Network" t="Include">
             <e p="NetworkController.cs" t="Include" />
