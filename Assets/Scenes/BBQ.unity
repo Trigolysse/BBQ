@@ -2167,7 +2167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c57c24825da09b4181b0f7a6320cfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 14.2
+  length: 4.4
   thickness: 5.2
   gap: 6.4
 --- !u!1001 &686873164

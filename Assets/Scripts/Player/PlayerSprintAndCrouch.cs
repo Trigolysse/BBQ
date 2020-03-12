@@ -72,16 +72,16 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
         // if we have stamina we can sprint
         if (sprint_Value > 0f)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching)
+            if (Input.GetKeyDown(KeyCode.LeftControl) && !isCrouching)
             {
                 playerMovement.speed = sprint_Speed;
             }
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && !isCrouching)
+        if (Input.GetKeyUp(KeyCode.LeftControl) && !isCrouching)
         {
             playerMovement.speed = move_Speed;
         }
-        if (Input.GetKey(KeyCode.LeftShift) && !isCrouching)
+        if (Input.GetKey(KeyCode.LeftControl) && !isCrouching)
         {
             sprint_Value -= sprint_Treshold * Time.deltaTime;
 
@@ -107,7 +107,7 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
 
     void Crouch()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             // if we are crouching - stand up
             if (isCrouching)

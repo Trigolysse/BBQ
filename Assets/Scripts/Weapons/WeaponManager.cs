@@ -68,6 +68,7 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
 
     void TurnOnSelectedWeapon(int weaponIndex)
     {
+        if (weaponIndex >= weapons.Length) return; // Index Out of Bound
 
         if (currentWeaponIndex == weaponIndex && photonView.IsMine)
             return;

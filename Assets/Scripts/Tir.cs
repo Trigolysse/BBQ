@@ -42,7 +42,7 @@ public class Tir : MonoBehaviourPunCallbacks
         // if Time is greater than the nextTimeToFire
         if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
-            nextTimeToFire = Time.time + 1f / 7; //weaponManager.GetCurrentSelectedWeapon().fireRate
+            nextTimeToFire = Time.time + 1f / weaponManager.GetCurrentSelectedWeapon().fireRate; //weaponManager.GetCurrentSelectedWeapon().fireRate
             weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
             photonView.RPC("Shoot", RpcTarget.All);
         }
