@@ -3922,10 +3922,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 1216232119}
-  Attackdistance: 0
-  ReactionTime: 0
-  Damage: 0
-  Attackspeed: 0
+  Attackdistance: 500
+  ReactionTime: 2
+  Damage: 20
+  Attackspeed: 20
 --- !u!54 &1247041023
 Rigidbody:
   m_ObjectHideFlags: 0
