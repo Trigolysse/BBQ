@@ -69,6 +69,18 @@ public class WeaponHandler : MonoBehaviour
         DecreaseAmmunition();
     }
 
+    public void BlockAnimation()
+    {
+        Debug.Log("BlockAnimation");
+        animator.SetBool(AnimationTags.BLOCK_TRIGGER, true);
+    }
+
+    public void UnBlockAnimation()
+    {
+        Debug.Log("BlockAnimation");
+        animator.SetBool(AnimationTags.BLOCK_TRIGGER, false);
+    }
+
     public void Aim(bool canAim)
     {
         animator.SetBool(AnimationTags.AIM_PARAMETER, canAim);

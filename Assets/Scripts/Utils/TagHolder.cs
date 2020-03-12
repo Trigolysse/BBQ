@@ -22,6 +22,8 @@ public class AnimationTags
     public const string ZOOM_OUT_ANIM = "ZoomOut";
 
     public const string SHOOT_TRIGGER = "Shoot";
+    public const string BLOCK_TRIGGER = "Block";
+    public const string UNBLOCK_TRIGGER = "UnBlock";
     public const string AIM_PARAMETER = "Aim";
 
     public const string WALK_PARAMETER = "Walk";

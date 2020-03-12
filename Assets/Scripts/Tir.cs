@@ -46,6 +46,17 @@ public class Tir : MonoBehaviourPunCallbacks
             weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
             photonView.RPC("Shoot", RpcTarget.All);
         }
+        if(Input.GetMouseButton(1))
+        {
+            if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.NONE)
+            {
+                weaponManager.GetCurrentSelectedWeapon().BlockAnimation();
+            }
+        } else
+        if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.NONE)
+        {
+            weaponManager.GetCurrentSelectedWeapon().UnBlockAnimation();
+        }
     }
 
     [PunRPC]
