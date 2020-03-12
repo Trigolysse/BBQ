@@ -39,9 +39,7 @@ public class Deplacement : MonoBehaviour
             Agentenemy.SetDestination(InitialPosition);
         }
 
-        Debug.Log(GameObject.FindGameObjectWithTag("Player").transform.position);
         Distance = Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position);
-        Debug.Log(Distance);
         Agentenemy.SetDestination(GameObject.FindGameObjectWithTag("Player").transform.position);
     }
 }

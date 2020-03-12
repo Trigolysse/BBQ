@@ -66,20 +66,19 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         // If this player is not you
         if (!photonView.IsMine)
         {
-            GameObject model = this.transform.GetChild(1).gameObject;
-            //GameObject model = this.transform.GetChild(0).transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject;
-            ChangeLayersRecursively(model.transform, "Default");
+            this.transform.GetChild(1).gameObject.layer = 0;
+            ChangeLayersRecursively(this.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform, 0);
         }
         
         //transform.name = photonView.Owner.NickName;
     }
 
-    private void ChangeLayersRecursively(Transform trans, String name)
+    private void ChangeLayersRecursively(Transform trans, int layer)
     {
         foreach (Transform child in trans)
         {
-            child.gameObject.layer = LayerMask.NameToLayer(name);
-            ChangeLayersRecursively(child, name);
+            child.gameObject.layer = layer;
+            ChangeLayersRecursively(child, layer);
         }
     }
 
