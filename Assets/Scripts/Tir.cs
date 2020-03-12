@@ -31,7 +31,8 @@ public class Tir : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        WeaponShoot();
+        if(photonView.IsMine)
+            WeaponShoot();
     }
 
     #endregion

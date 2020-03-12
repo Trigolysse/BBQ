@@ -97,7 +97,7 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            //this.currentWeaponIndex = (int)stream.ReceiveNext();
+            this.currentWeaponIndex = (int)stream.ReceiveNext();
         }
     }
 }
