@@ -6,7 +6,6 @@
     <e p="D:\BBQ" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Crosshair.cs" t="Include" />
         <e p="EscapeMenu.cs" t="Include" />
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
@@ -203,6 +202,7 @@
             <e p="StartRoomController.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
+            <e p="Crosshair.cs" t="Include" />
             <e p="MouseLook.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerSetup.cs" t="Include" />
@@ -223,6 +223,8 @@
             <e p="Ak47.cs" t="Include" />
             <e p="Weapon.cs" t="Include" />
             <e p="WeaponFireMode.cs" t="Include" />
+            <e p="WeaponHandler.cs" t="Include" />
+            <e p="WeaponManager.cs" t="Include" />
             <e p="WeaponName.cs" t="Include" />
           </e>
         </e>
