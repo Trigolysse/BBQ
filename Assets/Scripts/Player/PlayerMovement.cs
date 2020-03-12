@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
+public class PlayerMovement : MonoBehaviourPunCallbacks
 {
     #region Private Fields
 
@@ -74,17 +74,17 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 
     #region IPunObservable Implementation
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(transform.position);
-        }
-        else
-        {
-            TargetPosition = (Vector3)stream.ReceiveNext();
-        }
-    }
+    //public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    //{
+    //    if (stream.IsWriting)
+    //    {
+    //        stream.SendNext(transform.position);
+    //    }
+    //    else
+    //    {
+    //        TargetPosition = (Vector3)stream.ReceiveNext();
+    //    }
+    //}
 
     #endregion
 }

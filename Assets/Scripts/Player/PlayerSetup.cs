@@ -11,7 +11,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        AssignRemoteLayer();
+        //AssignRemoteLayer();
         // If this player is not you
         if (!photonView.IsMine)
         {
