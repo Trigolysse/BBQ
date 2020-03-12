@@ -78,6 +78,7 @@ public class Tir : MonoBehaviourPunCallbacks
                 GameObject Go = Instantiate(EmptyPrefab,hit.point,Quaternion.FromToRotation(Vector3.forward,hit.normal)) as GameObject;
                 Destroy(Go,8f);    
             }
+            
             if (hit.transform.CompareTag(Tags.PLAYER_TAG))
             {
                 //hit.transform.GetComponent<HealthScript>().ApplyDamage(weaponManager.GetCurrentSelectedWeapon().damage);
