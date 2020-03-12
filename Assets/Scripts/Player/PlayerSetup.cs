@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,7 +30,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             //Camera.main.gameObject.SetActive(false);
         }
 
-        RegisterPlayer();
+        //RegisterPlayer();
     }
     
     private void OnDisable()
@@ -62,7 +63,23 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
 
     private void RegisterPlayer()
     {
+        // If this player is not you
+        if (!photonView.IsMine)
+        { 
+            GameObject model = this.transform.GetChild(1).gameObject;
+            ChangeLayersRecursively(model.transform, "Default");
+        }
+        
         //transform.name = photonView.Owner.NickName;
+    }
+
+    private void ChangeLayersRecursively(Transform trans, String name)
+    {
+        foreach (Transform child in trans)
+        {
+            child.gameObject.layer = LayerMask.NameToLayer(name);
+            ChangeLayersRecursively(child, name);
+        }
     }
 
     #endregion
