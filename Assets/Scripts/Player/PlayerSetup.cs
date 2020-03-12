@@ -66,7 +66,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         // If this player is not you
         if (!photonView.IsMine)
         {
-            GameObject model = this.transform.GetChild(0).gameObject;
+            GameObject model = this.transform.GetChild(1).gameObject;
             //GameObject model = this.transform.GetChild(0).transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject;
             ChangeLayersRecursively(model.transform, "Default");
         }
