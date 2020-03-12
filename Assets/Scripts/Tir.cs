@@ -62,8 +62,7 @@ public class Tir : MonoBehaviourPunCallbacks
                 hit.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
             }
             if (hit.transform.CompareTag("Planet"))
-            {
-                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            {  
                 GameObject Go = Instantiate(EmptyPrefab,hit.point,Quaternion.FromToRotation(Vector3.forward,hit.normal)) as GameObject;
                 Destroy(Go,8f);    
             }
