@@ -4106,6 +4106,7 @@ MonoBehaviour:
     type: 3}
   chatInputField: {fileID: 2079816701}
   chatManager: {fileID: 650849199}
+  menu: {fileID: 631050942}
   chatMenu: {fileID: 875506079}
   playerController: {fileID: 0}
   messageList: []
