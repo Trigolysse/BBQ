@@ -763,6 +763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1372143964}
   - component: {fileID: 1372143963}
+  - component: {fileID: 1372143965}
   m_Layer: 0
   m_Name: LocalPlay Controller
   m_TagString: Untagged
@@ -779,7 +780,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1372143962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1236eb39d2e5c694bb8351b158a04baf, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1372143964
@@ -796,6 +797,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1372143965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372143962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ce87f42a38f0d499049df4a08f872e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1498603960 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5591978539061518296, guid: c9fae92976f066a49a579a64f6b3979a,
@@ -982,11 +995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1372143963}
+      objectReference: {fileID: 1372143965}
     - target: {fileID: 5591978539061518303, guid: c9fae92976f066a49a579a64f6b3979a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NavigateToMainMenu
+      value: naviguateBack
       objectReference: {fileID: 0}
     - target: {fileID: 5591978539061518303, guid: c9fae92976f066a49a579a64f6b3979a,
         type: 3}

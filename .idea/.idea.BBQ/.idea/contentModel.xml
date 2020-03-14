@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="EscapeMenu.cs" t="Include" />
         <e p="Essai.cs" t="Include" />
+        <e p="localPlayController.cs" t="Include" />
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
             <e p="Code" t="Include">
