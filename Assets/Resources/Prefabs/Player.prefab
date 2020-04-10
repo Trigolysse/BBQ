@@ -1846,6 +1846,8 @@ MonoBehaviour:
   mainCam: {fileID: 8827100771555083361}
   EmptyPrefab: {fileID: 3448055815730270851, guid: 61937a8d0436b5641b0ecd9f0e5eb728,
     type: 3}
+  ressource: {fileID: 7015291813953951779, guid: 131a85119b3936f45aa69664a51b22c3,
+    type: 3}
 --- !u!114 &8775017867349572460
 MonoBehaviour:
   m_ObjectHideFlags: 0
