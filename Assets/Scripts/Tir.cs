@@ -11,7 +11,7 @@ public class Tir : MonoBehaviourPunCallbacks
 
     public Camera mainCam;
     public GameObject EmptyPrefab;
-    
+    public GameObject ressource;
 
     #endregion
 
@@ -25,12 +25,7 @@ public class Tir : MonoBehaviourPunCallbacks
     #endregion
 
     #region Mono Callbacks
-
-    /* private void Start()
-    {
-        transform.name= nickname
-    } */
-
+    
     void Awake()
     {
         weaponManager = GetComponent<WeaponManager>();
@@ -70,28 +65,31 @@ public class Tir : MonoBehaviourPunCallbacks
     [PunRPC]
     void Shoot()
     {
+        GameObject ressource;
         RaycastHit hit;
-        
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
         {
-            //Debug.Log("Did hit " + hit.collider.name);
+            Debug.Log("Did hit " + hit.collider.name);
             Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 100, Color.green, 2f);
 
             if (hit.transform.GetComponent<Rigidbody>() != null)
             {
                 hit.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
             }
+
             if (hit.transform.CompareTag("Planet"))
-            {  
-                GameObject Go = Instantiate(EmptyPrefab,hit.point,Quaternion.FromToRotation(Vector3.forward,hit.normal)) as GameObject;
-                Destroy(Go,8f);
+            {
+                GameObject Go =
+                    Instantiate(EmptyPrefab, hit.point,
+                        Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                Destroy(Go, 8f);
             }
-            
+
             if (hit.transform.CompareTag(Tags.PLAYER_TAG))
             {
                 //hit.transform.GetComponent<HealthScript>().ApplyDamage(weaponManager.GetCurrentSelectedWeapon().damage);
-                Debug.Log("Did hit " + hit.collider.name);
             }
+
             else
             {
                 Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 100, Color.red, 2f);
