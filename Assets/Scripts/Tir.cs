@@ -11,6 +11,7 @@ public class Tir : MonoBehaviourPunCallbacks
 
     public Camera mainCam;
     public GameObject EmptyPrefab;
+    
 
     #endregion
 
@@ -19,10 +20,16 @@ public class Tir : MonoBehaviourPunCallbacks
     private RaycastHit hit;
     private float nextTimeToFire;
     private WeaponManager weaponManager;
+    
 
     #endregion
 
     #region Mono Callbacks
+
+    /* private void Start()
+    {
+        transform.name= nickname
+    } */
 
     void Awake()
     {
@@ -64,9 +71,10 @@ public class Tir : MonoBehaviourPunCallbacks
     void Shoot()
     {
         RaycastHit hit;
+        
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
         {
-            Debug.Log("Did hit " + hit.collider.name);
+            //Debug.Log("Did hit " + hit.collider.name);
             Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 100, Color.green, 2f);
 
             if (hit.transform.GetComponent<Rigidbody>() != null)
@@ -76,12 +84,13 @@ public class Tir : MonoBehaviourPunCallbacks
             if (hit.transform.CompareTag("Planet"))
             {  
                 GameObject Go = Instantiate(EmptyPrefab,hit.point,Quaternion.FromToRotation(Vector3.forward,hit.normal)) as GameObject;
-                Destroy(Go,8f);    
+                Destroy(Go,8f);
             }
             
             if (hit.transform.CompareTag(Tags.PLAYER_TAG))
             {
                 //hit.transform.GetComponent<HealthScript>().ApplyDamage(weaponManager.GetCurrentSelectedWeapon().damage);
+                Debug.Log("Did hit " + hit.collider.name);
             }
             else
             {
