@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Effects.meta
+guid: 0ea9b848533ce7f4ba8a6d359624ebcb
+=======
 guid: e1a5d1331015b32498e15f9b6e155bc6
+>>>>>>> 9375a3f75049bc88d92f1e07ae52d8f36499e96c:Assets/BrokenVector.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
