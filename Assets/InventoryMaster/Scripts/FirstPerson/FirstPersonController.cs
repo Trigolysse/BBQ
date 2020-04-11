@@ -59,7 +59,7 @@ public class FirstPersonController : MonoBehaviour
             firstPersonCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
 
             //Movement
-            float forwardSpeed = Input.GetAxis("Vertical") * movementspeed;
+            /*float forwardSpeed = Input.GetAxis("Vertical") * movementspeed;
             float sideSpeed = Input.GetAxis("Horizontal") * movementspeed;
 
             verticalVelocity += Physics.gravity.y * Time.deltaTime;
@@ -73,7 +73,7 @@ public class FirstPersonController : MonoBehaviour
 
             speed = transform.rotation * speed;
 
-            characterController.Move(speed * Time.deltaTime);
+            characterController.Move(speed * Time.deltaTime); */
         }
 
     }
