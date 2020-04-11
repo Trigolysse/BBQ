@@ -1719,6 +1719,7 @@ GameObject:
   - component: {fileID: 8775017867349572460}
   - component: {fileID: 7724118556637423424}
   - component: {fileID: 3015683739052131039}
+  - component: {fileID: 633285005148289655}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1893,6 +1894,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &633285005148289655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8827100772427584093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db4493228a4ba442a891316e3ee246f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 1618580942832566404, guid: c68e36deae4fcc74a8b881993d336298,
+    type: 3}
+  characterSystem: {fileID: 275818742172785447, guid: fdacd12cc5239bd4ba0f23cb0c634989,
+    type: 3}
+  craftSystem: {fileID: 6038423528961291188, guid: 6b10359d3ec2b7048a371727daff421c,
+    type: 3}
+  currentHealth: 60
 --- !u!1 &8827100772442632579
 GameObject:
   m_ObjectHideFlags: 0
