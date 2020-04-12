@@ -7,6 +7,13 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="3rd Party Assets" t="Include">
+          <e p="Sauce distributor" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="SDR_Structures.shader" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="EscapeMenu.cs" t="Include" />
         <e p="Essai.cs" t="Include" />
         <e p="GameObjectBrush" t="Include">
@@ -17,72 +24,6 @@
               <e p="BrushObject.cs" t="Include" />
               <e p="GameObjectBrushEditor.cs" t="Include" />
               <e p="StringPopupDialog.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="InventoryMaster" t="Include">
-          <e p="Editor" t="Include">
-            <e p="CraftSystemEditor.cs" t="Include" />
-            <e p="EquipmentSystemEditor.cs" t="Include" />
-            <e p="HotbarEditor.cs" t="Include" />
-            <e p="IM_Manager.cs" t="Include" />
-            <e p="InventoryDesignEditor.cs" t="Include" />
-            <e p="InventoryEditor.cs" t="Include" />
-            <e p="StorageInventoryEditor.cs" t="Include" />
-            <e p="TooltipEditor.cs" t="Include" />
-          </e>
-          <e p="readme.txt" t="Include" />
-          <e p="Scripts" t="Include">
-            <e p="CraftSystem" t="Include">
-              <e p="Blueprint.cs" t="Include" />
-              <e p="BlueprintDatabase.cs" t="Include" />
-              <e p="CraftResultSlot.cs" t="Include" />
-              <e p="CraftSystem.cs" t="Include" />
-              <e p="CreateBlueprintDatabase.cs" t="Include" />
-              <e p="LeftClick.cs" t="Include" />
-              <e p="RightClick.cs" t="Include" />
-            </e>
-            <e p="ExampleScript" t="Include">
-              <e p="PlayerInventory.cs" t="Include" />
-              <e p="RandomChestLootSystem.cs" t="Include" />
-              <e p="RandomLootSystem.cs" t="Include" />
-              <e p="WorkingStation.cs" t="Include" />
-            </e>
-            <e p="FirstPerson" t="Include">
-              <e p="FirstPersonController.cs" t="Include" />
-            </e>
-            <e p="Hotbar" t="Include">
-              <e p="Hotbar.cs" t="Include" />
-            </e>
-            <e p="Inventory" t="Include">
-              <e p="CloseInventory.cs" t="Include" />
-              <e p="DesignForInventory.cs" t="Include" />
-              <e p="DragInventory.cs" t="Include" />
-              <e p="EquipmentSystem.cs" t="Include" />
-              <e p="InputManager.cs" t="Include" />
-              <e p="Inventory.cs" t="Include" />
-              <e p="InventoryDesign.cs" t="Include" />
-              <e p="StorageInventory.cs" t="Include" />
-            </e>
-            <e p="Item" t="Include">
-              <e p="ConsumeItem.cs" t="Include" />
-              <e p="CreateAttributeDatabase.cs" t="Include" />
-              <e p="CreateInputManager.cs" t="Include" />
-              <e p="CreateItemDatabase.cs" t="Include" />
-              <e p="DragItem.cs" t="Include" />
-              <e p="Item.cs" t="Include" />
-              <e p="ItemAttribute.cs" t="Include" />
-              <e p="ItemAttributeList.cs" t="Include" />
-              <e p="ItemDataBaseList.cs" t="Include" />
-              <e p="ItemOnObject.cs" t="Include" />
-              <e p="ItemType.cs" t="Include" />
-              <e p="PickUpItem.cs" t="Include" />
-              <e p="ShowTooltip.cs" t="Include" />
-              <e p="SlotCover.cs" t="Include" />
-              <e p="SplitItem.cs" t="Include" />
-            </e>
-            <e p="Tooltip" t="Include">
-              <e p="Tooltip.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -257,10 +198,10 @@
             </e>
           </e>
         </e>
-        <e p="Sauce distributor" t="Include">
-          <e p="Shaders" t="Include">
-            <e p="SDR_Structures.shader" t="Include" />
-          </e>
+        <e p="Salazar Inventory" t="Include">
+          <e p="DrawInventory.cs" t="Include" />
+          <e p="Inventory.cs" t="Include" />
+          <e p="Item.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
           <e p="Chat" t="Include">
