@@ -5460,12 +5460,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488716708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95f35dbbe8efe9c4caddb8112b0bd514, type: 3}
+  m_Script: {fileID: 11500000, guid: c8f1153237d16894fae0e1800a61f6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 21300000, guid: cfe8a9fc810cd9945bf961e98bc1a991, type: 3}
-  length: 10
-  height: 5
+  slotSprite: {fileID: 21300000, guid: 1cdd84b629504dc4cb71e1739c962597, type: 3}
+  sp: {fileID: -7184185949482399067, guid: e665b9803079a1d4cae7b11206d566e2, type: 3}
+  inventoryFrame: {fileID: 21300000, guid: 2355328015897c44eb1d5c993830e406, type: 3}
+  inventoryCanvas: {fileID: 0}
 --- !u!20 &1488716710
 Camera:
   m_ObjectHideFlags: 0

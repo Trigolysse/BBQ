@@ -2,16 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item
 {
     public int id;
-    string name;
-    Sprite icon;
+    public string name;
+    public Sprite icon;
+    public ItemType type;
 
-    public Item(int id, string name, Sprite icon)
+    public Item(int id, string name, Sprite icon, ItemType type)
     {
         this.id = id;
         this.name = name;
-        this.icon = Resources.Load<Sprite>("Sprites/Items/" + name);
+        this.icon = icon;
+        this.type = type;
     }
+}
+
+public enum ItemType // all block types we can have
+{
+    NONE,
+    DIRT,
+    COBBLESTONE,
+    LOG,
+    PLANKS,
+    CHEST,
+    CRAFTING_TABLE,
+    FURNACE,
+    SAND
 }

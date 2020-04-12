@@ -1,6 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+public enum Direction
+{
+    LEFT, RIGHT, DOWN, UP, NONE
+}
+
+public class Stack
+{
+
+    public Item item;  // the type of block
+    public int count;       // the number of blocks in the stack
+
+    public Stack(Item item, int count)
+    {
+        this.item = item;
+        this.count = count;
+    }
+}
 
 public class Inventory : MonoBehaviour
 {
@@ -8,43 +28,126 @@ public class Inventory : MonoBehaviour
     private Sprite slotSprite;
     private int slotSize = 32;
 
+
+    public Sprite sp;
+    public Sprite inventoryFrame;
+    private bool showInventory = false;
+
     [SerializeField]
-    public List<Item> items = new List<Item>();
+    private Stack[,] inventory;
+
+    public Canvas inventoryCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        inventory = new Stack[5, 9];
+        Debug.Log(inventory[0, 2]);
+        CreateCanvas();
+        AddInInventory(new Stack(new Item(0, "ak47", sp, ItemType.DIRT), 64));
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-    }
-
-    private void OnGUI()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            DrawInventory();
+            AddInInventory(new Stack(new Item(0, "#</>d__Ss -o ssh key", sp, ItemType.DIRT), 32));
+        }
+
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+            inventoryCanvas.enabled = !inventoryCanvas.enabled;
         }
     }
 
-    void OpenInventory()
+    private void CreateCanvas()
     {
-
+        GameObject myGO = new GameObject();
+        myGO.name = "InventoryCanvas";
+        myGO.AddComponent<Canvas>();
+        inventoryCanvas = myGO.GetComponent<Canvas>();
+        inventoryCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        myGO.AddComponent<CanvasScaler>();
+        myGO.AddComponent<GraphicRaycaster>();
+        CreateFrameObject();
+        CreateSlots();
     }
 
-    void DrawInventory()
+    private void CreateSlots()
     {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
+        int width = inventory.GetLength(1) * slotSize;
+        int height = inventory.GetLength(0) * slotSize;
+        for (int i = 0; i < inventory.GetLength(0); i++)
+            for (int j = 0; j < inventory.GetLength(1); j++)
             {
-                GUIDrawSprite(new Rect(i * slotSize + 200, j * slotSize + 200, slotSize, slotSize), slotSprite);
+                CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2 - height / 2, slotSize, slotSize), slotSprite);
+            }
+    }
+
+    public void AddInInventory(Stack stack)
+    {
+        int nbOfFullStacks = stack.count / 64;
+        int remainder = stack.count % 64;
+
+        for (int i = 0; i < nbOfFullStacks; i++)
+            Add(new Stack(stack.item, 64));
+        if (remainder == 0) return;
+
+        foreach (Stack slot in inventory)
+        {
+            if (slot == null) continue;
+            if (slot.item.type == stack.item.type && slot.count < 64)
+            {
+                int sum = slot.count + remainder;
+                if (sum > 64)
+                {
+                    slot.count = 64;
+                    Add(new Stack(stack.item, sum % 64));
+                    return;
+                }
+                slot.count += remainder;
+                return;
             }
         }
+        Add(new Stack(stack.item, remainder));
+    }
+
+    void Add(Stack stack)
+    {
+        for (int i = 0; i < inventory.GetLength(0); i++)
+            for (int j = 0; j < inventory.GetLength(1); j++)
+            {
+                if (inventory[i, j] == null)
+                {
+                    AddStackToSlot(stack, i, j);
+                    inventory[i, j] = stack;
+                    return;
+                }                
+            }
+    }
+
+    private void AddStackToSlot(Stack stack, int i, int j)
+    {
+        GameObject slot = GameObject.Find($"Slot {i} {j}");
+        GameObject stackGo = new GameObject();
+        stackGo.name = stack.item.name;
+        stackGo.AddComponent<ItemDragHandler>();
+        stackGo.AddComponent<ItemHoverHandler>();
+        Image image = stackGo.AddComponent<Image>();
+        image.sprite = stack.item.icon;
+        RectTransform r = stackGo.transform as RectTransform;
+        r.sizeDelta = new Vector2(slotSize, slotSize);
+        stackGo.transform.SetParent(slot.transform);
+        image.rectTransform.anchoredPosition = new Vector2(0, 0);
+
+    }
+
+    void CreateFrameObject()
+    {
+        int width = 400;
+        int height = 400;
+        CreateGameObject("Frame", new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - height / 2, width, height), inventoryFrame);
     }
 
     public static void GUIDrawSprite(Rect rect, Sprite sprite)
@@ -52,5 +155,22 @@ public class Inventory : MonoBehaviour
         Rect spriteRect = sprite.rect;
         Texture2D tex = sprite.texture;
         GUI.DrawTextureWithTexCoords(rect, tex, new Rect(spriteRect.x / tex.width, spriteRect.y / tex.height, spriteRect.width / tex.width, spriteRect.height / tex.height));
+    }
+
+    private void CreateGameObject(string name, Rect rect, Sprite sprite)
+    {
+       
+        GameObject go = new GameObject();
+        go.name = name;
+        Image imageGameObject = go.AddComponent<Image>();
+        imageGameObject.sprite = sprite;
+        RectTransform r = go.transform as RectTransform;
+        r.sizeDelta = new Vector2(rect.width, rect.height);
+        r.anchorMin = new Vector2(0, 1);
+        r.anchorMax = new Vector2(0, 1);
+        r.pivot = new Vector2(0, 1);
+
+        go.transform.SetParent(inventoryCanvas.transform);
+        imageGameObject.rectTransform.anchoredPosition = new Vector2(rect.x, -rect.y);
     }
 }
