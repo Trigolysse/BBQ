@@ -9,13 +9,22 @@ public class ItemHoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Mouse enter");
         isOver = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Mouse exit");
         isOver = false;
+    }
+
+    void Update()
+    {
+        if(isOver)
+            DrawDialog();
+    }
+
+    private void DrawDialog()
+    {
+
     }
 }

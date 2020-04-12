@@ -33,15 +33,16 @@ public class Inventory : MonoBehaviour
     public Sprite inventoryFrame;
     private bool showInventory = false;
 
-    [SerializeField]
     private Stack[,] inventory;
+    private Item[,] armor;
 
     public Canvas inventoryCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        inventory = new Stack[5, 9];
+        inventory = new Stack[4, 9];
+        armor = new Item[4, 1];
         Debug.Log(inventory[0, 2]);
         CreateCanvas();
         AddInInventory(new Stack(new Item(0, "ak47", sp, ItemType.DIRT), 64));
@@ -76,12 +77,24 @@ public class Inventory : MonoBehaviour
 
     private void CreateSlots()
     {
+        for (int i = 0; i < armor.GetLength(0); i++)
+            for (int j = 0; j < armor.GetLength(1); j++)
+            {
+                CreateGameObject($"Slot Armor {i} {j}", new Rect(j * slotSize + Screen.width / 2 - 4.5f * slotSize, i * slotSize + Screen.height / 2 - 140, slotSize, slotSize), slotSprite);
+            }
+
+
         int width = inventory.GetLength(1) * slotSize;
         int height = inventory.GetLength(0) * slotSize;
         for (int i = 0; i < inventory.GetLength(0); i++)
             for (int j = 0; j < inventory.GetLength(1); j++)
             {
-                CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2 - height / 2, slotSize, slotSize), slotSprite);
+                if (i == inventory.GetLength(0) - 1)
+                {
+                    CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2  + 10, slotSize, slotSize), slotSprite);
+                }
+                else
+                    CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2 , slotSize, slotSize), slotSprite);
             }
     }
 
@@ -145,9 +158,10 @@ public class Inventory : MonoBehaviour
 
     void CreateFrameObject()
     {
-        int width = 400;
-        int height = 400;
+        int width = 300;
+        int height = 300;
         CreateGameObject("Frame", new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - height / 2, width, height), inventoryFrame);
+        GameObject.Find("Frame").AddComponent<ItemDropHandler>();
     }
 
     public static void GUIDrawSprite(Rect rect, Sprite sprite)
