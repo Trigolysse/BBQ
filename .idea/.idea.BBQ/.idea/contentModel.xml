@@ -14,6 +14,30 @@
             </e>
           </e>
         </e>
+        <e p="Day Night Cycle" t="Include">
+          <e p="Editor" t="Include">
+            <e p="DayNightControllerEditor.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="DayNightController.cs" t="Include" />
+          </e>
+        </e>
+        <e p="EffectExamples" t="Include">
+          <e p="Shared" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="DecalDestroyer.cs" t="Include" />
+              <e p="ExtinguishableFire.cs" t="Include" />
+              <e p="GunAim.cs" t="Include" />
+              <e p="GunShoot.cs" t="Include" />
+              <e p="ParticleCollision.cs" t="Include" />
+              <e p="ParticleExamples.cs" t="Include" />
+              <e p="ParticleMenu.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="SurfaceShader_VC.shader" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="EscapeMenu.cs" t="Include" />
         <e p="Essai.cs" t="Include" />
         <e p="GameObjectBrush" t="Include">
@@ -27,6 +51,7 @@
             </e>
           </e>
         </e>
+        <e p="Grenade.cs" t="Include" />
         <e p="localPlayController.cs" t="Include" />
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
@@ -223,6 +248,7 @@
           </e>
           <e p="Player" t="Include">
             <e p="Crosshair.cs" t="Include" />
+            <e p="Destructible.cs" t="Include" />
             <e p="MouseLook.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerSetup.cs" t="Include" />
