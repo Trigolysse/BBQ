@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class grenadeThrower : MonoBehaviour
 {
-    public float throwforce = 40f;
-    public GameObject Grenadeprefab;
     [SerializeField]
     private Camera mainCam;
     [SerializeField]
