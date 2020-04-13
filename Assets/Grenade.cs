@@ -10,9 +10,8 @@ public class Grenade : MonoBehaviour
     public GameObject grenadeparent;
     public float radius;
     public float force = 70000f;
-    
-    bool hasExploded = false;
-    bool order = false;
+
+    private bool hasExploded = false;
 
     float countdown;
     // Start is called before the first frame update
@@ -25,20 +24,14 @@ public class Grenade : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-                order = true;
-        } 
         
-       if (order)
-       {
-           countdown -= Time.deltaTime;
-           if (countdown <= 0f && !hasExploded)
-           {
-               Explode();
-               hasExploded = true;
-           }
-       }
+        countdown -= Time.deltaTime;
+        if (countdown <= 0f && !hasExploded)
+        {
+            Explode();
+            hasExploded = true;
+        }
+       
     }
 
     void Explode()
@@ -47,15 +40,10 @@ public class Grenade : MonoBehaviour
         Instantiate(explosionEffect, transform.position, transform.rotation);
 
         // Get nearby objects 
-        Collider[] colliders =Physics.OverlapSphere(transform.position, radius);
-        foreach (Collider NearbyObject in colliders)
+        Collider[] colliderstoDestroy =Physics.OverlapSphere(transform.position, radius);
+        foreach (Collider NearbyObject in colliderstoDestroy)
         {
-            //Add force
-            Rigidbody rb = NearbyObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.AddExplosionForce(force, transform.position, radius);
-            }
+            
             //Add damamge
             Destructible dest = NearbyObject.GetComponent<Destructible>();
             if (dest != null)
@@ -64,6 +52,15 @@ public class Grenade : MonoBehaviour
             }
         }
         //Add force
+        Collider[] colliderstoMove =Physics.OverlapSphere(transform.position, radius);
+        foreach (Collider nearbyObject in colliderstoMove)
+        {
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(force, transform.position, radius);
+            }
+        }
         //Damage
 
         //Remove Grenade 
