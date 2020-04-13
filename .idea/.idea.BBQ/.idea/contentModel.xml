@@ -52,6 +52,7 @@
           </e>
         </e>
         <e p="Grenade.cs" t="Include" />
+        <e p="grenadeThrower.cs" t="Include" />
         <e p="localPlayController.cs" t="Include" />
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
@@ -227,6 +228,9 @@
           <e p="DrawInventory.cs" t="Include" />
           <e p="Inventory.cs" t="Include" />
           <e p="Item.cs" t="Include" />
+          <e p="ItemDragHandler.cs" t="Include" />
+          <e p="ItemDropHandler.cs" t="Include" />
+          <e p="ItemHoverHandler.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
           <e p="Chat" t="Include">
