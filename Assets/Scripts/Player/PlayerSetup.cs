@@ -40,21 +40,20 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             sceneCamera.gameObject.SetActive(true);
         }
     }
+    bool show = false;
 
-    void OnGUI()
+    private void OnGUI()
     {
-        if(Input.GetKeyDown(KeyCode.F4))
+        if (Input.GetKey(KeyCode.F4))
         {
-            DrawText("daw");
             GetComponent<PhotonView>().RPC("DrawText", RpcTarget.All, "Trololol");
-            Debug.Log("F4");
         }
     }
    
     [PunRPC]
     void DrawText(string text)
     {
-        GUI.Label(new Rect(10, 10, 100, 20), "Hello World!");
+
         GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 200, 200), text, GUIStyle.none);
     }
 

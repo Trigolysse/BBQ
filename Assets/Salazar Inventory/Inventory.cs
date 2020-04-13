@@ -169,6 +169,7 @@ public class Inventory : MonoBehaviour
         Rect spriteRect = sprite.rect;
         Texture2D tex = sprite.texture;
         GUI.DrawTextureWithTexCoords(rect, tex, new Rect(spriteRect.x / tex.width, spriteRect.y / tex.height, spriteRect.width / tex.width, spriteRect.height / tex.height));
+       
     }
 
     private void CreateGameObject(string name, Rect rect, Sprite sprite)
