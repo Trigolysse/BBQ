@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,10 @@ public class grenadeThrower : MonoBehaviour
 {
     public float throwforce = 40f;
     public GameObject Grenadeprefab;
-    
+    [SerializeField]
+    private Camera mainCam;
+    [SerializeField]
+    private Transform grenadeStartPosition;
 
     // Update is called once per frame
     void Update()
@@ -19,9 +23,8 @@ public class grenadeThrower : MonoBehaviour
 
     void ThrowGrenade()
     {
-        GameObject grenade = Instantiate(Grenadeprefab, transform.position, transform.rotation);
-        Rigidbody rb = grenade.GetComponent<Rigidbody>();
-        
-        rb.AddForce(transform.forward*throwforce, ForceMode.Acceleration);
+        GameObject grenade = PhotonNetwork.Instantiate("Prefabs/BADABOUM", grenadeStartPosition.position, grenadeStartPosition.rotation);
+        grenade.transform.position = grenadeStartPosition.position;
+        grenade.GetComponent<Grenade>().Throw(mainCam);
     }
 }

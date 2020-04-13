@@ -64,20 +64,20 @@ public class WeaponHandler : MonoBehaviour
 
     public void ShootAnimation()
     {
-        Debug.Log("ShootAnimation");
+        //Debug.Log("ShootAnimation");
         animator.SetTrigger(AnimationTags.SHOOT_TRIGGER);
         DecreaseAmmunition();
     }
 
     public void BlockAnimation()
     {
-        Debug.Log("BlockAnimation");
+        //Debug.Log("BlockAnimation");
         animator.SetBool(AnimationTags.BLOCK_TRIGGER, true);
     }
 
     public void UnBlockAnimation()
     {
-        Debug.Log("BlockAnimation");
+        //Debug.Log("BlockAnimation");
         animator.SetBool(AnimationTags.BLOCK_TRIGGER, false);
     }
 

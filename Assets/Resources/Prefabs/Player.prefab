@@ -1553,21 +1553,6 @@ Transform:
   m_Father: {fileID: 5311018239887580647}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.355003}
---- !u!114 &3922920707689928402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8827100771555083367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9576ffa9e4c8b3b4f85a6949c59d93ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwforce: 10000
-  Grenadeprefab: {fileID: 4478261933768678689, guid: b00b7ef66b3762a49a567017206855f0,
-    type: 3}
 --- !u!1 &8827100771888510861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,6 +1644,7 @@ GameObject:
   - component: {fileID: 619260971537140047}
   - component: {fileID: 8775017867349572460}
   - component: {fileID: 7724118556637423424}
+  - component: {fileID: 4097968000061901401}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1782,7 +1768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7646ebec5f975ca4985317cd9914c25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCam: {fileID: 8827100771555083361}
+  mainCam: {fileID: 1256644794351675714}
   EmptyPrefab: {fileID: 3448055815730270851, guid: 61937a8d0436b5641b0ecd9f0e5eb728,
     type: 3}
   ressource: {fileID: 7015291813953951779, guid: 131a85119b3936f45aa69664a51b22c3,
@@ -1817,6 +1803,23 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!114 &4097968000061901401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8827100772427584093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9576ffa9e4c8b3b4f85a6949c59d93ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwforce: 1000
+  Grenadeprefab: {fileID: 4478261933768678689, guid: b00b7ef66b3762a49a567017206855f0,
+    type: 3}
+  mainCam: {fileID: 8827100771555083361}
+  grenadeStartPosition: {fileID: 8827100771888510860}
 --- !u!1 &8827100772442632579
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,6 +2377,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1241366885690199090}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1256644794351675714 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20907571448882544, guid: b9ca752c3df4dec4cadafd04fc5d444b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241366885690199090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1548721333702491089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2547,12 +2556,6 @@ Camera:
 --- !u!4 &8827100771555083366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4611803945366263013, guid: 7067450cb04284847890de006c4435e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 4215441970322149507}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8827100771555083367 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4611803945366263012, guid: 7067450cb04284847890de006c4435e0,
     type: 3}
   m_PrefabInstance: {fileID: 4215441970322149507}
   m_PrefabAsset: {fileID: 0}

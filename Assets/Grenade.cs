@@ -10,21 +10,21 @@ public class Grenade : MonoBehaviour
     public GameObject grenadeparent;
     public float radius;
     public float force = 70000f;
+    public float throwForce = 50f;
 
     private bool hasExploded = false;
-
+    private Rigidbody rg;
     float countdown;
     // Start is called before the first frame update
     void Start()
     {
         countdown = delay;
+        rg = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
-        
+    {   
         countdown -= Time.deltaTime;
         if (countdown <= 0f && !hasExploded)
         {
@@ -32,6 +32,12 @@ public class Grenade : MonoBehaviour
             hasExploded = true;
         }
        
+    }
+
+    public void Throw(Camera mainCamera)
+    {
+        GetComponent<Rigidbody>().velocity = mainCamera.transform.forward * throwForce;
+        transform.LookAt(transform.position + GetComponent<Rigidbody>().velocity);
     }
 
     void Explode()
