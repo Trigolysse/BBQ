@@ -39,6 +39,7 @@
           </e>
         </e>
         <e p="EffetDeTir.cs" t="Include" />
+        <e p="EnemyAttack.cs" t="Include" />
         <e p="EscapeMenu.cs" t="Include" />
         <e p="Essai.cs" t="Include" />
         <e p="GameObjectBrush" t="Include">

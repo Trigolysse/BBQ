@@ -23,7 +23,7 @@ public class Deplacement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Agentenemy = GetComponent<NavMeshAgent>();
+       Agentenemy = GetComponent<NavMeshAgent>(); 
         InitialPosition = transform.position;
     }
 
