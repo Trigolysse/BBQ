@@ -1941,8 +1941,11 @@ MonoBehaviour:
   mainCam: {fileID: 1256644794351675714}
   EmptyPrefab: {fileID: 3448055815730270851, guid: 61937a8d0436b5641b0ecd9f0e5eb728,
     type: 3}
-  ressource: {fileID: 7015291813953951779, guid: 131a85119b3936f45aa69664a51b22c3,
+  Bloodeffect: {fileID: 1000013169864706, guid: e5a3d6da48298a0458c1990f58c27069,
     type: 3}
+  Metaleffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d,
+    type: 3}
+  Effetdetir: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
 --- !u!114 &8775017867349572460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1985,9 +1988,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9576ffa9e4c8b3b4f85a6949c59d93ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwforce: 1000
-  Grenadeprefab: {fileID: 4478261933768678689, guid: b00b7ef66b3762a49a567017206855f0,
-    type: 3}
   mainCam: {fileID: 8827100771555083361}
   grenadeStartPosition: {fileID: 8827100771888510860}
 --- !u!1 &8827100772442632579

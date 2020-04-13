@@ -11,7 +11,9 @@ public class Tir : MonoBehaviourPunCallbacks
 
     public Camera mainCam;
     public GameObject EmptyPrefab;
-    public GameObject ressource;
+    public GameObject Bloodeffect;
+    public GameObject Metaleffect;
+    public GameObject Effetdetir;
 
     #endregion
 
@@ -65,7 +67,10 @@ public class Tir : MonoBehaviourPunCallbacks
     [PunRPC]
     void Shoot()
     {
-        GameObject ressource;
+        GameObject tireffect= Instantiate(Metaleffect, transform);
+        Destroy(tireffect,1f);
+        
+        
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
         {
@@ -83,6 +88,17 @@ public class Tir : MonoBehaviourPunCallbacks
                     Instantiate(EmptyPrefab, hit.point,
                         Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
                 Destroy(Go, 8f);
+                GameObject Gucci =
+                    Instantiate(Metaleffect, hit.point,
+                        Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                Destroy(Gucci, 2f);
+            }
+            if (hit.transform.CompareTag("Player"))
+            {
+                GameObject Blood =
+                    Instantiate(Bloodeffect, hit.point,
+                        Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                Destroy(Blood, 2f);
             }
 
             if (hit.transform.CompareTag(Tags.PLAYER_TAG))

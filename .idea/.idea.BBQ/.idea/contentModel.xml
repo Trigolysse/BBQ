@@ -225,6 +225,7 @@
           </e>
         </e>
         <e p="Salazar Inventory" t="Include">
+          <e p="Compass.cs" t="Include" />
           <e p="DrawInventory.cs" t="Include" />
           <e p="Inventory.cs" t="Include" />
           <e p="Item.cs" t="Include" />

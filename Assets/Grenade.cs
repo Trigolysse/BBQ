@@ -9,8 +9,8 @@ public class Grenade : MonoBehaviour
     public GameObject explosionEffect;
     public GameObject grenadeparent;
     public float radius;
-    public float force = 70000f;
-    public float throwForce = 50f;
+    public float force = 700f;
+    public float throwForce = 30f;
 
     private bool hasExploded = false;
     private Rigidbody rg;
@@ -59,9 +59,9 @@ public class Grenade : MonoBehaviour
         }
         //Add force
         Collider[] colliderstoMove =Physics.OverlapSphere(transform.position, radius);
-        foreach (Collider nearbyObject in colliderstoMove)
+        foreach (Collider NearbyObject in colliderstoMove)
         {
-            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            Rigidbody rb = NearbyObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.AddExplosionForce(force, transform.position, radius);
