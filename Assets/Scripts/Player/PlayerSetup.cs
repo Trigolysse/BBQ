@@ -46,14 +46,15 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     {
         if (Input.GetKey(KeyCode.F4))
         {
-            GetComponent<PhotonView>().RPC("DrawText", RpcTarget.All, "Trololol");
+            GetComponent<PhotonView>().RPC("ChatMessage", RpcTarget.All, "Trololol");
         }
     }
    
     [PunRPC]
-    void DrawText(string text)
+    void ChatMessage(string text, PhotonMessageInfo info)
     {
-
+        Debug.LogFormat("Info: {0} {1} {2}", info.Sender, info.photonView, info.SentServerTime);
+        Debug.Log(text);
         GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 200, 200), text, GUIStyle.none);
     }
 
