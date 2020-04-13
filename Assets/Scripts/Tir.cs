@@ -13,7 +13,6 @@ public class Tir : MonoBehaviourPunCallbacks
     public GameObject EmptyPrefab;
     public GameObject Bloodeffect;
     public GameObject Metaleffect;
-    public GameObject Effetdetir;
 
     #endregion
 
@@ -67,8 +66,7 @@ public class Tir : MonoBehaviourPunCallbacks
     [PunRPC]
     void Shoot()
     {
-        GameObject tireffect= Instantiate(Metaleffect, transform);
-        Destroy(tireffect,1f);
+        
         
         
         RaycastHit hit;
