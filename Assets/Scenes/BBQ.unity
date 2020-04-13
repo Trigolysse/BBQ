@@ -5517,7 +5517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotSprite: {fileID: 21300000, guid: 1cdd84b629504dc4cb71e1739c962597, type: 3}
-  sp: {fileID: -7184185949482399067, guid: e665b9803079a1d4cae7b11206d566e2, type: 3}
+  sp: {fileID: -1704767490902251812, guid: e665b9803079a1d4cae7b11206d566e2, type: 3}
   inventoryFrame: {fileID: 21300000, guid: 2355328015897c44eb1d5c993830e406, type: 3}
   inventoryCanvas: {fileID: 0}
 --- !u!20 &1488716710
