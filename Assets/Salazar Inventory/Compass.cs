@@ -61,7 +61,7 @@ public class Compass : MonoBehaviour
 			CompassDirectionText.text = "W";
 			break;
 		default:
-			CompassDirectionText.text = headingAngle.ToString ();
+			CompassDirectionText.text = headingAngle.ToString();
 			break;
 		}
 	}

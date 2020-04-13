@@ -56,7 +56,6 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
 
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
     {
-        Debug.Log("sender: " + senders[0] + "message: " + messages[0]);
         gameManager.SendMessageToChat($"{senders[0]}: {messages[0]}");
     }
 

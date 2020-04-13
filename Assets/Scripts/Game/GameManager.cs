@@ -107,7 +107,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         newMessage.textObject = newText.GetComponent<Text>();
         newMessage.textObject.text = newMessage.text;
         messageList.Add(newMessage);
+        
     }
+   
 }
 
 [System.Serializable]
