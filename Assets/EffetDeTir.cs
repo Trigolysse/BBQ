@@ -5,15 +5,12 @@ using UnityEngine;
 public class EffetDeTir : MonoBehaviour
 {
     public GameObject Boomeffet;
-    // Start is called before the first frame update
     
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject tireffect= Instantiate(Boomeffet, transform);
+            GameObject tireffect= Instantiate(Boomeffet, transform) as GameObject;
             Destroy(tireffect,1f);
         }
     }
