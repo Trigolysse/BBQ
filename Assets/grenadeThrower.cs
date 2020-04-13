@@ -23,7 +23,7 @@ public class grenadeThrower : MonoBehaviour
 
     void ThrowGrenade()
     {
-        GameObject grenade = PhotonNetwork.Instantiate("Prefabs/BADABOUM", grenadeStartPosition.position, grenadeStartPosition.rotation);
+        GameObject grenade = PhotonNetwork.Instantiate("Prefabs/Grenade", grenadeStartPosition.position, grenadeStartPosition.rotation);
         grenade.transform.position = grenadeStartPosition.position;
         grenade.GetComponent<Grenade>().Throw(mainCam);
     }

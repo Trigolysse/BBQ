@@ -54,6 +54,7 @@ MonoBehaviour:
   grenadeparent: {fileID: 4478261933768678689}
   radius: 20
   force: 70000
+  throwForce: 50
 --- !u!114 &7600764333125019655
 MonoBehaviour:
   m_ObjectHideFlags: 0
