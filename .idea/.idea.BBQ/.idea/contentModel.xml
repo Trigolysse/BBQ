@@ -56,6 +56,9 @@
         <e p="Grenade.cs" t="Include" />
         <e p="grenadeThrower.cs" t="Include" />
         <e p="localPlayController.cs" t="Include" />
+        <e p="mayan-temple" t="Include">
+          <e p="readme.txt" t="Include" />
+        </e>
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
             <e p="Code" t="Include">
@@ -226,6 +229,7 @@
             </e>
           </e>
         </e>
+        <e p="Porte.cs" t="Include" />
         <e p="Salazar Inventory" t="Include">
           <e p="Compass.cs" t="Include" />
           <e p="DrawInventory.cs" t="Include" />
