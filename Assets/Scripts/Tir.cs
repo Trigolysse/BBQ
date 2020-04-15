@@ -48,7 +48,7 @@ public class Tir : MonoBehaviourPunCallbacks
         {
             nextTimeToFire = Time.time + 1f / weaponManager.GetCurrentSelectedWeapon().fireRate; //weaponManager.GetCurrentSelectedWeapon().fireRate
             weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
-            photonView.RPC("Shoot", RpcTarget.All);
+            Shoot();
         }
         if(Input.GetMouseButton(1))
         {
@@ -63,12 +63,8 @@ public class Tir : MonoBehaviourPunCallbacks
         }
     }
 
-    [PunRPC]
     void Shoot()
-    {
-        
-        
-        
+    { 
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
         {
@@ -101,7 +97,9 @@ public class Tir : MonoBehaviourPunCallbacks
 
             if (hit.transform.CompareTag(Tags.PLAYER_TAG))
             {
-                //hit.transform.GetComponent<HealthScript>().ApplyDamage(weaponManager.GetCurrentSelectedWeapon().damage);
+                Debug.Log("Hit player");
+                //hit.transform.GetComponent<Player>().ApplyDamage(weaponManager.GetCurrentSelectedWeapon().damage);
+                hit.transform.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, weaponManager.GetCurrentSelectedWeapon().damage);
             }
 
             else
@@ -115,6 +113,12 @@ public class Tir : MonoBehaviourPunCallbacks
             Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 100, Color.white, 2f);
             Debug.Log("Did not it");
         }
+
+    }
+
+    [PunRPC]
+    void TakeDamage()
+    {
 
     }
 
