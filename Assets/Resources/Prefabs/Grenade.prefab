@@ -53,7 +53,7 @@ MonoBehaviour:
     type: 3}
   grenadeparent: {fileID: 4478261933768678689}
   radius: 30
-  force: 70000
+  force: 7000
   throwForce: 30
 --- !u!114 &7600764333125019655
 MonoBehaviour:
