@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Tir : MonoBehaviourPunCallbacks
 {
-
+    public int health;
     #region Public Fields
 
     public Camera mainCam;
@@ -30,6 +30,7 @@ public class Tir : MonoBehaviourPunCallbacks
     void Awake()
     {
         weaponManager = GetComponent<WeaponManager>();
+        health = 100;
     }
 
     void Update()
@@ -117,9 +118,10 @@ public class Tir : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void TakeDamage()
+    public void ApplyDamage(int damage)
     {
-
+        health -= damage;
+        Debug.Log(health);
     }
 
 }
