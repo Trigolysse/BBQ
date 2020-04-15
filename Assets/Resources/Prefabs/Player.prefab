@@ -1864,7 +1864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded666c2bc6abb9439453c9bd820349e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  Health: 0
 --- !u!114 &8827100772427584094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1900,6 +1900,7 @@ MonoBehaviour:
   - {fileID: 7724118556637423424}
   - {fileID: 8775017867349572460}
   - {fileID: 5085280035956180277}
+  - {fileID: 8587115477216823279}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
