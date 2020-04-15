@@ -8,9 +8,9 @@ public class EnemyAttack : MonoBehaviour {
 static bool  EnemyShooting;
 private Transform Player;
 private GameObject player;
-public float MoveSpeed= 4f;
-public float MaxDist= 10f;
-public float MinDist=5f;
+public float MoveSpeed= 30f;
+public float MaxDist= 20f;
+public float MinDist=2f;
 public GameObject Ennemi;
 bool  playerSighted;
 private NavMeshAgent Agent;
@@ -24,7 +24,7 @@ private void Start()
 {
     player = GameObject.FindGameObjectWithTag("Player");
     Player = player.transform;
-    Agent = GetComponent<NavMeshAgent>();
+    
     
 }
 
@@ -50,6 +50,7 @@ void  OnTriggerStay ( Collider other  ){
     if(other.transform==Player)
     {
         playerSighted=true;
+        Debug.Log("VU");
     }
 
 }
@@ -59,6 +60,7 @@ void  OnTriggerExit ( Collider other  ){
     {
         playerSighted=false;
         EnemyShooting=false;
+        Debug.Log("OU ES TU?");
     }
 
 }
@@ -68,12 +70,15 @@ void  PlayerFound ()
     Debug.Log("TROUVER");
     Vector3 lookAtPos = Player.position;
     
-    lookAtPos.x= transform.position.x;
+    lookAtPos.y= transform.position.y;
     transform.LookAt(lookAtPos);
     if (Vector3.Distance(transform.position,Player.position)>=MinDist)
     {
-        EnemyShooting=true;
-        
+        transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+        if (Vector3.Distance(transform.position, Player.position) <= MaxDist)
+        {
+            EnemyShooting=true;   
+        }
 
     }
 
