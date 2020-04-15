@@ -99,8 +99,7 @@ public class Tir : MonoBehaviourPunCallbacks
             if (hit.transform.CompareTag(Tags.PLAYER_TAG))
             {
                 Debug.Log("Hit player");
-                //hit.transform.GetComponent<Player>().ApplyDamage(weaponManager.GetCurrentSelectedWeapon().damage);
-                hit.transform.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, weaponManager.GetCurrentSelectedWeapon().damage);
+                photonView.RPC("ApplyDamage", RpcTarget.All, hit.transform.GetComponent<Player>(), weaponManager.GetCurrentSelectedWeapon().damage);
             }
 
             else
@@ -118,10 +117,9 @@ public class Tir : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(Player player, int damage)
     {
-        health -= damage;
-        Debug.Log(health);
+        player.ApplyDamage(damage);
     }
 
 }

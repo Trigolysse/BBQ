@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviourPunCallbacks
 {
-    //public int health;
+   public int health;
     private RaycastHit hit;
 
     // Start is called before the first frame update
     void Start()
     {
-        //health = 100;
+        health = 100;
         GetComponent<WeaponManager>().GetCurrentSelectedWeapon();
     }
 
@@ -23,14 +23,11 @@ public class Player : MonoBehaviourPunCallbacks
             
         }
       
-
-
     }
 
-   /* [PunRPC]
     public void ApplyDamage(int damage)
     {
         health -= damage;
         Debug.Log(health);
-    }*/
+    }
 }

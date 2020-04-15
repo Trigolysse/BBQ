@@ -1864,6 +1864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded666c2bc6abb9439453c9bd820349e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
 --- !u!114 &8827100772427584094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1964,6 +1965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7646ebec5f975ca4985317cd9914c25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   mainCam: {fileID: 1256644794351675714}
   EmptyPrefab: {fileID: 3448055815730270851, guid: 61937a8d0436b5641b0ecd9f0e5eb728,
     type: 3}
