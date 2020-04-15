@@ -261,6 +261,7 @@
             <e p="Crosshair.cs" t="Include" />
             <e p="Destructible.cs" t="Include" />
             <e p="MouseLook.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerSetup.cs" t="Include" />
             <e p="PlayerSprintAndCrouch.cs" t="Include" />
