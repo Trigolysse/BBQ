@@ -22,6 +22,8 @@ public class DragonFOLLOW : MonoBehaviour {
     public GameObject pointdecontrole3;
     public GameObject pointdecontrole4;
     private bool voyage = false;
+    private Vector3 InitialPosition;
+    private Vector3 destinatione;
 
     void  Awake ()
     {
@@ -33,11 +35,14 @@ public class DragonFOLLOW : MonoBehaviour {
 
 
     {
+        Agent = GetComponent<NavMeshAgent>();
+        InitialPosition = transform.position;
         Anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         Player = player.transform;
         Anim.SetBool("VU", false);
         Anim.SetBool("MINDISTANCE", false);
+        Anim.SetBool("VOYAGE", false);
     
     
     }
@@ -52,13 +57,13 @@ public class DragonFOLLOW : MonoBehaviour {
             }
             else
             {
-                Voyage();
-                if (voyage)
-                {
-                    Pathing();
-                }
+                
+               
+                Pathing();
+                
                 
             }
+            Anim.SetBool("VOYAGE", voyage);
         
         
 
@@ -121,61 +126,48 @@ public class DragonFOLLOW : MonoBehaviour {
 
     void Pathing()
     {
-        if (!voyage)
+        
+        if (transform.position==destinatione)
         {
+            voyage = false;
             voyage = true;
-            GameObject destination;
+            
             Random aleatoire = new Random();
-            int nb = aleatoire.Next(1, 5);
-            if (nb==1)
+
+            
+            int x = aleatoire.Next(0, 11);
+            int z = aleatoire.Next(0, 11);
+            int nb2 = aleatoire.Next(0, 2);
+            int nb1 = aleatoire.Next(0, 2);
+            if (nb1==0)
             {
-                destination = pointdecontrole1;
+                nb1 = -1;
             }
-            else if (nb==2)
+            if (nb2==0)
             {
-                destination = pointdecontrole2;
+                nb2 = -1;
             }
-            else if (nb==3)
-            {
-                destination = pointdecontrole3;
-            }
-            else
-            {
-                destination = pointdecontrole4;
-            }
-            Vector3 lookAtPos = destination.transform.position;
+
+            Vector3 destination;
+            destination.x = InitialPosition.x + x * nb1;
+            destination.z = InitialPosition.z + z * nb2;
+            destination.y = InitialPosition.y;
+
+            Vector3 lookAtPos = destination;
             lookAtPos.y= transform.position.y;
             transform.LookAt(lookAtPos);
-            while (voyage)
-            {
-                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-            }
-            
-            
-        }
-    }
 
-    void Voyage()
-    {
-        if (transform.position==pointdecontrole1.transform.position)
-        {
-            voyage = false;
-        }
-        else if (transform.position==pointdecontrole2.transform.position)
-        {
-            voyage = false;
-        }
-        else if (transform.position==pointdecontrole3.transform.position)
-        {
-            voyage = false;
-        }
-        else if (transform.position==pointdecontrole4.transform.position)
-        {
-            voyage = false;
+            destinatione = destination;
         }
         else
         {
             voyage = true;
+            Agent.SetDestination(destinatione);
         }
+        
+        
+       
     }
+
+    
 }
