@@ -234,6 +234,7 @@
           <e p="readme.txt" t="Include" />
         </e>
         <e p="Porte.cs" t="Include" />
+        <e p="PORTESHOP.cs" t="Include" />
         <e p="Salazar Inventory" t="Include">
           <e p="Compass.cs" t="Include" />
           <e p="DrawInventory.cs" t="Include" />
