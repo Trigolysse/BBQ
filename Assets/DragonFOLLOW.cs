@@ -21,7 +21,7 @@ public class DragonFOLLOW : MonoBehaviour {
     public GameObject pointdecontrole2;
     public GameObject pointdecontrole3;
     public GameObject pointdecontrole4;
-    private bool voyage = false;
+    private bool voyage;
     private Vector3 InitialPosition;
     private Vector3 destinatione;
 
@@ -35,16 +35,19 @@ public class DragonFOLLOW : MonoBehaviour {
 
 
     {
+        voyage = false;
         Agent = GetComponent<NavMeshAgent>();
-        InitialPosition = transform.position;
+        InitialPosition = Agent.transform.position;
+        destinatione = Agent.transform.position;
         Anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         Player = player.transform;
         Anim.SetBool("VU", false);
         Anim.SetBool("MINDISTANCE", false);
         Anim.SetBool("VOYAGE", false);
-    
-    
+        
+
+
     }
 
     void  Update (){
@@ -127,16 +130,18 @@ public class DragonFOLLOW : MonoBehaviour {
     void Pathing()
     {
         
-        if (transform.position==destinatione)
+        if (transform.position.x==destinatione.x && transform.position.z==destinatione.z)
         {
-            voyage = false;
+            Debug.Log("Camembert");
             voyage = true;
             
             Random aleatoire = new Random();
 
             
-            int x = aleatoire.Next(0, 11);
-            int z = aleatoire.Next(0, 11);
+            int xo = aleatoire.Next( 1,40);
+            int zo = aleatoire.Next(1,40);
+            
+            
             int nb2 = aleatoire.Next(0, 2);
             int nb1 = aleatoire.Next(0, 2);
             if (nb1==0)
@@ -148,20 +153,34 @@ public class DragonFOLLOW : MonoBehaviour {
                 nb2 = -1;
             }
 
+
+
             Vector3 destination;
-            destination.x = InitialPosition.x + x * nb1;
-            destination.z = InitialPosition.z + z * nb2;
+            destination.x = InitialPosition.x + xo * nb1;
+            destination.z = InitialPosition.z + zo * nb2;
             destination.y = InitialPosition.y;
+            
 
             Vector3 lookAtPos = destination;
             lookAtPos.y= transform.position.y;
+            
             transform.LookAt(lookAtPos);
 
-            destinatione = destination;
+            float x1 = destination.x;
+            float y1 = destination.y;
+            float z1 = destination.z;
+            destinatione.x = x1;
+            destinatione.y = y1;
+            destinatione.z = z1;
+            
+            
         }
         else
         {
+            
+            Debug.Log(transform.position + " " + destinatione);
             voyage = true;
+            //Debug.Log("J aime la pain du diamnche");
             Agent.SetDestination(destinatione);
         }
         
