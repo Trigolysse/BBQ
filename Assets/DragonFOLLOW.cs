@@ -55,6 +55,8 @@ public class DragonFOLLOW : MonoBehaviour {
             if (playerSighted==true)
             {
                 voyage = false;
+                //Agent.Stop();
+                Agent.ResetPath();
                 PlayerFound();
 
             }
