@@ -1,17 +1,18 @@
 fileFormatVersion: 2
-guid: 70ff8139f739df249a83c8c9618ffd50
+guid: bbe07b5af6295f347800b425f4434c67
 labels:
 - Architecture
 - Concrete
 - Industrial
+- Pipe
 - Prop
-- Cover
+- Y-section
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       1: 100000
-    second: U
+    second: Y
   - first:
       1: 100002
     second: //RootNode
@@ -20,13 +21,13 @@ ModelImporter:
     second: concrete_pipe
   - first:
       1: 100006
-    second: Concrete_pipe_casing
+    second: Concrete_pipe_joint
   - first:
       1: 100008
-    second: Concrete_pipe_casing_collider
+    second: Concrete_pipe_joint_collider
   - first:
       4: 400000
-    second: U
+    second: Y
   - first:
       4: 400002
     second: //RootNode
@@ -35,46 +36,46 @@ ModelImporter:
     second: concrete_pipe
   - first:
       4: 400006
-    second: Concrete_pipe_casing
+    second: Concrete_pipe_joint
   - first:
       4: 400008
-    second: Concrete_pipe_casing_collider
+    second: Concrete_pipe_joint_collider
   - first:
       23: 2300000
-    second: U
+    second: Y
   - first:
       23: 2300002
     second: concrete_pipe
   - first:
       23: 2300004
-    second: Concrete_pipe_casing
+    second: Concrete_pipe_joint
   - first:
       23: 2300006
-    second: Concrete_pipe_casing_collider
+    second: Concrete_pipe_joint_collider
   - first:
       33: 3300000
-    second: U
+    second: Y
   - first:
       33: 3300002
     second: concrete_pipe
   - first:
       33: 3300004
-    second: Concrete_pipe_casing
+    second: Concrete_pipe_joint
   - first:
       33: 3300006
-    second: Concrete_pipe_casing_collider
+    second: Concrete_pipe_joint_collider
   - first:
       43: 4300000
-    second: U
+    second: Y
   - first:
       43: 4300002
     second: concrete_pipe
   - first:
       43: 4300004
-    second: Concrete_pipe_casing
+    second: Concrete_pipe_joint
   - first:
       43: 4300006
-    second: Concrete_pipe_casing_collider
+    second: Concrete_pipe_joint_collider
   - first:
       95: 9500000
     second: //RootNode
@@ -111,7 +112,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 0

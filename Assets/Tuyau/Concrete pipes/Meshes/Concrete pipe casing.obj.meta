@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: c7e7caca200aadf438988565a33ababa
+guid: 70ff8139f739df249a83c8c9618ffd50
 labels:
 - Architecture
 - Concrete
 - Industrial
 - Prop
-- T-section
-- Pipe
+- Cover
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       1: 100000
-    second: T
+    second: U
   - first:
       1: 100002
     second: //RootNode
@@ -21,13 +20,13 @@ ModelImporter:
     second: concrete_pipe
   - first:
       1: 100006
-    second: Concrete_pipe_T_section
+    second: Concrete_pipe_casing
   - first:
       1: 100008
-    second: Concrete_pipe_T_section_collider
+    second: Concrete_pipe_casing_collider
   - first:
       4: 400000
-    second: T
+    second: U
   - first:
       4: 400002
     second: //RootNode
@@ -36,46 +35,46 @@ ModelImporter:
     second: concrete_pipe
   - first:
       4: 400006
-    second: Concrete_pipe_T_section
+    second: Concrete_pipe_casing
   - first:
       4: 400008
-    second: Concrete_pipe_T_section_collider
+    second: Concrete_pipe_casing_collider
   - first:
       23: 2300000
-    second: T
+    second: U
   - first:
       23: 2300002
     second: concrete_pipe
   - first:
       23: 2300004
-    second: Concrete_pipe_T_section
+    second: Concrete_pipe_casing
   - first:
       23: 2300006
-    second: Concrete_pipe_T_section_collider
+    second: Concrete_pipe_casing_collider
   - first:
       33: 3300000
-    second: T
+    second: U
   - first:
       33: 3300002
     second: concrete_pipe
   - first:
       33: 3300004
-    second: Concrete_pipe_T_section
+    second: Concrete_pipe_casing
   - first:
       33: 3300006
-    second: Concrete_pipe_T_section_collider
+    second: Concrete_pipe_casing_collider
   - first:
       43: 4300000
-    second: T
+    second: U
   - first:
       43: 4300002
     second: concrete_pipe
   - first:
       43: 4300004
-    second: Concrete_pipe_T_section
+    second: Concrete_pipe_casing
   - first:
       43: 4300006
-    second: Concrete_pipe_T_section_collider
+    second: Concrete_pipe_casing_collider
   - first:
       95: 9500000
     second: //RootNode
@@ -112,7 +111,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 0
