@@ -25,6 +25,7 @@
             <e p="DayNightController.cs" t="Include" />
           </e>
         </e>
+        <e p="DragonFOLLOW.cs" t="Include" />
         <e p="EffectExamples" t="Include">
           <e p="Shared" t="Include">
             <e p="Scripts" t="Include">
