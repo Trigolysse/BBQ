@@ -10,11 +10,12 @@ public class SONnnn : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         son.Play();
-        Debug.Log("JOUE");
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
         son.Stop();
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     }
 }

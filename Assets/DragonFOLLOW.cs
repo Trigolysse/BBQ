@@ -137,7 +137,6 @@ public class DragonFOLLOW : MonoBehaviour {
         
         if (transform.position.x==destinatione.x && transform.position.z==destinatione.z)
         {
-            Debug.Log("Camembert");
             voyage = true;
             
             Random aleatoire = new Random();
@@ -182,8 +181,6 @@ public class DragonFOLLOW : MonoBehaviour {
         }
         else
         {
-            
-            Debug.Log(transform.position + " " + destinatione);
             voyage = true;
             //Debug.Log("J aime la pain du diamnche");
             Agent.SetDestination(destinatione);
