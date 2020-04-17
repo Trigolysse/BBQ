@@ -24,6 +24,7 @@ public class DragonFOLLOW : MonoBehaviour {
     private bool voyage;
     private Vector3 InitialPosition;
     private Vector3 destinatione;
+    public AudioSource dragon;
 
     void  Awake ()
     {
@@ -118,10 +119,12 @@ public class DragonFOLLOW : MonoBehaviour {
             {
                 EnemyShooting = true;
                 Anim.SetBool("MINDISTANCE", true);
+                dragon.Play();
             }
             else
             {
                 Anim.SetBool("MINDISTANCE", false);
+                dragon.Stop();
             }
 
         }
