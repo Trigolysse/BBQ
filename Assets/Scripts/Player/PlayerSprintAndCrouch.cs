@@ -8,7 +8,6 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
 {
     #region Private Fields
 
-    private Animator anim;
     private PlayerMovement playerMovement;
     private Transform look_Root;
     private float stand_Height = 1.6f;
@@ -40,10 +39,8 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
     }
     void Start()
     {
-        anim = GetComponent<Animator>();
         move_Speed = playerMovement.speed;
         sprint_Speed = playerMovement.speed * 2;
-        anim.SetBool("Marche", false);
     }
 
     // Update is called once per frame
@@ -51,14 +48,6 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (photonView.IsMine)
         {
-            if (Input.GetKeyDown(KeyCode.W) | Input.GetKeyDown(KeyCode.A) | Input.GetKeyDown(KeyCode.S) | Input.GetKeyDown(KeyCode.D))
-            {
-                anim.SetBool("Marche",true);
-            }
-            else
-            {
-                anim.SetBool("Marche",false);
-            }
             Sprint();
             Crouch();
         }
