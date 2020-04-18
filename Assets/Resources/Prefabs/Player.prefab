@@ -2713,10 +2713,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8827100772442632578}
     m_Modifications:
+    - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4611803945366263012, guid: 7067450cb04284847890de006c4435e0,
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611803945366263012, guid: 7067450cb04284847890de006c4435e0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4611803945366263013, guid: 7067450cb04284847890de006c4435e0,
         type: 3}
