@@ -10,6 +10,7 @@ TagManager:
   - Target
   - ExplosiveBarrel
   - AK
+  - Monster
   layers:
   - Default
   - TransparentFX

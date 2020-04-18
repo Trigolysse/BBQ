@@ -14,6 +14,13 @@
             </e>
           </e>
         </e>
+        <e p="_Flashlight PRO" t="Include">
+          <e p="_Assets" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Flashlight_PRO.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Character_Witch_Dragon" t="Include">
           <e p="readme.txt" t="Include" />
         </e>
