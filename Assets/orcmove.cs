@@ -13,10 +13,9 @@ public class orcmove : MonoBehaviour
     private NavMeshAgent Agent;
     private Vector3 InitialPosition;
     private GameObject Player;
-    public float MinDistance = 10;
-    public float radius = 15;
-    public float MoveSpeed=10f;
-    public float MaxDistance = 30f;
+    public float Attackdistance = 10;
+    private Animator Anim;
+    
 
 
 
@@ -25,48 +24,28 @@ public class orcmove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         Agent = GetComponent<NavMeshAgent>();
+        Anim = Agent.GetComponent<Animator>();
         InitialPosition = Agent.transform.position;
         Walk();
         Player = GameObject.FindGameObjectWithTag("Player");
+        Anim.SetBool("run", false);
+        Anim.SetBool("walk", true);
+        Anim.SetBool("attack", false);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(walk);
         if (walk)
         {
-           Walk(); 
+            Walk();
         }
-        else
-        {
-            Debug.Log("TROUVER");
-            Vector3 lookAtPos = Player.transform.position;
-    
-            lookAtPos.y= transform.position.y;
-            transform.LookAt(lookAtPos);
-            if (Vector3.Distance(transform.position, Player.transform.position) >= MinDistance)
-            {
-                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-                if (Vector3.Distance(transform.position, Player.transform.position) <= MaxDistance)
-                {
-                    attack = true;
-                    walk = false;
-                    run = false;
-                }
-                else
-                {
-                    attack = false;
-                    walk = false;
-                    run = true;
-
-
-                }
-            }
-
-        }
+        Anim.SetBool("run", run);
+        Anim.SetBool("walk", walk);
+        Anim.SetBool("attack", attack);
 
 
 
@@ -76,56 +55,60 @@ public class orcmove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Player")
+        if (other.tag == "Player")
         {
-             run = true;
-             walk = false;
-             attack = false;
+            run = true;
+            walk = false;
+            attack = false;
+            Agent.ResetPath();
+            Run();
         }
-        
-        
+
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag=="Player")
+        if (other.tag == "Player")
         {
-             walk = true;
-             attack = false;
-             run = false;
-
-             Walk();
+            walk = true;
+            attack = false;
+            run = false;
+            Walk();
         }
-        
+
 
     }
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform == Player)
+        if (other.tag == "Player")
         {
-            if (Vector3.Distance(transform.position,Player.transform.position)>=MinDistance)
+            if (Vector3.Distance(transform.position, Player.transform.position) <= Attackdistance)
             {
-                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-                if (Vector3.Distance(transform.position, Player.transform.position) <= MaxDistance)
-                {
-                    attack = true;
-                    walk = false;
-                    run = false;
-                }
-                else
-                {
-                    attack = false;
-                    walk = false;
-                    run = true;
-                    
-                    
-                }
+                attack = true;
+                walk = false;
+                run = false;
+                Agent.ResetPath();
+                Attack();
+            }
+            else
+            {
+                attack = false;
+                walk = false;
+                run = true;
+                Agent.ResetPath();
+                Run();
+
+
 
             }
 
         }
 
     }
+
+
 
 
 
@@ -134,20 +117,22 @@ public class orcmove : MonoBehaviour
     {
         if (Agent.remainingDistance <= Agent.stoppingDistance && !Agent.pathPending)
         {
+            Debug.Log("Walk");
             Random aleatoire = new Random();
 
-            
-            int xo = aleatoire.Next( 1,40);
-            int zo = aleatoire.Next(1,40);
-            
-            
+
+            int xo = aleatoire.Next(1, 5);
+            int zo = aleatoire.Next(1, 5);
+
+
             int nb2 = aleatoire.Next(0, 2);
             int nb1 = aleatoire.Next(0, 2);
-            if (nb1==0)
+            if (nb1 == 0)
             {
                 nb1 = -1;
             }
-            if (nb2==0)
+
+            if (nb2 == 0)
             {
                 nb2 = -1;
             }
@@ -158,36 +143,42 @@ public class orcmove : MonoBehaviour
             destination.x = InitialPosition.x + xo * nb1;
             destination.z = InitialPosition.z + zo * nb2;
             destination.y = InitialPosition.y;
-            
+
 
             Vector3 lookAtPos = destination;
-            lookAtPos.y= transform.position.y;
-            
+            lookAtPos.y = transform.position.y;
+
             transform.LookAt(lookAtPos);
 
-        
+
             NavMeshHit navhit;
-            NavMesh.SamplePosition(destination, out navhit,20f, NavMesh.AllAreas);
+            NavMesh.SamplePosition(destination, out navhit, 20f, NavMesh.AllAreas);
             Agent.SetDestination(navhit.position);
         }
-        
+
     }
 
     void Run()
     {
+        Vector3 lookAtPos = Player.transform.position;
+        lookAtPos.y = transform.position.y;
+
+        transform.LookAt(lookAtPos);
         Debug.Log("Run");
-        NavMeshHit navhit;
-        NavMesh.SamplePosition(Player.transform.position, out navhit,20f, NavMesh.AllAreas);
-        Agent.SetDestination(navhit.position);
+        //NavMeshHit navhit;
+        //NavMesh.SamplePosition(Player.transform.position, out navhit, 20f, NavMesh.AllAreas);
+        Agent.SetDestination(Player.transform.position);
     }
 
     void Attack()
     {
-        Debug.Log("Attak");
-        NavMeshHit navhit;
-        NavMesh.SamplePosition(Player.transform.position, out navhit,20f, NavMesh.AllAreas);
-        Agent.SetDestination(navhit.position);
+        Vector3 lookAtPos = Player.transform.position;
+        lookAtPos.y = transform.position.y;
 
+        transform.LookAt(lookAtPos);
+        Debug.Log("Attak");
+        
     }
-    
+
 }
+
