@@ -14,6 +14,8 @@ public class orcmove : MonoBehaviour
     private Vector3 InitialPosition;
     private GameObject Player;
     public float Attackdistance = 10;
+    public float Aggrodistance = 20;
+    public int Patroldistance = 10;
     private Animator Anim;
     
 
@@ -39,52 +41,10 @@ public class orcmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (walk)
+        
+        if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= Aggrodistance)
         {
-            Walk();
-        }
-        Anim.SetBool("run", run);
-        Anim.SetBool("walk", walk);
-        Anim.SetBool("attack", attack);
-
-
-
-
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            run = true;
-            walk = false;
-            attack = false;
-            Agent.ResetPath();
-            Run();
-        }
-
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            walk = true;
-            attack = false;
-            run = false;
-            Walk();
-        }
-
-
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            if (Vector3.Distance(transform.position, Player.transform.position) <= Attackdistance)
+            if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= Attackdistance)
             {
                 attack = true;
                 walk = false;
@@ -100,16 +60,28 @@ public class orcmove : MonoBehaviour
                 Agent.ResetPath();
                 Run();
 
-
-
             }
 
+
+
+
+
         }
+        else
+        {
+            attack = false;
+            walk = true;
+            run = false;
+            Walk();
+        }
+        Anim.SetBool("run", run);
+        Anim.SetBool("walk", walk);
+        Anim.SetBool("attack", attack);
+
+
+
 
     }
-
-
-
 
 
 
@@ -121,8 +93,8 @@ public class orcmove : MonoBehaviour
             Random aleatoire = new Random();
 
 
-            int xo = aleatoire.Next(1, 5);
-            int zo = aleatoire.Next(1, 5);
+            int xo = aleatoire.Next(1, Patroldistance);
+            int zo = aleatoire.Next(1, Patroldistance);
 
 
             int nb2 = aleatoire.Next(0, 2);
@@ -165,9 +137,9 @@ public class orcmove : MonoBehaviour
 
         transform.LookAt(lookAtPos);
         Debug.Log("Run");
-        //NavMeshHit navhit;
-        //NavMesh.SamplePosition(Player.transform.position, out navhit, 20f, NavMesh.AllAreas);
-        Agent.SetDestination(Player.transform.position);
+        NavMeshHit navhit;
+        NavMesh.SamplePosition(Player.transform.position, out navhit, 20f, NavMesh.AllAreas);
+        Agent.SetDestination(navhit.position);
     }
 
     void Attack()
@@ -177,6 +149,7 @@ public class orcmove : MonoBehaviour
 
         transform.LookAt(lookAtPos);
         Debug.Log("Attak");
+        Player.GetComponent<Combatmanager>().TakeDamage(20);
         
     }
 
