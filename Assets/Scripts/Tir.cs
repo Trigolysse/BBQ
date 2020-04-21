@@ -110,7 +110,6 @@ public class Tir : MonoBehaviourPunCallbacks
             {
                 Debug.Log("Hit player");
                 photonView.RPC("ApplyDamage", RpcTarget.All, weaponManager.GetCurrentSelectedWeapon().damage, hit.transform.GetComponent<PhotonView>().ViewID);
-               
             }
             else
             {
