@@ -12,7 +12,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         Health = 100;
-        GetComponent<WeaponManager>().GetCurrentSelectedWeapon();
     }
 
     // Update is called once per frame
