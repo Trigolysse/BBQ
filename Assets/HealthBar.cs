@@ -26,7 +26,6 @@ public class HealthBar : MonoBehaviourPunCallbacks
     public void SetHealth(int health)
 	{
 		slider.value = health;
-
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
 
@@ -37,11 +36,5 @@ public class HealthBar : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-		if(this.GetComponentInParent<PhotonView>().IsMine)
-		{
-			CurrentHealth = player.GetComponent<Player>().currentHealth;
-			SetHealth(CurrentHealth);
-			Debug.Log(CurrentHealth * 10);
-		}
     }
 }
