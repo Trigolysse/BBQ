@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : MonoBehaviourPunCallbacks
 {
 	
 	public GameObject player;
@@ -37,10 +37,11 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
-
-	    CurrentHealth= player.GetComponent<Player>().currentHealth;
-	    SetHealth(CurrentHealth);
-	    Debug.Log(CurrentHealth*10);
-
+		if(photonView.IsMine)
+		{
+			CurrentHealth = player.GetComponent<Player>().currentHealth;
+			SetHealth(CurrentHealth);
+			Debug.Log(CurrentHealth * 10);
+		}
     }
 }
