@@ -4,43 +4,45 @@ using UnityEngine;
 
 public class Combatmanager : MonoBehaviour
 {
-    public int maxhealth;
+    public int maxHealth = 100;
+    public int currentHealth;
     public int respawntime;
-    private int health;
 
     // Start is called before the first frame update
     void Start()
     {
         
-        health = maxhealth;
+        currentHealth = maxHealth;
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(health);
-        if (health == 0)
+        if (currentHealth == 0)
             Death();
-        
+         
+
     }
 
     public void TakeDamage(int damage)
     {
-        if (health - damage < 0)
-            health = 0;
+        if (currentHealth - damage < 0)
+            currentHealth = 0;
         else
-            health -= damage;
+            currentHealth -= damage;
+        
 
     }
 
 
     public void Heal(int heal)
     {
-        if (health + heal > maxhealth)
-            health = maxhealth;
+        if (currentHealth + heal > maxHealth)
+            currentHealth = maxHealth;
         else
-            health += heal;
+            currentHealth += heal;
     }
 
     public void Death()

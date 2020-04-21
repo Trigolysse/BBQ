@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviourPunCallbacks, IPunObservable
 {
-    public int Health;
+    public HealthBar healthBar;
     private RaycastHit hit;
+    public int maxHealth = 100;
+    public int currentHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        Health = 100;
+        currentHealth = 100;
         GetComponent<WeaponManager>().GetCurrentSelectedWeapon();
     }
 
@@ -27,21 +29,24 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     public void ApplyDamage(int damage)
     {
-        Health -= damage;
-        Debug.Log(Health);
+        currentHealth -= damage;
+
+        healthBar.SetHealth(currentHealth);
+        Debug.Log(currentHealth);
     }
+    
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
             // We own this player: send the others our data
-            stream.SendNext(Health);
+            stream.SendNext(currentHealth);
         }
         else
         {
             // Network player, receive data
-            this.Health = (int)stream.ReceiveNext();
+            this.currentHealth = (int)stream.ReceiveNext();
         }
     }
 }
