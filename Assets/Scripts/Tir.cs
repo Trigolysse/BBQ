@@ -110,7 +110,7 @@ public class Tir : MonoBehaviourPunCallbacks
             {
                 Debug.Log("Hit player");
                 Debug.Log("ViewID of enemy" + hit.transform.GetComponent<PhotonView>().ViewID);
-                photonView.RPC("ApplyDamage", RpcTarget.All, weaponManager.GetCurrentSelectedWeapon().damage, hit.transform.GetComponent<PhotonView>().ViewID);
+                photonView.RPC("ApplyDamage", RpcTarget.All, weaponManager.GetCurrentSelectedWeapon().damage, hit.transform.gameObject.name);
             }
             else
             {
@@ -127,15 +127,14 @@ public class Tir : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void ApplyDamage(int damage, int id)
+    public void ApplyDamage(int damage, string name)
     {
-        if (id == photonView.ViewID)
-        {
-            gameObject.GetComponent<Player>().currentHealth -= damage;
-            Debug.Log("I AM TAKINK DAMAGE NOW");
-        }
+
+       GameObject.Find(name).GetComponent<Player>().currentHealth -= damage;
+
+
         Debug.Log(gameObject.GetComponent<Player>().currentHealth);
-        Debug.Log("id of receiver: " + id + " Your ID: " + photonView.ViewID);
+        Debug.Log("name of victim: " + name + " Your ID: " + photonView.ViewID);
     }
 
 }
