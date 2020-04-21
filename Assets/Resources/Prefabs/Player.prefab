@@ -2102,7 +2102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  maxHealth: 100
   currentHealth: 0
 --- !u!114 &8827100772427584094
 MonoBehaviour:
@@ -2139,7 +2138,6 @@ MonoBehaviour:
   - {fileID: 7724118556637423424}
   - {fileID: 8775017867349572460}
   - {fileID: 5085280035956180277}
-  - {fileID: 8587115477216823279}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
