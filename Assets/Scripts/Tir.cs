@@ -135,7 +135,7 @@ public class Tir : MonoBehaviourPunCallbacks
             Debug.Log("I AM TAKINK DAMAGE NOW");
         }
         Debug.Log(gameObject.GetComponent<Player>().currentHealth);
-        Debug.Log("IDIDIDIIDID: " + id);
+        Debug.Log("id of receiver: " + id + " Your ID: " + photonView.ViewID);
     }
 
 }
