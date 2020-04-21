@@ -31,7 +31,7 @@ public class HealthBar : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-	    SetMaxHealth(CurrentHealth= player.GetComponent<Combatmanager>().currentHealth);
+	    SetMaxHealth(100);
     }
 
     private void Update()
