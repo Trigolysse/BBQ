@@ -31,7 +31,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     {
         if(id == photonView.ViewID) {
             currentHealth -= damage;
-            healthBar.SetHealth(currentHealth);
+            //healthBar.SetHealth(currentHealth);
         }
         Debug.Log(currentHealth);
     }
