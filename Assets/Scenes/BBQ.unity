@@ -23086,6 +23086,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrcCombat
       objectReference: {fileID: 0}
+    - target: {fileID: 8264350499584668308, guid: 7b51cda4d15480a4a9493043d0798346,
+        type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264350499584668308, guid: 7b51cda4d15480a4a9493043d0798346,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264350499584668308, guid: 7b51cda4d15480a4a9493043d0798346,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264350499584668310, guid: 7b51cda4d15480a4a9493043d0798346,
+        type: 3}
+      propertyPath: attackspeed
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b51cda4d15480a4a9493043d0798346, type: 3}
 --- !u!4 &871878471 stripped
@@ -56045,6 +56065,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1561111676303915208, guid: 81ce33dbc14058140b8204986155311b,
         type: 3}
       propertyPath: m_Name
@@ -56114,10 +56138,6 @@ PrefabInstance:
         type: 3}
       propertyPath: MinDistance
       value: 101.66333
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9196324396274610556, guid: 81ce33dbc14058140b8204986155311b,
         type: 3}

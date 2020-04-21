@@ -16,6 +16,8 @@ public class orcmove : MonoBehaviour
     public float Attackdistance = 10;
     public float Aggrodistance = 20;
     public int Patroldistance = 10;
+    public float attackspeed;
+    private float attackdelay;
     private Animator Anim;
     
 
@@ -35,12 +37,16 @@ public class orcmove : MonoBehaviour
         Anim.SetBool("run", false);
         Anim.SetBool("walk", true);
         Anim.SetBool("attack", false);
-
+        attackdelay = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(attackdelay > 0 )
+        {
+            attackdelay -= Time.deltaTime;
+        }
         
         if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= Aggrodistance)
         {
@@ -50,7 +56,12 @@ public class orcmove : MonoBehaviour
                 walk = false;
                 run = false;
                 Agent.ResetPath();
-                Attack();
+                if(attackdelay <= 0)
+                {
+                    attackdelay = attackspeed;
+                    Attack();
+                }
+                     
             }
             else
             {
