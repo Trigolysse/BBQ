@@ -8,7 +8,6 @@ using Photon.Pun;
 public class HealthBar : MonoBehaviour
 {
 	
-	
 	public GameObject player;
 	private int CurrentHealth;
 
@@ -39,7 +38,7 @@ public class HealthBar : MonoBehaviour
     private void Update()
     {
 
-	    CurrentHealth= player.GetComponent<Combatmanager>().currentHealth;
+	    CurrentHealth= player.GetComponent<Player>().currentHealth;
 	    SetHealth(CurrentHealth);
 	    Debug.Log(CurrentHealth*10);
 
