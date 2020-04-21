@@ -22,9 +22,8 @@ public class Combatmanager : MonoBehaviour
     {
         if (currentHealth == 0)
             Death();
-         
-
     }
+
 
     public void TakeDamage(int damage)
     {

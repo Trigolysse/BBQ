@@ -13,7 +13,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     // Start is called before the first frame update
     void Start()
     {
-        Health = 100;
+        currentHealth = 100;
     }
 
     // Update is called once per frame
@@ -26,11 +26,13 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     }
 
-    public void ApplyDamage(int damage)
+    [PunRPC]
+    public void ApplyDamage(int damage, int id)
     {
-        currentHealth -= damage;
-
-        healthBar.SetHealth(currentHealth);
+        if(id == photonView.ViewID) {
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
+        }
         Debug.Log(currentHealth);
     }
 

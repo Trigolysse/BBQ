@@ -109,9 +109,8 @@ public class Tir : MonoBehaviourPunCallbacks
             if (hit.transform.CompareTag(Tags.PLAYER_TAG))
             {
                 Debug.Log("Hit player");
-                hit.transform.GetComponent<Player>().ApplyDamage(weaponManager.GetCurrentSelectedWeapon().damage);
+                hit.transform.GetComponent<Player>().ApplyDamage(weaponManager.GetCurrentSelectedWeapon().damage, hit.transform.GetComponent<PhotonView>().ViewID);
             }
-
             else
             {
                 Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 100, Color.red, 2f);
