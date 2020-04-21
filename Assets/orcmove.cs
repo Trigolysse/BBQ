@@ -43,7 +43,22 @@ public class orcmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(attackdelay > 0 )
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        float distance = Mathf.Infinity;
+        foreach (var play in players)
+        {
+            float newdist = Vector3.Distance(Agent.transform.position, play.transform.position);
+            if (newdist <= distance)
+            {
+                Player = play;
+                distance = newdist;
+            }
+
+        }
+
+
+        if (attackdelay > 0 )
         {
             attackdelay -= Time.deltaTime;
         }
@@ -56,9 +71,13 @@ public class orcmove : MonoBehaviour
                 walk = false;
                 run = false;
                 Agent.ResetPath();
-                if(attackdelay <= 0)
+                Vector3 lookAtPos = Player.transform.position;
+                lookAtPos.y = transform.position.y;
+                transform.LookAt(lookAtPos);
+                if (attackdelay <= 0)
                 {
                     attackdelay = attackspeed;
+                    
                     Attack();
                 }
                      
@@ -155,10 +174,7 @@ public class orcmove : MonoBehaviour
 
     void Attack()
     {
-        Vector3 lookAtPos = Player.transform.position;
-        lookAtPos.y = transform.position.y;
-
-        transform.LookAt(lookAtPos);
+        
         Debug.Log("Attak");
         Player.GetComponent<Combatmanager>().TakeDamage(20);
         
