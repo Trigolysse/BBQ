@@ -132,7 +132,7 @@ public class Tir : MonoBehaviourPunCallbacks
         if (id == photonView.ViewID)
         {
             gameObject.GetComponent<Player>().currentHealth -= damage;
-            //healthBar.SetHealth(currentHealth);
+            Debug.Log("I AM TAKINK DAMAGE NOW");
         }
         Debug.Log(gameObject.GetComponent<Player>().currentHealth);
         Debug.Log("IDIDIDIIDID: " + id);
