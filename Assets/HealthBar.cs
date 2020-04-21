@@ -37,7 +37,7 @@ public class HealthBar : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-		if(photonView.IsMine)
+		if(this.GetComponentInParent<PhotonView>().IsMine)
 		{
 			CurrentHealth = player.GetComponent<Player>().currentHealth;
 			SetHealth(CurrentHealth);
