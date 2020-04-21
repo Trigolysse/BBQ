@@ -11,7 +11,7 @@ public class Player : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();
+
     }
 
     // Start is called before the first frame update
