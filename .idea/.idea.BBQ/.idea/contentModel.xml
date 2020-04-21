@@ -14,6 +14,14 @@
             </e>
           </e>
         </e>
+        <e p="_Flashlight PRO" t="Include">
+          <e p="_Assets" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Flashlight_PRO.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Billboard.cs" t="Include" />
         <e p="Character_Witch_Dragon" t="Include">
           <e p="readme.txt" t="Include" />
         </e>
@@ -59,7 +67,9 @@
         </e>
         <e p="Grenade.cs" t="Include" />
         <e p="grenadeThrower.cs" t="Include" />
+        <e p="HealthBar.cs" t="Include" />
         <e p="localPlayController.cs" t="Include" />
+        <e p="orcmove.cs" t="Include" />
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
             <e p="Code" t="Include">
@@ -273,6 +283,7 @@
           </e>
           <e p="Random scripts" t="Include">
             <e p="Affichage.cs" t="Include" />
+            <e p="Combatmanager.cs" t="Include" />
             <e p="Deplacement.cs" t="Include" />
             <e p="Followplayer.cs" t="Include" />
             <e p="TurretNRV.cs" t="Include" />

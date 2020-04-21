@@ -83,12 +83,22 @@ public class Tir : MonoBehaviourPunCallbacks
                     Instantiate(EmptyPrefab, hit.point,
                         Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
                 Destroy(Go, 8f);
+            }
+            if (hit.transform.CompareTag("Metal"))
+            {
                 GameObject Gucci =
                     Instantiate(Metaleffect, hit.point,
                         Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
                 Destroy(Gucci, 2f);
             }
             if (hit.transform.CompareTag("Player"))
+            {
+                GameObject Blood =
+                    Instantiate(Bloodeffect, hit.point,
+                        Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                Destroy(Blood, 2f);
+            }
+            if (hit.transform.CompareTag("Monster"))
             {
                 GameObject Blood =
                     Instantiate(Bloodeffect, hit.point,

@@ -8,9 +8,9 @@ public class DrawInventory : MonoBehaviour
     [SerializeField]
     private Sprite slotSprite;
     [SerializeField]
-    private int length = 10;
+    private int length = 5;
     [SerializeField]
-    private int height = 10;
+    private int height = 5;
 
     private int slotSize = 32;
     // Start is called before the first frame update
