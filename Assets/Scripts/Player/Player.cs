@@ -9,6 +9,11 @@ public class Player : MonoBehaviourPunCallbacks
     private RaycastHit hit;
     public int currentHealth;
 
+    private void Awake()
+    {
+        healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +25,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-           
+            healthBar.SetHealth(currentHealth);
         }
 
     }
