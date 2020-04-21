@@ -26,15 +26,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     }
 
-    [PunRPC]
-    public void ApplyDamage(int damage, int id)
-    {
-        if(id == photonView.ViewID) {
-            currentHealth -= damage;
-            //healthBar.SetHealth(currentHealth);
-        }
-        Debug.Log(currentHealth);
-    }
+    
 
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
