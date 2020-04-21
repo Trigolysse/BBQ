@@ -20,8 +20,10 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-
+            GameObject.Find("Health Bar").GetComponent<HealthBar>().SetHealth(currentHealth);
         }
 
     }
+
+
 }
