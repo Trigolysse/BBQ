@@ -12,7 +12,7 @@ public class AliveIndicator : MonoBehaviour
 
     private void Start()
     {
-        counterText.text = PhotonNetwork.playerList;
+       
     }
 
 }

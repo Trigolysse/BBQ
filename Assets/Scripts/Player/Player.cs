@@ -7,8 +7,8 @@ public class Player : MonoBehaviourPunCallbacks
 {
     public HealthBar healthBar;
     private RaycastHit hit;
-    public int currentHealth;
-    public Canvas playerUI;
+    public int Health;
+    //public Canvas playerUI;
 
     [Tooltip("The Player's UI GameObject Prefab")]
     [SerializeField]
@@ -32,10 +32,10 @@ public class Player : MonoBehaviourPunCallbacks
             Debug.LogWarning("<Color=Red><a>Missing</a></Color> PlayerUiPrefab reference on player Prefab.", this);
         }
 
-        currentHealth = 100;
+        Health = 100;
         if (!photonView.IsMine)
         {
-            playerUI.gameObject.SetActive(false);
+            //playerUI.gameObject.SetActive(false);
         }
     }
 
@@ -44,8 +44,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-            healthBar.SetHealth(currentHealth);
-            if(currentHealth <= 0)
+            if(Health <= 0)
             {
                 gameObject.transform.position = new Vector3(100, 20, 100);
                 //Destroy(gameObject);
