@@ -41,8 +41,8 @@ public class DragonFOLLOW : MonoBehaviour {
         InitialPosition = Agent.transform.position;
         destinatione = Agent.transform.position;
         Anim = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        Player = player.transform;
+        //player = GameObject.FindGameObjectWithTag("Player");
+        //Player = player.transform;
         Anim.SetBool("VU", false);
         Anim.SetBool("MINDISTANCE", false);
         Anim.SetBool("VOYAGE", false);
