@@ -57,7 +57,7 @@ public class Player : MonoBehaviourPunCallbacks
 
         if(Health <= 0)
         {
-            //Die(); 
+            Die(""); 
         }
 
     }
@@ -72,12 +72,22 @@ public class Player : MonoBehaviourPunCallbacks
         }
     }
 
+    private void Respawn()
+    {
+        if (!photonView.IsMine)
+            return;
+        isDead = false;
+        GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = false;
+    }
+
     private void Die(string killerPlayer)
     {
+        if (!photonView.IsMine)
+            return;
         isDead = true;
         GameManager.Instance.onPlayerKilledCallback.Invoke(killerPlayer, photonView.Owner.NickName);
         GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = true;
-        gameObject.transform.position = new Vector3(100, 20, 100);
+        //Destroy(gameObject);
     }
 
 }
