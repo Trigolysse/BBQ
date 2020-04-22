@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviourPunCallbacks
 {
-    public HealthBar healthBar;
     private RaycastHit hit;
     public int Health;
     //public Canvas playerUI;
@@ -13,6 +12,12 @@ public class Player : MonoBehaviourPunCallbacks
     [Tooltip("The Player's UI GameObject Prefab")]
     [SerializeField]
     public GameObject PlayerUiPrefab;
+
+    [SerializeField]
+    private PlayerMovement playerMovement;
+
+ 
+    public bool isDead = false;
 
     private void Awake()
     {
@@ -22,6 +27,8 @@ public class Player : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = false;
+
         if (PlayerUiPrefab != null)
         {
             GameObject _uiGo = Instantiate(PlayerUiPrefab);
@@ -46,11 +53,18 @@ public class Player : MonoBehaviourPunCallbacks
         {
             if(Health <= 0)
             {
-                gameObject.transform.position = new Vector3(100, 20, 100);
-                //Destroy(gameObject);
+                Die(); 
             }
         }
 
+    }
+
+
+    private void Die()
+    {
+        isDead = true;
+        GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = true;
+        gameObject.transform.position = new Vector3(100, 20, 100);
     }
 
 

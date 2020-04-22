@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
+    [SerializeField]
+    private Player player;
 
     [SerializeField]
     private Transform playerRoot, lookRoot;
@@ -47,7 +49,7 @@ public class MouseLook : MonoBehaviour
 
         LockAndUnlockCursor();
 
-        if (Cursor.lockState == CursorLockMode.Locked)
+        if (Cursor.lockState == CursorLockMode.Locked && !player.isDead)
         {
             LookAround();
         }

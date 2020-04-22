@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     private float verticalVelocity;
     private Vector3 TargetPosition;
     private int Life;
+    private Player player;
 
     public int Life1 => Life;
 
@@ -28,12 +29,13 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     #region Mono Callbacks
     void Awake()
     {
+        player = GetComponent<Player>();
         characterController = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine && !player.isDead)
             MoveThePlayer();
         else
         {
