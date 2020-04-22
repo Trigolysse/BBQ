@@ -19,6 +19,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             {
                 componentsToDisable[i].enabled = false;
             }
+
         }
         else
         {

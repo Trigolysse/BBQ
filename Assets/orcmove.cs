@@ -53,7 +53,6 @@ public class orcmove : MonoBehaviour
 
         }
 
-
         if (attackdelay > 0 )
         {
             attackdelay -= Time.deltaTime;
