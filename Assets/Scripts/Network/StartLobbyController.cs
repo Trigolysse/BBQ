@@ -50,8 +50,6 @@ public class StartLobbyController : MonoBehaviourPunCallbacks
 
     public void QuickStart() //Paired to the Quick Start button
     {
-        //canvas.GetComponent<Image>().color = new Color32(255, 69, 0, 255);
-        Debug.Log("Quick start");
         quickStartButton.SetActive(false);
         quickCancelButton.SetActive(true);
         PhotonNetwork.JoinRandomRoom(); //First tries to join an existing room

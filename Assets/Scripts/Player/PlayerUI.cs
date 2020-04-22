@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,10 @@ public class PlayerUI : MonoBehaviour
     [Tooltip("UI Text to display Player's Name")]
     [SerializeField]
     private Text playerNameText;
+
+    [Tooltip("UI Text to display the number of Alive players")]
+    [SerializeField]
+    private Text aliveCounter;
 
 
     [Tooltip("UI Slider to display Player's Health")]
@@ -44,6 +49,12 @@ public class PlayerUI : MonoBehaviour
         if (playerHealthSlider != null)
         {
             playerHealthSlider.value = target.Health;
+        }
+
+        // Reflect the Player Health
+        if (aliveCounter != null)
+        {
+            aliveCounter.text = PhotonNetwork.PlayerList.Length.ToString();
         }
     }
 
