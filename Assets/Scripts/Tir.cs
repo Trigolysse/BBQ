@@ -98,12 +98,13 @@ public class Tir : MonoBehaviourPunCallbacks
                         Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
                 Destroy(Blood, 2f);
             }
-            if (hit.transform.CompareTag("Monster"))
+            if (hit.transform.CompareTag("Enemy"))
             {
                 GameObject Blood =
                     Instantiate(Bloodeffect, hit.point,
                         Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
                 Destroy(Blood, 2f);
+                hit.transform.gameObject.GetComponent<Combatmanager>().TakeDamage(weaponManager.GetCurrentSelectedWeapon().damage);
             }
 
             if (hit.transform.CompareTag(Tags.PLAYER_TAG))

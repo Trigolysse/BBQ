@@ -1,18 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
+using Random = System.Random;
+using UnityEngine.AI;
 
 public class Combatmanager : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
     public int respawntime;
+    public Vector3 cimetiere;
+    private bool dead;
+    private float timer;
+    private NavMeshAgent Agent;
+    private Vector3 Initialposition;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
+        dead = false;
+        Initialposition = transform.position;
         
         
     }
@@ -22,6 +32,14 @@ public class Combatmanager : MonoBehaviour
     {
         if (currentHealth == 0)
             Death();
+        if(dead)
+        {
+            timer -= Time.deltaTime;
+        }
+        if(timer <= 0)
+        {
+            respawn();
+        }
     }
 
 
@@ -45,6 +63,16 @@ public class Combatmanager : MonoBehaviour
     }
 
     public void Death()
-    { 
+    {
+        Agent.Warp(cimetiere);
+        dead = true;
+
+    }
+    public void respawn()
+    {
+        dead = false;
+        Agent.Warp(Initialposition);
+        timer = respawntime;
+        currentHealth = maxHealth;
     }
 }
