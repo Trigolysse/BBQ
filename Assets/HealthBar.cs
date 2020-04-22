@@ -9,8 +9,6 @@ public class HealthBar : MonoBehaviourPunCallbacks
 {
 	
 	public GameObject player;
-	private int CurrentHealth;
-
 	public Slider slider;
 	public Gradient gradient;
 	public Image fill;
@@ -36,5 +34,6 @@ public class HealthBar : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+
     }
 }

@@ -184,6 +184,9 @@ public class DragonFOLLOW : MonoBehaviour {
             voyage = true;
             //Debug.Log("J aime la pain du diamnche");
             Agent.SetDestination(destinatione);
+            
+            
+
         }
         
         

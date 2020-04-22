@@ -19,11 +19,7 @@ public class orcmove : MonoBehaviour
     public float attackspeed;
     private float attackdelay;
     private Animator Anim;
-    
-
-
-
-
+   
 
     // Start is called before the first frame update
     void Start()
