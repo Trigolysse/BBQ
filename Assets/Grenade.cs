@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grenade : MonoBehaviour
+public class Grenade : MonoBehaviourPunCallbacks
 {
     public float delay = 3f;
     public GameObject explosionEffect;
@@ -65,8 +66,13 @@ public class Grenade : MonoBehaviour
             {
                 rb.AddExplosionForce(force, transform.position, radius);
             }
+            if(NearbyObject.gameObject.CompareTag(Tags.PLAYER_TAG))
+            {
+                photonView.RPC("ApplyDamage", RpcTarget.All, "Grenade", 100, NearbyObject.gameObject.name);
+            }
         }
-        //Damage
+
+
 
         //Remove Grenade 
         Destroy(grenadeparent);
