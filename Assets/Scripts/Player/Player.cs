@@ -28,7 +28,8 @@ public class Player : MonoBehaviourPunCallbacks
             healthBar.SetHealth(currentHealth);
             if(currentHealth <= 0)
             {
-                GameObject.Destroy(this);
+                gameObject.transform.position = new Vector3(100, 20, 100);
+                //Destroy(gameObject);
             }
         }
 
