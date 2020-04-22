@@ -130,7 +130,6 @@ public class Tir : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ApplyDamage(int damage, string name)
     {
-        Debug.Log(name);
         GameObject.Find(name).GetComponent<Player>().currentHealth -= damage;
     }
 
