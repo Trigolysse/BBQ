@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class grenadeThrower : MonoBehaviour
+public class grenadeThrower : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private Camera mainCam;
@@ -21,6 +21,8 @@ public class grenadeThrower : MonoBehaviour
 
     void ThrowGrenade()
     {
+        if (!photonView.IsMine)
+            return;
         GameObject grenade = PhotonNetwork.Instantiate("Prefabs/Grenade", grenadeStartPosition.position, grenadeStartPosition.rotation);
         grenade.transform.position = grenadeStartPosition.position;
         grenade.GetComponent<Grenade>().Throw(mainCam);
