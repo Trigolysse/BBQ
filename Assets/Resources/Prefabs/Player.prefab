@@ -3285,6 +3285,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flashlight
       objectReference: {fileID: 0}
+    - target: {fileID: 130382, guid: 47af58fd905aee649a315f604914d38e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 133260, guid: 47af58fd905aee649a315f604914d38e, type: 3}
       propertyPath: m_IsActive
       value: 0
