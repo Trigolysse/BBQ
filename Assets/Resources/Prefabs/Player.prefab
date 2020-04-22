@@ -1533,7 +1533,7 @@ Transform:
   m_LocalPosition: {x: -1.35, y: 1.9900001, z: 2.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8827100771555083366}
+  m_Father: {fileID: 4215441970322150271}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 44.29, y: 0, z: 0}
 --- !u!108 &8453862849958550670
@@ -1843,7 +1843,7 @@ MonoBehaviour:
   componentsToDisable:
   - {fileID: 8827100772442632701}
   - {fileID: 8451822068716442230}
-  - {fileID: 8827100771555083361}
+  - {fileID: 4215441970322150515}
 --- !u!143 &2494913793198429903
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9576ffa9e4c8b3b4f85a6949c59d93ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCam: {fileID: 8827100771555083361}
+  mainCam: {fileID: 4215441970322150515}
   grenadeStartPosition: {fileID: 8827100771888510860}
 --- !u!1 &8827100772442632579
 GameObject:
@@ -1972,7 +1972,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8827100771888510860}
-  - {fileID: 8827100771555083366}
+  - {fileID: 4215441970322150271}
   - {fileID: 8827100772610010421}
   m_Father: {fileID: 8827100772427584092}
   m_RootOrder: 0
@@ -2732,13 +2732,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7067450cb04284847890de006c4435e0, type: 3}
---- !u!20 &8827100771555083361 stripped
+--- !u!20 &4215441970322150515 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
     type: 3}
   m_PrefabInstance: {fileID: 4215441970322149507}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8827100771555083366 stripped
+--- !u!4 &4215441970322150271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4611803945366263013, guid: 7067450cb04284847890de006c4435e0,
     type: 3}
