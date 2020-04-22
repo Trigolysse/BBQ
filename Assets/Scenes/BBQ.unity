@@ -23026,10 +23026,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 868129904, guid: 7b51cda4d15480a4a9493043d0798346, type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8264350498762772509, guid: 7b51cda4d15480a4a9493043d0798346,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 365.31967
+      value: 122.4
       objectReference: {fileID: 0}
     - target: {fileID: 8264350498762772509, guid: 7b51cda4d15480a4a9493043d0798346,
         type: 3}
@@ -23086,71 +23090,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrcCombat
       objectReference: {fileID: 0}
-    - target: {fileID: 8264350499584668308, guid: 7b51cda4d15480a4a9493043d0798346,
-        type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264350499584668308, guid: 7b51cda4d15480a4a9493043d0798346,
-        type: 3}
-      propertyPath: m_AngularSpeed
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264350499584668308, guid: 7b51cda4d15480a4a9493043d0798346,
-        type: 3}
-      propertyPath: m_Acceleration
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264350499584668310, guid: 7b51cda4d15480a4a9493043d0798346,
-        type: 3}
-      propertyPath: attackspeed
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b51cda4d15480a4a9493043d0798346, type: 3}
---- !u!1 &868129902 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8264350498763032801, guid: 7b51cda4d15480a4a9493043d0798346,
-    type: 3}
-  m_PrefabInstance: {fileID: 868129901}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &868129903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868129902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
---- !u!114 &868129904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868129902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 868129903}
-  viewIdField: 2
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!4 &871878471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 5d9d8b174942a744daae5ae61054c5f9,
