@@ -26,6 +26,10 @@ public class Player : MonoBehaviourPunCallbacks
         if (photonView.IsMine)
         {
             healthBar.SetHealth(currentHealth);
+            if(currentHealth <= 0)
+            {
+                GameObject.Destroy(this);
+            }
         }
 
     }
