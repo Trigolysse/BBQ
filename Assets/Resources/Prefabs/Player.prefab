@@ -1898,6 +1898,7 @@ MonoBehaviour:
     type: 3}
   Metaleffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d,
     type: 3}
+  killFeedObj: {fileID: 0}
 --- !u!114 &8775017867349572460
 MonoBehaviour:
   m_ObjectHideFlags: 0

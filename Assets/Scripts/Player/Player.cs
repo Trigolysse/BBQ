@@ -27,6 +27,9 @@ public class Player : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        if (!photonView.IsMine)
+            return;
+
         GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = false;
 
         if (PlayerUiPrefab != null)
@@ -49,23 +52,32 @@ public class Player : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (photonView.IsMine)
+        if (!photonView.IsMine)
+            return;
+
+        if(Health <= 0)
         {
-            if(Health <= 0)
-            {
-                Die(); 
-            }
+            //Die(); 
         }
 
     }
 
+    [PunRPC]
+    public void ApplyDamage(int damage, string name)
+    {
+        GameObject.Find(name).GetComponent<Player>().Health -= damage;
+        if (GameObject.Find(name).GetComponent<Player>().Health <= 0)
+        {
+            GameObject.Find(name).GetComponent<Player>().Die(name);
+        }
+    }
 
-    private void Die()
+    private void Die(string killerPlayer)
     {
         isDead = true;
+        GameManager.Instance.onPlayerKilledCallback.Invoke(killerPlayer, photonView.Owner.NickName);
         GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = true;
         gameObject.transform.position = new Vector3(100, 20, 100);
     }
-
 
 }

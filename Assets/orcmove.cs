@@ -171,7 +171,7 @@ public class orcmove : MonoBehaviour
     {
         
         Debug.Log("Attak");
-        Player.GetComponent<Tir>().ApplyDamage(20,Player.name) ;
+        Player.GetComponent<Player>().ApplyDamage(20,Player.name) ;
         
     }
 
