@@ -18,6 +18,9 @@ public class Player : MonoBehaviourPunCallbacks
     void Start()
     {
         currentHealth = 100;
+        if (!photonView.IsMine)
+            healthBar.gameObject.SetActive(false);
+        
     }
 
     // Update is called once per frame
