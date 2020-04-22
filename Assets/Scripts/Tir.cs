@@ -95,6 +95,7 @@ public class Tir : MonoBehaviourPunCallbacks
             }
             if (hit.transform.CompareTag("Player"))
             {
+                if (hit.transform.GetComponent<PhotonView>().IsMine) return;
                 GameObject Blood =
                     Instantiate(Bloodeffect, hit.point,
                         Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
