@@ -82,8 +82,8 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             this.transform.GetChild(1).gameObject.layer = 0;
             ChangeLayersRecursively(this.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform, 0);
         }
-        else
-            transform.name = photonView.Owner.NickName;
+
+        transform.name = photonView.Owner.NickName;
     }
 
     private void ChangeLayersRecursively(Transform trans, int layer)

@@ -65,6 +65,7 @@ public class Player : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ApplyDamage(int damage, string name)
     {
+        Debug.Log("ApplyDamage");
         GameObject.Find(name).GetComponent<Player>().Health -= damage;
         if (GameObject.Find(name).GetComponent<Player>().Health <= 0)
         {
