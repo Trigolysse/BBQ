@@ -57,7 +57,7 @@ public class Player : MonoBehaviourPunCallbacks
 
         if(Health <= 0)
         {
-            Die(""); 
+            //Die(""); 
         }
 
     }
