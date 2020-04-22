@@ -8,6 +8,7 @@ public class Player : MonoBehaviourPunCallbacks
     public HealthBar healthBar;
     private RaycastHit hit;
     public int currentHealth;
+    public Canvas playerUI;
 
     private void Awake()
     {
@@ -19,8 +20,12 @@ public class Player : MonoBehaviourPunCallbacks
     {
         currentHealth = 100;
         if (!photonView.IsMine)
-            healthBar.gameObject.SetActive(false);
+        {
+            playerUI.gameObject.SetActive(false);
+        }
         
+
+
     }
 
     // Update is called once per frame
