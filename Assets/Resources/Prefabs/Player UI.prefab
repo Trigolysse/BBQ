@@ -352,8 +352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c875ee22b6b5dc949b3c6772975adf20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerUI: {fileID: 5639799418454074326}
   CompassImage: {fileID: 7124189792844972326}
-  Player: {fileID: 781922545509035342}
   CompassDirectionText: {fileID: 5651556811643468691}
 --- !u!1 &6569254525496325915
 GameObject:

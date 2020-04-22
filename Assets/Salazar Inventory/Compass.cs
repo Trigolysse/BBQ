@@ -2,9 +2,15 @@
 using UnityEngine;
 public class Compass : MonoBehaviour
 {
+	public PlayerUI PlayerUI;
 	public RawImage CompassImage;
-	public Transform Player;
+	private Transform Player;
 	public Text CompassDirectionText;
+
+	public void Start()
+	{
+		Player = PlayerUI.target.transform;
+	}
 
 	public void Update()
 	{

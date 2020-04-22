@@ -23,7 +23,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private Slider playerHealthSlider;
 
-    private Player target;
+    public Player target;
 
     #endregion
 
@@ -51,7 +51,7 @@ public class PlayerUI : MonoBehaviour
             playerHealthSlider.value = target.Health;
         }
 
-        // Reflect the Player Health
+        // Display number of alive players
         if (aliveCounter != null)
         {
             aliveCounter.text = PhotonNetwork.PlayerList.Length.ToString();
