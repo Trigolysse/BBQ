@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyAttack : MonoBehaviour {
 
-static bool  EnemyShooting;
 private Transform Player;
 private GameObject player;
 public float MoveSpeed= 30f;
@@ -15,9 +14,8 @@ public GameObject Ennemi;
 bool  playerSighted;
 private NavMeshAgent Agent;
 
-void  Awake (){
-    playerSighted=false;
-    EnemyShooting=false;
+void  Awake() {
+    playerSighted = false;
 }
 
 private void Start()
@@ -59,7 +57,7 @@ void  OnTriggerExit ( Collider other  ){
     if(other.transform==Player)
     {
         playerSighted=false;
-        EnemyShooting=false;
+       // EnemyShooting=false;
         Debug.Log("OU ES TU?");
     }
 
@@ -77,7 +75,7 @@ void  PlayerFound ()
         transform.position += transform.forward * MoveSpeed * Time.deltaTime;
         if (Vector3.Distance(transform.position, Player.position) <= MaxDist)
         {
-            EnemyShooting=true;   
+            //EnemyShooting=true;   
         }
 
     }
