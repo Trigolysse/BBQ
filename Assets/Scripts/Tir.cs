@@ -22,6 +22,7 @@ public class Tir : MonoBehaviourPunCallbacks
 
     private RaycastHit hit;
     private float nextTimeToFire;
+    private float cooldownTime;
     private WeaponManager weaponManager;
     private MouseLook mouseLook;
 
@@ -44,28 +45,37 @@ public class Tir : MonoBehaviourPunCallbacks
     #endregion
 
     public GameObject killFeedObj;
+    int i = 0;
 
     void WeaponShoot()
     {
-        // if we press and hold left mouse click AND
-        // if Time is greater than the nextTimeToFire
+        WeaponHandler weapon = weaponManager.GetCurrentSelectedWeapon();
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            i = 0;
+        }
+
         if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
-            mouseLook.ApplyRecoil(1.5f);
-            nextTimeToFire = Time.time + 1f / weaponManager.GetCurrentSelectedWeapon().fireRate; //weaponManager.GetCurrentSelectedWeapon().fireRate
-            weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
+            if (i > 29)
+                return;
+            mouseLook.ApplyRecoil(weapon.recoil[i].normalized.x, weapon.recoil[i].normalized.y);
+            nextTimeToFire = Time.time + 1f / weapon.fireRate; //weaponManager.GetCurrentSelectedWeapon().fireRate
+            weapon.ShootAnimation();
             Shoot();
+            i++;
         }
         if(Input.GetMouseButton(1))
         {
-            if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.NONE)
+            if (weapon.bulletType == WeaponBulletType.NONE)
             {
-                weaponManager.GetCurrentSelectedWeapon().BlockAnimation();
+                weapon.BlockAnimation();
             }
         } else
-        if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.NONE)
+        if (weapon.bulletType == WeaponBulletType.NONE)
         {
-            weaponManager.GetCurrentSelectedWeapon().UnBlockAnimation();
+            weapon.UnBlockAnimation();
         }
     }
     public static Vector3 RandomInsideCone(float radius)
