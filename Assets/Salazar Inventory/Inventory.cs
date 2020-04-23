@@ -41,10 +41,10 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventoryCanvas.enabled = false;
         inventory = new Stack[4, 9];
         armor = new Item[4, 1];
         CreateCanvas();
+        inventoryCanvas.enabled = false;
         AddInInventory(new Stack(new Item(0, "ak47", sp, ItemType.DIRT), 64));
     }
 

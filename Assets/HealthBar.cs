@@ -8,23 +8,19 @@ using Photon.Pun;
 public class HealthBar : MonoBehaviourPunCallbacks
 {
 	
-	public GameObject player;
-	public Slider slider;
-	public Gradient gradient;
-	public Image fill;
+    public float value;
+    public Vector2 size = new Vector2(300, 30);
+    public Texture2D emptyTex;
+    GUIStyle style = new GUIStyle();
 
-	public void SetMaxHealth(int health)
+    public void SetMaxHealth(int health)
 	{
-		slider.maxValue = health;
-		slider.value = health;
-
-		fill.color = gradient.Evaluate(1f);
+		value = health;
 	}
 
     public void SetHealth(int health)
 	{
-		slider.value = health;
-		fill.color = gradient.Evaluate(slider.normalizedValue);
+		value = health;
 	}
 
     private void Start()
@@ -32,8 +28,22 @@ public class HealthBar : MonoBehaviourPunCallbacks
 	    SetMaxHealth(100);
     }
 
-    private void Update()
+    void OnGUI()
     {
+        Texture2D texture = new Texture2D(1, 1);
+        texture.SetPixel(0, 0, Color.white);
+        texture.wrapMode = TextureWrapMode.Repeat;
+        texture.Apply();
 
+        style.normal.background = texture;
+        //draw the background:
+        GUI.BeginGroup(new Rect(Screen.width / 2 - size.x / 2, Screen.height - size.y * 2, size.x, size.y));
+        GUI.Box(new Rect(0, 0, size.x, size.y), emptyTex);
+
+        //draw the filled-in part:
+        GUI.BeginGroup(new Rect(0, 0, size.x * value / 100, size.y));
+        GUI.Box(new Rect(1, 1, size.x - 2, size.y - 2), new GUIContent(""), style);
+        GUI.EndGroup();
+        GUI.EndGroup();
     }
 }

@@ -21,7 +21,7 @@ public class PlayerUI : MonoBehaviour
 
     [Tooltip("UI Slider to display Player's Health")]
     [SerializeField]
-    private Slider playerHealthSlider;
+    private HealthBar playerHealthBar;
 
     public Player target;
 
@@ -46,9 +46,9 @@ public class PlayerUI : MonoBehaviour
         }
 
         // Reflect the Player Health
-        if (playerHealthSlider != null)
+        if (playerHealthBar != null)
         {
-            playerHealthSlider.value = target.Health;
+            playerHealthBar.value = target.Health;
         }
 
         // Display number of alive players
