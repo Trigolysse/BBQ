@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
-  size: {x: 300, y: 30}
+  size: {x: 400, y: 30}
   emptyTex: {fileID: 0}
 --- !u!1 &2970346754102436592
 GameObject:

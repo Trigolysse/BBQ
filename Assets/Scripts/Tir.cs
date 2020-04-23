@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Tir : MonoBehaviourPunCallbacks
 {
-    public int health;
+
     #region Public Fields
 
     public Camera mainCam;
     public GameObject EmptyPrefab;
     public GameObject Bloodeffect;
     public GameObject Metaleffect;
+    public float radius = 1f;
 
     #endregion
 
@@ -21,7 +23,7 @@ public class Tir : MonoBehaviourPunCallbacks
     private RaycastHit hit;
     private float nextTimeToFire;
     private WeaponManager weaponManager;
-    
+    private MouseLook mouseLook;
 
     #endregion
 
@@ -30,7 +32,7 @@ public class Tir : MonoBehaviourPunCallbacks
     void Awake()
     {
         weaponManager = GetComponent<WeaponManager>();
-        health = 100;
+        mouseLook = GetComponentInChildren<MouseLook>();
     }
 
     void Update()
@@ -49,6 +51,7 @@ public class Tir : MonoBehaviourPunCallbacks
         // if Time is greater than the nextTimeToFire
         if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
+            mouseLook.ApplyRecoil(1.5f);
             nextTimeToFire = Time.time + 1f / weaponManager.GetCurrentSelectedWeapon().fireRate; //weaponManager.GetCurrentSelectedWeapon().fireRate
             weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
             Shoot();
@@ -65,15 +68,25 @@ public class Tir : MonoBehaviourPunCallbacks
             weaponManager.GetCurrentSelectedWeapon().UnBlockAnimation();
         }
     }
+    public static Vector3 RandomInsideCone(float radius)
+    {
+        //(sqrt(1 - z^2) * cosϕ, sqrt(1 - z^2) * sinϕ, z)
+        float radradius = radius * Mathf.PI / 360;
+        float z = Random.Range(Mathf.Cos(radradius), 1);
+        float t = Random.Range(0, Mathf.PI * 2);
+        return new Vector3(Mathf.Sqrt(1 - z * z) * Mathf.Cos(t), Mathf.Sqrt(1 - z * z) * Mathf.Sin(t), z);
+    }
 
     void Shoot()
-    { 
+    {
         RaycastHit hit;
-        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
+
+        Vector3 direction = mainCam.transform.TransformDirection(RandomInsideCone(radius).normalized);
+        
+        if (Physics.Raycast(new Ray(mainCam.transform.position, direction), out hit))
         {
             Debug.Log("Did hit " + hit.collider.name);
-            Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 100, Color.green, 2f);
-
+            Debug.DrawLine(mainCam.transform.position, hit.point);
             if (hit.transform.GetComponent<Rigidbody>() != null)
             {
                 hit.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
@@ -114,17 +127,16 @@ public class Tir : MonoBehaviourPunCallbacks
             {
                 Debug.Log("Hit player");
                 hit.transform.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage);
-                //photonView.RPC("ApplyDamage", RpcTarget.All, photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage, hit.transform.gameObject.name);
             }
             else
             {
-                Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 100, Color.red, 2f);
+                //Debug.DrawRay(mainCam.transform.position, hit.point, Color.red, 2f);
             }
         }
         else
         {
             //Did not it...
-            Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 100, Color.white, 2f);
+            //Debug.DrawRay(mainCam.transform.position, hit.point, Color.white, 2f);
             Debug.Log("Did not it");
         }
 

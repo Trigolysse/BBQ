@@ -33,7 +33,7 @@ public class MouseLook : MonoBehaviour
     private Vector2 current_Mouse_Look;
 
     private float current_Roll_Angle;
-
+    private float upRecoil;
 
     // Use this for initialization
     void Start()
@@ -54,6 +54,11 @@ public class MouseLook : MonoBehaviour
             LookAround();
         }
 
+    }
+
+    public void ApplyRecoil(float up)
+    {
+        upRecoil += up;
     }
 
     void LockAndUnlockCursor()
@@ -84,8 +89,9 @@ public class MouseLook : MonoBehaviour
         current_Mouse_Look = new Vector2(
             Input.GetAxis(MouseAxis.MOUSE_Y), Input.GetAxis(MouseAxis.MOUSE_X));
 
-        look_Angles.x += current_Mouse_Look.x * sensivity * (invert ? 1f : -1f);
+        look_Angles.x += -upRecoil + current_Mouse_Look.x * sensivity * (invert ? 1f : -1f);
         look_Angles.y += current_Mouse_Look.y * sensivity;
+        upRecoil = 0;
 
         look_Angles.x = Mathf.Clamp(look_Angles.x, default_Look_Limits.x, default_Look_Limits.y);
 

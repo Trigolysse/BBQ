@@ -55,6 +55,7 @@ MonoBehaviour:
   radius: 30
   force: 400
   throwForce: 30
+  source: 
 --- !u!114 &7600764333125019655
 MonoBehaviour:
   m_ObjectHideFlags: 0
