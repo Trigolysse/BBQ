@@ -26,5 +26,6 @@ public class grenadeThrower : MonoBehaviourPunCallbacks
         GameObject grenade = PhotonNetwork.Instantiate("Prefabs/Grenade", grenadeStartPosition.position, grenadeStartPosition.rotation);
         grenade.transform.position = grenadeStartPosition.position;
         grenade.GetComponent<Grenade>().Throw(mainCam);
+        grenade.GetComponent<Grenade>().source = photonView.Owner.NickName;
     }
 }

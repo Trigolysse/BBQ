@@ -1,46 +1,69 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = System.Random;
 using UnityEngine.AI;
 
+
 public class orcmove : MonoBehaviour
 {
+    #region Private Fields
+
+    private Animator Anim;
+    private GameObject Player;
+    private NavMeshAgent Agent;
+    private Vector3 InitialPosition;
+    private float attackDelay;
     private bool walk = true;
     private bool attack = false;
     private bool run = false;
-    private NavMeshAgent Agent;
-    private Vector3 InitialPosition;
-    private GameObject Player;
-    public float Attackdistance = 10;
-    public float Aggrodistance = 20;
-    public int Patroldistance = 10;
-    public float attackspeed;
-    private float attackdelay;
-    private Animator Anim;
-   
 
-    // Start is called before the first frame update
-    void Start()
+    #endregion
+
+    #region Public Fields
+
+    [Tooltip("Distance from a player at which the Orc will start to inflict damage")]
+    [SerializeField]
+    private float attackDistance = 10;
+
+    [Tooltip("Distance from a player at which the Orc will stop its normal behavior and engage the player in combat")]
+    [SerializeField]
+    private float aggroDistance = 20;
+
+    [Tooltip("?? Ulysse write something here")]
+    [SerializeField]
+    private int patrolDistance = 10;
+
+    [Tooltip("Frequency of a unit's basic attacks")]
+    [SerializeField]
+    private float attackSpeed;
+    
+    [Tooltip("Inflicting Damage of the Orc")]
+    [SerializeField]
+    private int damage = 20;
+
+    #endregion
+
+    #region Mono Callbacks
+
+    private void Awake()
     {
-        
         Agent = GetComponent<NavMeshAgent>();
         Anim = Agent.GetComponent<Animator>();
-        InitialPosition = Agent.transform.position;
-        Walk();
         Player = GameObject.FindGameObjectWithTag("Player");
-        Anim.SetBool("run", false);
-        Anim.SetBool("walk", true);
-        Anim.SetBool("attack", false);
-        attackdelay = 0;
+        attackDelay = 0;
     }
 
-    // Update is called once per frame
+    void Start()
+    {   
+        InitialPosition = Agent.transform.position;
+        Walk();   
+        Anim.SetBool("run", false);
+        Anim.SetBool("walk", true);
+        Anim.SetBool("attack", false);      
+    }
+
     void Update()
     {
-
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player"); // Bruh
         float distance = Mathf.Infinity;
         foreach (var play in players)
         {
@@ -53,14 +76,14 @@ public class orcmove : MonoBehaviour
 
         }
 
-        if (attackdelay > 0 )
+        if (attackDelay > 0 )
         {
-            attackdelay -= Time.deltaTime;
+            attackDelay -= Time.deltaTime;
         }
         
-        if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= Aggrodistance)
+        if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= aggroDistance)
         {
-            if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= Attackdistance)
+            if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= attackDistance)
             {
                 attack = true;
                 walk = false;
@@ -69,13 +92,12 @@ public class orcmove : MonoBehaviour
                 Vector3 lookAtPos = Player.transform.position;
                 lookAtPos.y = transform.position.y;
                 transform.LookAt(lookAtPos);
-                if (attackdelay <= 0)
+                if (attackDelay <= 0)
                 {
-                    attackdelay = attackspeed;
+                    attackDelay = attackSpeed;
                     
                     Attack();
-                }
-                     
+                }               
             }
             else
             {
@@ -84,13 +106,7 @@ public class orcmove : MonoBehaviour
                 run = true;
                 Agent.ResetPath();
                 Run();
-
             }
-
-
-
-
-
         }
         else
         {
@@ -102,28 +118,25 @@ public class orcmove : MonoBehaviour
         Anim.SetBool("run", run);
         Anim.SetBool("walk", walk);
         Anim.SetBool("attack", attack);
-
-
-
-
     }
 
+    #endregion
 
+    #region Private Methods
 
-    void Walk()
+    private void Walk()
     {
         if (Agent.remainingDistance <= Agent.stoppingDistance && !Agent.pathPending)
         {
-            Debug.Log("Walk");
+            //Debug.Log("Walk");
             Random aleatoire = new Random();
 
-
-            int xo = aleatoire.Next(1, Patroldistance);
-            int zo = aleatoire.Next(1, Patroldistance);
-
+            int xo = aleatoire.Next(1, patrolDistance);
+            int zo = aleatoire.Next(1, patrolDistance);
 
             int nb2 = aleatoire.Next(0, 2);
             int nb1 = aleatoire.Next(0, 2);
+
             if (nb1 == 0)
             {
                 nb1 = -1;
@@ -134,19 +147,15 @@ public class orcmove : MonoBehaviour
                 nb2 = -1;
             }
 
-
-
             Vector3 destination;
             destination.x = InitialPosition.x + xo * nb1;
             destination.z = InitialPosition.z + zo * nb2;
             destination.y = InitialPosition.y;
 
-
             Vector3 lookAtPos = destination;
             lookAtPos.y = transform.position.y;
 
             transform.LookAt(lookAtPos);
-
 
             NavMeshHit navhit;
             NavMesh.SamplePosition(destination, out navhit, 20f, NavMesh.AllAreas);
@@ -155,25 +164,24 @@ public class orcmove : MonoBehaviour
 
     }
 
-    void Run()
+    private void Run()
     {
+        //Debug.Log("Run");
         Vector3 lookAtPos = Player.transform.position;
         lookAtPos.y = transform.position.y;
-
-        transform.LookAt(lookAtPos);
-        Debug.Log("Run");
+        transform.LookAt(lookAtPos);      
         NavMeshHit navhit;
         NavMesh.SamplePosition(Player.transform.position, out navhit, 20f, NavMesh.AllAreas);
         Agent.SetDestination(navhit.position);
     }
 
-    void Attack()
-    {
-        
-        Debug.Log("Attak");
-        Player.GetComponent<Player>().ApplyDamage( "Orc" ,20, Player.name) ;
-        
+    private void Attack()
+    {       
+        //Debug.Log("Attack");
+        Player.GetComponent<Player>().ApplyDamage( "Orc" , this.damage) ;       
     }
+
+    #endregion
 
 }
 

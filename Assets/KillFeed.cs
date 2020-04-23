@@ -8,7 +8,6 @@ public class KillFeed : MonoBehaviour
     [SerializeField]
     GameObject killFeedItemPrefab;
 
-    // Start is called before the first frame update
     void Start()
     {
         GameManager.Instance.onPlayerKilledCallback += OnKill;

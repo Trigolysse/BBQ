@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using UnityEngine;
-using Random = System.Random;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class Combatmanager : MonoBehaviour
@@ -11,36 +7,40 @@ public class Combatmanager : MonoBehaviour
     public int currentHealth;
     public int respawntime;
     public Vector3 cimetiere;
-    private bool dead;
+    private bool isDead;
     private float timer;
     private NavMeshAgent Agent;
     private Vector3 Initialposition;
 
-    // Start is called before the first frame update
-    void Start()
+    #region Mono Callbacks
+
+    private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-        currentHealth = maxHealth;
-        dead = false;
-        Initialposition = transform.position;
-        
-        
     }
 
-    // Update is called once per frame
+    void Start()
+    {   
+        currentHealth = maxHealth;
+        isDead = false;
+        Initialposition = transform.position;
+    }
+
     void Update()
     {
         if (currentHealth == 0)
             Death();
-        if(dead)
+        if(isDead)
         {
             timer -= Time.deltaTime;
         }
         if(timer <= 0)
         {
-            respawn();
+            Respawn();
         }
     }
+
+    #endregion
 
 
     public void TakeDamage(int damage)
@@ -49,8 +49,6 @@ public class Combatmanager : MonoBehaviour
             currentHealth = 0;
         else
             currentHealth -= damage;
-        
-
     }
 
 
@@ -65,12 +63,12 @@ public class Combatmanager : MonoBehaviour
     public void Death()
     {
         Agent.Warp(cimetiere);
-        dead = true;
+        isDead = true;
 
     }
-    public void respawn()
+    public void Respawn()
     {
-        dead = false;
+        isDead = false;
         Agent.Warp(Initialposition);
         timer = respawntime;
         currentHealth = maxHealth;

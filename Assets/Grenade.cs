@@ -11,10 +11,11 @@ public class Grenade : MonoBehaviourPunCallbacks
     public float radius;
     public float force = 700f;
     public float throwForce = 30f;
-
     private bool hasExploded = false;
     private Rigidbody rg;
     float countdown;
+    public string source;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,11 +69,9 @@ public class Grenade : MonoBehaviourPunCallbacks
             }
             if(NearbyObject.gameObject.CompareTag(Tags.PLAYER_TAG))
             {
-                NearbyObject.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, "Grenade", 100, NearbyObject.gameObject.name);
+                NearbyObject.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, source, 100);
             }
         }
-
-
 
         //Remove Grenade 
         Destroy(grenadeparent);

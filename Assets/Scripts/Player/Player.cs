@@ -21,12 +21,13 @@ public class Player : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-
+        Health = 100;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+  
         if (!photonView.IsMine)
             return;
 
@@ -42,7 +43,7 @@ public class Player : MonoBehaviourPunCallbacks
             Debug.LogWarning("<Color=Red><a>Missing</a></Color> PlayerUiPrefab reference on player Prefab.", this);
         }
 
-        Health = 100;
+        
         if (!photonView.IsMine)
         {
             //playerUI.gameObject.SetActive(false);
@@ -54,22 +55,20 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (!photonView.IsMine)
             return;
-
-        if(Health <= 0)
-        {
-            //Die(""); 
-        }
-
     }
 
     [PunRPC]
-    public void ApplyDamage(string killer, int damage, string name)
+    public void ApplyDamage(string _sourceName, int damage)
     {
+        if (isDead)
+            return;
+
         Debug.Log("ApplyDamage");
-        GameObject.Find(name).GetComponent<Player>().Health -= damage;
-        if (GameObject.Find(name).GetComponent<Player>().Health <= 0)
+
+        Health -= damage;
+        if (Health <= 0)
         {
-            GameObject.Find(name).GetComponent<Player>().Die(killer);
+            Die(_sourceName);
         }
     }
 
@@ -81,13 +80,18 @@ public class Player : MonoBehaviourPunCallbacks
         GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = false;
     }
 
-    private void Die(string killerPlayer)
+   
+    private void Die(string _sourceName)
     {
-        if (!photonView.IsMine)
-            return;
+
         isDead = true;
-        GameManager.Instance.onPlayerKilledCallback.Invoke(killerPlayer, photonView.Owner.NickName);
-        GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = true;
+        GameManager.Instance.onPlayerKilledCallback.Invoke(_sourceName, photonView.Owner.NickName);
+
+        if (photonView.IsMine)
+        {
+            GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = true;
+        }
+   
         //Destroy(gameObject);
     }
 

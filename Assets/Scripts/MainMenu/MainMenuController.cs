@@ -41,7 +41,6 @@ public class MainMenuController : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("You are now connected to " + PhotonNetwork.CloudRegion + " server!");
         multiplayerButton.interactable = true;
     }
 }
