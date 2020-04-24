@@ -80,6 +80,7 @@ public class MouseLook : MonoBehaviour
                 //GameManager.Instance.setMenu(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                
             }
 
         }
@@ -105,6 +106,17 @@ public class MouseLook : MonoBehaviour
         lookRoot.localRotation = Quaternion.Euler(look_Angles.x, 0f, 0f);
         playerRoot.localRotation = Quaternion.Euler(0f, look_Angles.y, 0f);
 
-    } 
+    }
+
+    IEnumerator RotateMe(Vector3 byAngles, float inTime, Transform transform)
+    {
+        var fromAngle = transform.rotation;
+        var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
+        for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
+        {
+            transform.localRotation = Quaternion.Lerp(fromAngle, toAngle, t);
+            yield return null;
+        }
+    }
 
 }

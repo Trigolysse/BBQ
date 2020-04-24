@@ -178,7 +178,7 @@ public class orcmove : MonoBehaviour
     private void Attack()
     {       
         //Debug.Log("Attack");
-        Player.GetComponent<Player>().ApplyDamage( "Orc" , this.damage) ;       
+        Player.GetComponent<Player>().ApplyDamage( "Orc" , this.damage, WeaponName.ORC) ;       
     }
 
     #endregion

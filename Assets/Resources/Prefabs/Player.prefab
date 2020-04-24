@@ -442,7 +442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a9bd362d4f0ed4d81a6990b2955043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzleFlash: {fileID: 0}
+  muzzleFlash: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4,
+    type: 3}
   shootSound: {fileID: 0}
   reload_Sound: {fileID: 0}
   weaponAim: 2
@@ -453,6 +454,7 @@ MonoBehaviour:
   magazineCapacity: 100
   ammunition: 20
   attackPoint: {fileID: 0}
+  recoil: []
 --- !u!114 &5476955591828277531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,6 +1722,7 @@ MonoBehaviour:
   magazineCapacity: 20
   ammunition: 20
   attackPoint: {fileID: 0}
+  recoil: []
 --- !u!95 &4174432763542220018
 Animator:
   serializedVersion: 3
@@ -2489,6 +2492,7 @@ MonoBehaviour:
   magazineCapacity: 999
   ammunition: 999
   attackPoint: {fileID: 0}
+  recoil: []
 --- !u!95 &7259027212400964489
 Animator:
   serializedVersion: 3
@@ -2716,7 +2720,7 @@ Transform:
   m_LocalPosition: {x: -1.35, y: 1.9900001, z: 2.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4215441970322150578}
+  m_Father: {fileID: 8827100771555083366}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 44.29, y: 0, z: 0}
 --- !u!108 &8453862849958550670
@@ -3152,7 +3156,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 100
+  far clip plane: 1
   field of view: 80.6
   orthographic: 0
   orthographic size: 5
@@ -3283,7 +3287,7 @@ MonoBehaviour:
   componentsToDisable:
   - {fileID: 8827100772442632701}
   - {fileID: 8451822068716442230}
-  - {fileID: 4215441970322150847}
+  - {fileID: 8827100771555083361}
 --- !u!143 &2494913793198429903
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3382,7 +3386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9576ffa9e4c8b3b4f85a6949c59d93ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCam: {fileID: 4215441970322150847}
+  mainCam: {fileID: 8827100771555083361}
   grenadeStartPosition: {fileID: 8827100771888510860}
 --- !u!1 &8827100772442632579
 GameObject:
@@ -3413,7 +3417,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8827100771888510860}
-  - {fileID: 4215441970322150578}
+  - {fileID: 8827100771555083366}
   - {fileID: 8827100772610010421}
   m_Father: {fileID: 8827100772427584092}
   m_RootOrder: 0
@@ -4218,17 +4222,17 @@ PrefabInstance:
     - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
         type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.42293724
+      value: 0.3207547
       objectReference: {fileID: 0}
     - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
         type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.65580964
+      value: 0.3207547
       objectReference: {fileID: 0}
     - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
         type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.8509804
+      value: 0.3207547
       objectReference: {fileID: 0}
     - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
         type: 3}
@@ -4307,13 +4311,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7067450cb04284847890de006c4435e0, type: 3}
---- !u!20 &4215441970322150847 stripped
+--- !u!20 &8827100771555083361 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
     type: 3}
   m_PrefabInstance: {fileID: 4215441970322149507}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4215441970322150578 stripped
+--- !u!4 &8827100771555083366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4611803945366263013, guid: 7067450cb04284847890de006c4435e0,
     type: 3}
