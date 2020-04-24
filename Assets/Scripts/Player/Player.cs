@@ -58,7 +58,7 @@ public class Player : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void ApplyDamage(string _sourceName, int damage)
+    public void ApplyDamage(string _sourceName, int damage, WeaponName weaponName)
     {
         if (isDead)
             return;
@@ -68,7 +68,7 @@ public class Player : MonoBehaviourPunCallbacks
         Health -= damage;
         if (Health <= 0)
         {
-            Die(_sourceName);
+            Die(_sourceName, weaponName);
         }
     }
 
@@ -81,11 +81,11 @@ public class Player : MonoBehaviourPunCallbacks
     }
 
    
-    private void Die(string _sourceName)
+    private void Die(string _sourceName, WeaponName weaponName)
     {
 
         isDead = true;
-        GameManager.Instance.onPlayerKilledCallback.Invoke(_sourceName, photonView.Owner.NickName);
+        GameManager.Instance.onPlayerKilledCallback.Invoke(_sourceName, photonView.Owner.NickName, weaponName);
 
         if (photonView.IsMine)
         {

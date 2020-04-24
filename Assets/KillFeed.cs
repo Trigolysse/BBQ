@@ -13,10 +13,10 @@ public class KillFeed : MonoBehaviour
         GameManager.Instance.onPlayerKilledCallback += OnKill;
     }
 
-    public void OnKill(string killer, string victim)
+    public void OnKill(string killer, string victim, WeaponName weaponName)
     {
         GameObject go = Instantiate(killFeedItemPrefab, this.transform) as GameObject;
-        go.GetComponent<KillFeedItem>().Setup(killer, victim);
+        go.GetComponent<KillFeedItem>().Setup(killer, victim, weaponName);
     }
 
     // Update is called once per frame

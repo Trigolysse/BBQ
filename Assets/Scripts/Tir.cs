@@ -136,7 +136,7 @@ public class Tir : MonoBehaviourPunCallbacks
             if (hit.transform.CompareTag(Tags.PLAYER_TAG))
             {
                 Debug.Log("Hit player");
-                hit.transform.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage);
+                hit.transform.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage, WeaponName.AK47);
             }
             else
             {

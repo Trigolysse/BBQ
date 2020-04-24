@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public InputField chatInputField;
     public ChatManager chatManager;
 
-    public delegate void OnPlayerKilledCallback(string killer, string victim);
+    public delegate void OnPlayerKilledCallback(string killer, string victim, WeaponName weaponName);
     public OnPlayerKilledCallback onPlayerKilledCallback;
 
     #endregion

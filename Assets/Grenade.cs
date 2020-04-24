@@ -69,7 +69,7 @@ public class Grenade : MonoBehaviourPunCallbacks
             }
             if(NearbyObject.gameObject.CompareTag(Tags.PLAYER_TAG))
             {
-                NearbyObject.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, source, 100);
+                NearbyObject.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, source, 100, WeaponName.GRENADE);
             }
         }
 

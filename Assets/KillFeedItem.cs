@@ -10,16 +10,16 @@ public class KillFeedItem : MonoBehaviour
     public RawImage icon;
     public Sprite[] icons;
 
-    public void Setup(string killer, string victim)
+    public void Setup(string killer, string victim, WeaponName weaponName)
     {
         text.text = "<b>" + killer + "</b>";
         text2.text = "<b>" + victim + "</b>";
 
-        /*switch(weaponName)
+        switch(weaponName)
         {
             case WeaponName.GRENADE: icon.texture = icons[0].texture;
                 break;
-        }*/
+        }
     }
 }
 
