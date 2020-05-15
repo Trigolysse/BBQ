@@ -2354,7 +2354,7 @@ GameObject:
   - component: {fileID: 3996051470018942871}
   - component: {fileID: 4378135421810317399}
   m_Layer: 5
-  m_Name: SniperScope (1)
+  m_Name: MiniMAP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
