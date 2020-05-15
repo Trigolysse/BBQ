@@ -8,84 +8,66 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="3rd Party Assets" t="Include">
-          <e p="_Flashlight PRO" t="Include">
-            <e p="_Assets" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="Flashlight_PRO.cs" t="Include" />
-              </e>
-            </e>
-          </e>
-          <e p="Character_Witch_Dragon" t="Include">
-            <e p="readme.txt" t="Include" />
-          </e>
-          <e p="Day Night Cycle" t="Include">
-            <e p="Editor" t="Include">
-              <e p="DayNightControllerEditor.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="DayNightController.cs" t="Include" />
-            </e>
-          </e>
-          <e p="EffectExamples" t="Include">
-            <e p="Shared" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="DecalDestroyer.cs" t="Include" />
-                <e p="ExtinguishableFire.cs" t="Include" />
-                <e p="GunAim.cs" t="Include" />
-                <e p="GunShoot.cs" t="Include" />
-                <e p="ParticleCollision.cs" t="Include" />
-                <e p="ParticleExamples.cs" t="Include" />
-                <e p="ParticleMenu.cs" t="Include" />
-              </e>
-              <e p="Shaders" t="Include">
-                <e p="SurfaceShader_VC.shader" t="Include" />
-              </e>
-            </e>
-          </e>
-          <e p="GameObjectBrush" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="Editor" t="Include">
-                <e p="AddObjectPopup.cs" t="Include" />
-                <e p="BrushCollection.cs" t="Include" />
-                <e p="BrushObject.cs" t="Include" />
-                <e p="GameObjectBrushEditor.cs" t="Include" />
-                <e p="StringPopupDialog.cs" t="Include" />
-              </e>
-            </e>
-          </e>
-          <e p="porte et mayan assets" t="Include">
-            <e p="readme.txt" t="Include" />
-          </e>
           <e p="Sauce distributor" t="Include">
             <e p="Shaders" t="Include">
               <e p="SDR_Structures.shader" t="Include" />
             </e>
           </e>
-          <e p="torch" t="Include">
-            <e p="readme.txt" t="Include" />
-            <e p="scene" t="Include">
-              <e p="script" t="Include">
-                <e p="TorchSlider.cs" t="Include" />
-                <e p="Torchslider2.cs" t="Include" />
-              </e>
-            </e>
+        </e>
+        <e p="_Flashlight PRO" t="Include">
+          <e p="_Assets" t="Include">
             <e p="Scripts" t="Include">
-              <e p="Torchelight.cs" t="Include" />
+              <e p="Flashlight_PRO.cs" t="Include" />
             </e>
           </e>
         </e>
-        <e p="AliveIndicator.cs" t="Include" />
         <e p="Billboard.cs" t="Include" />
+        <e p="Character_Witch_Dragon" t="Include">
+          <e p="readme.txt" t="Include" />
+        </e>
+        <e p="Day Night Cycle" t="Include">
+          <e p="Editor" t="Include">
+            <e p="DayNightControllerEditor.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="DayNightController.cs" t="Include" />
+          </e>
+        </e>
         <e p="DragonFOLLOW.cs" t="Include" />
+        <e p="EffectExamples" t="Include">
+          <e p="Shared" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="DecalDestroyer.cs" t="Include" />
+              <e p="ExtinguishableFire.cs" t="Include" />
+              <e p="GunAim.cs" t="Include" />
+              <e p="GunShoot.cs" t="Include" />
+              <e p="ParticleCollision.cs" t="Include" />
+              <e p="ParticleExamples.cs" t="Include" />
+              <e p="ParticleMenu.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="SurfaceShader_VC.shader" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="EffetDeTir.cs" t="Include" />
         <e p="EnemyAttack.cs" t="Include" />
         <e p="EscapeMenu.cs" t="Include" />
         <e p="Essai.cs" t="Include" />
+        <e p="GameObjectBrush" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="AddObjectPopup.cs" t="Include" />
+              <e p="BrushCollection.cs" t="Include" />
+              <e p="BrushObject.cs" t="Include" />
+              <e p="GameObjectBrushEditor.cs" t="Include" />
+              <e p="StringPopupDialog.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Grenade.cs" t="Include" />
         <e p="grenadeThrower.cs" t="Include" />
         <e p="HealthBar.cs" t="Include" />
-        <e p="KillFeed.cs" t="Include" />
-        <e p="KillFeedItem.cs" t="Include" />
         <e p="localPlayController.cs" t="Include" />
         <e p="orcmove.cs" t="Include" />
         <e p="Photon" t="Include">
@@ -258,6 +240,9 @@
             </e>
           </e>
         </e>
+        <e p="porte et mayan assets" t="Include">
+          <e p="readme.txt" t="Include" />
+        </e>
         <e p="Porte.cs" t="Include" />
         <e p="PORTESHOP.cs" t="Include" />
         <e p="Salazar Inventory" t="Include">
@@ -295,7 +280,6 @@
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerSetup.cs" t="Include" />
             <e p="PlayerSprintAndCrouch.cs" t="Include" />
-            <e p="PlayerUI.cs" t="Include" />
           </e>
           <e p="Random scripts" t="Include">
             <e p="Affichage.cs" t="Include" />
@@ -311,7 +295,6 @@
           </e>
           <e p="Weapons" t="Include">
             <e p="Ak47.cs" t="Include" />
-            <e p="SniperScript.cs" t="Include" />
             <e p="Weapon.cs" t="Include" />
             <e p="WeaponFireMode.cs" t="Include" />
             <e p="WeaponHandler.cs" t="Include" />
@@ -319,8 +302,19 @@
             <e p="WeaponName.cs" t="Include" />
           </e>
         </e>
-        <e p="SniperScript.cs" t="Include" />
         <e p="SONnnn.cs" t="Include" />
+        <e p="torch" t="Include">
+          <e p="readme.txt" t="Include" />
+          <e p="scene" t="Include">
+            <e p="script" t="Include">
+              <e p="TorchSlider.cs" t="Include" />
+              <e p="Torchslider2.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Torchelight.cs" t="Include" />
+          </e>
+        </e>
         <e p="unity-ui-extensions" t="Include">
           <e p="Scripts" t="Include">
             <e p="Effects" t="Include">
