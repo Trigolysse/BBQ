@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PORTESHOP : MonoBehaviour
 {
-    public float angle=150;
-    public float angle2=150;
-    public GameObject portedroite;
+    
+    public GameObject porteouverte;
+    public GameObject porteferme;
     
     private bool droit = false;
     private bool ouvert = false;
@@ -24,27 +24,14 @@ public class PORTESHOP : MonoBehaviour
     void Update()
     {
         
-        if (droit)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
+        
+            if (Input.GetKeyDown(KeyCode.E) && droit)
             {
-                if (ouvert)
-                {
-                    portedroite.transform.Rotate(0,0,-angle);
-                    Debug.Log("OUVERT");
-                    ouvert = false;
-                }
-                else
-                {
-                    
-                    portedroite.transform.Rotate(0,0,angle2);
-                    Debug.Log("FERME");
-                    ouvert = true;
+                porteferme.SetActive(true);
+                porteouverte.SetActive(false);
 
-                }
-                
             }
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
