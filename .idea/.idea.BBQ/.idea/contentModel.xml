@@ -76,6 +76,9 @@
         </e>
         <e p="AliveIndicator.cs" t="Include" />
         <e p="Billboard.cs" t="Include" />
+        <e p="Dialogue.cs" t="Include" />
+        <e p="DialogueManager.cs" t="Include" />
+        <e p="DialogueTrigger.cs" t="Include" />
         <e p="DragonFOLLOW.cs" t="Include" />
         <e p="EffetDeTir.cs" t="Include" />
         <e p="EnemyAttack.cs" t="Include" />
@@ -320,6 +323,7 @@
           </e>
         </e>
         <e p="SONnnn.cs" t="Include" />
+        <e p="taklwithme.cs" t="Include" />
         <e p="unity-ui-extensions" t="Include">
           <e p="Scripts" t="Include">
             <e p="Effects" t="Include">
