@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviourPunCallbacks
 {
+    private int timeblood = 0;
+    private bool blood = false;
     private int frames;
     private int pasthealth;
     private RaycastHit hit;
@@ -59,12 +61,27 @@ public class Player : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
+        if (blood)
+        {
+            timeblood++;
+        }
+
+        if (timeblood==32)
+        {
+            blood = false;
+            timeblood = 0;
+            BloodSight.SetActive(false);
+        }
         frames++;
         if (frames%4==0)
         {
             if (pasthealth>Health)
             {
                 pasthealth = Health;
+                BloodSight.SetActive(true);
+                blood = true;
+                timeblood = 0;
+
             }
             else
             {
