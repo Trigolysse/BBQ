@@ -53458,6 +53458,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2229768644626625955, guid: 35b10bb106ad3af4cb2c7fb87a0e81b3,
         type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229768644626625955, guid: 35b10bb106ad3af4cb2c7fb87a0e81b3,
+        type: 3}
       propertyPath: dialogmanager
       value: 
       objectReference: {fileID: 1004056772}
@@ -53466,6 +53471,16 @@ PrefabInstance:
       propertyPath: talk
       value: 
       objectReference: {fileID: 288055300}
+    - target: {fileID: 2229768644626625955, guid: 35b10bb106ad3af4cb2c7fb87a0e81b3,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: Tu veux de l'oseille facile?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229768644626625955, guid: 35b10bb106ad3af4cb2c7fb87a0e81b3,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: "Ram\xE8ne-moi deux grammes de blanche!"
+      objectReference: {fileID: 0}
     - target: {fileID: 6596381516937716433, guid: 35b10bb106ad3af4cb2c7fb87a0e81b3,
         type: 3}
       propertyPath: m_LocalPosition.x

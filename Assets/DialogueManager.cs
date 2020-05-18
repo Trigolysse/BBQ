@@ -35,7 +35,6 @@ public class DialogueManager : MonoBehaviour {
 
 	public void DisplayNextSentence ()
 	{
-		Debug.Log("Vive Booba");
 		if (sentences.Count == 0)
 		{
 			EndDialogue();

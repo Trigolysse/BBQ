@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class taklwithme : MonoBehaviour
+public class taklwithme : MonoBehaviourPunCallbacks
 {
+    private int next = 0;
     public Dialogue dialogue;
     public GameObject talk;
     private bool begin = false;
@@ -18,7 +20,11 @@ public class taklwithme : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (next>0)
+        {
+            next--;
+        }
+        if (Input.GetKeyDown(KeyCode.F) && next==0)
         {
             if (begin==false)
             {
@@ -26,12 +32,14 @@ public class taklwithme : MonoBehaviour
                             
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                 begin = true;
+                next = 25;
             }
             else
             {
                 Debug.Log("Vive Kaaris");
                 dialogmanager.GetComponent<DialogueManager>().DisplayNextSentence();
-                
+                next = 25;
+
             }
             
         }
