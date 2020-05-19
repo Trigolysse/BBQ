@@ -21,7 +21,7 @@ public class AnimationTags
     public const string ZOOM_IN_ANIM = "ZoomIn";
     public const string ZOOM_OUT_ANIM = "ZoomOut";
 
-    public const string SHOOT_TRIGGER = "Shoot";
+    public const string FIRE_TRIGGER = "Fire";
     public const string BLOCK_TRIGGER = "Block";
     public const string UNBLOCK_TRIGGER = "UnBlock";
     public const string AIM_PARAMETER = "Aim";
@@ -30,6 +30,7 @@ public class AnimationTags
     public const string RUN_PARAMETER = "Run";
     public const string ATTACK_TRIGGER = "Attack";
     public const string DEAD_TRIGGER = "Dead";
+    public const string INSPECT_TRIGGER = "Inspect";
 
 }
 

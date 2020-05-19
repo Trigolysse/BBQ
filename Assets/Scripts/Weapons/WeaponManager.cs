@@ -64,6 +64,10 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             TurnOnSelectedWeapon(5);
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            GetCurrentSelectedWeapon().InspectAnimation();
+        }
     }
 
     void TurnOnSelectedWeapon(int weaponIndex)

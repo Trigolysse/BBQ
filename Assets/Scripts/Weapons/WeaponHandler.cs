@@ -33,6 +33,8 @@ public class WeaponHandler : MonoBehaviour
     private GameObject muzzleFlash;
     [SerializeField]
     private AudioSource shootSound, reload_Sound;
+    [SerializeField]
+    private int movementSpeed;
 
     #endregion
 
@@ -45,6 +47,7 @@ public class WeaponHandler : MonoBehaviour
     public float fireRate;
     public int magazineCapacity;
     public int ammunition;
+    
     public GameObject attackPoint;
     public Vector2[] recoil;
 
@@ -98,9 +101,23 @@ public class WeaponHandler : MonoBehaviour
 
     public void ShootAnimation()
     {
-        //Debug.Log("ShootAnimation");
-        animator.SetTrigger(AnimationTags.SHOOT_TRIGGER);
+        animator.SetTrigger(AnimationTags.FIRE_TRIGGER);
         DecreaseAmmunition();
+    }
+
+    public void WalkAnimation()
+    {
+        animator.SetBool(AnimationTags.WALK_PARAMETER, true);
+    }
+
+    public void StopWalkAnimation()
+    {
+        animator.SetBool(AnimationTags.WALK_PARAMETER, false);
+    }
+
+    public void InspectAnimation()
+    {
+        animator.SetTrigger(AnimationTags.INSPECT_TRIGGER);
     }
 
     public void BlockAnimation()

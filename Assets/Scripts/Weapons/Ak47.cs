@@ -60,7 +60,6 @@ public class Ak47 : Weapon
 
     public void ShootAnimation()
     {
-        Debug.Log("ShootAnimation");
-        animator.SetTrigger(AnimationTags.SHOOT_TRIGGER); 
+        throw new System.NotImplementedException();
     }
 }
