@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject chatPanel, textObject;
     public InputField chatInputField;
     public ChatManager chatManager;
+    public GameObject SkipIntro;
+    public GameObject ChatMenu;
+    public GameObject EscapeMenu;
+    
 
     public delegate void OnPlayerKilledCallback(string killer, string victim, WeaponName weaponName);
     public OnPlayerKilledCallback onPlayerKilledCallback;
@@ -21,7 +25,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     #region Private Fields
 
- 
+    private bool create = false;
     public GameObject chatMenu;
     public GameObject playerController;
     private bool isShowing;
@@ -43,27 +47,42 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
             PhotonNetwork.LoadLevel(0);
         Instance = this;
+        SkipIntro.SetActive(true);
     
-        CreatePlayer();
+        
         
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (create==false && Input.GetKeyDown(KeyCode.Space))
         {
-            isShowing = !isShowing;
-         
-            chatInputField.gameObject.SetActive(isShowing);
-            chatInputField.Select();
-            chatInputField.ActivateInputField();
+            create = true;
+            CreatePlayer();
+            SkipIntro.SetActive(false);
+            ChatMenu.SetActive(true);
+            EscapeMenu.SetActive(true);
+        }
 
-
-            if (!isShowing && chatInputField.text != "")
+        if (create)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
             {
-                chatManager.sendMessage(chatInputField.text);
-                chatInputField.text = "";
+                isShowing = !isShowing;
+         
+                chatInputField.gameObject.SetActive(isShowing);
+                chatInputField.Select();
+                chatInputField.ActivateInputField();
+
+
+                if (!isShowing && chatInputField.text != "")
+                {
+                    chatManager.sendMessage(chatInputField.text);
+                    chatInputField.text = "";
+                }
             }
         }
+        
+        
     }
 
     #endregion

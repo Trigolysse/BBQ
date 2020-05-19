@@ -2361,7 +2361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4136146108890273573
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4794,6 +4794,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiniMapIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175572298540837229, guid: 89ef9073d57a8f547821665ecf2c57da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7353576173012125433, guid: 89ef9073d57a8f547821665ecf2c57da,
         type: 3}
