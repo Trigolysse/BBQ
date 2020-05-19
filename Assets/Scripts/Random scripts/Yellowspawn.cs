@@ -19,9 +19,8 @@ public class Yellowspawn : MonoBehaviourPunCallbacks
     {
         Debug.Log("prout");
        
-        if(photonView.IsMine)
+        if(PhotonNetwork.IsMasterClient)
         {
-            spawnFlowers();
             photonView.RPC("spawnFlowers", RpcTarget.All);
         }
         
@@ -38,7 +37,7 @@ public class Yellowspawn : MonoBehaviourPunCallbacks
 
         foreach (Vector3[] ranpos in allspwan)
         {
-            GameObject newflower = PhotonNetwork.Instantiate("YellowFlower", ranpos[rand.Next(size)], Quaternion.identity) as GameObject;
+            GameObject newflower = Instantiate(flower, ranpos[rand.Next(size)], Quaternion.identity) as GameObject;
         }
     }
 
