@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class loot : MonoBehaviour
@@ -20,8 +21,7 @@ public class loot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(this.gameObject);
         }
     }
 }

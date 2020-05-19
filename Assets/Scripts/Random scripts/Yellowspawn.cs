@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
+using Photon.Pun;
 
 public class Yellowspawn : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class Yellowspawn : MonoBehaviour
         allspwan.Add(spawn2);
         foreach(Vector3[] ranpos in allspwan)
         {
-            GameObject newflower = Instantiate(flower, ranpos[rand.Next(size)], Quaternion.identity) as GameObject;
+            GameObject newflower = PhotonNetwork.Instantiate("YellowFlower", ranpos[rand.Next(size)], Quaternion.identity) as GameObject;
         }
     }
 
