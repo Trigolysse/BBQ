@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     #region Private Fields
 
+    private float Frames;
     private int frames;
     private bool create = false;
     public GameObject chatMenu;
@@ -51,13 +52,15 @@ public class GameManager : MonoBehaviourPunCallbacks
             PhotonNetwork.LoadLevel(0);
         Instance = this;
         SkipIntro.SetActive(true);
-    
         
-        
+
+
+
     }
     private void Update()
     {
-        if (create==false && Input.GetKeyDown(KeyCode.Space))
+        Frames=Time.time;
+        if (create==false && Input.GetKeyDown(KeyCode.Space) | create==false && Frames>23f)
         {
             create = true;
             CreatePlayer();
