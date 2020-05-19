@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject ChatMenu;
     public GameObject EscapeMenu;
     public Camera Camer;
+    public Text text;
     
 
     public delegate void OnPlayerKilledCallback(string killer, string victim, WeaponName weaponName);
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     #region Private Fields
 
+    private int frames;
     private bool create = false;
     public GameObject chatMenu;
     public GameObject playerController;
@@ -81,6 +83,23 @@ public class GameManager : MonoBehaviourPunCallbacks
                     chatManager.sendMessage(chatInputField.text);
                     chatInputField.text = "";
                 }
+            }
+        }
+        else
+        {
+            frames++;
+            if (frames>80)
+            {
+                frames = 1;
+            }
+
+            if (frames>40)
+            {
+                text.enabled = false;
+            }
+            else
+            {
+                text.enabled = true;
             }
         }
         
