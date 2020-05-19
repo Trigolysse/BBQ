@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void Update()
     {
         Frames=Time.time;
-        if (create==false && Input.GetKeyDown(KeyCode.Space) | create==false && Frames>23f)
+        if (create==false && Input.GetKeyDown(KeyCode.Space) || create==false && Frames>23f)
         {
             create = true;
             CreatePlayer();
