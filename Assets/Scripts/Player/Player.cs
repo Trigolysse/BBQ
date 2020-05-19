@@ -39,10 +39,11 @@ public class Player : MonoBehaviourPunCallbacks
         if (!photonView.IsMine)
             return;
 
-        GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = false;
+        //GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = false;
 
         if (PlayerUiPrefab != null)
         {
+            Debug.Log("PlayerUiPrefab");
             GameObject _uiGo = Instantiate(PlayerUiPrefab);
             _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
         }

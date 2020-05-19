@@ -599,6 +599,7 @@ MonoBehaviour:
     type: 3}
   shootSound: {fileID: 0}
   reload_Sound: {fileID: 0}
+  movementSpeed: 0
   weaponAim: 2
   fireType: 1
   bulletType: 0
@@ -1883,6 +1884,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   shootSound: {fileID: 0}
   reload_Sound: {fileID: 0}
+  movementSpeed: 0
   weaponAim: 0
   fireType: 0
   bulletType: 3
@@ -2752,6 +2754,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   shootSound: {fileID: 0}
   reload_Sound: {fileID: 0}
+  movementSpeed: 0
   weaponAim: 0
   fireType: 0
   bulletType: 3
