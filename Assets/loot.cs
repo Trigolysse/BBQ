@@ -17,11 +17,8 @@ public class loot : MonoBehaviour
 
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
             PhotonNetwork.Destroy(this.gameObject);
-        }
     }
 }
