@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject SkipIntro;
     public GameObject ChatMenu;
     public GameObject EscapeMenu;
+    public Camera Camer;
     
 
     public delegate void OnPlayerKilledCallback(string killer, string victim, WeaponName weaponName);
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             SkipIntro.SetActive(false);
             ChatMenu.SetActive(true);
             EscapeMenu.SetActive(true);
+            Destroy(Camer);
         }
 
         if (create)
