@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db0a9db5-e82e-4981-949a-ec09e0a9b5eb" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="db0a9db5-e82e-4981-949a-ec09e0a9b5eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../3rd Party Assets/NaturePackLite/Models/Rock_01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../3rd Party Assets/NaturePackLite/Models/Rock_01.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Resources/Prefabs/OrcCombat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Resources/Prefabs/OrcCombat.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Resources/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Resources/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scenes/BBQ.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Scenes/BBQ.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Texture/New Terrain 3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Texture/New Terrain 3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../porte et mayan assets/Models/Mobile.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,32 +17,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\Internet\Documents\GitHub\BBQ\Assets\Photon\PhotonUnityNetworking\Code\.idea\.idea.Code.dir\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="ProjectId" id="1agGzHIuAr3GycxL8rL2c6DYjaY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -49,13 +40,14 @@
       <option name="presentableId" value="Default" />
       <updated>1587150084769</updated>
       <workItem from="1587150089073" duration="12000" />
+      <workItem from="1589803470009" duration="130000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -67,9 +59,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

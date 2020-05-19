@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject chatPanel, textObject;
     public InputField chatInputField;
     public ChatManager chatManager;
+    public GameObject SkipIntro;
+    public GameObject ChatMenu;
+    public GameObject EscapeMenu;
+    public Camera Camer;
+    public Text text;
+    
 
     public delegate void OnPlayerKilledCallback(string killer, string victim, WeaponName weaponName);
     public OnPlayerKilledCallback onPlayerKilledCallback;
@@ -21,7 +27,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     #region Private Fields
 
- 
+    private float Frames;
+    private int frames;
+    private bool create = false;
     public GameObject chatMenu;
     public GameObject playerController;
     private bool isShowing;
@@ -43,27 +51,62 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
             PhotonNetwork.LoadLevel(0);
         Instance = this;
-    
-        CreatePlayer();
+        SkipIntro.SetActive(true);
         
+
+
+
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        Frames=Time.time;
+        if (create==false && Input.GetKeyDown(KeyCode.Space) || create==false && Frames>23f)
         {
-            isShowing = !isShowing;
-         
-            chatInputField.gameObject.SetActive(isShowing);
-            chatInputField.Select();
-            chatInputField.ActivateInputField();
+            create = true;
+            CreatePlayer();
+            SkipIntro.SetActive(false);
+            ChatMenu.SetActive(true);
+            EscapeMenu.SetActive(true);
+            Destroy(Camer);
+        }
 
-
-            if (!isShowing && chatInputField.text != "")
+        if (create)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
             {
-                chatManager.sendMessage(chatInputField.text);
-                chatInputField.text = "";
+                isShowing = !isShowing;
+         
+                chatInputField.gameObject.SetActive(isShowing);
+                chatInputField.Select();
+                chatInputField.ActivateInputField();
+
+
+                if (!isShowing && chatInputField.text != "")
+                {
+                    chatManager.sendMessage(chatInputField.text);
+                    chatInputField.text = "";
+                }
             }
         }
+        else
+        {
+            frames++;
+            if (frames>80)
+            {
+                frames = 1;
+            }
+
+            if (frames>40)
+            {
+                text.enabled = false;
+            }
+            else
+            {
+                text.enabled = true;
+            }
+        }
+        
+        
     }
 
     #endregion

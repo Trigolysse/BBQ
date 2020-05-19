@@ -5,8 +5,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviourPunCallbacks
 {
+    private int timeblood = 0;
+    private bool blood = false;
+    private int frames;
+    private int pasthealth;
     private RaycastHit hit;
     public int Health;
+
+    public GameObject BloodSight;
     //public Canvas playerUI;
 
     [Tooltip("The Player's UI GameObject Prefab")]
@@ -22,6 +28,8 @@ public class Player : MonoBehaviourPunCallbacks
     private void Awake()
     {
         Health = 100;
+        pasthealth = Health;
+        frames = 0;
     }
 
     // Start is called before the first frame update
@@ -55,6 +63,34 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (!photonView.IsMine)
             return;
+        if (blood)
+        {
+            timeblood++;
+        }
+
+        if (timeblood==32)
+        {
+            blood = false;
+            timeblood = 0;
+            BloodSight.SetActive(false);
+        }
+        frames++;
+        if (frames%4==0)
+        {
+            if (pasthealth>Health)
+            {
+                pasthealth = Health;
+                BloodSight.SetActive(true);
+                blood = true;
+                timeblood = 0;
+
+            }
+            else
+            {
+                pasthealth = Health;
+            }
+        }
+        
     }
 
     [PunRPC]
