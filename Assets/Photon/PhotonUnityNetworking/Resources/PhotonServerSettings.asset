@@ -40,5 +40,6 @@ MonoBehaviour:
   - TakeDamage
   - ApplyDamage
   - Die
+  - spawnFlowers
   DisableAutoOpenWizard: 1
   ShowSettings: 1
