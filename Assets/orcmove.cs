@@ -81,40 +81,41 @@ public class orcmove : MonoBehaviour
             attackDelay -= Time.deltaTime;
         }
         
-        if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= aggroDistance)
-        {
-            if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= attackDistance)
+        if(Player != null)
+            if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= aggroDistance)
             {
-                attack = true;
-                walk = false;
-                run = false;
-                Agent.ResetPath();
-                Vector3 lookAtPos = Player.transform.position;
-                lookAtPos.y = transform.position.y;
-                transform.LookAt(lookAtPos);
-                if (attackDelay <= 0)
+                if (Vector3.Distance(Agent.transform.position, Player.transform.position) <= attackDistance)
                 {
-                    attackDelay = attackSpeed;
+                    attack = true;
+                    walk = false;
+                    run = false;
+                    Agent.ResetPath();
+                    Vector3 lookAtPos = Player.transform.position;
+                    lookAtPos.y = transform.position.y;
+                    transform.LookAt(lookAtPos);
+                    if (attackDelay <= 0)
+                    {
+                        attackDelay = attackSpeed;
                     
-                    Attack();
-                }               
+                        Attack();
+                    }               
+                }
+                else
+                {
+                    attack = false;
+                    walk = false;
+                    run = true;
+                    Agent.ResetPath();
+                    Run();
+                }
             }
             else
             {
                 attack = false;
-                walk = false;
-                run = true;
-                Agent.ResetPath();
-                Run();
+                walk = true;
+                run = false;
+                Walk();
             }
-        }
-        else
-        {
-            attack = false;
-            walk = true;
-            run = false;
-            Walk();
-        }
         Anim.SetBool("run", run);
         Anim.SetBool("walk", walk);
         Anim.SetBool("attack", attack);
