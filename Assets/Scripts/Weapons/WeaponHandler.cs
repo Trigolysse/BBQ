@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Net.Mime;
 using UnityEngine;
@@ -64,7 +65,7 @@ public class WeaponHandler : MonoBehaviour
 
     void Awake()
     {
-        
+
         
         ammunition = 32;
         animator = GetComponent<Animator>();
@@ -105,6 +106,7 @@ public class WeaponHandler : MonoBehaviour
 
     #endregion
 
+   
     #region Public Methods
 
     public void DecreaseAmmunition() => ammunition -= 1;
