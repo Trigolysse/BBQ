@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using UnityEditor.Animations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,6 +17,8 @@ public class Tir : MonoBehaviourPunCallbacks
     public GameObject Metaleffect;
     public float radius = 1f;
     public GameObject Sword;
+    private Animator anim;
+    
 
     #endregion
 
@@ -37,6 +40,7 @@ public class Tir : MonoBehaviourPunCallbacks
     
     void Awake()
     {
+        anim = AK.GetComponent<Animator>();
         weaponManager = GetComponent<WeaponManager>();
         mouseLook = GetComponentInChildren<MouseLook>();
     }
@@ -47,6 +51,16 @@ public class Tir : MonoBehaviourPunCallbacks
         {
             
             WeaponShoot();
+            reload = AK.GetComponent<WeaponHandler>().recharge;
+            if (!Sword.active && reload)
+            {
+            
+                anim.SetBool("Reload", true);
+            }
+            else
+            {
+                anim.SetBool("Reload",false);
+            }
         }
             
             
@@ -167,6 +181,7 @@ public class Tir : MonoBehaviourPunCallbacks
             Debug.Log("Did not it");
         }
         }
+       
         
       
 

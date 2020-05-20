@@ -128,7 +128,7 @@ public class WeaponHandler : MonoBehaviour
             {
                 temps += Time.deltaTime;
                 recharge = true;
-                if (temps>2)
+                if (temps>1.40f)
                 {
                     ammunition = 32;
                     Amo.text = ammunition.ToString();
