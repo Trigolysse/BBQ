@@ -53,6 +53,7 @@ public class WeaponHandler : MonoBehaviour
     public float fireRate;
     public int magazineCapacity;
     public int ammunition;
+    public GameObject bullet;
     
     public GameObject attackPoint;
     public Vector2[] recoil;
@@ -115,10 +116,12 @@ public class WeaponHandler : MonoBehaviour
         {
             if (ammunition<=0)
             {
+                bullet.SetActive(false);
                 return;
             }
             else
             {
+                bullet.SetActive(true);
                 animator.SetTrigger(AnimationTags.FIRE_TRIGGER);
                 DecreaseAmmunition();
                 Amo.text = ammunition.ToString();

@@ -600,6 +600,7 @@ MonoBehaviour:
   fireRate: 10
   magazineCapacity: 100
   ammunition: 32
+  bullet: {fileID: 1242474564604182046}
   attackPoint: {fileID: 0}
   recoil: []
 --- !u!114 &6597207037544773306
@@ -1887,6 +1888,7 @@ MonoBehaviour:
   fireRate: 3
   magazineCapacity: 20
   ammunition: 20
+  bullet: {fileID: 0}
   attackPoint: {fileID: 0}
   recoil: []
 --- !u!95 &4174432763542220018
@@ -2759,6 +2761,7 @@ MonoBehaviour:
   fireRate: 1
   magazineCapacity: 999
   ammunition: 999
+  bullet: {fileID: 0}
   attackPoint: {fileID: 0}
   recoil: []
 --- !u!95 &7259027212400964489
