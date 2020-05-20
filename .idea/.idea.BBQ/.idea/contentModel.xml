@@ -87,6 +87,7 @@
         <e p="Grenade.cs" t="Include" />
         <e p="grenadeThrower.cs" t="Include" />
         <e p="HealthBar.cs" t="Include" />
+        <e p="IsSword.cs" t="Include" />
         <e p="KillFeed.cs" t="Include" />
         <e p="KillFeedItem.cs" t="Include" />
         <e p="localPlayController.cs" t="Include" />

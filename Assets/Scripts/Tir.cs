@@ -15,6 +15,7 @@ public class Tir : MonoBehaviourPunCallbacks
     public GameObject Bloodeffect;
     public GameObject Metaleffect;
     public float radius = 1f;
+    public GameObject Sword;
 
     #endregion
 
@@ -25,6 +26,8 @@ public class Tir : MonoBehaviourPunCallbacks
     private float cooldownTime;
     private WeaponManager weaponManager;
     private MouseLook mouseLook;
+    private int munition;
+    
 
     #endregion
 
@@ -89,7 +92,12 @@ public class Tir : MonoBehaviourPunCallbacks
 
     void Shoot()
     {
-        RaycastHit hit;
+        
+        
+        
+        if (!Sword.active)
+        { 
+                         RaycastHit hit;
 
         Vector3 direction = mainCam.transform.TransformDirection(RandomInsideCone(radius).normalized);
         
@@ -149,6 +157,9 @@ public class Tir : MonoBehaviourPunCallbacks
             //Debug.DrawRay(mainCam.transform.position, hit.point, Color.white, 2f);
             Debug.Log("Did not it");
         }
+        }
+        
+      
 
     }
 

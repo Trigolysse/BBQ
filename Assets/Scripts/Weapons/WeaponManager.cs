@@ -10,10 +10,11 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField]
     private WeaponHandler[] weapons;
 
-    private int currentWeaponIndex;
+    public int currentWeaponIndex;
     private int Frames;
     private bool wheel;
     private int index;
+
 
     #endregion
 
@@ -21,6 +22,7 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
+        index = 0;
         currentWeaponIndex = 0;
         weapons[currentWeaponIndex].gameObject.SetActive(true);
         wheel = false;

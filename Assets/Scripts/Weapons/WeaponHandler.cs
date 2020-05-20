@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum WeaponAim
 {
@@ -36,6 +38,10 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField]
     private int movementSpeed;
 
+    public GameObject Epee;
+
+    public Text Amo;
+
     #endregion
 
     #region Public Fields
@@ -57,6 +63,9 @@ public class WeaponHandler : MonoBehaviour
 
     void Awake()
     {
+        
+        
+        ammunition = 32;
         animator = GetComponent<Animator>();
         recoil = new Vector2[] {
             Vector2.zero,
@@ -101,8 +110,24 @@ public class WeaponHandler : MonoBehaviour
 
     public void ShootAnimation()
     {
-        animator.SetTrigger(AnimationTags.FIRE_TRIGGER);
-        DecreaseAmmunition();
+        
+        if (!Epee.active)
+        {
+            if (ammunition<=0)
+            {
+                return;
+            }
+            else
+            {
+                animator.SetTrigger(AnimationTags.FIRE_TRIGGER);
+                DecreaseAmmunition();
+                Amo.text = ammunition.ToString();
+            }
+        }
+        
+       
+        
+
     }
 
     public void WalkAnimation()
@@ -139,7 +164,9 @@ public class WeaponHandler : MonoBehaviour
 
     void TurnOnMuzzleFlash()
     {
-        muzzleFlash.SetActive(true);
+       
+            muzzleFlash.SetActive(true);
+        
     }
 
     void TurnOffMuzzleFlash()
