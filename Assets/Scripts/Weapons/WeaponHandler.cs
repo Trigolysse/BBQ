@@ -39,6 +39,9 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField]
     private int movementSpeed;
 
+    public bool recharge;
+    private float temps;
+
     public GameObject Epee;
 
     public Text Amo;
@@ -65,6 +68,8 @@ public class WeaponHandler : MonoBehaviour
 
     void Awake()
     {
+        temps = 0;
+        recharge = false;
 
         
         ammunition = 32;
@@ -106,7 +111,35 @@ public class WeaponHandler : MonoBehaviour
 
     #endregion
 
-   
+    private void Update()
+    {
+        if (!Epee.active)
+        {
+
+            if (!recharge)
+            {
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    recharge = true;
+                    temps = 0;
+                }
+            }
+            else
+            {
+                temps += Time.deltaTime;
+                recharge = true;
+                if (temps>2)
+                {
+                    ammunition = 32;
+                    Amo.text = ammunition.ToString();
+                    recharge = false;
+                }
+            }
+
+        }
+    }
+
+
     #region Public Methods
 
     public void DecreaseAmmunition() => ammunition -= 1;
@@ -114,9 +147,10 @@ public class WeaponHandler : MonoBehaviour
     public void ShootAnimation()
     {
         
+        
         if (!Epee.active)
         {
-            if (ammunition<=0)
+            if (ammunition<=0 || recharge)
             {
                 bullet.SetActive(false);
                 return;

@@ -591,6 +591,7 @@ MonoBehaviour:
   shootSound: {fileID: 0}
   reload_Sound: {fileID: 0}
   movementSpeed: 0
+  recharge: 0
   Epee: {fileID: 6831758172897476870}
   Amo: {fileID: 1201409306963089666}
   weaponAim: 2
@@ -632,6 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boomeffet: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
+  AK: {fileID: 1241983053475835852}
 --- !u!1 &1350471684472082496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,6 +1881,7 @@ MonoBehaviour:
   shootSound: {fileID: 0}
   reload_Sound: {fileID: 0}
   movementSpeed: 0
+  recharge: 0
   Epee: {fileID: 6831758172897476870}
   Amo: {fileID: 0}
   weaponAim: 0
@@ -2752,6 +2755,7 @@ MonoBehaviour:
   shootSound: {fileID: 0}
   reload_Sound: {fileID: 0}
   movementSpeed: 0
+  recharge: 0
   Epee: {fileID: 6831758172897476870}
   Amo: {fileID: 0}
   weaponAim: 0
@@ -3868,6 +3872,7 @@ MonoBehaviour:
     type: 3}
   radius: 1
   Sword: {fileID: 5297137714818808391}
+  AK: {fileID: 1241983053475835852}
   killFeedObj: {fileID: 0}
 --- !u!114 &8775017867349572460
 MonoBehaviour:
