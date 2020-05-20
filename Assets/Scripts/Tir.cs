@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Tir : MonoBehaviourPunCallbacks
@@ -17,8 +18,7 @@ public class Tir : MonoBehaviourPunCallbacks
     public GameObject Metaleffect;
     public float radius = 1f;
     public GameObject Sword;
-    private Animator anim;
-    
+
 
     #endregion
 
@@ -32,6 +32,8 @@ public class Tir : MonoBehaviourPunCallbacks
     private int munition;
     public GameObject AK;
     private bool reload;
+    private Animator anim;
+    
     
 
     #endregion
@@ -49,7 +51,7 @@ public class Tir : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-            
+
             WeaponShoot();
             reload = AK.GetComponent<WeaponHandler>().recharge;
             if (!Sword.active && reload)

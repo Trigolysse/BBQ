@@ -45,6 +45,7 @@ public class WeaponHandler : MonoBehaviour
     public GameObject Epee;
 
     public Text Amo;
+    public Text TotalAmo;
 
     #endregion
 
@@ -58,6 +59,7 @@ public class WeaponHandler : MonoBehaviour
     public int magazineCapacity;
     public int ammunition;
     public GameObject bullet;
+    public int amo;
     
     public GameObject attackPoint;
     public Vector2[] recoil;
@@ -68,6 +70,7 @@ public class WeaponHandler : MonoBehaviour
 
     void Awake()
     {
+        amo = 192;
         temps = 0;
         recharge = false;
 
@@ -115,26 +118,36 @@ public class WeaponHandler : MonoBehaviour
     {
         if (!Epee.active)
         {
-
-            if (!recharge)
+            
+            if (amo==0)
             {
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    recharge = true;
-                    temps = 0;
-                }
+                recharge = false;
             }
             else
             {
-                temps += Time.deltaTime;
-                recharge = true;
-                if (temps>1.40f)
+                if (!recharge)
                 {
-                    ammunition = 32;
-                    Amo.text = ammunition.ToString();
-                    recharge = false;
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        recharge = true;
+                        temps = 0;
+                    }
+                }
+                else
+                {
+                    temps += Time.deltaTime;
+                    recharge = true;
+                    if (temps>1.40f)
+                    {
+                        ammunition = 32;
+                        amo -= 32;
+                        Amo.text = ammunition.ToString();
+                        recharge = false;
+                    }
                 }
             }
+
+            
 
         }
     }
