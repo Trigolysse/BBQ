@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7518213258732356292}
   - component: {fileID: 7518213258732356345}
   - component: {fileID: 7518213258732356346}
-  - component: {fileID: 7518213258732356344}
   m_Layer: 0
   m_Name: Son tuyau qui flippe sa mere
   m_TagString: Untagged
@@ -157,11 +156,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &7518213258732356344
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7518213258732356293}
-  m_Enabled: 1

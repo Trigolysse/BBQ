@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             PhotonNetwork.LoadLevel(0);
         Instance = this;
         SkipIntro.SetActive(true);
+        EscapeMenu.SetActive(false);
+        ChatMenu.SetActive(false);
         
 
 
