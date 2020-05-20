@@ -27,6 +27,8 @@ public class Tir : MonoBehaviourPunCallbacks
     private WeaponManager weaponManager;
     private MouseLook mouseLook;
     private int munition;
+    public GameObject AK;
+    private bool reload;
     
 
     #endregion
@@ -97,10 +99,12 @@ public class Tir : MonoBehaviourPunCallbacks
 
     void Shoot()
     {
+        munition = AK.GetComponent<WeaponHandler>().ammunition;
+        reload = AK.GetComponent<WeaponHandler>().recharge;
         
         
         
-        if (!Sword.active)
+        if (!Sword.active && munition>0 && !reload)
         { 
                          RaycastHit hit;
 
