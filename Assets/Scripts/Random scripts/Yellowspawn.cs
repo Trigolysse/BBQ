@@ -55,6 +55,7 @@ public class Yellowspawn : MonoBehaviourPunCallbacks
                 if (PhotonNetwork.IsMasterClient)
                 {
                     GameObject newflower = PhotonNetwork.InstantiateSceneObject("YellowFlower", allspwan[i][rand.Next(allspwan[i].Length)], Quaternion.identity) as GameObject;
+                    newflower.GetComponent<Yellowloot>().zone = i;
                 }
             }
         }
