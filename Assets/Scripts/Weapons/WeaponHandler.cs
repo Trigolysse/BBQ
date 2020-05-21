@@ -41,6 +41,7 @@ public class WeaponHandler : MonoBehaviour
 
     public bool recharge;
     private float temps;
+    private float tempsamo;
 
     public GameObject Epee;
 
@@ -72,6 +73,7 @@ public class WeaponHandler : MonoBehaviour
     {
         amo = 192;
         temps = 0;
+        tempsamo = 0;
         recharge = false;
 
         
@@ -118,6 +120,29 @@ public class WeaponHandler : MonoBehaviour
     {
         if (!Epee.active)
         {
+            if (ammunition==0)
+            {
+                Amo.color=Color.red;
+                tempsamo += Time.deltaTime;
+                if (tempsamo > 1.1f)
+                {
+                    tempsamo = 0;
+                    Amo.enabled = true;
+                }
+                else if (tempsamo>0.6f)
+                {
+                    Amo.enabled = false;
+                }
+                else
+                {
+                    Amo.enabled = true;
+                }
+            }
+            else
+            {
+                Amo.color=Color.white;
+                Amo.enabled = true;
+            }
             
             if (amo==0)
             {
