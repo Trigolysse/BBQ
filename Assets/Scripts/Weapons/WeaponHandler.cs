@@ -48,7 +48,6 @@ public class WeaponHandler : MonoBehaviour
     public Text Amo;
     public Text TotalAmo;
     private Animator AttakSword;
-    public float SwordAttackRange;
 
     #endregion
 
@@ -66,18 +65,10 @@ public class WeaponHandler : MonoBehaviour
     
     public GameObject attackPoint;
     public Vector2[] recoil;
-    
-    
 
     #endregion
 
     #region Mono Callbacks
-    
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(attackPoint.transform.position,SwordAttackRange);
-        //Gizmos.DrawWireCube(attackPoint.transform.position,attackPoint.transform.position);
-    }
 
     void Awake()
     {
@@ -296,8 +287,6 @@ public class WeaponHandler : MonoBehaviour
             attackPoint.SetActive(false);
         }
     }
-
-   
 
     #endregion
 
