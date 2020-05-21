@@ -660,13 +660,13 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: Shoot
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: Reload
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 2
     LayerIndex: 0
 --- !u!114 &3764052427978049170
 MonoBehaviour:
