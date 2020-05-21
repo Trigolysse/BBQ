@@ -18,6 +18,10 @@ public class Tir : MonoBehaviourPunCallbacks
     public GameObject Metaleffect;
     public float radius = 1f;
     public GameObject Sword;
+    public GameObject attackPoint;
+    public float SwordAttackRange;
+    public LayerMask enemyLayers;
+    public LayerMask monsterLayers;
 
 
     #endregion
@@ -39,6 +43,7 @@ public class Tir : MonoBehaviourPunCallbacks
     #endregion
 
     #region Mono Callbacks
+    
     
     void Awake()
     {
@@ -188,11 +193,34 @@ public class Tir : MonoBehaviourPunCallbacks
             Debug.Log("Did not it");
         }
         }
+
+        if (Sword.active)
+        {
+            
+             
+                        
+                        Collider[] hitenemy=Physics.OverlapSphere(attackPoint.transform.position, SwordAttackRange, enemyLayers);
+                        foreach (Collider enemy in hitenemy)
+                        {
+                            Debug.Log("We hit " + enemy.name);
+                        }
+                        
+                        Collider[] hitmonster=Physics.OverlapSphere(attackPoint.transform.position, SwordAttackRange, monsterLayers);
+                        foreach (Collider enemy in hitmonster)
+                        {
+                            Debug.Log("We hit " + enemy.name);
+                        }
+
+                        Collider[] hitenemy2 = Physics.OverlapBox(attackPoint.transform.position,
+                            attackPoint.transform.position, Quaternion.identity, monsterLayers);
+                        foreach (Collider enemy in hitenemy2)
+                        {
+                            
+                        }
+        }
        
         
       
 
     }
-
-
 }
