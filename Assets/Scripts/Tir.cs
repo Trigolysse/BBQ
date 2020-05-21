@@ -63,6 +63,7 @@ public class Tir : MonoBehaviourPunCallbacks
             {
                 anim.SetBool("Reload",false);
             }
+            
         }
             
             
@@ -91,6 +92,10 @@ public class Tir : MonoBehaviourPunCallbacks
             weapon.ShootAnimation();
             Shoot();
             i++;
+        }
+        else
+        {
+            weapon.StopShootAnimation();
         }
         if(Input.GetMouseButton(1))
         {

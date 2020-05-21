@@ -47,6 +47,7 @@ public class WeaponHandler : MonoBehaviour
 
     public Text Amo;
     public Text TotalAmo;
+    private Animator AttakSword;
 
     #endregion
 
@@ -75,6 +76,7 @@ public class WeaponHandler : MonoBehaviour
         temps = 0;
         tempsamo = 0;
         recharge = false;
+        AttakSword = Epee.GetComponent<Animator>();
 
         
         ammunition = 32;
@@ -201,10 +203,22 @@ public class WeaponHandler : MonoBehaviour
                 Amo.text = ammunition.ToString();
             }
         }
+        else
+        {
+            AttakSword.SetBool("Shoot",true);
+        }
         
        
         
 
+    }
+
+    public void StopShootAnimation()
+    {
+        if (Epee.active)
+        {
+             AttakSword.SetBool("Shoot",false);
+        }
     }
 
     public void WalkAnimation()
