@@ -96,6 +96,7 @@ public class Tir : MonoBehaviourPunCallbacks
         else
         {
             weapon.StopShootAnimation();
+            weapon.StopPunchAnimation();
         }
         if(Input.GetMouseButton(1))
         {

@@ -48,6 +48,7 @@ public class WeaponHandler : MonoBehaviour
     public Text Amo;
     public Text TotalAmo;
     private Animator AttakSword;
+    private Animator PunchAttak;
 
     #endregion
 
@@ -65,6 +66,7 @@ public class WeaponHandler : MonoBehaviour
     
     public GameObject attackPoint;
     public Vector2[] recoil;
+    public GameObject Punch;
 
     #endregion
 
@@ -77,6 +79,7 @@ public class WeaponHandler : MonoBehaviour
         tempsamo = 0;
         recharge = false;
         AttakSword = Epee.GetComponent<Animator>();
+        PunchAttak = Punch.GetComponent<Animator>();
 
         
         ammunition = 32;
@@ -120,7 +123,7 @@ public class WeaponHandler : MonoBehaviour
 
     private void Update()
     {
-        if (!Epee.active)
+        if (!Epee.active && !Punch.active)
         {
             if (ammunition==0)
             {
@@ -188,7 +191,7 @@ public class WeaponHandler : MonoBehaviour
     {
         
         
-        if (!Epee.active)
+        if (!Epee.active && !Punch.active)
         {
             if (ammunition<=0 || recharge)
             {
@@ -203,11 +206,14 @@ public class WeaponHandler : MonoBehaviour
                 Amo.text = ammunition.ToString();
             }
         }
-        else
+        else if (!Punch.active)
         {
             AttakSword.SetBool("Shoot",true);
         }
-        
+        else
+        {
+            PunchAttak.SetBool("Punch",true);
+        }
        
         
 
@@ -219,6 +225,15 @@ public class WeaponHandler : MonoBehaviour
         {
              AttakSword.SetBool("Shoot",false);
         }
+    }
+
+    public void StopPunchAnimation()
+    {
+        if (Punch.active)
+        {
+            PunchAttak.SetBool("Punch",false);
+        }
+        
     }
 
     public void WalkAnimation()
