@@ -24,8 +24,13 @@ public class loot : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("FEFEW");
-       var playerInventory = other.GetComponent<Inventory>();
-       playerInventory.AddInInventory(new Stack(new Item(0, "flower",flowerSprite, ItemType.DIRT), 1));
-       PhotonNetwork.Destroy(this.gameObject);
+        if(other.CompareTag("Player"))
+        {
+            var playerInventory = other.GetComponent<Inventory>();
+            playerInventory.AddInInventory(new Stack(new Item(0, "flower", flowerSprite, ItemType.DIRT), 1));
+            PhotonNetwork.Destroy(this.gameObject);
+        }
+       
+       
     }
 }

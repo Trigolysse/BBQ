@@ -65,7 +65,12 @@ public class StartLobbyController : MonoBehaviourPunCallbacks
     {
         Debug.Log("Creating room now");
         int randomRoomNumber = Random.Range(0, 10000); //creating a random name for the room
-        RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)RoomSize };
+        RoomOptions roomOps = new RoomOptions() {
+            IsVisible = true,
+            IsOpen = true,
+            MaxPlayers = (byte)RoomSize,
+            CleanupCacheOnLeave = false
+        };
         PhotonNetwork.CreateRoom("Room" + randomRoomNumber, roomOps); //attempting to create a new room
     }
     public override void OnCreateRoomFailed(short returnCode, string message) //callback function for if we fail to create a room. Most likely fail because room name was taken.
