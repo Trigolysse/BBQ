@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732b8c57d79c17a47a7590c414b263e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadzone: {x: -187, y: -20, z: 500}
 --- !u!1001 &154298168776384560
 PrefabInstance:
   m_ObjectHideFlags: 0

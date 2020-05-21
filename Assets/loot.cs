@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class loot : MonoBehaviour
 {
+    public Vector3 deadzone;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,6 @@ public class loot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-            PhotonNetwork.Destroy(this.gameObject);
+        transform.position = deadzone;
     }
 }
