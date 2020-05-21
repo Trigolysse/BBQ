@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class loot : MonoBehaviour
+public class Yellowloot : MonoBehaviour
 {
 
     [SerializeField]
     private Sprite flowerSprite;
+    public int zone;
+    private GameObject gamemanager;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        gamemanager = GameObject.FindWithTag("Gamemanager");
     }
 
     // Update is called once per frame
@@ -23,9 +25,11 @@ public class loot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         Debug.Log("FEFEW");
         if(other.CompareTag("Player"))
         {
+           gamemanager.GetComponent<Yellowspawn>().destroyflower(zone);
             Debug.Log(other.gameObject);
             var playerInventory = other.gameObject.GetComponent<Inventory>();
             if(playerInventory != null)

@@ -13762,7 +13762,7 @@ GameObject:
   - component: {fileID: 348968964}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: Gamemanager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13821,7 +13821,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flower: {fileID: 154298168776418960, guid: b2eaa53d7b7547844b02f970f435d919, type: 3}
-  size: 3
   spawn1:
   - {x: 280, y: 0, z: 234}
   - {x: 344, y: 0, z: 210}
@@ -13830,9 +13829,9 @@ MonoBehaviour:
   - {x: 300, y: 0, z: 345}
   - {x: 375, y: 0, z: 320}
   - {x: 373, y: 0, z: 398}
-  spawn3:
-  - {x: 6.7, y: 12, z: 12}
-  spawn4: []
+  respawntime: 5
+  alive: 
+  restime: []
 --- !u!114 &348968964
 MonoBehaviour:
   m_ObjectHideFlags: 0

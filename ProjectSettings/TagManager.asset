@@ -11,6 +11,7 @@ TagManager:
   - ExplosiveBarrel
   - AK
   - Monster
+  - Gamemanager
   layers:
   - Default
   - TransparentFX
