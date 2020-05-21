@@ -18,6 +18,11 @@ public class Tir : MonoBehaviourPunCallbacks
     public GameObject Metaleffect;
     public float radius = 1f;
     public GameObject Sword;
+    public GameObject PunchDroit;
+    public GameObject Attakpoint;
+    public float punchrange;
+    public LayerMask PlayerLayer;
+    public LayerMask MonsterLayer;
 
 
     #endregion
@@ -188,6 +193,15 @@ public class Tir : MonoBehaviourPunCallbacks
             //Debug.DrawRay(mainCam.transform.position, hit.point, Color.white, 2f);
             Debug.Log("Did not it");
         }
+        }
+
+        if (PunchDroit.active)
+        {
+            Collider[] hitplayer = Physics.OverlapSphere(Attakpoint.transform.position, punchrange, PlayerLayer);
+            foreach (Collider player in hitplayer)
+            {
+                Debug.Log("jt ai nique ta grand mere " + player.name);
+            }
         }
        
         
