@@ -28,8 +28,8 @@ public class loot : MonoBehaviour
         {
             Debug.Log(other.gameObject);
             var playerInventory = other.gameObject.GetComponent<Inventory>();
-            
-            //playerInventory.AddInInventory(new Stack(new Item(0, "flower", flowerSprite, ItemType.DIRT), 1));
+            if(playerInventory != null)
+                playerInventory.AddInInventory(new Stack(new Item(0, "flower", flowerSprite, ItemType.DIRT), 1));
             PhotonNetwork.Destroy(this.gameObject);
         }
        
