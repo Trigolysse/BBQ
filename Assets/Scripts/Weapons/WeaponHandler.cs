@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum WeaponAim
 {
@@ -36,6 +39,16 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField]
     private int movementSpeed;
 
+    public bool recharge;
+    private float temps;
+    private float tempsamo;
+
+    public GameObject Epee;
+
+    public Text Amo;
+    public Text TotalAmo;
+    private Animator AttakSword;
+
     #endregion
 
     #region Public Fields
@@ -47,6 +60,8 @@ public class WeaponHandler : MonoBehaviour
     public float fireRate;
     public int magazineCapacity;
     public int ammunition;
+    public GameObject bullet;
+    public int amo;
     
     public GameObject attackPoint;
     public Vector2[] recoil;
@@ -57,6 +72,14 @@ public class WeaponHandler : MonoBehaviour
 
     void Awake()
     {
+        amo = 192;
+        temps = 0;
+        tempsamo = 0;
+        recharge = false;
+        AttakSword = Epee.GetComponent<Animator>();
+
+        
+        ammunition = 32;
         animator = GetComponent<Animator>();
         recoil = new Vector2[] {
             Vector2.zero,
@@ -95,14 +118,107 @@ public class WeaponHandler : MonoBehaviour
 
     #endregion
 
+    private void Update()
+    {
+        if (!Epee.active)
+        {
+            if (ammunition==0)
+            {
+                Amo.color=Color.red;
+                tempsamo += Time.deltaTime;
+                if (tempsamo > 1.1f)
+                {
+                    tempsamo = 0;
+                    Amo.enabled = true;
+                }
+                else if (tempsamo>0.6f)
+                {
+                    Amo.enabled = false;
+                }
+                else
+                {
+                    Amo.enabled = true;
+                }
+            }
+            else
+            {
+                Amo.color=Color.white;
+                Amo.enabled = true;
+            }
+            
+            if (amo==0)
+            {
+                recharge = false;
+            }
+            else
+            {
+                if (!recharge)
+                {
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        recharge = true;
+                        temps = 0;
+                    }
+                }
+                else
+                {
+                    temps += Time.deltaTime;
+                    recharge = true;
+                    if (temps>1.40f)
+                    {
+                        ammunition = 32;
+                        amo -= 32;
+                        Amo.text = ammunition.ToString();
+                        recharge = false;
+                    }
+                }
+            }
+
+            
+
+        }
+    }
+
+
     #region Public Methods
 
     public void DecreaseAmmunition() => ammunition -= 1;
 
     public void ShootAnimation()
     {
-        animator.SetTrigger(AnimationTags.FIRE_TRIGGER);
-        DecreaseAmmunition();
+        
+        
+        if (!Epee.active)
+        {
+            if (ammunition<=0 || recharge)
+            {
+                bullet.SetActive(false);
+                return;
+            }
+            else
+            {
+                bullet.SetActive(true);
+                animator.SetTrigger(AnimationTags.FIRE_TRIGGER);
+                DecreaseAmmunition();
+                Amo.text = ammunition.ToString();
+            }
+        }
+        else
+        {
+            AttakSword.SetBool("Shoot",true);
+        }
+        
+       
+        
+
+    }
+
+    public void StopShootAnimation()
+    {
+        if (Epee.active)
+        {
+             AttakSword.SetBool("Shoot",false);
+        }
     }
 
     public void WalkAnimation()
@@ -139,7 +255,9 @@ public class WeaponHandler : MonoBehaviour
 
     void TurnOnMuzzleFlash()
     {
-        muzzleFlash.SetActive(true);
+       
+            muzzleFlash.SetActive(true);
+        
     }
 
     void TurnOffMuzzleFlash()

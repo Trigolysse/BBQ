@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject EscapeMenu;
     public Camera Camer;
     public Text text;
+    public Canvas DeathCanvas;
     
 
     public delegate void OnPlayerKilledCallback(string killer, string victim, WeaponName weaponName);
@@ -52,6 +53,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             PhotonNetwork.LoadLevel(0);
         Instance = this;
         SkipIntro.SetActive(true);
+        EscapeMenu.SetActive(false);
+        ChatMenu.SetActive(false);
         
 
 
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
+        
         Frames=Time.time;
         if (create==false && Input.GetKeyDown(KeyCode.Space) || create==false && Frames>23f)
         {

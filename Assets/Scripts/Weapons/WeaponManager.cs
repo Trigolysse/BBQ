@@ -10,7 +10,11 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField]
     private WeaponHandler[] weapons;
 
-    private int currentWeaponIndex;
+    public int currentWeaponIndex;
+    private int Frames;
+    private bool wheel;
+    private int index;
+
 
     #endregion
 
@@ -18,14 +22,68 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
+        index = 0;
         currentWeaponIndex = 0;
         weapons[currentWeaponIndex].gameObject.SetActive(true);
+        wheel = false;
+        Frames = 0;
     }
 
     void Update()
     {
+        Frames++;
+        if (Frames>10)
+        {
+            wheel = false;
+        }
+
         if (photonView.IsMine)
+        {
+           
             ProcessInput();
+            if (!wheel)
+            {
+                if ( Input.GetAxisRaw("Mouse ScrollWheel")!=0)
+                {
+                    wheel = true;
+                    Frames = 0;
+                
+                    if (Input.GetAxis("Mouse ScrollWheel") > 0)
+                    {
+                        index = currentWeaponIndex;
+                        index += 1;
+                        if (index>1)
+                        {
+                            index = 0;
+                        }
+                        else
+                        {
+                            index = 1;
+                        }
+                        TurnOnSelectedWeapon(index);
+                    }
+                    else
+                    {
+                        Debug.Log(currentWeaponIndex);
+                        index = currentWeaponIndex;
+                        index -= 1;
+                        if (index<0)
+                        {
+                            index = 1;
+                        }
+                        else
+                        {
+                            index = 0;
+                        }
+                        TurnOnSelectedWeapon(index);
+                    }
+
+                    
+                }
+            }
+            
+            
+        }
         else
         {
             foreach (WeaponHandler weapon in weapons)

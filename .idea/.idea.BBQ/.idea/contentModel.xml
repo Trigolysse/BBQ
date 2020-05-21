@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\hugoo\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\hugoo\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_BBQ.1391267237.00" t="ExcludeRecursive" />
-    <e p="C:\Users\hugoo\BBQ" t="IncludeRecursive">
+    <e p="C:\Users\hugoo\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_BBQ.-318071022.00" t="ExcludeRecursive" />
+    <e p="C:\Users\hugoo\OneDrive\Dokumente\A TP PROGRAMMATION\BBQ" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -87,6 +87,7 @@
         <e p="Grenade.cs" t="Include" />
         <e p="grenadeThrower.cs" t="Include" />
         <e p="HealthBar.cs" t="Include" />
+        <e p="IsSword.cs" t="Include" />
         <e p="KillFeed.cs" t="Include" />
         <e p="KillFeedItem.cs" t="Include" />
         <e p="localPlayController.cs" t="Include" />
@@ -326,6 +327,7 @@
         </e>
         <e p="SONnnn.cs" t="Include" />
         <e p="taklwithme.cs" t="Include" />
+        <e p="totalamo.cs" t="Include" />
         <e p="unity-ui-extensions" t="Include">
           <e p="Scripts" t="Include">
             <e p="Effects" t="Include">

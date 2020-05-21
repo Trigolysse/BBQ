@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Tir : MonoBehaviourPunCallbacks
@@ -15,6 +17,8 @@ public class Tir : MonoBehaviourPunCallbacks
     public GameObject Bloodeffect;
     public GameObject Metaleffect;
     public float radius = 1f;
+    public GameObject Sword;
+
 
     #endregion
 
@@ -25,6 +29,12 @@ public class Tir : MonoBehaviourPunCallbacks
     private float cooldownTime;
     private WeaponManager weaponManager;
     private MouseLook mouseLook;
+    private int munition;
+    public GameObject AK;
+    private bool reload;
+    private Animator anim;
+    
+    
 
     #endregion
 
@@ -32,14 +42,31 @@ public class Tir : MonoBehaviourPunCallbacks
     
     void Awake()
     {
+        anim = AK.GetComponent<Animator>();
         weaponManager = GetComponent<WeaponManager>();
         mouseLook = GetComponentInChildren<MouseLook>();
     }
 
     void Update()
     {
-        if(photonView.IsMine)
+        if (photonView.IsMine)
+        {
+
             WeaponShoot();
+            reload = AK.GetComponent<WeaponHandler>().recharge;
+            if (!Sword.active && reload)
+            {
+            
+                anim.SetBool("Reload", true);
+            }
+            else
+            {
+                anim.SetBool("Reload",false);
+            }
+            
+        }
+            
+            
     }
 
     #endregion
@@ -66,6 +93,10 @@ public class Tir : MonoBehaviourPunCallbacks
             Shoot();
             i++;
         }
+        else
+        {
+            weapon.StopShootAnimation();
+        }
         if(Input.GetMouseButton(1))
         {
             if (weapon.bulletType == WeaponBulletType.NONE)
@@ -89,7 +120,14 @@ public class Tir : MonoBehaviourPunCallbacks
 
     void Shoot()
     {
-        RaycastHit hit;
+        munition = AK.GetComponent<WeaponHandler>().ammunition;
+        reload = AK.GetComponent<WeaponHandler>().recharge;
+        
+        
+        
+        if (!Sword.active && munition>0 && !reload)
+        { 
+                         RaycastHit hit;
 
         Vector3 direction = mainCam.transform.TransformDirection(RandomInsideCone(radius).normalized);
         
@@ -149,6 +187,10 @@ public class Tir : MonoBehaviourPunCallbacks
             //Debug.DrawRay(mainCam.transform.position, hit.point, Color.white, 2f);
             Debug.Log("Did not it");
         }
+        }
+       
+        
+      
 
     }
 

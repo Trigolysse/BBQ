@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1068211728930961210}
   m_Layer: 0
   m_Name: Cactus2
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 2380152}
   m_Layer: 0
   m_Name: cactus2
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

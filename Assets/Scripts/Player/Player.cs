@@ -11,6 +11,7 @@ public class Player : MonoBehaviourPunCallbacks
     private int pasthealth;
     private RaycastHit hit;
     public int Health;
+    public Canvas DeadCanvas;
 
     public GameObject BloodSight;
     //public Canvas playerUI;
@@ -35,6 +36,7 @@ public class Player : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        DeadCanvas.enabled = false;
   
         if (!photonView.IsMine)
             return;
@@ -64,6 +66,14 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (!photonView.IsMine)
             return;
+        if (isDead)
+        {
+            DeadCanvas.enabled = true;
+        }
+        else
+        {
+            DeadCanvas.enabled = false;
+        }
         if (blood)
         {
             timeblood++;
