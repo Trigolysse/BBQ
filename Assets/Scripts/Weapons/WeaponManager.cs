@@ -14,6 +14,8 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
     private int Frames;
     private bool wheel;
     private int index;
+    public GameObject AK;
+    private bool recharge;
 
 
     #endregion
@@ -39,9 +41,17 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
 
         if (photonView.IsMine)
         {
-           
+            if (!AK.active)
+            {
+                recharge = AK.GetComponent<WeaponHandler>().recharge;
+            }
+            else
+            {
+                recharge = false;
+            }
+            
             ProcessInput();
-            if (!wheel)
+            if (!wheel && !recharge)
             {
                 if ( Input.GetAxisRaw("Mouse ScrollWheel")!=0)
                 {

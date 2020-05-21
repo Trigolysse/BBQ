@@ -3050,6 +3050,7 @@ MonoBehaviour:
   - {fileID: 4462719548850259135}
   - {fileID: 1515818796318134801}
   currentWeaponIndex: 0
+  AK: {fileID: 1241983053475835852}
 --- !u!114 &7724118556637423424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4726,6 +4727,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 94.531
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 56ec0b9a5b8762642811ea26a5242e04, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 66aafbbe1994a4442ae43a06f4c69a30, type: 2}
     - target: {fileID: 13700000, guid: 56ec0b9a5b8762642811ea26a5242e04, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
