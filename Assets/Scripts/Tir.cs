@@ -126,7 +126,7 @@ public class Tir : MonoBehaviourPunCallbacks
         
         
         
-        if (!Sword.active && munition>0 && !reload)
+        if (AK.active && munition>0 && !reload)
         { 
                          RaycastHit hit;
 

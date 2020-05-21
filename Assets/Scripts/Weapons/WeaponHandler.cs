@@ -80,6 +80,7 @@ public class WeaponHandler : MonoBehaviour
         recharge = false;
         AttakSword = Epee.GetComponent<Animator>();
         PunchAttak = Punch.GetComponent<Animator>();
+        PunchAttak.SetBool("Parade",false);
 
         
         ammunition = 32;
@@ -213,6 +214,8 @@ public class WeaponHandler : MonoBehaviour
         else
         {
             PunchAttak.SetBool("Punch",true);
+            PunchAttak.SetBool("Parade",false);
+            
         }
        
         
