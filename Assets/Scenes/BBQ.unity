@@ -13155,7 +13155,7 @@ MonoBehaviour:
   - {x: 375, y: 0, z: 320}
   - {x: 373, y: 0, z: 398}
   spawn3:
-  - {x: 180, y: 12, z: 130}
+  - {x: 6.7, y: 12, z: 12}
   spawn4: []
 --- !u!114 &348968964
 MonoBehaviour:

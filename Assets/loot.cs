@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class loot : MonoBehaviour
 {
+
+    [SerializeField]
+    private Sprite flowerSprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,9 @@ public class loot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-            PhotonNetwork.Destroy(this.gameObject);
+        Debug.Log("FEFEW");
+       var playerInventory = other.GetComponent<Inventory>();
+       playerInventory.AddInInventory(new Stack(new Item(0, "flower",flowerSprite, ItemType.DIRT), 1));
+       PhotonNetwork.Destroy(this.gameObject);
     }
 }
