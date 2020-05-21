@@ -26,8 +26,10 @@ public class loot : MonoBehaviour
         Debug.Log("FEFEW");
         if(other.CompareTag("Player"))
         {
-            var playerInventory = other.GetComponent<Inventory>();
-            playerInventory.AddInInventory(new Stack(new Item(0, "flower", flowerSprite, ItemType.DIRT), 1));
+            Debug.Log(other.gameObject);
+            var playerInventory = other.gameObject.GetComponent<Inventory>();
+            
+            //playerInventory.AddInInventory(new Stack(new Item(0, "flower", flowerSprite, ItemType.DIRT), 1));
             PhotonNetwork.Destroy(this.gameObject);
         }
        
