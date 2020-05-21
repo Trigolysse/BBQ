@@ -96,6 +96,7 @@ public class Tir : MonoBehaviourPunCallbacks
         else
         {
             weapon.StopShootAnimation();
+            weapon.StopPunchAnimation();
         }
         if(Input.GetMouseButton(1))
         {
@@ -125,7 +126,7 @@ public class Tir : MonoBehaviourPunCallbacks
         
         
         
-        if (!Sword.active && munition>0 && !reload)
+        if (AK.active && munition>0 && !reload)
         { 
                          RaycastHit hit;
 
