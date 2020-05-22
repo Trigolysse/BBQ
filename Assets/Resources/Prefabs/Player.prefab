@@ -925,7 +925,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 1820289556849756300}
+  - {fileID: 3764052427978049170}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2910,8 +2910,8 @@ MonoBehaviour:
   weaponAim: 0
   fireType: 0
   bulletType: 3
-  damage: 10
-  fireRate: 100
+  damage: 20
+  fireRate: 1.5
   magazineCapacity: 20
   ammunition: 999
   bullet: {fileID: 0}
@@ -4639,6 +4639,9 @@ MonoBehaviour:
   MonsterLayer:
     serializedVersion: 2
     m_Bits: 0
+  Punch: {fileID: 0}
+  PunchImpact: {fileID: 0}
+  PunchImpact2: {fileID: 0}
   AK: {fileID: 3342917713586127223}
   killFeedObj: {fileID: 0}
 --- !u!114 &7825234261356174152
@@ -6528,13 +6531,16 @@ MonoBehaviour:
   Sword: {fileID: 5297137714818808391}
   PunchDroit: {fileID: 7107340228638055826}
   Attakpoint: {fileID: 2058379194987942403}
-  punchrange: -0.1
+  punchrange: 3.81
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 16384
   MonsterLayer:
     serializedVersion: 2
     m_Bits: 0
+  Punch: {fileID: 4323527580868002289}
+  PunchImpact: {fileID: 100002, guid: d39ab699aa314a147969fd483aa55205, type: 3}
+  PunchImpact2: {fileID: 100002, guid: 20b31fcfaed0cb842a56fbbe2419428f, type: 3}
   AK: {fileID: 1241983053475835852}
   killFeedObj: {fileID: 0}
 --- !u!114 &8775017867349572460
