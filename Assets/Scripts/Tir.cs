@@ -53,7 +53,10 @@ public class Tir : MonoBehaviourPunCallbacks
         anim = AK.GetComponent<Animator>();
         weaponManager = GetComponent<WeaponManager>();
         mouseLook = GetComponentInChildren<MouseLook>();
+        
     }
+
+    
 
     void Update()
     {
@@ -221,7 +224,7 @@ public class Tir : MonoBehaviourPunCallbacks
                 { 
                     hit2.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
                 }
-                if (hit2.transform.CompareTag("Metal"))
+                if (hit2.transform.CompareTag("Metal")&& Vector3.Distance(transform.position,hit2.transform.position)<punchrange)
                 {
                     GameObject Gucci =
                         Instantiate(PunchImpact2, hit2.point,
