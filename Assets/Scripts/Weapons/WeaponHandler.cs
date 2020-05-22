@@ -67,6 +67,9 @@ public class WeaponHandler : MonoBehaviour
     public GameObject attackPoint;
     public Vector2[] recoil;
     public GameObject Punch;
+    private Animator anim;
+    public GameObject Ernesto;
+    
 
     #endregion
 
@@ -80,6 +83,9 @@ public class WeaponHandler : MonoBehaviour
         recharge = false;
         AttakSword = Epee.GetComponent<Animator>();
         PunchAttak = Punch.GetComponent<Animator>();
+        anim = Ernesto.GetComponent<Animator>();
+        anim.SetBool("Dead",false);
+        anim.SetBool("Run",false);
         PunchAttak.SetBool("Parade",false);
 
         
@@ -190,8 +196,8 @@ public class WeaponHandler : MonoBehaviour
 
     public void ShootAnimation()
     {
-        
-        
+
+
         if (!Epee.active && !Punch.active)
         {
             if (ammunition<=0 || recharge)
@@ -241,12 +247,12 @@ public class WeaponHandler : MonoBehaviour
 
     public void WalkAnimation()
     {
-        animator.SetBool(AnimationTags.WALK_PARAMETER, true);
+        anim.SetBool("Run",true);
     }
 
     public void StopWalkAnimation()
     {
-        animator.SetBool(AnimationTags.WALK_PARAMETER, false);
+        anim.SetBool("Run",false);
     }
 
     public void InspectAnimation()

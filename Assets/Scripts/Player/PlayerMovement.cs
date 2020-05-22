@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     private int Life;
     private Player player;
     private WeaponManager weaponManager;
+    private Animator anim;
+    public GameObject Ernesto;
 
     public int Life1 => Life;
 
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
         player = GetComponent<Player>();
         characterController = GetComponent<CharacterController>();
         weaponManager = GetComponent<WeaponManager>();
+        anim = Ernesto.GetComponent<Animator>();
     }
 
     void Update()
@@ -54,10 +57,17 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     {
         moveDirection = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
 
-        if(moveDirection != Vector3.zero)
+        if (moveDirection != Vector3.zero)
+        {
             weaponManager.GetCurrentSelectedWeapon().WalkAnimation();
+            //anim.SetBool("Run",true);
+        }
         else
+        {
             weaponManager.GetCurrentSelectedWeapon().StopWalkAnimation();
+            //anim.SetBool("Run",false);
+        }
+            
 
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= speed * Time.deltaTime;

@@ -16,6 +16,8 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
     private int index;
     public GameObject AK;
     private bool recharge;
+    
+
 
 
     #endregion
@@ -24,15 +26,19 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
+        
         index = 0;
         currentWeaponIndex = 0;
         weapons[currentWeaponIndex].gameObject.SetActive(true);
         wheel = false;
         Frames = 0;
+    
+
     }
 
     void Update()
     {
+       
         Frames++;
         if (Frames>10)
         {
@@ -56,6 +62,7 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
             {
                 if ( Input.GetAxisRaw("Mouse ScrollWheel")!=0)
                 {
+
                     wheel = true;
                     Frames = 0;
                 
@@ -91,6 +98,7 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
 
                     
                 }
+               
             }
             
             

@@ -10,6 +10,8 @@ public class Player : MonoBehaviourPunCallbacks
     private int frames;
     private int pasthealth;
     private RaycastHit hit;
+    private Animator anim;
+    public GameObject Ernesto;
     public int Health;
     public Canvas DeadCanvas;
 
@@ -37,6 +39,7 @@ public class Player : MonoBehaviourPunCallbacks
     void Start()
     {
         DeadCanvas.enabled = false;
+        anim = Ernesto.GetComponent<Animator>();
   
         if (!photonView.IsMine)
             return;
@@ -68,6 +71,7 @@ public class Player : MonoBehaviourPunCallbacks
             return;
         if (isDead)
         {
+            anim.SetBool("Dead",true);
             DeadCanvas.enabled = true;
         }
         else

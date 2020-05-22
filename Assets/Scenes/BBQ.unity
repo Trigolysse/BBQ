@@ -17282,7 +17282,7 @@ GameObject:
   - component: {fileID: 440061049}
   m_Layer: 10
   m_Name: map
-  m_TagString: Planet
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
