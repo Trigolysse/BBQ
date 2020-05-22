@@ -925,7 +925,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 3764052427978049170}
+  - {fileID: 1820289556849756300}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -4324,7 +4324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &197727864534546235
 Transform:
   m_ObjectHideFlags: 0
@@ -6451,6 +6451,7 @@ MonoBehaviour:
   - {fileID: 7724118556637423424}
   - {fileID: 8775017867349572460}
   - {fileID: 5085280035956180277}
+  - {fileID: 7724118556637423424}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
