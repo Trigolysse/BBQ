@@ -24,6 +24,8 @@ public class Tir : MonoBehaviourPunCallbacks
     public LayerMask PlayerLayer;
     public LayerMask MonsterLayer;
     public GameObject Punch;
+    public GameObject PunchImpact;
+    public GameObject PunchImpact2;
 
 
     #endregion
@@ -200,7 +202,7 @@ public class Tir : MonoBehaviourPunCallbacks
 
         if (Punch.active)
         {
-            Debug.Log("it works");
+            
             /*Collider[] hitplayer = Physics.OverlapSphere(Attakpoint.transform.position, punchrange, PlayerLayer);
             foreach (Collider player in hitplayer)
             {
@@ -219,12 +221,19 @@ public class Tir : MonoBehaviourPunCallbacks
                 { 
                     hit2.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
                 }
+                if (hit2.transform.CompareTag("Metal"))
+                {
+                    GameObject Gucci =
+                        Instantiate(PunchImpact2, hit2.point,
+                            Quaternion.FromToRotation(Vector3.forward, hit2.normal)) as GameObject;
+                    Destroy(Gucci, 2f);
+                }
 
                 if (hit2.transform.CompareTag("Player")&& Vector3.Distance(transform.position,hit2.transform.position)<punchrange)
                 {
                     if (hit2.transform.GetComponent<PhotonView>().IsMine) return;
                     GameObject Blood =
-                        Instantiate(Bloodeffect, hit2.point,
+                        Instantiate(PunchImpact, hit2.point,
                             Quaternion.FromToRotation(Vector3.forward, hit2.normal)) as GameObject;
                     Destroy(Blood, 2f);
                 }
@@ -232,7 +241,7 @@ public class Tir : MonoBehaviourPunCallbacks
                 if (hit2.transform.CompareTag("Enemy")&& Vector3.Distance(transform.position,hit2.transform.position)<punchrange)
                 {
                     GameObject Blood =
-                        Instantiate(Bloodeffect, hit2.point,
+                        Instantiate(PunchImpact, hit2.point,
                             Quaternion.FromToRotation(Vector3.forward, hit2.normal)) as GameObject;
                     Destroy(Blood, 2f);
                     hit2.transform.gameObject.GetComponent<Combatmanager>()
@@ -243,7 +252,7 @@ public class Tir : MonoBehaviourPunCallbacks
                 {
                     Debug.Log("Hit player");
                     hit2.transform.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All,
-                        photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage, WeaponName.AK47);
+                        photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage, WeaponName.PUNCH);
                 }
                 else
                 {
