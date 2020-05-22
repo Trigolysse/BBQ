@@ -13761,6 +13761,7 @@ GameObject:
   - component: {fileID: 348968963}
   - component: {fileID: 348968964}
   - component: {fileID: 348968965}
+  - component: {fileID: 348968966}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Gamemanager
@@ -13877,6 +13878,30 @@ MonoBehaviour:
   - {x: -87.2206, y: 5.461935, z: 103.1219}
   - {x: -33.36436, y: 3.845451, z: 143.7495}
   respawntime: 5
+  alive: 
+  restime: []
+--- !u!114 &348968966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348968960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac32f1f83470da448ab33002479ffd36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flower: {fileID: 3597283425331324604, guid: 57dd145eeba2bb54bab9536ec5b88c0c, type: 3}
+  spawn1:
+  - {x: -202.1857, y: 1.538181, z: 160.6033}
+  - {x: -206.9455, y: 0.000001907349, z: 274.5523}
+  - {x: -180.6126, y: 1.538181, z: 209.506}
+  spawn2:
+  - {x: 33.68082, y: 0, z: 541.1867}
+  - {x: 155.8905, y: 0, z: 375}
+  - {x: 87.97272, y: 0, z: 363}
+  respawntime: 3
   alive: 
   restime: []
 --- !u!4 &350835007 stripped
@@ -45593,7 +45618,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1088989714 stripped
 GameObject:
@@ -46042,7 +46067,7 @@ PrefabInstance:
     - target: {fileID: 805219871487289323, guid: ad941fb61515f3344b96ec1a40537c4b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 805219871487289323, guid: ad941fb61515f3344b96ec1a40537c4b,
         type: 3}
@@ -49726,7 +49751,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1197534024 stripped
 Transform:
@@ -89708,7 +89733,7 @@ PrefabInstance:
     - target: {fileID: 12540938774287659, guid: 8f73783659b43ad4b9d66aa8d43d529c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 12540938774287659, guid: 8f73783659b43ad4b9d66aa8d43d529c,
         type: 3}
