@@ -76,19 +76,7 @@
         </e>
         <e p="AliveIndicator.cs" t="Include" />
         <e p="Billboard.cs" t="Include" />
-        <e p="Dialogue.cs" t="Include" />
-        <e p="DialogueManager.cs" t="Include" />
-        <e p="DialogueTrigger.cs" t="Include" />
-        <e p="DragonFOLLOW.cs" t="Include" />
-        <e p="EffetDeTir.cs" t="Include" />
-        <e p="EnemyAttack.cs" t="Include" />
-        <e p="EscapeMenu.cs" t="Include" />
-        <e p="Essai.cs" t="Include" />
-        <e p="Grenade.cs" t="Include" />
-        <e p="grenadeThrower.cs" t="Include" />
-        <e p="HealthBar.cs" t="Include" />
-        <e p="IsSword.cs" t="Include" />
-        <e p="JMO Assets" t="Include">
+        <e p="BulletImpact" t="Include">
           <e p="Cartoon FX Easy Editor" t="Include">
             <e p="CartoonFX Easy Editor Readme.txt" t="Include" />
             <e p="Editor" t="Include">
@@ -147,6 +135,18 @@
             </e>
           </e>
         </e>
+        <e p="Dialogue.cs" t="Include" />
+        <e p="DialogueManager.cs" t="Include" />
+        <e p="DialogueTrigger.cs" t="Include" />
+        <e p="DragonFOLLOW.cs" t="Include" />
+        <e p="EffetDeTir.cs" t="Include" />
+        <e p="EnemyAttack.cs" t="Include" />
+        <e p="EscapeMenu.cs" t="Include" />
+        <e p="Essai.cs" t="Include" />
+        <e p="Grenade.cs" t="Include" />
+        <e p="grenadeThrower.cs" t="Include" />
+        <e p="HealthBar.cs" t="Include" />
+        <e p="IsSword.cs" t="Include" />
         <e p="KillFeed.cs" t="Include" />
         <e p="KillFeedItem.cs" t="Include" />
         <e p="localPlayController.cs" t="Include" />

@@ -41,7 +41,8 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
 
         if (photonView.IsMine)
         {
-            if (!AK.active)
+            ProcessInput();
+            if (AK.active)
             {
                 recharge = AK.GetComponent<WeaponHandler>().recharge;
             }
@@ -50,7 +51,7 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
                 recharge = false;
             }
             
-            ProcessInput();
+            
             if (!wheel && !recharge)
             {
                 if ( Input.GetAxisRaw("Mouse ScrollWheel")!=0)
@@ -62,13 +63,13 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
                     {
                         index = currentWeaponIndex;
                         index += 1;
-                        if (index>1)
+                        if (index>2)
                         {
                             index = 0;
                         }
                         else
                         {
-                            index = 1;
+                            
                         }
                         TurnOnSelectedWeapon(index);
                     }
@@ -79,11 +80,11 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
                         index -= 1;
                         if (index<0)
                         {
-                            index = 1;
+                            index = 2;
                         }
                         else
                         {
-                            index = 0;
+                            
                         }
                         TurnOnSelectedWeapon(index);
                     }
