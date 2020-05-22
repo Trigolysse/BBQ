@@ -925,7 +925,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 1820289556849756300}
+  - {fileID: 3764052427978049170}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -4639,6 +4639,7 @@ MonoBehaviour:
   MonsterLayer:
     serializedVersion: 2
     m_Bits: 0
+  Punch: {fileID: 0}
   AK: {fileID: 3342917713586127223}
   killFeedObj: {fileID: 0}
 --- !u!114 &7825234261356174152
@@ -6528,13 +6529,14 @@ MonoBehaviour:
   Sword: {fileID: 5297137714818808391}
   PunchDroit: {fileID: 7107340228638055826}
   Attakpoint: {fileID: 2058379194987942403}
-  punchrange: -0.1
+  punchrange: 6.16
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 16384
   MonsterLayer:
     serializedVersion: 2
     m_Bits: 0
+  Punch: {fileID: 4323527580868002289}
   AK: {fileID: 1241983053475835852}
   killFeedObj: {fileID: 0}
 --- !u!114 &8775017867349572460
