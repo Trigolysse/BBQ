@@ -13,6 +13,8 @@ public class SimpleInv : MonoBehaviour
 {
     private bool ouvert;
     public GameObject inventaire;
+   
+    public Text[] lamoula;
 
     public int[] count = new int[6];
     // Start is called before the first frame update
@@ -20,6 +22,7 @@ public class SimpleInv : MonoBehaviour
     {
         for(int i = 0;i <6;i++)
         {
+            lamoula[i].text = "0";
             count[i] = 0;
         }
 
@@ -29,6 +32,7 @@ public class SimpleInv : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyUp(KeyCode.I))
         {
             inventaire.SetActive(!ouvert);
@@ -38,7 +42,7 @@ public class SimpleInv : MonoBehaviour
     public void Add(Loot item, int amount)
     {
         count[(int)item] += amount;
-        Debug.Log(item);
-        Debug.Log(count[(int)item]);
+
+        lamoula[(int) item].text = count[(int) item].ToString();
     }
 }
