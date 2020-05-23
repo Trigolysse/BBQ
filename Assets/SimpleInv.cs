@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 
 public enum Loot
 {
     Purple, Yellow, Orange, Wood, Rocks, Metal
 }
 
-public class SimpleInv : MonoBehaviour
+public class SimpleInv : MonoBehaviourPunCallbacks
 {
     private bool ouvert;
     public GameObject inventaire;
@@ -20,6 +22,10 @@ public class SimpleInv : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        {
+            
+        }
         
         inventaire.SetActive(false);
         for(int i = 0;i <6;i++)
@@ -34,6 +40,10 @@ public class SimpleInv : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
             
         
         if (Input.GetKeyUp(KeyCode.I))
@@ -44,6 +54,7 @@ public class SimpleInv : MonoBehaviour
     }
     public void Add(Loot item, int amount)
     {
+        
         count[(int)item] += amount;
 
         lamoula[(int) item].text = count[(int) item].ToString();
