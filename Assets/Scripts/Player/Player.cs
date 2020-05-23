@@ -114,7 +114,11 @@ public class Player : MonoBehaviourPunCallbacks
     public void ApplyDamage(string _sourceName, int damage, WeaponName weaponName)
     {
         if (isDead)
+        {
+            GetComponent<AudioSource>().Play();
             return;
+        }
+        
 
         Debug.Log("ApplyDamage");
 

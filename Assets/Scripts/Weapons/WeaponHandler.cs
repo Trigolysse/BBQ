@@ -69,6 +69,7 @@ public class WeaponHandler : MonoBehaviour
     public GameObject Punch;
     private Animator anim;
     public GameObject Ernesto;
+    public Camera lacamera;
     
 
     #endregion
@@ -166,6 +167,7 @@ public class WeaponHandler : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.R))
                     {
+                        lacamera.GetComponent<AudioSource>().Play();
                         recharge = true;
                         temps = 0;
                     }
@@ -207,6 +209,7 @@ public class WeaponHandler : MonoBehaviour
             }
             else
             {
+                GetComponent<AudioSource>().Play();
                 bullet.SetActive(true);
                 animator.SetTrigger(AnimationTags.FIRE_TRIGGER);
                 DecreaseAmmunition();
