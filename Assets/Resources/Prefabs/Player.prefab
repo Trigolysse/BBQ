@@ -2253,28 +2253,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &7844619576006945652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7376831106272240344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 5333207721534844647}
-  viewIdField: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &5333207721534844647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2302,6 +2280,28 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
+--- !u!114 &7844619576006945652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7376831106272240344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 5333207721534844647}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7515032431749156903
 GameObject:
   m_ObjectHideFlags: 0
@@ -4588,7 +4588,12 @@ PrefabInstance:
     - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 24119
+      value: 24375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
+        type: 3}
+      propertyPath: near clip plane
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4611803945366263012, guid: 7067450cb04284847890de006c4435e0,
         type: 3}
