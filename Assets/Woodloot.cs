@@ -29,6 +29,7 @@ public class Woodloot : MonoBehaviour
             //if(playerInventory != null)
             //playerInventory.AddInInventory(new Stack(new Item(0, "flower", flowerSprite, ItemType.DIRT), 1));
             PhotonNetwork.Destroy(this.gameObject);
+            other.GetComponent<SimpleInv>().Add(Loot.Wood, 1);
         }
 
 

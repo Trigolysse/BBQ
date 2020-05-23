@@ -27,6 +27,7 @@ public class Orangeloot : MonoBehaviour
         {
             gamemanager.GetComponent<Orangespawn>().destroyflower(zone);
             PhotonNetwork.Destroy(this.gameObject);
+            other.GetComponent<SimpleInv>().Add(Loot.Orange, 1);
             //var playerInventory = other.gameObject.GetComponent<Inventory>();
             //if (playerInventory != null)
             //playerInventory.AddInInventory(new Stack(new Item(0, "flower", flowerSprite, ItemType.DIRT), 1));

@@ -28,6 +28,7 @@ public class Purpleloot : MonoBehaviour
             //var playerInventory = other.gameObject.GetComponent<Inventory>();
             //if(playerInventory != null)
             //playerInventory.AddInInventory(new Stack(new Item(0, "flower", flowerSprite, ItemType.DIRT), 1));
+            other.GetComponent<SimpleInv>().Add(Loot.Purple, 1);
             PhotonNetwork.Destroy(this.gameObject);
         }
 
