@@ -56,10 +56,7 @@ public class Inventory : MonoBehaviour
             AddInInventory(new Stack(new Item(0, "#</>d__Ss -o ssh key", sp, ItemType.DIRT), 32));
         }
 
-        if (Input.GetKeyUp(KeyCode.I))
-        {
-            inventoryCanvas.enabled = !inventoryCanvas.enabled;
-        }
+     
     }
 
     private void CreateCanvas()

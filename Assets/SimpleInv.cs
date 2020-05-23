@@ -11,6 +11,8 @@ public enum Loot
 
 public class SimpleInv : MonoBehaviour
 {
+    private bool ouvert;
+    public GameObject inventaire;
 
     public int[] count = new int[6];
     // Start is called before the first frame update
@@ -20,12 +22,18 @@ public class SimpleInv : MonoBehaviour
         {
             count[i] = 0;
         }
+
+        ouvert = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+            inventaire.SetActive(!ouvert);
+            ouvert = !ouvert;
+        }
     }
     public void Add(Loot item, int amount)
     {
