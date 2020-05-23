@@ -37,10 +37,13 @@ public class Inventory : MonoBehaviour
     private Item[,] armor;
 
     public Canvas inventoryCanvas;
+    private GameObject go;
 
     // Start is called before the first frame update
     void Start()
     {
+       
+        
         inventory = new Stack[4, 9];
         armor = new Item[4, 1];
         CreateCanvas();

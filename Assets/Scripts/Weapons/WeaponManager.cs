@@ -27,8 +27,8 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         
-        index = 0;
-        currentWeaponIndex = 0;
+        index = 2;
+        currentWeaponIndex = 2;
         weapons[currentWeaponIndex].gameObject.SetActive(true);
         wheel = false;
         Frames = 0;

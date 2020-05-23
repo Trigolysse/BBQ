@@ -20,6 +20,8 @@ public class SimpleInv : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        inventaire.SetActive(false);
         for(int i = 0;i <6;i++)
         {
             lamoula[i].text = "0";
@@ -32,6 +34,7 @@ public class SimpleInv : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+            
         
         if (Input.GetKeyUp(KeyCode.I))
         {
