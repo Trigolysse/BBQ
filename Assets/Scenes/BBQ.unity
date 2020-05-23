@@ -14076,6 +14076,7 @@ GameObject:
   - component: {fileID: 348968966}
   - component: {fileID: 348968967}
   - component: {fileID: 348968968}
+  - component: {fileID: 348968969}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Gamemanager
@@ -14263,6 +14264,30 @@ MonoBehaviour:
   - {x: 152.3306, y: 0, z: 73}
   - {x: 152.3306, y: 0, z: 121}
   - {x: 243.331, y: 0, z: 68}
+  respawntime: 5
+  alive: 
+  restime: []
+--- !u!114 &348968969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348968960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d8670684129534ab341d103c8b2a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flower: {fileID: 0}
+  spawn1:
+  - {x: -168.06, y: 1.26, z: 505.33}
+  - {x: -89.9867, y: 31.48008, z: 458.4397}
+  spawn2:
+  - {x: -81.86978, y: 14.99055, z: 457.4823}
+  - {x: -80.0318, y: 6.148248, z: 410.9531}
+  - {x: -164.2808, y: 14.63118, z: 445.3761}
+  - {x: -60.93685, y: 18.55758, z: 520.9368}
   respawntime: 5
   alive: 
   restime: []
