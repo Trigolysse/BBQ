@@ -60,19 +60,35 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
 
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
     {
-        if(messages[0].ToString().StartsWith("/"))
-            gameManager.SendMessageToChat($"<color=#FFD700><i><b>{senders[0]}</b> used a secret command</i></color>");
-        else
+        if(!messages[0].ToString().StartsWith("/"))
             gameManager.SendMessageToChat($"<b>[ {senders[0]} ]</b> {messages[0]}");
-      
-        if (messages[0].ToString().StartsWith("/"))
+        else
         {
             string[] args = messages[0].ToString().Substring(1).Split(' ');
-            
-            if(args[0] == "broadcast")
+            switch (args[0])
             {
-                photonView.RPC("SendBroadcast", RpcTarget.Others, messages[0].ToString().Substring(10));
+                case "broadcast":
+                        photonView.RPC("SendBroadcast", RpcTarget.Others, messages[0].ToString().Substring(10));
+                        gameManager.SendMessageToChat($"<color=#FFD700><i><b>{senders[0]}</b> used a secret command</i></color>");
+                        break;
+                case "tp":
+                        Tp(senders[0], args[1]);
+                        gameManager.SendMessageToChat($"<color=#FFD700><i><b>{senders[0]}</b> used a secret command</i></color>");
+                        break;
+                default:
+                    gameManager.SendMessageToChat($"<color=green><i><b>{senders[0]}</b> is autistic</i></color>");
+                    break;
             }
+        }
+    }
+
+    private void Tp(string sender, string other)
+    {
+        GameObject senderPlayer = GameObject.Find(sender);
+        GameObject otherPlayer = GameObject.Find(other);
+        if(otherPlayer != null && senderPlayer != null)
+        {
+            senderPlayer.transform.position = otherPlayer.transform.position;
         }
     }
 
