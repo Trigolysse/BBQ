@@ -135,6 +135,7 @@
             </e>
           </e>
         </e>
+        <e p="BuySell.cs" t="Include" />
         <e p="Dialogue.cs" t="Include" />
         <e p="DialogueManager.cs" t="Include" />
         <e p="DialogueTrigger.cs" t="Include" />
