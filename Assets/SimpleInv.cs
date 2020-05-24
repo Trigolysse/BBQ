@@ -17,10 +17,18 @@ public class SimpleInv : MonoBehaviourPunCallbacks
     public GameObject inventaire;
    
     public Text[] lamoula;
-    public GameObject AK;
-    public GameObject Sword;
+    public Text moneytext;
     public Image SwordImage;
     public Image AKImage;
+    public Image ArmorImage;
+    public Image KeyImage;
+    public Image grenadeImage;
+    public bool Sword;
+    public bool AK;
+    public bool Armor;
+    public bool Key;
+    public bool grenade;
+    public int money;
     private Player player;
     
 
@@ -28,7 +36,18 @@ public class SimpleInv : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        player=gameObject.GetComponent<Player>();
+        Sword = false;
+        AK = false;
+        Armor = false;
+        Key = false;
+        grenade = false;
+        SwordImage.color = Color.black;
+        AKImage.color = Color.black;
+        ArmorImage.color = Color.black;
+        KeyImage.color = Color.black;
+        grenadeImage.color = Color.black;
+
+        player = gameObject.GetComponent<Player>();
         inventaire.SetActive(false);
         
         for(int i = 0;i <6;i++)
@@ -48,28 +67,14 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         {
             return;
         }
-      
 
-        if (AK.active)
-        {
-            AKImage.color=Color.white;
-        }
-        else
-        {
-            AKImage.color = Color.black;
-        }
-        if (Sword.active)
-        {
-            SwordImage.color=Color.white;
-        }
-        else
-        {
-            SwordImage.color = Color.black;
-        }
 
-        
-            
-        
+
+        moneytext.text = money + " $";
+
+
+
+
         if (Input.GetKeyUp(KeyCode.I))
         {
             inventaire.SetActive(!ouvert);
