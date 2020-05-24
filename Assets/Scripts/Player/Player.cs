@@ -76,6 +76,7 @@ public class Player : MonoBehaviourPunCallbacks
         {
             anim.SetBool("Dead",true);
             DeadCanvas.enabled = true;
+            this.isOutOfFocus = true;
         }
         else
         {

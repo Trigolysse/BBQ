@@ -58,7 +58,10 @@ public class Inventory : MonoBehaviourPunCallbacks
         CreateCanvas();
         inventoryCanvas.enabled = false;
         AddInInventory(new Stack(new Item("Wood", sp, ItemType.WOOD), 64));
-        AddInInventory(new Stack(Items.getItemWithType(ItemType.YELLOW_FLOWER), 12));
+        AddInInventory(new Stack(Items.getItemWithType(ItemType.YELLOW_FLOWER), 1));
+        AddInInventory(new Stack(Items.getItemWithType(ItemType.ORANGE_FLOWER), 1));
+        AddInInventory(new Stack(Items.getItemWithType(ItemType.PURPLE_FLOWER), 1));
+        AddInInventory(new Stack(Items.getItemWithType(ItemType.GOLD), 51));
     }
 
     // Update is called once per frame
