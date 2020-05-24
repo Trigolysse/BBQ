@@ -13,13 +13,21 @@ public class BuySell : MonoBehaviourPunCallbacks
     private bool droit;
     public GameObject canvassell;
     private Player player;
+    private Tir tir;
+    private PlayerMovement playermovement;
+    private PlayerSetup playersetup;
+    public GameObject Lookroot;
     // Start is called before the first frame update
     void Start()
     {
         player=gameObject.GetComponent<Player>();
+        tir = gameObject.GetComponent<Tir>();
+        playermovement = gameObject.GetComponent<PlayerMovement>();
+        playersetup = gameObject.GetComponent<PlayerSetup>();
         BuySelll.SetActive(false);
         droit = true;
         canvassell.SetActive(false);
+        
         
     }
 
@@ -47,11 +55,17 @@ public class BuySell : MonoBehaviourPunCallbacks
         {
             BuySelll.SetActive(false);
             droit = false;
+
         }
         if (droit && Input.GetKeyUp(KeyCode.O))
         {
             BuySelll.SetActive(false);
             canvassell.SetActive(true);
+            player.isOutOfFocus = true;
+
+            Cursor.lockState = CursorLockMode.None;
+
+            Cursor.visible = true;
             
         }
         
