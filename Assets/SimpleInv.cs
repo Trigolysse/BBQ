@@ -21,6 +21,10 @@ public class SimpleInv : MonoBehaviourPunCallbacks
     public GameObject Sword;
     public Image SwordImage;
     public Image AKImage;
+    public GameObject BuySell;
+    private bool droit;
+    public GameObject canvassell;
+    private Player player;
 
     public int[] count = new int[6];
     // Start is called before the first frame update
@@ -30,8 +34,10 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         {
             
         }
+        player=gameObject.GetComponent<Player>();
         
         inventaire.SetActive(false);
+        BuySell.SetActive(false);
         for(int i = 0;i <6;i++)
         {
             lamoula[i].text = "0";
@@ -39,6 +45,8 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         }
 
         ouvert = false;
+        droit = true;
+        canvassell.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,6 +56,7 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         {
             return;
         }
+      
 
         if (AK.active)
         {
@@ -73,6 +82,18 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         {
             inventaire.SetActive(!ouvert);
             ouvert = !ouvert;
+            if (ouvert)
+            {
+                
+                player.isOutOfFocus = true;
+                
+            }
+            else
+            {
+                player.isOutOfFocus = false;
+            }
+
+
         }
     }
     public void Add(Loot item, int amount)
@@ -81,5 +102,46 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         count[(int)item] += amount;
 
         lamoula[(int) item].text = count[(int) item].ToString();
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag=="PNJ")
+        {
+            if (photonView.IsMine)
+            {
+                BuySell.SetActive(true);
+            }
+            
+        }
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+        if (droit && Input.GetKeyUp(KeyCode.F))
+        {
+            BuySell.SetActive(false);
+            droit = false;
+        }
+        if (droit && Input.GetKeyUp(KeyCode.O))
+        {
+            BuySell.SetActive(false);
+            canvassell.SetActive(true);
+            
+        }
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag=="PNJ")
+        {
+            
+                BuySell.SetActive(false);
+                canvassell.SetActive(false);
+        }
+
+        droit = true;
     }
 }

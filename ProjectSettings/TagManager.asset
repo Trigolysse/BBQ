@@ -12,6 +12,20 @@ TagManager:
   - AK
   - Monster
   - Gamemanager
+  - Ressource
+  - FxTemporaire
+  - EventSystem
+  - Item
+  - Slot
+  - ItemIcon
+  - Timer
+  - DraggingItem
+  - MainInventory
+  - Canvas
+  - Slots
+  - Tooltip
+  - EquipmentSystem
+  - PNJ
   layers:
   - Default
   - TransparentFX
