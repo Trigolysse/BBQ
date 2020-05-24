@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class Item
 {
-    public int id;
     public string name;
     public Sprite icon;
     public ItemType type;
 
-    public Item(int id, string name, Sprite icon, ItemType type)
+    static Item yellowFlower;
+
+
+    public Item(string name, Sprite icon, ItemType type)
     {
-        this.id = id;
         this.name = name;
         this.icon = icon;
         this.type = type;
     }
 }
 
-public enum ItemType // all block types we can have
+    public enum ItemType // all block types we can have
 {
     NONE,
     DIRT,
@@ -28,5 +29,6 @@ public enum ItemType // all block types we can have
     CHEST,
     CRAFTING_TABLE,
     FURNACE,
-    SAND
+    SAND,
+    YELLOW_FLOWER
 }

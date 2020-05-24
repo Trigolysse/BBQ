@@ -60838,7 +60838,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1488716711}
   - component: {fileID: 1488716710}
-  - component: {fileID: 1488716709}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -60846,22 +60845,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1488716709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488716708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8f1153237d16894fae0e1800a61f6d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotSprite: {fileID: 21300000, guid: 1cdd84b629504dc4cb71e1739c962597, type: 3}
-  sp: {fileID: -1704767490902251812, guid: e665b9803079a1d4cae7b11206d566e2, type: 3}
-  inventoryFrame: {fileID: 21300000, guid: 2355328015897c44eb1d5c993830e406, type: 3}
-  inventoryCanvas: {fileID: 0}
 --- !u!20 &1488716710
 Camera:
   m_ObjectHideFlags: 0
