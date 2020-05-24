@@ -17,6 +17,10 @@ public class SimpleInv : MonoBehaviourPunCallbacks
     public GameObject inventaire;
    
     public Text[] lamoula;
+    public GameObject AK;
+    public GameObject Sword;
+    public Image SwordImage;
+    public Image AKImage;
 
     public int[] count = new int[6];
     // Start is called before the first frame update
@@ -44,6 +48,25 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         {
             return;
         }
+
+        if (AK.active)
+        {
+            AKImage.color=Color.white;
+        }
+        else
+        {
+            AKImage.color = Color.black;
+        }
+        if (Sword.active)
+        {
+            SwordImage.color=Color.white;
+        }
+        else
+        {
+            SwordImage.color = Color.black;
+        }
+
+        
             
         
         if (Input.GetKeyUp(KeyCode.I))
