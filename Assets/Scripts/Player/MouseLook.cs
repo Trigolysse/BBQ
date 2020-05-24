@@ -50,7 +50,7 @@ public class MouseLook : MonoBehaviour
 
         LockAndUnlockCursor();
 
-        if (Cursor.lockState == CursorLockMode.Locked && !player.isDead)
+        if (Cursor.lockState == CursorLockMode.Locked && !player.isDead && !player.isOutOfFocus)
         {
             LookAround();
         }
@@ -66,7 +66,7 @@ public class MouseLook : MonoBehaviour
     void LockAndUnlockCursor()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.L))
         {
            
             if (Cursor.lockState == CursorLockMode.Locked)

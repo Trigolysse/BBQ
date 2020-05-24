@@ -2,20 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item
+public class Item: MonoBehaviour
 {
-    public string name;
-    public Sprite icon;
-    public ItemType type;
+    private string displayName;
+    private Sprite icon;
+    private ItemType type;
 
-    static Item yellowFlower;
+    public Item(string displayName, Sprite icon, ItemType type) {
+        this.DisplayName = displayName;
+        this.Icon = icon;
+        this.Type = type;
+    }
 
+    public ItemType Type { get => type; set => type = value; }
+    public Sprite Icon { get => icon; set => icon = value; }
+    public string DisplayName { get => displayName; set => displayName = value; }
+}
 
-    public Item(string name, Sprite icon, ItemType type)
+public static class Items
+{
+    static List<Item> items = new List<Item>
     {
-        this.name = name;
-        this.icon = icon;
-        this.type = type;
+        new Item("Wood", Resources.Load<Sprite>("Items/Wood"), ItemType.WOOD),
+        new Item("Yellow flower", Resources.Load<Sprite>("Items/Yellow"), ItemType.YELLOW_FLOWER)
+    };
+
+    public static Item getItemWithType(ItemType type)
+    {
+        foreach (Item item in items)
+        {
+            if (item.Type == type)
+                return item;
+        }
+        return new Item("", Resources.Load<Sprite>("Items/Yellow"), ItemType.NONE);
     }
 }
 
@@ -23,6 +42,7 @@ public class Item
 {
     NONE,
     DIRT,
+    WOOD,
     COBBLESTONE,
     LOG,
     PLANKS,

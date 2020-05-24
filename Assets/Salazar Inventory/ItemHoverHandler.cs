@@ -25,6 +25,10 @@ public class ItemHoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private void DrawDialog()
     {
-
+        Debug.Log("HOVER");
+    }
+    private void OnGUI()
+    {
+        //GUI.ModalWindow(0, new Rect(0, 0, 500, 500), GUI.WindowFunction., "window");
     }
 }

@@ -55,7 +55,8 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
 
     void MoveThePlayer()
     {
-        moveDirection = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
+        if (!player.isOutOfFocus)
+            moveDirection = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
 
         if (moveDirection != Vector3.zero)
         {

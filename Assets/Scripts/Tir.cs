@@ -41,8 +41,7 @@ public class Tir : MonoBehaviourPunCallbacks
     public GameObject AK;
     private bool reload;
     private Animator anim;
-    
-    
+    private Player player;
 
     #endregion
 
@@ -53,31 +52,25 @@ public class Tir : MonoBehaviourPunCallbacks
         anim = AK.GetComponent<Animator>();
         weaponManager = GetComponent<WeaponManager>();
         mouseLook = GetComponentInChildren<MouseLook>();
-        
+        player = GetComponent<Player>();
     }
 
     
-
     void Update()
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine && !player.isOutOfFocus)
         {
-
             WeaponShoot();
             reload = AK.GetComponent<WeaponHandler>().recharge;
             if (!Sword.active && reload)
             {
-            
                 anim.SetBool("Reload", true);
             }
             else
             {
                 anim.SetBool("Reload",false);
             }
-            
-        }
-            
-            
+        }    
     }
 
     #endregion

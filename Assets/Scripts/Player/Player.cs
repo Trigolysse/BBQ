@@ -28,6 +28,7 @@ public class Player : MonoBehaviourPunCallbacks
 
  
     public bool isDead = false;
+    public bool isOutOfFocus = false;
 
     private void Awake()
     {

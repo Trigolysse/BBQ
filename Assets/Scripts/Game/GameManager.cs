@@ -55,11 +55,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         SkipIntro.SetActive(true);
         EscapeMenu.SetActive(false);
         ChatMenu.SetActive(false);
-        
-
-
-
     }
+
     private void Update()
     {
         

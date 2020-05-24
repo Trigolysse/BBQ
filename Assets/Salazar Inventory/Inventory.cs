@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,12 +23,11 @@ public class Stack
     }
 }
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private Sprite slotSprite;
     private int slotSize = 32;
-
 
     public Sprite sp;
     public Sprite inventoryFrame;
@@ -39,11 +39,21 @@ public class Inventory : MonoBehaviour
     public Canvas inventoryCanvas;
     private GameObject go;
 
+    private Player player;
+
+    private void Awake()
+    {
+        player = gameObject.GetComponent<Player>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-       
-        
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         inventory = new Stack[4, 9];
         armor = new Item[4, 1];
         CreateCanvas();
@@ -54,12 +64,19 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!photonView.IsMine)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            AddInInventory(new Stack(new Item("#</>d__Ss -o ssh key", sp, ItemType.DIRT), 32));
+            //AddInInventory(new Stack(new Item("#</>d__Ss -o ssh key", sp, ItemType.DIRT), 32));
         }
 
-     
+        if(Input.GetKeyDown(KeyCode.L)) {
+            inventoryCanvas.enabled = !inventoryCanvas.enabled;
+            player.isOutOfFocus = !player.isOutOfFocus;
+        }
     }
 
     private void CreateCanvas()
@@ -110,7 +127,7 @@ public class Inventory : MonoBehaviour
         foreach (Stack slot in inventory)
         {
             if (slot == null) continue;
-            if (slot.item.type == stack.item.type && slot.count < 64)
+            if (slot.item.Type == stack.item.Type && slot.count < 64)
             {
                 int sum = slot.count + remainder;
                 if (sum > 64)
@@ -144,16 +161,15 @@ public class Inventory : MonoBehaviour
     {
         GameObject slot = GameObject.Find($"Slot {i} {j}");
         GameObject stackGo = new GameObject();
-        stackGo.name = stack.item.name;
+        stackGo.name = stack.item.DisplayName;
         stackGo.AddComponent<ItemDragHandler>();
         stackGo.AddComponent<ItemHoverHandler>();
         Image image = stackGo.AddComponent<Image>();
-        image.sprite = stack.item.icon;
+        image.sprite = stack.item.Icon;
         RectTransform r = stackGo.transform as RectTransform;
         r.sizeDelta = new Vector2(slotSize, slotSize);
         stackGo.transform.SetParent(slot.transform);
         image.rectTransform.anchoredPosition = new Vector2(0, 0);
-
     }
 
     void CreateFrameObject()
@@ -169,12 +185,10 @@ public class Inventory : MonoBehaviour
         Rect spriteRect = sprite.rect;
         Texture2D tex = sprite.texture;
         GUI.DrawTextureWithTexCoords(rect, tex, new Rect(spriteRect.x / tex.width, spriteRect.y / tex.height, spriteRect.width / tex.width, spriteRect.height / tex.height));
-       
     }
 
     private void CreateGameObject(string name, Rect rect, Sprite sprite)
     {
-       
         GameObject go = new GameObject();
         go.name = name;
         Image imageGameObject = go.AddComponent<Image>();

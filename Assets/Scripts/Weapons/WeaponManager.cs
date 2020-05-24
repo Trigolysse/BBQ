@@ -16,7 +16,7 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
     private int index;
     public GameObject AK;
     private bool recharge;
-    
+    private Player player;
 
 
 
@@ -26,26 +26,23 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
-        
+        player = gameObject.GetComponent<Player>();
         index = 2;
         currentWeaponIndex = 2;
         weapons[currentWeaponIndex].gameObject.SetActive(true);
         wheel = false;
         Frames = 0;
-    
-
     }
 
     void Update()
     {
-       
         Frames++;
         if (Frames>10)
         {
             wheel = false;
         }
 
-        if (photonView.IsMine)
+        if (photonView.IsMine && !player.isOutOfFocus)
         {
             ProcessInput();
             if (AK.active)
