@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Camera Camer;
     public Text text;
     public Canvas DeathCanvas;
-    
-
     public delegate void OnPlayerKilledCallback(string killer, string victim, WeaponName weaponName);
     public OnPlayerKilledCallback onPlayerKilledCallback;
 

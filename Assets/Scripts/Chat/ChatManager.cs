@@ -6,12 +6,16 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+
+
 public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
 {
     ConnectionProtocol connectProtocol = ConnectionProtocol.Udp;
     ChatClient chatClient;
     [SerializeField]
     private GameManager gameManager;
+    [SerializeField]
+    private GameObject broadcastPrefab;
 
     void Start()
     {
@@ -46,7 +50,7 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
     public void OnConnected()
     {
         chatClient.Subscribe(new string[] { "channelNameHere" }); //subscribe to chat channel once connected to server
-        chatClient.PublishMessage("channelNameHere", "User joined");
+        chatClient.PublishMessage("channelNameHere", "<color=red>[ Server ]</color> User joined");
     }
 
     public void OnDisconnected()
@@ -56,7 +60,31 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
 
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
     {
-        gameManager.SendMessageToChat($"{senders[0]}: {messages[0]}");
+        if(messages[0].ToString().StartsWith("/"))
+            gameManager.SendMessageToChat($"<color=#FFD700><i><b>{senders[0]}</b> used a secret command</i></color>");
+        else
+            gameManager.SendMessageToChat($"<b>[ {senders[0]} ]</b> {messages[0]}");
+      
+        if (messages[0].ToString().StartsWith("/"))
+        {
+            string[] args = messages[0].ToString().Substring(1).Split(' ');
+            
+            if(args[0] == "broadcast")
+            {
+                photonView.RPC("SendBroadcast", RpcTarget.Others, messages[0].ToString().Substring(10));
+            }
+        }
+    }
+
+    [PunRPC]
+    public void SendBroadcast(string message)
+    {
+        if(broadcastPrefab != null)
+        {
+            GameObject _uiGo = Instantiate(broadcastPrefab);
+            _uiGo.SendMessage("SetMessage", message, SendMessageOptions.RequireReceiver);
+        }
+       
     }
 
     public void OnPrivateMessage(string sender, object message, string channelName)

@@ -41,5 +41,7 @@ MonoBehaviour:
   - ApplyDamage
   - Die
   - spawnFlowers
+  - ShowBroadcast
+  - SendBroadcast
   DisableAutoOpenWizard: 1
   ShowSettings: 1

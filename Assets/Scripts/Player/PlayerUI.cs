@@ -67,7 +67,7 @@ public class PlayerUI : MonoBehaviour
     {
         if (_target == null)
         {
-            Debug.LogError("<Color=Red><a>Missing</a></Color> PlayMakerManager target for PlayerUI.SetTarget.", this);
+            Debug.LogError("<color=red><a>Missing</a></Color> PlayMakerManager target for PlayerUI.SetTarget.", this);
             return;
         }
         // Cache references for efficiency
