@@ -98,7 +98,7 @@ public class Inventory : MonoBehaviourPunCallbacks
         for (int i = 0; i < armor.GetLength(0); i++)
             for (int j = 0; j < armor.GetLength(1); j++)
             {
-                CreateGameObject($"Slot Armor {i} {j}", new Rect(j * slotSize + Screen.width / 2 - 4.5f * slotSize, i * slotSize + Screen.height / 2 - 140, slotSize, slotSize), slotSprite);
+                CreateGameObject($"Slot Armor {i} {j}", new Rect(j * slotSize + Screen.width / 2 - 4.5f * slotSize, i * slotSize + Screen.height / 2 - 140, slotSize, slotSize), slotSprite, true);
             }
 
 
@@ -109,10 +109,10 @@ public class Inventory : MonoBehaviourPunCallbacks
             {
                 if (i == inventory.GetLength(0) - 1)
                 {
-                    CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2  + 10, slotSize, slotSize), slotSprite);
+                    CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2  + 10, slotSize, slotSize), slotSprite, true);
                 }
                 else
-                    CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2 , slotSize, slotSize), slotSprite);
+                    CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2 , slotSize, slotSize), slotSprite, true);
             }
     }
 
@@ -191,10 +191,12 @@ public class Inventory : MonoBehaviourPunCallbacks
         GUI.DrawTextureWithTexCoords(rect, tex, new Rect(spriteRect.x / tex.width, spriteRect.y / tex.height, spriteRect.width / tex.width, spriteRect.height / tex.height));
     }
 
-    private void CreateGameObject(string name, Rect rect, Sprite sprite)
+    private void CreateGameObject(string name, Rect rect, Sprite sprite, bool slot = false)
     {
         GameObject go = new GameObject();
         go.name = name;
+        if(slot)
+            go.AddComponent<Slot>();
         Image imageGameObject = go.AddComponent<Image>();
         imageGameObject.sprite = sprite;
         RectTransform r = go.transform as RectTransform;

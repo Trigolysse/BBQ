@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ItemHoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    Stack stack;
+    public Stack stack;
     public static ItemHoverHandler Instantiate(GameObject where, Stack stack)
     {
         ItemHoverHandler myC = where.AddComponent<ItemHoverHandler>();
