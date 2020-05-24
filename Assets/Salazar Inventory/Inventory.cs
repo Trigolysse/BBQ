@@ -48,7 +48,7 @@ public class Inventory : MonoBehaviour
         armor = new Item[4, 1];
         CreateCanvas();
         inventoryCanvas.enabled = false;
-        AddInInventory(new Stack(new Item(0, "ak47", sp, ItemType.DIRT), 64));
+        AddInInventory(new Stack(new Item("ak47", sp, ItemType.DIRT), 64));
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            AddInInventory(new Stack(new Item(0, "#</>d__Ss -o ssh key", sp, ItemType.DIRT), 32));
+            AddInInventory(new Stack(new Item("#</>d__Ss -o ssh key", sp, ItemType.DIRT), 32));
         }
 
      
