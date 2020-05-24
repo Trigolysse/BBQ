@@ -24,7 +24,13 @@ public class taklwithme : MonoBehaviourPunCallbacks
         {
             next--;
         }
-        if (Input.GetKeyDown(KeyCode.F) && next==0)
+
+        if (!begin && Input.GetKeyUp(KeyCode.O))
+        {
+            talk.SetActive(false);
+            next = -1;
+        }
+        if (Input.GetKeyUp(KeyCode.F) && next==0)
         {
             if (begin==false)
             {
@@ -47,6 +53,7 @@ public class taklwithme : MonoBehaviourPunCallbacks
 
     private void OnTriggerExit(Collider other)
     {
+        next = 0;
         talk.SetActive(false);
         begin = false;
         dialogmanager.GetComponent<DialogueManager>().EndDialogue();
