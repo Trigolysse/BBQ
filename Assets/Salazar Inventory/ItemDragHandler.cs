@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    private ItemHoverHandler itemHoverHandler;
+
+    void Awake()
+    {
+        itemHoverHandler = GetComponent<ItemHoverHandler>();
+    }
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;

@@ -38,7 +38,6 @@ public class Inventory : MonoBehaviourPunCallbacks
 
     public Canvas inventoryCanvas;
     private GameObject go;
-
     private Player player;
 
     private void Awake()
@@ -58,7 +57,8 @@ public class Inventory : MonoBehaviourPunCallbacks
         armor = new Item[4, 1];
         CreateCanvas();
         inventoryCanvas.enabled = false;
-        AddInInventory(new Stack(new Item("ak47", sp, ItemType.DIRT), 64));
+        AddInInventory(new Stack(new Item("Wood", sp, ItemType.WOOD), 64));
+        AddInInventory(new Stack(Items.getItemWithType(ItemType.YELLOW_FLOWER), 12));
     }
 
     // Update is called once per frame
@@ -86,6 +86,7 @@ public class Inventory : MonoBehaviourPunCallbacks
         myGO.AddComponent<Canvas>();
         inventoryCanvas = myGO.GetComponent<Canvas>();
         inventoryCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
         myGO.AddComponent<CanvasScaler>();
         myGO.AddComponent<GraphicRaycaster>();
         CreateFrameObject();
@@ -97,7 +98,7 @@ public class Inventory : MonoBehaviourPunCallbacks
         for (int i = 0; i < armor.GetLength(0); i++)
             for (int j = 0; j < armor.GetLength(1); j++)
             {
-                CreateGameObject($"Slot Armor {i} {j}", new Rect(j * slotSize + Screen.width / 2 - 4.5f * slotSize, i * slotSize + Screen.height / 2 - 140, slotSize, slotSize), slotSprite);
+                CreateGameObject($"Slot Armor {i} {j}", new Rect(j * slotSize + Screen.width / 2 - 4.5f * slotSize, i * slotSize + Screen.height / 2 - 140, slotSize, slotSize), slotSprite, true);
             }
 
 
@@ -108,10 +109,10 @@ public class Inventory : MonoBehaviourPunCallbacks
             {
                 if (i == inventory.GetLength(0) - 1)
                 {
-                    CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2  + 10, slotSize, slotSize), slotSprite);
+                    CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2  + 10, slotSize, slotSize), slotSprite, true);
                 }
                 else
-                    CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2 , slotSize, slotSize), slotSprite);
+                    CreateGameObject($"Slot {i} {j}", new Rect(j * slotSize + Screen.width / 2 - width / 2, i * slotSize + Screen.height / 2 , slotSize, slotSize), slotSprite, true);
             }
     }
 
@@ -159,15 +160,18 @@ public class Inventory : MonoBehaviourPunCallbacks
 
     private void AddStackToSlot(Stack stack, int i, int j)
     {
+        int padding = 8;
+
         GameObject slot = GameObject.Find($"Slot {i} {j}");
         GameObject stackGo = new GameObject();
         stackGo.name = stack.item.DisplayName;
         stackGo.AddComponent<ItemDragHandler>();
-        stackGo.AddComponent<ItemHoverHandler>();
+        //stackGo.AddComponent<ItemHoverHandler>();
+        ItemHoverHandler.Instantiate(stackGo, stack);
         Image image = stackGo.AddComponent<Image>();
         image.sprite = stack.item.Icon;
         RectTransform r = stackGo.transform as RectTransform;
-        r.sizeDelta = new Vector2(slotSize, slotSize);
+        r.sizeDelta = new Vector2(slotSize - padding, slotSize - padding);
         stackGo.transform.SetParent(slot.transform);
         image.rectTransform.anchoredPosition = new Vector2(0, 0);
     }
@@ -187,10 +191,12 @@ public class Inventory : MonoBehaviourPunCallbacks
         GUI.DrawTextureWithTexCoords(rect, tex, new Rect(spriteRect.x / tex.width, spriteRect.y / tex.height, spriteRect.width / tex.width, spriteRect.height / tex.height));
     }
 
-    private void CreateGameObject(string name, Rect rect, Sprite sprite)
+    private void CreateGameObject(string name, Rect rect, Sprite sprite, bool slot = false)
     {
         GameObject go = new GameObject();
         go.name = name;
+        if(slot)
+            go.AddComponent<Slot>();
         Image imageGameObject = go.AddComponent<Image>();
         imageGameObject.sprite = sprite;
         RectTransform r = go.transform as RectTransform;

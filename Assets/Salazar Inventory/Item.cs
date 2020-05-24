@@ -24,7 +24,8 @@ public static class Items
     static List<Item> items = new List<Item>
     {
         new Item("Wood", Resources.Load<Sprite>("Items/Wood"), ItemType.WOOD),
-        new Item("Yellow flower", Resources.Load<Sprite>("Items/Yellow"), ItemType.YELLOW_FLOWER)
+        new Item("Yellow flower", Resources.Load<Sprite>("Items/Yellow"), ItemType.YELLOW_FLOWER),
+        new Item("Dirt", Resources.Load<Sprite>("Items/Wood"), ItemType.DIRT)
     };
 
     public static Item getItemWithType(ItemType type)
