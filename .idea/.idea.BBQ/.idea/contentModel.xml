@@ -144,6 +144,7 @@
         <e p="EnemyAttack.cs" t="Include" />
         <e p="EscapeMenu.cs" t="Include" />
         <e p="Essai.cs" t="Include" />
+        <e p="FermeBoutique.cs" t="Include" />
         <e p="Grenade.cs" t="Include" />
         <e p="grenadeThrower.cs" t="Include" />
         <e p="HealthBar.cs" t="Include" />
