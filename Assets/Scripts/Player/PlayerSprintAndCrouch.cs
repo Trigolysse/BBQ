@@ -20,6 +20,8 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
     private float sprint_Step_Distance = 0.25f;
     private float crouch_Step_Distance = 0.5f;
     private float sprint_Value = 100f;
+    private Animator anim;
+    public GameObject Ernesto;
 
     #endregion
 
@@ -41,6 +43,7 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
     {
         move_Speed = playerMovement.speed;
         sprint_Speed = playerMovement.speed * 2;
+        anim = Ernesto.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -72,13 +75,17 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
         // if we have stamina we can sprint
         if (sprint_Value > 0f)
         {
+            
             if (Input.GetKeyDown(KeyCode.LeftControl) && !isCrouching)
             {
                 playerMovement.speed = sprint_Speed;
+                anim.SetBool("Running",true);
             }
         }
+        
         if (Input.GetKeyUp(KeyCode.LeftControl) && !isCrouching)
         {
+            anim.SetBool("Running",false);
             playerMovement.speed = move_Speed;
         }
         if (Input.GetKey(KeyCode.LeftControl) && !isCrouching)

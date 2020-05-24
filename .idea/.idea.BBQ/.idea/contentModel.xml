@@ -76,6 +76,65 @@
         </e>
         <e p="AliveIndicator.cs" t="Include" />
         <e p="Billboard.cs" t="Include" />
+        <e p="BulletImpact" t="Include">
+          <e p="Cartoon FX Easy Editor" t="Include">
+            <e p="CartoonFX Easy Editor Readme.txt" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="CFXEasyEditor.cs" t="Include" />
+            </e>
+          </e>
+          <e p="WarFX" t="Include">
+            <e p="!WarFX Readme.txt" t="Include" />
+            <e p="_Effects" t="Include">
+              <e p="MuzzleFlashes" t="Include">
+                <e p="!MuzzleFlash Differences.txt" t="Include" />
+              </e>
+            </e>
+            <e p="_Effects (Mobile)" t="Include">
+              <e p="MuzzleFlashes" t="Include">
+                <e p="!MuzzleFlash Differences.txt" t="Include" />
+              </e>
+            </e>
+            <e p="Demo" t="Include">
+              <e p="Assets" t="Include">
+                <e p="CFX_AutoStopLoopedEffect.cs" t="Include" />
+                <e p="CFX_Demo_RandomDir.cs" t="Include" />
+                <e p="CFX_Demo_RotateCamera.cs" t="Include" />
+                <e p="CFX_Demo_Translate.cs" t="Include" />
+                <e p="WFX_Demo.cs" t="Include" />
+                <e p="WFX_Demo_DeleteAfterDelay.cs" t="Include" />
+                <e p="WFX_Demo_New.cs" t="Include" />
+                <e p="WFX_Demo_RandomDir.cs" t="Include" />
+                <e p="WFX_Demo_Wall.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Editor" t="Include">
+              <e p="CFX_SpawnSystemEditor.cs" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="CFX_AutoDestructShuriken.cs" t="Include" />
+              <e p="CFX_LightIntensityFade.cs" t="Include" />
+              <e p="WFX_BulletHoleDecal.cs" t="Include" />
+              <e p="WFX_LightFlicker.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="WFX_S Add Scroll.shader" t="Include" />
+              <e p="WFX_S Alpha-Diffuse TintColor.shader" t="Include" />
+              <e p="WFX_S Alpha-Specular TintColor.shader" t="Include" />
+              <e p="WFX_S AlphaBlend NoSoftParticles.shader" t="Include" />
+              <e p="WFX_S AlphaBlend Scroll.shader" t="Include" />
+              <e p="WFX_S Multiply Soft Scroll.shader" t="Include" />
+              <e p="WFX_S Multiply Soft.shader" t="Include" />
+              <e p="WFX_S Particle Add A8.shader" t="Include" />
+              <e p="WFX_S Particle AddSoft A8.shader" t="Include" />
+              <e p="WFX_S Particle Multiply A8.shader" t="Include" />
+              <e p="WFX_S Smoke Scroll.shader" t="Include" />
+            </e>
+            <e p="Spawn System" t="Include">
+              <e p="CFX_SpawnSystem.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Dialogue.cs" t="Include" />
         <e p="DialogueManager.cs" t="Include" />
         <e p="DialogueTrigger.cs" t="Include" />
@@ -91,7 +150,11 @@
         <e p="KillFeed.cs" t="Include" />
         <e p="KillFeedItem.cs" t="Include" />
         <e p="localPlayController.cs" t="Include" />
-        <e p="loot.cs" t="Include" />
+        <e p="Metalloot.cs" t="Include" />
+        <e p="Metalspawn.cs" t="Include" />
+        <e p="MonsterHEALTHBAR.cs" t="Include" />
+        <e p="Orangeloot.cs" t="Include" />
+        <e p="Orangespawn.cs" t="Include" />
         <e p="orcmove.cs" t="Include" />
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
@@ -265,6 +328,12 @@
         </e>
         <e p="Porte.cs" t="Include" />
         <e p="PORTESHOP.cs" t="Include" />
+        <e p="PunchAnim.cs" t="Include" />
+        <e p="PunchDroitRange.cs" t="Include" />
+        <e p="Purpleloot.cs" t="Include" />
+        <e p="Purplespawn.cs" t="Include" />
+        <e p="Rocksloot.cs" t="Include" />
+        <e p="Rocksspawn.cs" t="Include" />
         <e p="Salazar Inventory" t="Include">
           <e p="Compass.cs" t="Include" />
           <e p="DrawInventory.cs" t="Include" />
@@ -325,6 +394,7 @@
             <e p="WeaponName.cs" t="Include" />
           </e>
         </e>
+        <e p="SimpleInv.cs" t="Include" />
         <e p="SONnnn.cs" t="Include" />
         <e p="taklwithme.cs" t="Include" />
         <e p="totalamo.cs" t="Include" />
@@ -347,6 +417,9 @@
             <e p="UISoftAdditive.shader" t="Include" />
           </e>
         </e>
+        <e p="Woodloot.cs" t="Include" />
+        <e p="Woodspawn.cs" t="Include" />
+        <e p="Yellowloot.cs" t="Include" />
       </e>
       <e p="BBQ.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />

@@ -48,6 +48,7 @@ public class WeaponHandler : MonoBehaviour
     public Text Amo;
     public Text TotalAmo;
     private Animator AttakSword;
+    private Animator PunchAttak;
 
     #endregion
 
@@ -65,6 +66,11 @@ public class WeaponHandler : MonoBehaviour
     
     public GameObject attackPoint;
     public Vector2[] recoil;
+    public GameObject Punch;
+    private Animator anim;
+    public GameObject Ernesto;
+    public Camera lacamera;
+    
 
     #endregion
 
@@ -77,6 +83,11 @@ public class WeaponHandler : MonoBehaviour
         tempsamo = 0;
         recharge = false;
         AttakSword = Epee.GetComponent<Animator>();
+        PunchAttak = Punch.GetComponent<Animator>();
+        anim = Ernesto.GetComponent<Animator>();
+        anim.SetBool("Dead",false);
+        anim.SetBool("Run",false);
+        PunchAttak.SetBool("Parade",false);
 
         
         ammunition = 32;
@@ -120,7 +131,7 @@ public class WeaponHandler : MonoBehaviour
 
     private void Update()
     {
-        if (!Epee.active)
+        if (!Epee.active && !Punch.active)
         {
             if (ammunition==0)
             {
@@ -156,6 +167,7 @@ public class WeaponHandler : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.R))
                     {
+                        lacamera.GetComponent<AudioSource>().Play();
                         recharge = true;
                         temps = 0;
                     }
@@ -186,9 +198,9 @@ public class WeaponHandler : MonoBehaviour
 
     public void ShootAnimation()
     {
-        
-        
-        if (!Epee.active)
+
+
+        if (!Epee.active && !Punch.active)
         {
             if (ammunition<=0 || recharge)
             {
@@ -197,17 +209,23 @@ public class WeaponHandler : MonoBehaviour
             }
             else
             {
+                GetComponent<AudioSource>().Play();
                 bullet.SetActive(true);
                 animator.SetTrigger(AnimationTags.FIRE_TRIGGER);
                 DecreaseAmmunition();
                 Amo.text = ammunition.ToString();
             }
         }
-        else
+        else if (!Punch.active)
         {
             AttakSword.SetBool("Shoot",true);
         }
-        
+        else
+        {
+            PunchAttak.SetBool("Punch",true);
+            PunchAttak.SetBool("Parade",false);
+            
+        }
        
         
 
@@ -221,14 +239,23 @@ public class WeaponHandler : MonoBehaviour
         }
     }
 
+    public void StopPunchAnimation()
+    {
+        if (Punch.active)
+        {
+            PunchAttak.SetBool("Punch",false);
+        }
+        
+    }
+
     public void WalkAnimation()
     {
-        animator.SetBool(AnimationTags.WALK_PARAMETER, true);
+        anim.SetBool("Run",true);
     }
 
     public void StopWalkAnimation()
     {
-        animator.SetBool(AnimationTags.WALK_PARAMETER, false);
+        anim.SetBool("Run",false);
     }
 
     public void InspectAnimation()

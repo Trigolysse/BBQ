@@ -11,6 +11,7 @@ TagManager:
   - ExplosiveBarrel
   - AK
   - Monster
+  - Gamemanager
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - Estrade iranienne
   - Table
   - MiniMap
-  - 
-  - 
+  - Player
+  - InfiniteRange
   - 
   - 
   - 

@@ -14,6 +14,10 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
     private int Frames;
     private bool wheel;
     private int index;
+    public GameObject AK;
+    private bool recharge;
+    
+
 
 
     #endregion
@@ -22,15 +26,19 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
-        index = 0;
-        currentWeaponIndex = 0;
+        
+        index = 2;
+        currentWeaponIndex = 2;
         weapons[currentWeaponIndex].gameObject.SetActive(true);
         wheel = false;
         Frames = 0;
+    
+
     }
 
     void Update()
     {
+       
         Frames++;
         if (Frames>10)
         {
@@ -39,12 +47,22 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
 
         if (photonView.IsMine)
         {
-           
             ProcessInput();
-            if (!wheel)
+            if (AK.active)
+            {
+                recharge = AK.GetComponent<WeaponHandler>().recharge;
+            }
+            else
+            {
+                recharge = false;
+            }
+            
+            
+            if (!wheel && !recharge)
             {
                 if ( Input.GetAxisRaw("Mouse ScrollWheel")!=0)
                 {
+
                     wheel = true;
                     Frames = 0;
                 
@@ -52,13 +70,13 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
                     {
                         index = currentWeaponIndex;
                         index += 1;
-                        if (index>1)
+                        if (index>2)
                         {
                             index = 0;
                         }
                         else
                         {
-                            index = 1;
+                            
                         }
                         TurnOnSelectedWeapon(index);
                     }
@@ -69,17 +87,18 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
                         index -= 1;
                         if (index<0)
                         {
-                            index = 1;
+                            index = 2;
                         }
                         else
                         {
-                            index = 0;
+                            
                         }
                         TurnOnSelectedWeapon(index);
                     }
 
                     
                 }
+               
             }
             
             

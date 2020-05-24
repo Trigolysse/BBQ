@@ -10,10 +10,13 @@ public class Player : MonoBehaviourPunCallbacks
     private int frames;
     private int pasthealth;
     private RaycastHit hit;
+    private Animator anim;
+    public GameObject Ernesto;
     public int Health;
     public Canvas DeadCanvas;
 
     public GameObject BloodSight;
+    public GameObject healthBar;
     //public Canvas playerUI;
 
     [Tooltip("The Player's UI GameObject Prefab")]
@@ -36,7 +39,9 @@ public class Player : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        healthBar.GetComponent<MonsterHEALTHBAR>().SetMaxHealth(Health);
         DeadCanvas.enabled = false;
+        anim = Ernesto.GetComponent<Animator>();
   
         if (!photonView.IsMine)
             return;
@@ -68,6 +73,7 @@ public class Player : MonoBehaviourPunCallbacks
             return;
         if (isDead)
         {
+            anim.SetBool("Dead",true);
             DeadCanvas.enabled = true;
         }
         else
@@ -108,11 +114,20 @@ public class Player : MonoBehaviourPunCallbacks
     public void ApplyDamage(string _sourceName, int damage, WeaponName weaponName)
     {
         if (isDead)
+        {
+            GetComponent<AudioSource>().Play();
             return;
+        }
+        
 
         Debug.Log("ApplyDamage");
 
         Health -= damage;
+        if (Health<0)
+        {
+            Health = 0;
+        }
+        healthBar.GetComponent<MonsterHEALTHBAR>().SetHealth(Health);
         if (Health <= 0)
         {
             Die(_sourceName, weaponName);

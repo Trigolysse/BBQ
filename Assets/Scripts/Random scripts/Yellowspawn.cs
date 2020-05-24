@@ -8,16 +8,15 @@ public class Yellowspawn : MonoBehaviourPunCallbacks
 {
     public GameObject flower;
     public List<Vector3[]> allspwan = new List<Vector3[]>();
-    public int size;
     public Vector3[] spawn1;
     public Vector3[] spawn2;
-    public Vector3[] spawn3;
-    public Vector3[] spawn4;
+    public float respawntime;
+    public List<bool> alive;
+    public List<float> restime;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("prout");
 
         if(PhotonNetwork.IsMasterClient)
             spawnFlowers();
@@ -28,18 +27,50 @@ public class Yellowspawn : MonoBehaviourPunCallbacks
         Random rand = new Random();
         allspwan.Add(spawn1);
         allspwan.Add(spawn2);
-        allspwan.Add(spawn3);
-        allspwan.Add(spawn4);
-
+        int i = 0;
         foreach (Vector3[] ranpos in allspwan)
         {
-            GameObject newflower = PhotonNetwork.InstantiateSceneObject("YellowFlower", spawn3[0], Quaternion.identity) as GameObject;
+            GameObject newflower = PhotonNetwork.InstantiateSceneObject("YellowFlower", ranpos[rand.Next(ranpos.Length)], Quaternion.identity) as GameObject;
+            newflower.GetComponent<Yellowloot>().zone = i;
+            alive.Add(true);
+            restime.Add(0);
+            i += 1;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (PhotonNetwork.IsMasterClient)
+
+        {
+            Random rand = new Random();
+            for (int i = 0; i < alive.Count; i++)
+            {
+                if (!alive[i])
+                {
+                    restime[i] += Time.deltaTime;
+                }
+                if (restime[i] >= respawntime)
+                {
+                    restime[i] = 0;
+                    alive[i] = true;
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameObject newflower = PhotonNetwork.InstantiateSceneObject("YellowFlower", allspwan[i][rand.Next(allspwan[i].Length)], Quaternion.identity) as GameObject;
+                        newflower.GetComponent<Yellowloot>().zone = i;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
+    public void destroyflower(int zone)
+    {
+        if (PhotonNetwork.IsMasterClient)
+            alive[zone] = false;
     }
 }
