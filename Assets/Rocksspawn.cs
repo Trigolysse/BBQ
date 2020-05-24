@@ -38,27 +38,31 @@ public class Rocksspawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Random rand = new Random();
-        for (int i = 0; i < alive.Count; i++)
+        if (PhotonNetwork.IsMasterClient)
         {
-            if (!alive[i])
+            Random rand = new Random();
+            for (int i = 0; i < alive.Count; i++)
             {
-                restime[i] += Time.deltaTime;
-            }
-            if (restime[i] >= respawntime)
-            {
-                restime[i] = 0;
-                alive[i] = true;
-                if (PhotonNetwork.IsMasterClient)
+                if (!alive[i])
                 {
-                    GameObject newflower = PhotonNetwork.InstantiateSceneObject("Rocks", allspwan[i][rand.Next(allspwan[i].Length)], Quaternion.identity) as GameObject;
-                    newflower.GetComponent<Rocksloot>().zone = i;
+                    restime[i] += Time.deltaTime;
+                }
+                if (restime[i] >= respawntime)
+                {
+                    restime[i] = 0;
+                    alive[i] = true;
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameObject newflower = PhotonNetwork.InstantiateSceneObject("Rocks", allspwan[i][rand.Next(allspwan[i].Length)], Quaternion.identity) as GameObject;
+                        newflower.GetComponent<Rocksloot>().zone = i;
+                    }
                 }
             }
         }
     }
     public void destroyflower(int zone)
     {
-        alive[zone] = false;
+        if (PhotonNetwork.IsMasterClient)
+            alive[zone] = false;
     }
 }
