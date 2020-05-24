@@ -25,6 +25,10 @@ public static class Items
     {
         new Item("Wood", Resources.Load<Sprite>("Items/Wood"), ItemType.WOOD),
         new Item("Yellow flower", Resources.Load<Sprite>("Items/Yellow"), ItemType.YELLOW_FLOWER),
+        new Item("Orange flower", Resources.Load<Sprite>("Items/Orange"), ItemType.ORANGE_FLOWER),
+        new Item("Purple flower", Resources.Load<Sprite>("Items/Purple"), ItemType.PURPLE_FLOWER),
+        new Item("Gold", Resources.Load<Sprite>("Items/Gold"), ItemType.GOLD),
+        new Item("Sword", Resources.Load<Sprite>("Items/Wood"), ItemType.DIRT),
         new Item("Dirt", Resources.Load<Sprite>("Items/Wood"), ItemType.DIRT)
     };
 
@@ -51,5 +55,8 @@ public static class Items
     CRAFTING_TABLE,
     FURNACE,
     SAND,
-    YELLOW_FLOWER
+    YELLOW_FLOWER,
+    ORANGE_FLOWER,
+    PURPLE_FLOWER,
+    GOLD
 }
