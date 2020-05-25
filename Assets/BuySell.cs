@@ -41,6 +41,7 @@ public class BuySell : MonoBehaviourPunCallbacks
     {
         if (other.tag=="PNJ")
         {
+            
             if (photonView.IsMine)
             {
                 BuySelll.SetActive(true);
@@ -51,22 +52,26 @@ public class BuySell : MonoBehaviourPunCallbacks
 
     public void OnTriggerStay(Collider other)
     {
-        if (droit && Input.GetKeyUp(KeyCode.F))
+        if (other.tag=="PNJ")
         {
-            BuySelll.SetActive(false);
-            droit = false;
+            if (droit && Input.GetKeyUp(KeyCode.F))
+            {
+                BuySelll.SetActive(false);
+                droit = false;
 
-        }
-        if (droit && Input.GetKeyUp(KeyCode.O))
-        {
-            BuySelll.SetActive(false);
-            canvassell.SetActive(true);
-            player.isOutOfFocus = true;
+            }
+            if (droit && Input.GetKeyUp(KeyCode.O))
+            {
+                BuySelll.SetActive(false);
+                canvassell.SetActive(true);
+                player.isOutOfFocus = true;
 
-            Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.None;
 
-            Cursor.visible = true;
+                Cursor.visible = true;
             
+            }
+
         }
         
     }

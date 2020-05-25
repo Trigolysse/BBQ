@@ -76,6 +76,7 @@
         </e>
         <e p="AliveIndicator.cs" t="Include" />
         <e p="Billboard.cs" t="Include" />
+        <e p="Broadcast.cs" t="Include" />
         <e p="BulletImpact" t="Include">
           <e p="Cartoon FX Easy Editor" t="Include">
             <e p="CartoonFX Easy Editor Readme.txt" t="Include" />
@@ -344,6 +345,7 @@
           <e p="ItemDragHandler.cs" t="Include" />
           <e p="ItemDropHandler.cs" t="Include" />
           <e p="ItemHoverHandler.cs" t="Include" />
+          <e p="Slot.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
           <e p="Chat" t="Include">

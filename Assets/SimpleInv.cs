@@ -15,7 +15,7 @@ public class SimpleInv : MonoBehaviourPunCallbacks
 {
     private bool ouvert;
     public GameObject inventaire;
-   
+
     public Text[] lamoula;
     public Text moneytext;
     public Image SwordImage;
@@ -51,9 +51,6 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         KeyImage.color = Color.black;
         grenadeImage.color = Color.black;
 
-
-        inventaire.SetActive(false);
-        
         for(int i = 0;i <6;i++)
         {
             lamoula[i].text = "0";
@@ -65,7 +62,7 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         tir = gameObject.GetComponent<Tir>();
         playermovement = gameObject.GetComponent<PlayerMovement>();
         playersetup = gameObject.GetComponent<PlayerSetup>();
-        inventaire.SetActive(false);
+        inventaire.SetActive(true);
 
     }
 
