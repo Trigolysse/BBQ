@@ -62,7 +62,7 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         tir = gameObject.GetComponent<Tir>();
         playermovement = gameObject.GetComponent<PlayerMovement>();
         playersetup = gameObject.GetComponent<PlayerSetup>();
-        inventaire.SetActive(true);
+        
 
     }
 
@@ -83,6 +83,7 @@ public class SimpleInv : MonoBehaviourPunCallbacks
 
         if (Input.GetKeyUp(KeyCode.I))
         {
+            Debug.Log("oui");
             inventaire.SetActive(!ouvert);
             ouvert = !ouvert;
             if (ouvert)
