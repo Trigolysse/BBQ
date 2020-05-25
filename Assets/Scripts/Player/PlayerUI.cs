@@ -18,6 +18,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private Text aliveCounter;
 
+
     [Tooltip("UI Slider to display Player's Ammunition")]
     [SerializeField]
     private Text weaponAmmunitionCounter;
@@ -29,6 +30,10 @@ public class PlayerUI : MonoBehaviour
     [Tooltip("UI Slider to display Player's Health")]
     [SerializeField]
     private HealthBar playerHealthBar;
+
+    [Tooltip("The TeamatePrefab")]
+    [SerializeField]
+    public GameObject TeamatePrefab;
 
     public Player target;
 
@@ -42,6 +47,25 @@ public class PlayerUI : MonoBehaviour
     void Awake()
     {
         this.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
+    }
+
+    private void Start()
+    {
+        if (!target.photonView.IsMine) return;
+        // Reflect the Team
+        if (TeamatePrefab != null)
+        {
+            int i = 0;
+            Dictionary<int, Photon.Realtime.Player> players = PhotonNetwork.CurrentRoom.Players;
+            foreach (KeyValuePair<int, Photon.Realtime.Player> player in players)
+            {
+                i++;
+                Debug.Log("Dwad");
+                GameObject _uiGo = Instantiate(TeamatePrefab, this.transform);
+                _uiGo.SendMessage("SetTarget", player, SendMessageOptions.RequireReceiver);
+                _uiGo.SendMessage("SetIndex", i, SendMessageOptions.RequireReceiver);
+            }
+        }
     }
 
     // Update is called once per frame

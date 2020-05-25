@@ -77,7 +77,6 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
                     }
                     else
                     {
-                        Debug.Log(currentWeaponIndex);
                         index = currentWeaponIndex;
                         index -= 1;
                         if (index<0)
