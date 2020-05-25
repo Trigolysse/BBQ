@@ -33,7 +33,12 @@ public class HealthBar : MonoBehaviourPunCallbacks
     {
         float width = Screen.width * widthPercent / 100;
         Texture2D texture = new Texture2D(1, 1);
-        texture.SetPixel(0, 0, Color.white);
+        if (value > 50)
+            texture.SetPixel(0, 0, Color.white);
+        else if (value > 20)
+            texture.SetPixel(0, 0, new Color32(255, 99, 71, 255));
+        else
+            texture.SetPixel(0, 0, Color.red);
         texture.wrapMode = TextureWrapMode.Repeat;
         texture.Apply();
 
