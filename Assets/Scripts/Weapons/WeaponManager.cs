@@ -111,11 +111,11 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
     #endregion
     void ProcessInput()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && GetComponent<SimpleInv>().Bigitem[4])
         {
             TurnOnSelectedWeapon(0);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && GetComponent<SimpleInv>().Bigitem[3])
         {
             TurnOnSelectedWeapon(1);
         }

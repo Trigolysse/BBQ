@@ -36,8 +36,13 @@ public class BuySell : MonoBehaviourPunCallbacks
             int a = i;
             Sell[a].onClick.AddListener(() => GetComponent<SimpleInv>().Sell((Loot)a));
         }
-        
-        
+        for (int i = 0; i < 5; i++)
+        {
+            int a = i;
+            Buy[a].onClick.AddListener(() => GetComponent<SimpleInv>().Buy((Bigitem)a, Ui[a]));
+        }
+
+
     }
 
     // Update is called once per frame
