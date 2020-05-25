@@ -122,10 +122,12 @@ public class SimpleInv : MonoBehaviourPunCallbacks
 
     public void Sell(Loot item)
     {
+        Debug.Log(item);
         if (count[(int)item]>0)
         {
             money += Lootprice[(int)item];
             count[(int)item] -= 1;
+            lamoula[(int)item].text = count[(int)item].ToString();
         }
 
     }
