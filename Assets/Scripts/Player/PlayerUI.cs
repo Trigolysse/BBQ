@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUI : MonoBehaviour
+public class PlayerUI : MonoBehaviour, Photon.Realtime.IInRoomCallbacks
 {
     
     #region Private Fields
@@ -67,13 +67,7 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    void OnPhotonPlayerConnected(Photon.Realtime.Player newPlayer)
-    {
-        i++;
-        GameObject _uiGo = Instantiate(TeamatePrefab, this.transform);
-        _uiGo.SendMessage("SetTarget", newPlayer, SendMessageOptions.RequireReceiver);
-        _uiGo.SendMessage("SetIndex", i, SendMessageOptions.RequireReceiver);
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -134,6 +128,33 @@ public class PlayerUI : MonoBehaviour
         }
         // Cache references for efficiency
         target = _target;
+    }
+
+    public void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+        i++;
+        GameObject _uiGo = Instantiate(TeamatePrefab, this.transform);
+        _uiGo.SendMessage("SetTarget", new TeamateObject(new KeyValuePair<int, Photon.Realtime.Player>(i, newPlayer), i, target.team), SendMessageOptions.RequireReceiver);
+    }
+
+    public void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient)
+    {
+        throw new System.NotImplementedException();
     }
 
     #endregion
