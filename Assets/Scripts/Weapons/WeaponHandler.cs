@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -60,6 +59,7 @@ public class WeaponHandler : MonoBehaviour
     public int damage;
     public float fireRate;
     public int magazineCapacity;
+    public int Initialmmunition;
     public int ammunition;
     public GameObject bullet;
     public int amo;
@@ -70,15 +70,34 @@ public class WeaponHandler : MonoBehaviour
     private Animator anim;
     public GameObject Ernesto;
     public Camera lacamera;
-    
+
+    [HideInInspector]
+    [Tooltip("The Player's Current Ammunition")]
+    public int Ammunition;
+
+    [HideInInspector]
+    [Tooltip("The Player's Current Magazine")]
+    public int Magazine;
 
     #endregion
+
+    void balanceAmmunution()
+    {
+        int shift = (Magazine > magazineCapacity ? magazineCapacity - Ammunition : Magazine);
+        this.Ammunition += shift;
+        this.Magazine -= shift;
+    }
 
     #region Mono Callbacks
 
     void Awake()
     {
-        amo = 192;
+        if(Initialmmunition / magazineCapacity > 1)
+            Ammunition = magazineCapacity;
+        else
+            Ammunition = Initialmmunition % magazineCapacity;
+
+        Magazine = Initialmmunition - Ammunition;
         temps = 0;
         tempsamo = 0;
         recharge = false;
@@ -133,73 +152,35 @@ public class WeaponHandler : MonoBehaviour
     {
         if (!Epee.active && !Punch.active)
         {
-            if (ammunition==0)
+            if (!recharge)
             {
-                Amo.color=Color.red;
-                tempsamo += Time.deltaTime;
-                if (tempsamo > 1.1f)
+                if (Input.GetKeyDown(KeyCode.R))
                 {
-                    tempsamo = 0;
-                    Amo.enabled = true;
-                }
-                else if (tempsamo>0.6f)
-                {
-                    Amo.enabled = false;
-                }
-                else
-                {
-                    Amo.enabled = true;
-                }
-            }
-            else
-            {
-                Amo.color=Color.white;
-                Amo.enabled = true;
-            }
-            
-            if (amo==0)
-            {
-                recharge = false;
-            }
-            else
-            {
-                if (!recharge)
-                {
-                    if (Input.GetKeyDown(KeyCode.R))
-                    {
-                        lacamera.GetComponent<AudioSource>().Play();
-                        recharge = true;
-                        temps = 0;
-                    }
-                }
-                else
-                {
-                    temps += Time.deltaTime;
+                    lacamera.GetComponent<AudioSource>().Play();
                     recharge = true;
-                    if (temps>1.40f)
-                    {
-                        ammunition = 32;
-                        amo -= 32;
-                        Amo.text = ammunition.ToString();
-                        recharge = false;
-                    }
+                    temps = 0;
                 }
             }
-
-            
-
+            else
+            {
+                temps += Time.deltaTime;
+                recharge = true;
+                if (temps>1.40f)
+                {
+                    balanceAmmunution();
+                    recharge = false;
+                }
+            }
         }
     }
 
 
     #region Public Methods
 
-    public void DecreaseAmmunition() => ammunition -= 1;
+    public void DecreaseAmmunition() => Ammunition -= 1;
 
     public void ShootAnimation()
     {
-
-
         if (!Epee.active && !Punch.active)
         {
             if (ammunition<=0 || recharge)
@@ -212,7 +193,6 @@ public class WeaponHandler : MonoBehaviour
                 GetComponent<AudioSource>().Play();
                 bullet.SetActive(true);
                 animator.SetTrigger(AnimationTags.FIRE_TRIGGER);
-                DecreaseAmmunition();
                 Amo.text = ammunition.ToString();
             }
         }
@@ -226,9 +206,6 @@ public class WeaponHandler : MonoBehaviour
             PunchAttak.SetBool("Parade",false);
             
         }
-       
-        
-
     }
 
     public void StopShootAnimation()

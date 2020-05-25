@@ -18,12 +18,21 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private Text aliveCounter;
 
+    [Tooltip("UI Slider to display Player's Ammunition")]
+    [SerializeField]
+    private Text weaponAmmunitionCounter;
+
+    [Tooltip("UI Slider to display Player's Magazine")]
+    [SerializeField]
+    private Text weaponMagazineCounter;
 
     [Tooltip("UI Slider to display Player's Health")]
     [SerializeField]
     private HealthBar playerHealthBar;
 
     public Player target;
+
+    public WeaponManager weaponManager;
 
     #endregion
 
@@ -49,6 +58,26 @@ public class PlayerUI : MonoBehaviour
         if (playerHealthBar != null)
         {
             playerHealthBar.value = target.Health;
+        }
+
+        // Reflect the Player's Weapon Ammunition
+        if (weaponAmmunitionCounter != null)
+        {
+            int Ammunution = target.weaponManager.GetCurrentSelectedWeapon().Ammunition;
+            weaponAmmunitionCounter.text = Ammunution.ToString();
+            if (Ammunution < 5)
+            {
+                weaponAmmunitionCounter.color = Color.red;
+            }
+            else
+                weaponAmmunitionCounter.color = Color.white;
+        }
+       
+        // Reflect the Player Magazine
+        if (weaponMagazineCounter != null)
+        {
+            int Magazine = target.weaponManager.GetCurrentSelectedWeapon().Magazine;
+            weaponMagazineCounter.text = Magazine.ToString();
         }
 
         // Display number of alive players

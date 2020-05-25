@@ -11,7 +11,6 @@ public class Ak47 : Weapon
 
     public int Damage { get => damage; set => value = damage ; }
 
-
     public Vector2[] recoil;
     
     void Awake()

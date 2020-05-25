@@ -857,7 +857,8 @@ MonoBehaviour:
   bulletType: 0
   damage: 26
   fireRate: 10
-  magazineCapacity: 100
+  magazineCapacity: 32
+  Initialmmunition: 150
   ammunition: 32
   bullet: {fileID: 1242474564604182046}
   amo: 192
@@ -866,6 +867,8 @@ MonoBehaviour:
   Punch: {fileID: 7107340228638055836}
   Ernesto: {fileID: 7376831106272240344}
   lacamera: {fileID: 8827100771555083361}
+  Ammunition: 0
+  Magazine: 0
 --- !u!114 &6107407293040324840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,6 +2052,7 @@ MonoBehaviour:
   damage: 20
   fireRate: 1.5
   magazineCapacity: 20
+  Initialmmunition: 0
   ammunition: 999
   bullet: {fileID: 0}
   amo: 0
@@ -2057,6 +2061,8 @@ MonoBehaviour:
   Punch: {fileID: 7107340228638055836}
   Ernesto: {fileID: 7376831106272240344}
   lacamera: {fileID: 0}
+  Ammunition: 0
+  Magazine: 0
 --- !u!95 &4174432763542220018
 Animator:
   serializedVersion: 3
@@ -3000,6 +3006,7 @@ MonoBehaviour:
   damage: 55
   fireRate: 1
   magazineCapacity: 999
+  Initialmmunition: 0
   ammunition: 999
   bullet: {fileID: 0}
   amo: 0
@@ -3008,6 +3015,8 @@ MonoBehaviour:
   Punch: {fileID: 7107340228638055836}
   Ernesto: {fileID: 7376831106272240344}
   lacamera: {fileID: 0}
+  Ammunition: 0
+  Magazine: 0
 --- !u!95 &7259027212400964489
 Animator:
   serializedVersion: 3
@@ -4125,12 +4134,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ernesto: {fileID: 7376831106272240344}
-  Health: 0
   DeadCanvas: {fileID: 5478887803492909284}
   BloodSight: {fileID: 6897485824818867259}
   healthBar: {fileID: 4059060500205888311}
+  Health: 0
   PlayerUiPrefab: {fileID: 9021417311807103660, guid: 804a9a0de5454a74e96cc08104aa8e2a,
     type: 3}
+  weaponManager: {fileID: 0}
   playerMovement: {fileID: 0}
   isDead: 0
   isOutOfFocus: 0
