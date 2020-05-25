@@ -68,13 +68,20 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
             switch (args[0])
             {
                 case "broadcast":
-                        photonView.RPC("SendBroadcast", RpcTarget.Others, messages[0].ToString().Substring(10));
-                        gameManager.SendMessageToChat($"<color=#FFD700><i><b>{senders[0]}</b> used a secret command</i></color>");
-                        break;
+                    photonView.RPC("SendBroadcast", RpcTarget.Others, messages[0].ToString().Substring(10));
+                    gameManager.SendMessageToChat($"<color=#FFD700><i><b>{senders[0]}</b> used a secret command</i></color>");
+                    break;
                 case "tp":
-                        Tp(senders[0], args[1]);
-                        gameManager.SendMessageToChat($"<color=#FFD700><i><b>{senders[0]}</b> used a secret command</i></color>");
-                        break;
+                    Tp(senders[0], args[1]);
+                    gameManager.SendMessageToChat($"<color=#FFD700><i><b>{senders[0]}</b> used a secret command</i></color>");
+                    break;
+                case "start":
+                    if(args.Length > 1)
+                        GameObject.Find("CoreEngine").GetComponent<PhotonView>().RPC("StartGameEngine", RpcTarget.All, int.Parse(args[1]));
+                    break;
+                case "pause":
+                    //GameObject.Find("CoreEngine").GetComponent<PhotonView>().RPC("StartGameEngine", RpcTarget.All);
+                    break;
                 default:
                     gameManager.SendMessageToChat($"<color=green><i><b>{senders[0]}</b> is autistic</i></color>");
                     break;
@@ -100,7 +107,6 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
             GameObject _uiGo = Instantiate(broadcastPrefab);
             _uiGo.SendMessage("SetMessage", message, SendMessageOptions.RequireReceiver);
         }
-       
     }
 
     public void OnPrivateMessage(string sender, object message, string channelName)

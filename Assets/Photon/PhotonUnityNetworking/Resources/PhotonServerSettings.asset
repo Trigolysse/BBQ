@@ -43,5 +43,7 @@ MonoBehaviour:
   - spawnFlowers
   - ShowBroadcast
   - SendBroadcast
+  - SendEngine
+  - StartGameEngine
   DisableAutoOpenWizard: 1
   ShowSettings: 1
