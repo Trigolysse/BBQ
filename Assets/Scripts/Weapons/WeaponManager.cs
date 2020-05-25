@@ -18,8 +18,6 @@ public class WeaponManager : MonoBehaviourPunCallbacks, IPunObservable
     private bool recharge;
     private Player player;
 
-
-
     #endregion
 
     #region Mono Callbacks

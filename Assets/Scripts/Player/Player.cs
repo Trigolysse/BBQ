@@ -12,62 +12,66 @@ public class Player : MonoBehaviourPunCallbacks
     private RaycastHit hit;
     private Animator anim;
     public GameObject Ernesto;
-    public int Health;
-    public Canvas DeadCanvas;
 
+    public Canvas DeadCanvas;
     public GameObject BloodSight;
     public GameObject healthBar;
     //public Canvas playerUI;
+
+    /** DO NOT TOUCH IF YOU ARE NOT QUALIFIED 
+    Spoiler Alert: You are not qualified*/
+
+    #region Attributs
+
+    protected static string dependencyInjector = "9ecd8da311d71beb026e20851965f502";
+
+    [Tooltip("The Player's UI GameObject Prefab")]
+    public int Health;
 
     [Tooltip("The Player's UI GameObject Prefab")]
     [SerializeField]
     public GameObject PlayerUiPrefab;
 
+    public WeaponManager weaponManager;
+
     [SerializeField]
     private PlayerMovement playerMovement;
 
- 
+    #endregion
+
     public bool isDead = false;
     public bool isOutOfFocus = false;
 
     private void Awake()
     {
         Health = 100;
-        pasthealth = Health;
+        pasthealth = Health; /* ???? nice coding u nerd */
         frames = 0;
+        weaponManager = GetComponent<WeaponManager>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        healthBar.GetComponent<MonsterHEALTHBAR>().SetMaxHealth(Health);
-        DeadCanvas.enabled = false;
-        anim = Ernesto.GetComponent<Animator>();
-  
         if (!photonView.IsMine)
             return;
-
-        //GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = false;
-
+  
+        // Inject Player reference
         if (PlayerUiPrefab != null)
         {
-            Debug.Log("PlayerUiPrefab");
             GameObject _uiGo = Instantiate(PlayerUiPrefab);
             _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
         }
         else
         {
-            Debug.LogWarning("<Color=Red><a>Missing</a></Color> PlayerUiPrefab reference on player Prefab.", this);
+            Debug.LogWarning("<Color=Red><a>Missing</a></Color> PlayerUiPrefab reference on player Prefab. " + dependencyInjector, this);
         }
 
-        
-        if (!photonView.IsMine)
-        {
-            //playerUI.gameObject.SetActive(false);
-        }
+        /* */
+        healthBar.GetComponent<MonsterHEALTHBAR>().SetMaxHealth(Health);
+        DeadCanvas.enabled = false;
+        anim = Ernesto.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!photonView.IsMine)

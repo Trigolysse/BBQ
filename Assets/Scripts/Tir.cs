@@ -41,6 +41,8 @@ public class Tir : MonoBehaviourPunCallbacks
     public GameObject AK;
     private bool reload;
     private Animator anim;
+
+    [Tooltip("The Player Script Reference")]
     private Player player;
 
     #endregion
@@ -49,10 +51,10 @@ public class Tir : MonoBehaviourPunCallbacks
     
     void Awake()
     {
+        player = GetComponent<Player>();
         anim = AK.GetComponent<Animator>();
         weaponManager = GetComponent<WeaponManager>();
         mouseLook = GetComponentInChildren<MouseLook>();
-        player = GetComponent<Player>();
     }
 
     
@@ -125,76 +127,74 @@ public class Tir : MonoBehaviourPunCallbacks
 
     void Shoot()
     {
-        munition = AK.GetComponent<WeaponHandler>().ammunition;
-        reload = AK.GetComponent<WeaponHandler>().recharge;
-        
-        
+        WeaponHandler weapon = weaponManager.GetCurrentSelectedWeapon();
+
+        munition = weapon.Ammunition;
+        reload = weapon.recharge;
         
         if (AK.active && munition>0 && !reload)
         { 
-                         RaycastHit hit;
-
-        Vector3 direction = mainCam.transform.TransformDirection(RandomInsideCone(radius).normalized);
+            RaycastHit hit;
+            Vector3 direction = mainCam.transform.TransformDirection(RandomInsideCone(radius).normalized);
         
-        if (Physics.Raycast(new Ray(mainCam.transform.position, direction), out hit))
-        {
-            Debug.Log("Did hit " + hit.collider.name);
-            Debug.DrawLine(mainCam.transform.position, hit.point);
-            if (hit.transform.GetComponent<Rigidbody>() != null)
+            if (Physics.Raycast(new Ray(mainCam.transform.position, direction), out hit))
             {
-                hit.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
-            }
+                Debug.Log("Did hit " + hit.collider.name);
+                Debug.DrawLine(mainCam.transform.position, hit.point);
+                if (hit.transform.GetComponent<Rigidbody>() != null)
+                {
+                    hit.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
+                }
 
-            if (hit.transform.CompareTag("Planet"))
-            {
-                GameObject Go =
-                    Instantiate(EmptyPrefab, hit.point,
-                        Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
-                Destroy(Go, 8f);
-            }
-            if (hit.transform.CompareTag("Metal"))
-            {
-                GameObject Gucci =
-                    Instantiate(Metaleffect, hit.point,
-                        Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
-                Destroy(Gucci, 2f);
-            }
-            if (hit.transform.CompareTag("Player"))
-            {
-                if (hit.transform.GetComponent<PhotonView>().IsMine) return;
-                GameObject Blood =
-                    Instantiate(Bloodeffect, hit.point,
-                        Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
-                Destroy(Blood, 2f);
-            }
-            if (hit.transform.CompareTag("Enemy"))
-            {
-                GameObject Blood =
-                    Instantiate(Bloodeffect, hit.point,
-                        Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
-                Destroy(Blood, 2f);
-                hit.transform.gameObject.GetComponent<Combatmanager>().TakeDamage(weaponManager.GetCurrentSelectedWeapon().damage);
-            }
+                if (hit.transform.CompareTag("Planet"))
+                {
+                    GameObject Go =
+                        Instantiate(EmptyPrefab, hit.point,
+                            Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                    Destroy(Go, 8f);
+                }
+                if (hit.transform.CompareTag("Metal"))
+                {
+                    GameObject Gucci =
+                        Instantiate(Metaleffect, hit.point,
+                            Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                    Destroy(Gucci, 2f);
+                }
+                if (hit.transform.CompareTag("Player"))
+                {
+                    if (hit.transform.GetComponent<PhotonView>().IsMine) return;
+                    GameObject Blood =
+                        Instantiate(Bloodeffect, hit.point,
+                            Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                    Destroy(Blood, 2f);
+                }
+                if (hit.transform.CompareTag("Enemy"))
+                {
+                    GameObject Blood =
+                        Instantiate(Bloodeffect, hit.point,
+                            Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                    Destroy(Blood, 2f);
+                    hit.transform.gameObject.GetComponent<Combatmanager>().TakeDamage(weaponManager.GetCurrentSelectedWeapon().damage);
+                }
 
-            if (hit.transform.CompareTag(Tags.PLAYER_TAG))
-            {
-                Debug.Log("Hit player");
-                hit.transform.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage, WeaponName.AK47);
+                if (hit.transform.CompareTag(Tags.PLAYER_TAG))
+                {
+                    Debug.Log("Hit player");
+                    hit.transform.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage, WeaponName.AK47);
+                }
+                else
+                {
+                    //Debug.DrawRay(mainCam.transform.position, hit.point, Color.red, 2f);
+                }
             }
             else
             {
-                //Debug.DrawRay(mainCam.transform.position, hit.point, Color.red, 2f);
+                //Did not it...
+                //Debug.DrawRay(mainCam.transform.position, hit.point, Color.white, 2f);
+                Debug.Log("Did not it");
             }
-        }
-        else
-        {
-            //Did not it...
-            //Debug.DrawRay(mainCam.transform.position, hit.point, Color.white, 2f);
-            Debug.Log("Did not it");
-        }
-       
-            
-        }
+            weapon.DecreaseAmmunition();
+    }
 
         if (Punch.active)
         {
@@ -263,12 +263,5 @@ public class Tir : MonoBehaviourPunCallbacks
             }
         }
 
-
-
-
-
-
     }
-
-
 }
