@@ -15,47 +15,57 @@ public class taklwithme : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter(Collider other)
     {
-        talk.SetActive(true);
+        if (photonView.IsMine)
+        {
+            talk.SetActive(true);
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (next>0)
+        if (photonView.IsMine)
         {
-            next--;
-        }
-
-        if (!begin && Input.GetKeyUp(KeyCode.O))
-        {
-            talk.SetActive(false);
-            next = -1;
-        }
-        if (Input.GetKeyUp(KeyCode.F) && next==0)
-        {
-            if (begin==false)
-            {
-                talk.SetActive(false);
-                            
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                begin = true;
-                next = 25;
-            }
-            else
-            {
-                Debug.Log("Vive Kaaris");
-                dialogmanager.GetComponent<DialogueManager>().DisplayNextSentence();
-                next = 25;
-
-            }
+             if (next>0)
+             {
+                        next--;
+             }
             
+             if (!begin && Input.GetKeyUp(KeyCode.O))
+             {
+                        talk.SetActive(false);
+                        next = -1;
+             }
+             if (Input.GetKeyUp(KeyCode.F) && next==0)
+             {
+                        if (begin==false)
+                        {
+                            talk.SetActive(false);
+                                        
+                            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                            begin = true;
+                            next = 25;
+                        }
+                        else
+                        {
+                            Debug.Log("Vive Kaaris");
+                            dialogmanager.GetComponent<DialogueManager>().DisplayNextSentence();
+                            next = 25;
+            
+                        }
+                        
+             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        next = 0;
-        talk.SetActive(false);
-        begin = false;
-        dialogmanager.GetComponent<DialogueManager>().EndDialogue();
+        if (photonView.IsMine)
+        {
+            next = 0;
+            talk.SetActive(false);
+            begin = false;
+            dialogmanager.GetComponent<DialogueManager>().EndDialogue();
+        }
+        
     }
 }

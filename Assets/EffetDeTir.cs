@@ -21,7 +21,8 @@ public class EffetDeTir : MonoBehaviour
     void Update()
     {
         reload = AK.GetComponent<WeaponHandler>().recharge;
-        if (Input.GetMouseButtonDown(0) && !reload)
+        munition = AK.GetComponent<WeaponHandler>().Ammunition;
+        if (Input.GetMouseButtonDown(0) && !reload && munition>0)
         {
             tir = true;
             GameObject tireffect= Instantiate(Boomeffet, transform) as GameObject;
@@ -31,7 +32,6 @@ public class EffetDeTir : MonoBehaviour
         {
             if (tir && !Input.GetMouseButtonUp(0) && !reload)
             {
-                munition = AK.GetComponent<WeaponHandler>().ammunition;
                 if (munition>0)
                 {
                    tir = true;

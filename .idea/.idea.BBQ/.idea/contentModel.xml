@@ -138,6 +138,8 @@
         </e>
         <e p="BuySell.cs" t="Include" />
         <e p="ChangeColor.cs" t="Include" />
+        <e p="CoreEngine.cs" t="Include" />
+        <e p="CoreEngineCanvas.cs" t="Include" />
         <e p="Dialogue.cs" t="Include" />
         <e p="DialogueManager.cs" t="Include" />
         <e p="DialogueTrigger.cs" t="Include" />

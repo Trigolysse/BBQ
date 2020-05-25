@@ -69,7 +69,7 @@ public class Player : MonoBehaviourPunCallbacks
         }
 
         /* */
-        healthBar.GetComponent<MonsterHEALTHBAR>().SetMaxHealth(Health);
+        healthBar.GetComponent<MonsterHEALTHBAR>().SetHealth(Health);
         DeadCanvas.enabled = false;
         anim = Ernesto.GetComponent<Animator>();
     }
