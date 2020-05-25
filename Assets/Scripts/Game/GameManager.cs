@@ -1,7 +1,9 @@
-﻿using Photon.Pun;
+﻿using System.Collections;
+using Photon.Pun;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourPunCallbacks
@@ -21,6 +23,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Canvas DeathCanvas;
     public delegate void OnPlayerKilledCallback(string killer, string victim, WeaponName weaponName);
     public OnPlayerKilledCallback onPlayerKilledCallback;
+    public int nextPlayerTeam;
+    public Transform[] spawnPointsTeamOne;
+    public Transform[] spawnPointsTeamTwo;
 
     #endregion
 
@@ -39,6 +44,18 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     #endregion
 
+    public void UpdateTeam()
+    {
+        if (nextPlayerTeam==1)
+        {
+            nextPlayerTeam = 2;
+        }
+        else
+        {
+            nextPlayerTeam = 1;
+        }
+    }
+
     public void setMenu(bool b)
     {
         
@@ -49,6 +66,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (!PhotonNetwork.IsConnected)
             PhotonNetwork.LoadLevel(0);
+        Debug.Log(nextPlayerTeam);
         Instance = this;
         SkipIntro.SetActive(true);
         EscapeMenu.SetActive(false);
@@ -111,6 +129,21 @@ public class GameManager : MonoBehaviourPunCallbacks
     #endregion
 
     #region Public Methods
+
+
+    public void DisconnectPlayer()
+    {
+        StartCoroutine(DisconnectAndLoad());
+    }
+
+    IEnumerator DisconnectAndLoad()
+    {
+        PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+        {
+            yield return null;
+        }
+    }
 
     public void LeaveRoom()
     {

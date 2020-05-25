@@ -137,6 +137,7 @@
           </e>
         </e>
         <e p="BuySell.cs" t="Include" />
+        <e p="ChangeColor.cs" t="Include" />
         <e p="Dialogue.cs" t="Include" />
         <e p="DialogueManager.cs" t="Include" />
         <e p="DialogueTrigger.cs" t="Include" />
@@ -329,6 +330,7 @@
             </e>
           </e>
         </e>
+        <e p="PhotonPlayer.cs" t="Include" />
         <e p="Porte.cs" t="Include" />
         <e p="PORTESHOP.cs" t="Include" />
         <e p="PunchAnim.cs" t="Include" />
@@ -401,6 +403,7 @@
         <e p="SimpleInv.cs" t="Include" />
         <e p="SONnnn.cs" t="Include" />
         <e p="taklwithme.cs" t="Include" />
+        <e p="Teamate.cs" t="Include" />
         <e p="totalamo.cs" t="Include" />
         <e p="unity-ui-extensions" t="Include">
           <e p="Scripts" t="Include">
