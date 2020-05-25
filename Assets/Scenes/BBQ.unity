@@ -14145,6 +14145,9 @@ MonoBehaviour:
   Camer: {fileID: 83803186}
   text: {fileID: 283494784}
   DeathCanvas: {fileID: 0}
+  nextPlayerTeam: 0
+  spawnPointsTeamOne: []
+  spawnPointsTeamTwo: []
   chatMenu: {fileID: 660064406}
   playerController: {fileID: 0}
   messageList: []
@@ -50324,7 +50327,7 @@ PrefabInstance:
     - target: {fileID: 9202419574690579020, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 300.4439
+      value: 238.4
       objectReference: {fileID: 0}
     - target: {fileID: 9202419574690579020, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
@@ -50376,6 +50379,11 @@ PrefabInstance:
       propertyPath: dragon
       value: 
       objectReference: {fileID: 1558606026}
+    - target: {fileID: 9202419574690952036, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: patrolDistance
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56ec89332e7e9dd4a8c68703c3c328ed, type: 3}
 --- !u!4 &1179701592 stripped
@@ -67606,6 +67614,70 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1558606027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558606020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+--- !u!114 &1558606028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558606020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1558606027}
+  viewIdField: 16
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1558606029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558606020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: VU
+  - Type: 4
+    SynchronizeType: 0
+    Name: MINDISTANCE
+  - Type: 4
+    SynchronizeType: 0
+    Name: VOYAGE
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!4 &1558634821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953,

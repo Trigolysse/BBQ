@@ -8,7 +8,6 @@ public class DragonFOLLOW : MonoBehaviour {
 
     static bool  EnemyShooting;
     private int frames;
-    private Transform Player;
     private GameObject player;
     public float MoveSpeed= 30f;
     public float MaxDist= 20f;
@@ -25,11 +24,16 @@ public class DragonFOLLOW : MonoBehaviour {
     private Vector3 InitialPosition;
     private Vector3 destinatione;
     public AudioSource dragon;
+    private bool first;
+    private float time;
+    public int patrolDistance;
 
     void  Awake ()
     {
         playerSighted=false;
         EnemyShooting=false;
+        first = false;
+        time = 0;
     }
 
     private void Start()
@@ -56,13 +60,10 @@ public class DragonFOLLOW : MonoBehaviour {
             if (playerSighted==true)
             {
                 voyage = false;
-                //Agent.Stop();
-                Agent.ResetPath();
-                PlayerFound();
-
             }
             else
             {
+                voyage = true;
                 
                
                 Pathing();
@@ -76,31 +77,61 @@ public class DragonFOLLOW : MonoBehaviour {
     }
 
     void  OnTriggerEnter ( Collider other  ){
-        if (other.transform==Player)
-        {
-            //GetComponent.<AudioSource>.Play();
-
-        }
+      
 
     }
 
-    void  OnTriggerStay ( Collider other  ){
-        if(other.transform==Player)
+    void  OnTriggerStay ( Collider other  )
+    {
+        time += Time.deltaTime;
+        
+        if(other.CompareTag("Player"))
         {
             playerSighted=true;
-            Anim.SetBool("VU", true);
-            Debug.Log("VU");
+            if (time>1)
+            {
+                time = 0;
+                Agent.ResetPath();
+            }
+            else
+            {
+                Debug.Log("TROUVER");
+                Vector3 lookAtPos = other.transform.position;
+    
+                lookAtPos.y= transform.position.y;
+                transform.LookAt(lookAtPos);
+                if (Vector3.Distance(transform.position,other.transform.position)>=MinDist)
+                {
+                    transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+                    if (Vector3.Distance(transform.position, player.transform.position) <= MaxDist)
+                    {
+                        EnemyShooting = true;
+                        Anim.SetBool("MINDISTANCE", true);
+                        Anim.SetBool("VU", false);
+                        dragon.Play();
+                    }
+                    else
+                    {
+                        Anim.SetBool("MINDISTANCE", false);
+                        Anim.SetBool("VU", true);
+                        dragon.Stop();
+                    }
+
+                }
+            
+            }
         }
 
     }
 
     void  OnTriggerExit ( Collider other  ){
-        if(other.transform==Player)
+        if(other.CompareTag("Player"))
         {
             playerSighted=false;
             Anim.SetBool("VU", false);
             EnemyShooting=false;
             Debug.Log("OU ES TU?");
+            
         }
 
     }
@@ -108,14 +139,14 @@ public class DragonFOLLOW : MonoBehaviour {
     void  PlayerFound ()
     {
         Debug.Log("TROUVER");
-        Vector3 lookAtPos = Player.position;
+        Vector3 lookAtPos = player.transform.position;
     
         lookAtPos.y= transform.position.y;
         transform.LookAt(lookAtPos);
-        if (Vector3.Distance(transform.position,Player.position)>=MinDist)
+        if (Vector3.Distance(transform.position,player.transform.position)>=MinDist)
         {
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-            if (Vector3.Distance(transform.position, Player.position) <= MaxDist)
+            if (Vector3.Distance(transform.position, player.transform.position) <= MaxDist)
             {
                 EnemyShooting = true;
                 Anim.SetBool("MINDISTANCE", true);
@@ -134,63 +165,45 @@ public class DragonFOLLOW : MonoBehaviour {
 
     void Pathing()
     {
-        
-        if (transform.position.x==destinatione.x && transform.position.z==destinatione.z)
+        voyage = true;
+        if (Agent.remainingDistance <= Agent.stoppingDistance && !Agent.pathPending)
         {
-            voyage = true;
-            
+            //Debug.Log("Walk");
             Random aleatoire = new Random();
 
-            
-            int xo = aleatoire.Next( 1,40);
-            int zo = aleatoire.Next(1,40);
-            
-            
+            int xo = aleatoire.Next(1, patrolDistance);
+            int zo = aleatoire.Next(1, patrolDistance);
+
             int nb2 = aleatoire.Next(0, 2);
             int nb1 = aleatoire.Next(0, 2);
-            if (nb1==0)
+
+            if (nb1 == 0)
             {
                 nb1 = -1;
             }
-            if (nb2==0)
+
+            if (nb2 == 0)
             {
                 nb2 = -1;
             }
-
-
 
             Vector3 destination;
             destination.x = InitialPosition.x + xo * nb1;
             destination.z = InitialPosition.z + zo * nb2;
             destination.y = InitialPosition.y;
-            
 
             Vector3 lookAtPos = destination;
-            lookAtPos.y= transform.position.y;
-            
+            lookAtPos.y = transform.position.y;
+
             transform.LookAt(lookAtPos);
 
-            float x1 = destination.x;
-            float y1 = destination.y;
-            float z1 = destination.z;
-            destinatione.x = x1;
-            destinatione.y = y1;
-            destinatione.z = z1;
-            
-            
+            NavMeshHit navhit;
+            NavMesh.SamplePosition(destination, out navhit, 20f, NavMesh.AllAreas);
+            Agent.SetDestination(navhit.position);
         }
-        else
-        {
-            voyage = true;
-            //Debug.Log("J aime la pain du diamnche");
-            Agent.SetDestination(destinatione);
-            
-            
 
-        }
-        
-        
-       
+
+
     }
 
     
