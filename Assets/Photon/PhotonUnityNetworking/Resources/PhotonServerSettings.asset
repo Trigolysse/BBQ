@@ -47,5 +47,6 @@ MonoBehaviour:
   - StartGameEngine
   - AssignTeam
   - RegisterPlayer
+  - StartNewGame
   DisableAutoOpenWizard: 1
   ShowSettings: 1

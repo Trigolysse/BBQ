@@ -78,6 +78,8 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
                 case "start":
                     if(args.Length > 1)
                         GameObject.Find("CoreEngine").GetComponent<PhotonView>().RPC("StartNewGame", RpcTarget.All,(float) int.Parse(args[1]));
+                    else
+                        GameObject.Find("CoreEngine").GetComponent<PhotonView>().RPC("StartNewGame", RpcTarget.All);
                     break;
                 case "pause":
                     //GameObject.Find("CoreEngine").GetComponent<PhotonView>().RPC("StartGameEngine", RpcTarget.All);
