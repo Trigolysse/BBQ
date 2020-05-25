@@ -17,12 +17,17 @@ public class taklwithme : MonoBehaviourPunCallbacks
     {
         if (Vector3.Distance(other.transform.position,transform.position)<3)
         {
+            if (other.CompareTag("Player"))
+            {
+                other.gameObject.GetComponent<Player>().OnTalk();
+            }
             talk.SetActive(true);
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
+        
        
              if (next>0)
              {
@@ -31,14 +36,22 @@ public class taklwithme : MonoBehaviourPunCallbacks
             
              if (!begin && Input.GetKeyUp(KeyCode.O))
              {
-                        talk.SetActive(false);
-                        next = -1;
+                 if (other.CompareTag("Player"))
+                 {
+                     other.gameObject.GetComponent<Player>().NoTalk();
+                 }
+                 talk.SetActive(false);
+                 next = -1;
              }
              if (Input.GetKeyUp(KeyCode.F) && next==0)
              {
                         if (begin==false)
                         {
                             talk.SetActive(false);
+                            if (other.CompareTag("Player"))
+                            {
+                                other.gameObject.GetComponent<Player>().NoTalk();
+                            }
                                         
                             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                             begin = true;
@@ -61,6 +74,10 @@ public class taklwithme : MonoBehaviourPunCallbacks
        
             next = 0;
             talk.SetActive(false);
+            if (other.CompareTag("Player"))
+            {
+                other.gameObject.GetComponent<Player>().NoTalk();
+            }
             begin = false;
             dialogmanager.GetComponent<DialogueManager>().EndDialogue();
         

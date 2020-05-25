@@ -16,6 +16,8 @@ public class Player : MonoBehaviourPunCallbacks
     public Canvas DeadCanvas;
     public GameObject BloodSight;
     public GameObject healthBar;
+
+    public GameObject talk;
     //public Canvas playerUI;
 
     /** DO NOT TOUCH IF YOU ARE NOT QUALIFIED 
@@ -163,6 +165,15 @@ public class Player : MonoBehaviourPunCallbacks
         }
    
         //Destroy(gameObject);
+    }
+
+    public void OnTalk()
+    {
+        talk.SetActive(true);
+    }
+    public void NoTalk()
+    {
+        talk.SetActive(false);
     }
 
 }

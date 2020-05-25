@@ -152,7 +152,7 @@ public class WeaponHandler : MonoBehaviour
     {
         if (!Epee.active && !Punch.active)
         {
-            if (!recharge)
+            if (!recharge&&Ammunition>0)
             {
                 if (Input.GetKeyDown(KeyCode.R))
                 {
