@@ -15,7 +15,7 @@ public class taklwithme : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter(Collider other)
     {
-        if (photonView.IsMine)
+        if (Vector3.Distance(other.transform.position,transform.position)<3)
         {
             talk.SetActive(true);
         }
@@ -23,8 +23,7 @@ public class taklwithme : MonoBehaviourPunCallbacks
 
     private void OnTriggerStay(Collider other)
     {
-        if (photonView.IsMine)
-        {
+       
              if (next>0)
              {
                         next--;
@@ -54,18 +53,17 @@ public class taklwithme : MonoBehaviourPunCallbacks
                         }
                         
              }
-        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (photonView.IsMine)
-        {
+       
             next = 0;
             talk.SetActive(false);
             begin = false;
             dialogmanager.GetComponent<DialogueManager>().EndDialogue();
-        }
+        
         
     }
 }
