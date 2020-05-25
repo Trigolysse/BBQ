@@ -76,7 +76,7 @@ public class orcmove : MonoBehaviour
             }
 
         }
-        playerpos = Player.transform.position;
+        //playerpos = Player.transform.position;
 
         if (attackDelay > 0 )
         {

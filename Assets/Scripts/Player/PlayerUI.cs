@@ -62,8 +62,7 @@ public class PlayerUI : MonoBehaviour
                 i++;
                 Debug.Log("Dwad");
                 GameObject _uiGo = Instantiate(TeamatePrefab, this.transform);
-                _uiGo.SendMessage("SetTarget", player, SendMessageOptions.RequireReceiver);
-                _uiGo.SendMessage("SetIndex", i, SendMessageOptions.RequireReceiver);
+                _uiGo.SendMessage("SetTarget", new TeamateObject(player, i, target.team), SendMessageOptions.RequireReceiver);
             }
         }
     }

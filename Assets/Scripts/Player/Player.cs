@@ -19,11 +19,13 @@ public class Player : MonoBehaviourPunCallbacks
     //public Canvas playerUI;
 
     /** DO NOT TOUCH IF YOU ARE NOT QUALIFIED 
-    Spoiler Alert: You are not qualified*/
+    Spoiler Alert: You are not qualified */
 
     #region Attributs
 
     protected static string dependencyInjector = "9ecd8da311d71beb026e20851965f502";
+
+    public Teams team;
 
     [Tooltip("The Player's UI GameObject Prefab")]
     public int Health;
@@ -163,4 +165,9 @@ public class Player : MonoBehaviourPunCallbacks
         //Destroy(gameObject);
     }
 
+}
+
+public enum Teams
+{
+    RED, BLUE
 }

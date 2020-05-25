@@ -14,9 +14,10 @@ public class StartRoomController : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom() //Callback function for when we successfully create or join a room.
     {
-        Debug.Log("Joined Room");
+        Debug.Log("Joined Room");;
         StartGame();
     }
+
 
     private void StartGame() //Function for loading into the multiplayer scene.
     {

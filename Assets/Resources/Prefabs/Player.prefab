@@ -8538,6 +8538,7 @@ MonoBehaviour:
   DeadCanvas: {fileID: 5478887803492909284}
   BloodSight: {fileID: 6897485824818867259}
   healthBar: {fileID: 4059060500205888311}
+  team: 0
   Health: 0
   PlayerUiPrefab: {fileID: 9021417311807103660, guid: 804a9a0de5454a74e96cc08104aa8e2a,
     type: 3}

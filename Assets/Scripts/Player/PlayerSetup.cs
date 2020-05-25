@@ -8,6 +8,12 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     [SerializeField]
     Behaviour[] componentsToDisable;
     Camera sceneCamera;
+    Player player;
+
+    private void Awake()
+    {
+        player = GetComponent<Player>();
+    }
 
     void Start()
     {
@@ -29,9 +35,14 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
                 //sceneCamera.gameObject.SetActive(false);
             }
             //Camera.main.gameObject.SetActive(false);
+            if (UnityEngine.Random.Range(0, 2) == 0)
+                photonView.RPC("AssignTeam", RpcTarget.All, Teams.BLUE);
+            else
+                photonView.RPC("AssignTeam", RpcTarget.All, Teams.RED);
         }
 
         RegisterPlayer();
+        
     }
     
     private void OnDisable()
@@ -49,14 +60,6 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         {
             GetComponent<PhotonView>().RPC("ChatMessage", RpcTarget.All, "Trololol");
         }
-    }
-   
-    [PunRPC]
-    void ChatMessage(string text, PhotonMessageInfo info)
-    {
-        Debug.LogFormat("Info: {0} {1} {2}", info.Sender, info.photonView, info.SentServerTime);
-        Debug.Log(text);
-        GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 200, 200), text, GUIStyle.none);
     }
 
     #region Private Methods
@@ -84,6 +87,15 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         }
 
         transform.name = photonView.Owner.NickName;
+    }
+
+    [PunRPC]
+    private void AssignTeam(Teams team)
+    {
+        if(photonView.IsMine)
+        {
+            player.team = team;
+        }
     }
 
     private void ChangeLayersRecursively(Transform trans, int layer)

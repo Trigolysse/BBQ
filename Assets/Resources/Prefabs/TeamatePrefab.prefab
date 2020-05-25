@@ -428,3 +428,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 5408273301928724431}
   indexNumber: {fileID: 7697548517072407148}
+  teamImage: {fileID: 7512245683442928831}

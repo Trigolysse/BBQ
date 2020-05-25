@@ -45,5 +45,6 @@ MonoBehaviour:
   - SendBroadcast
   - SendEngine
   - StartGameEngine
+  - AssignTeam
   DisableAutoOpenWizard: 1
   ShowSettings: 1
