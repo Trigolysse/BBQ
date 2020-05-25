@@ -9,9 +9,6 @@ public class CoreEngine : MonoBehaviourPunCallbacks
     [SerializeField]
     private GameObject enginePrefab;
 
-    private GameObject[] ListPlayer;
-    private bool begin=false;
-
 
     // Start is called before the first frame update
     void Start()
@@ -33,27 +30,6 @@ public class CoreEngine : MonoBehaviourPunCallbacks
             EngineUI engine = new EngineUI((float) startTime, GameState.LOADING, true);
             GameObject _uiGo = Instantiate(enginePrefab);
             _uiGo.SendMessage("SetEngine", engine, SendMessageOptions.RequireReceiver);
-        }
-    }
-
-    public void teleportPlayersToSpawn()
-    {
-        if (0<1 && !begin)
-        {
-            begin = true;
-            ListPlayer =GameObject.FindGameObjectsWithTag("Player");
-            foreach (GameObject player in ListPlayer)
-            {
-                if (player.GetComponent<Player>().team==Teams.RED)
-                {
-                    player.transform.position= new Vector3(-191.096f,20,-68.05299f);
-                }
-                else
-                {
-                    player.transform.position= new Vector3(406.4642f,6,536.1269f);
-                }
-            }
-
         }
     }
 }
