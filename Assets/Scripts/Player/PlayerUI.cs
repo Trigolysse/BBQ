@@ -38,7 +38,7 @@ public class PlayerUI : MonoBehaviour
     public Player target;
 
     public WeaponManager weaponManager;
-
+    int i = 0;
     #endregion
 
 
@@ -55,7 +55,7 @@ public class PlayerUI : MonoBehaviour
         // Reflect the Team
         if (TeamatePrefab != null)
         {
-            int i = 0;
+            
             Dictionary<int, Photon.Realtime.Player> players = PhotonNetwork.CurrentRoom.Players;
             foreach (KeyValuePair<int, Photon.Realtime.Player> player in players)
             {
@@ -68,9 +68,19 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    void OnPhotonPlayerConnected(Photon.Realtime.Player newPlayer)
+    {
+        i++;
+        GameObject _uiGo = Instantiate(TeamatePrefab, this.transform);
+        _uiGo.SendMessage("SetTarget", newPlayer, SendMessageOptions.RequireReceiver);
+        _uiGo.SendMessage("SetIndex", i, SendMessageOptions.RequireReceiver);
+    }
+
     // Update is called once per frame
     void Update()
     {
+      
+
         // Destroy itself if the target(Player) is null, It's a fail safe when Photon is destroying Instances of a Player over the network
         if (target == null)
         {

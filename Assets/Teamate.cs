@@ -42,7 +42,12 @@ public class Teamate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (player.Value.IsInactive)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
     }
 
     #region Public Methods
