@@ -91,7 +91,7 @@ public class Tir : MonoBehaviourPunCallbacks
         {
             if (i > 29)
                 return;
-            mouseLook.ApplyRecoil(weapon.recoil[i].normalized.x, weapon.recoil[i].normalized.y);
+            mouseLook.ApplyRecoil(weapon.recoil[i].normalized.x *2 , weapon.recoil[i].normalized.y * 2);
             nextTimeToFire = Time.time + 1f / weapon.fireRate; //weaponManager.GetCurrentSelectedWeapon().fireRate
             weapon.ShootAnimation();
             Shoot();
