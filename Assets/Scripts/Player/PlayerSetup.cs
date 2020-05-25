@@ -41,8 +41,8 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
                 photonView.RPC("AssignTeam", RpcTarget.All, Teams.RED);
         }
 
-        RegisterPlayer();
-        
+        photonView.RPC("RegisterPlayer", RpcTarget.All);
+
     }
     
     private void OnDisable()
@@ -77,6 +77,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
            
     }
 
+    [PunRPC]
     private void RegisterPlayer()
     {
         // If this player is not you
@@ -85,8 +86,11 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             this.transform.GetChild(1).gameObject.layer = 0;
             //ChangeLayersRecursively(this.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform, 0);
         }
-
-        transform.name = photonView.Owner.NickName;
+        if(photonView.IsMine)
+        {
+            transform.name = photonView.Owner.NickName;
+        }
+       
     }
 
     [PunRPC]
