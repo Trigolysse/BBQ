@@ -15,6 +15,7 @@ public class orcmove : MonoBehaviour
     private bool walk = true;
     private bool attack = false;
     private bool run = false;
+    private Vector3 playerpos;
 
     #endregion
 
@@ -75,6 +76,7 @@ public class orcmove : MonoBehaviour
             }
 
         }
+        playerpos = Player.transform.position;
 
         if (attackDelay > 0 )
         {
@@ -172,8 +174,8 @@ public class orcmove : MonoBehaviour
         lookAtPos.y = transform.position.y;
         transform.LookAt(lookAtPos);      
         NavMeshHit navhit;
-        NavMesh.SamplePosition(Player.transform.position, out navhit, 20f, NavMesh.AllAreas);
-        Agent.SetDestination(navhit.position);
+        //NavMesh.SamplePosition(playerpos, out navhit, 20f, NavMesh.AllAreas);
+        Agent.SetDestination(playerpos);
     }
 
     private void Attack()

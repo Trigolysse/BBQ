@@ -6659,6 +6659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventaire: {fileID: 7705614576049359650}
+  Bigitem: 0000000000
   lamoula:
   - {fileID: 1228550106454422730}
   - {fileID: 5209451817970435698}
@@ -6667,11 +6668,12 @@ MonoBehaviour:
   - {fileID: 8173800940083733824}
   - {fileID: 1244974895278866249}
   moneytext: {fileID: 526658658222062133}
-  SwordImage: {fileID: 2121469826023223986}
-  AKImage: {fileID: 205344229762845403}
-  ArmorImage: {fileID: 2671244475241426980}
-  KeyImage: {fileID: 6374064729071140099}
-  grenadeImage: {fileID: 562851381667672783}
+  allimage:
+  - {fileID: 6374064729071140099}
+  - {fileID: 562851381667672783}
+  - {fileID: 2671244475241426980}
+  - {fileID: 205344229762845403}
+  - {fileID: 2121469826023223986}
   Sword: 0
   AK: 0
   Armor: 0

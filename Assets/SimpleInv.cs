@@ -10,6 +10,10 @@ public enum Loot
 {
     Purple, Yellow, Orange, Wood, Rocks, Metal
 }
+public enum Bigitem
+{
+    Key, grenade, Armor, AK, Sword
+}
 
 
 
@@ -18,13 +22,11 @@ public class SimpleInv : MonoBehaviourPunCallbacks
     private bool ouvert;
     public GameObject inventaire;
     private int[] Lootprice = { 10, 10, 10, 20, 30, 50 };
+    private int[] Bigitemprice = { 50, 50, 50, 200, 80 };
+    public bool[] Bigitem;
     public Text[] lamoula;
     public Text moneytext;
-    public Image SwordImage;
-    public Image AKImage;
-    public Image ArmorImage;
-    public Image KeyImage;
-    public Image grenadeImage;
+    public Image[] allimage;
     public bool Sword;
     public bool AK;
     public bool Armor;
@@ -42,16 +44,10 @@ public class SimpleInv : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        Sword = false;
-        AK = false;
-        Armor = false;
-        Key = false;
-        grenade = false;
-        SwordImage.color = Color.black;
-        AKImage.color = Color.black;
-        ArmorImage.color = Color.black;
-        KeyImage.color = Color.black;
-        grenadeImage.color = Color.black;
+        foreach(Image im in allimage)
+        {
+            im.color = Color.black;
+        }
 
         for(int i = 0;i <6;i++)
         {
@@ -130,6 +126,16 @@ public class SimpleInv : MonoBehaviourPunCallbacks
             lamoula[(int)item].text = count[(int)item].ToString();
         }
 
+    }
+    public void Buy(Bigitem Bigmarra, Image ima)
+    {
+        if (!(Bigitem[(int)Bigmarra]) && money > Bigitemprice[(int)Bigmarra])
+        {
+            Bigitem[(int)Bigmarra] = true;
+            money -= Bigitemprice[(int)Bigmarra];
+            allimage[(int)Bigmarra].color = Color.white;
+            ima.color = Color.black;
+        }
     }
 
 
