@@ -11,11 +11,13 @@ public enum Loot
     Purple, Yellow, Orange, Wood, Rocks, Metal
 }
 
+
+
 public class SimpleInv : MonoBehaviourPunCallbacks
 {
     private bool ouvert;
     public GameObject inventaire;
-
+    private int[] Lootprice = { 10, 10, 10, 20, 30, 50 };
     public Text[] lamoula;
     public Text moneytext;
     public Image SwordImage;
@@ -117,6 +119,17 @@ public class SimpleInv : MonoBehaviourPunCallbacks
 
         lamoula[(int) item].text = count[(int) item].ToString();
     }
+
+    public void Sell(Loot item)
+    {
+        if (count[(int)item]>0)
+        {
+            money += Lootprice[(int)item];
+            count[(int)item] -= 1;
+        }
+
+    }
+
 
 
    
