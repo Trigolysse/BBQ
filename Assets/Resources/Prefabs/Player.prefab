@@ -9029,7 +9029,6 @@ MonoBehaviour:
   - {fileID: 8775017867349572460}
   - {fileID: 5085280035956180277}
   - {fileID: 8587115477216823279}
-  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -9079,6 +9078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ff05c39c8891e4d99b9a6c0bdf2084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCrouching: 0
   Ernesto: {fileID: 7376831106272240344}
   sprint_Speed: 10
   move_Speed: 5
