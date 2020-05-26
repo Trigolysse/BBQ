@@ -1322,7 +1322,7 @@ MonoBehaviour:
   maxHealth: 500
   currentHealth: 500
   respawntime: 20
-  cimetiere: {x: 0, y: 0, z: 0}
+  cimetiere: {x: 0, y: -1000, z: 0}
   healthBar: {fileID: 0}
 --- !u!65 &6351364043834368534
 BoxCollider:
