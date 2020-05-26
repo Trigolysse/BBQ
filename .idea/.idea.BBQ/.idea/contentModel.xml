@@ -339,6 +339,8 @@
         <e p="PunchDroitRange.cs" t="Include" />
         <e p="Purpleloot.cs" t="Include" />
         <e p="Purplespawn.cs" t="Include" />
+        <e p="Quest.cs" t="Include" />
+        <e p="Questmanager.cs" t="Include" />
         <e p="Rocksloot.cs" t="Include" />
         <e p="Rocksspawn.cs" t="Include" />
         <e p="Salazar Inventory" t="Include">

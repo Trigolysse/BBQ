@@ -13,6 +13,11 @@ public class CoreEngine : MonoBehaviourPunCallbacks
 
     // Cuurent Game State
     public GameState gameState;
+    public float wincond;
+    public float redscore;
+    public float bluescore;
+    public GameObject Redwin;
+    public GameObject BlueWin;
 
     // The Loading Clock
     public float loadingClock;
@@ -26,6 +31,11 @@ public class CoreEngine : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        redscore = 0;
+        bluescore = 0;
+        wincond = 15;
+        BlueWin.SetActive(false);
+        Redwin.SetActive(false);
         gameState = GameState.PLAYGROUND;
     }
 
@@ -34,9 +44,14 @@ public class CoreEngine : MonoBehaviourPunCallbacks
     {
         if (gameState == GameState.LOADING)
         {
+            BlueWin.SetActive(false);
+            Redwin.SetActive(false);
             //Finished loading
             if (loadingClock <= 0f)
             {
+                redscore = 0;
+                bluescore = 0;
+                wincond = 15;
                 gameState = GameState.RUNNING;
                 teleportPlayersToSpawn();
                 // Set the Game clock to 20 minutes
@@ -51,10 +66,34 @@ public class CoreEngine : MonoBehaviourPunCallbacks
             //Finished loading
             if (runningClock <= 0f)
             {
+                if (bluescore>redscore)
+                {
+                    BlueWin.SetActive(true);
+                    
+                }
+                else
+                {
+                    Redwin.SetActive(true);
+                }
                 gameState = GameState.STOPPED;
             }
             else
+            {
                 runningClock -= Time.deltaTime;
+                if (bluescore>=wincond)
+                {
+                    BlueWin.SetActive(true);
+                    gameState = GameState.STOPPED;
+                }
+
+                if (redscore>=wincond)
+                {
+                    Redwin.SetActive(true);
+                    gameState = GameState.STOPPED;
+                }
+            }
+                
+            
         }
     }
 

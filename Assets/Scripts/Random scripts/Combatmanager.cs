@@ -89,6 +89,6 @@ public class Combatmanager : MonoBehaviour
         Agent.Warp(Initialposition);
         timer = respawntime;
         currentHealth = maxHealth;
-        healthBar.GetComponent<MonsterHEALTHBAR>().SetHealth(currentHealth);
+        healthBar.GetComponent<MonsterHEALTHBAR>().SetHealth(currentHealth);    
     }
 }
