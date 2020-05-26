@@ -130,13 +130,11 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
             gameObject.GetComponent<CharacterController>().enabled = false;
             if (team==Teams.RED)
             {
-                Debug.Log("red");
                 transform.position = new Vector3(-191.096f, 20, -68.05299f);
                 gameObject.GetComponent<CharacterController>().enabled = true;
             }
             else
             {
-                Debug.Log("blue");
                 transform.position = new Vector3(406.4642f, 6, 536.1269f);
                 gameObject.GetComponent<CharacterController>().enabled = true;
             }
