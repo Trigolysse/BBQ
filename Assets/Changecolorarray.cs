@@ -2,29 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeColor : MonoBehaviour
+public class Changecolorarray : MonoBehaviour
 {
+  
     private Renderer corps;
     public GameObject Player;
+    public Material[] lemario;
 
     public GameObject o;
     // Start is called before the first frame update
     void Start()
     {
         corps= o.GetComponent<Renderer>();
+        lemario = corps.GetComponents<Material>();
         if (Player.GetComponent<Player>().team==Teams.RED)
         {
-            corps.material.color=Color.red;
+            lemario[0].color=Color.red;
         }
         else
         {
-            corps.material.color = Color.blue;
+            lemario[0].color = Color.blue;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
 }
