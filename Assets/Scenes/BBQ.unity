@@ -53055,6 +53055,11 @@ PrefabInstance:
       propertyPath: attackSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9202419574690952037, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56ec89332e7e9dd4a8c68703c3c328ed, type: 3}
 --- !u!4 &1179701592 stripped
@@ -70771,7 +70776,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

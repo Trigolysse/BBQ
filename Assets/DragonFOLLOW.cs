@@ -96,6 +96,7 @@ public class DragonFOLLOW : MonoBehaviour {
             }
             else
             {
+                dragon.Stop();
                 voyage = true;
                 
                
@@ -179,9 +180,26 @@ public class DragonFOLLOW : MonoBehaviour {
                     }
                     else
                     {
-                        Anim.SetBool("MINDISTANCE", false);
-                        Anim.SetBool("VU", true);
-                        dragon.Stop();
+                        if (Vector3.Distance(transform.position, Player.transform.position) <= MaxDist)
+                        {
+                            EnemyShooting = true;
+                            Anim.SetBool("MINDISTANCE", true);
+                            Anim.SetBool("VU", false);
+                            if (attackDelay <= 0)
+                            {
+                                attackDelay = attackSpeed;
+                                dragon.Play();
+                                Player.GetComponent<Player>().ApplyDamage( "Orc" , this.damage, WeaponName.DRAKE) ; 
+                            }
+                        
+                        }
+                        else
+                        {
+                            Anim.SetBool("MINDISTANCE", false);
+                            Anim.SetBool("VU", true);
+                            dragon.Stop();
+                        }
+                        
                     }
 
                 }
@@ -194,6 +212,7 @@ public class DragonFOLLOW : MonoBehaviour {
     void  OnTriggerExit ( Collider other  ){
         if(other.CompareTag("Player"))
         {
+            
             playerSighted=false;
             Anim.SetBool("VU", false);
             EnemyShooting=false;
