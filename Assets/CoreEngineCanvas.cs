@@ -46,7 +46,7 @@ public class CoreEngineCanvas : MonoBehaviour
                 engineText.text = "";
         }
 
-        if(gameClock != null)
+        if(gameClock != null && engine.gameState == GameState.RUNNING)
         {
             gameClock.text = $"<color=white>Time left: </color><color=#ffa500><b>{PrettyTime(engine.runningClock)}s</b></color>";
         }
