@@ -234,10 +234,6 @@ public class Tir : MonoBehaviourPunCallbacks
 
                 if (hit2.transform.CompareTag("Player")&& Vector3.Distance(transform.position,hit2.transform.position)<punchrange)
                 {
-                    if (gameObject.GetComponent<Player>().team==hit.transform.gameObject.GetComponent<Player>().team)
-                    {
-                        return;
-                    }
                     if (hit2.transform.GetComponent<PhotonView>().IsMine) return;
                     GameObject Blood =
                         Instantiate(PunchImpact, hit2.point,
@@ -302,11 +298,11 @@ public class Tir : MonoBehaviourPunCallbacks
 
                             if (hit3.transform.CompareTag("Player")&& Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
                             {
+                                if (hit3.transform.GetComponent<PhotonView>().IsMine) return;
                                 if (gameObject.GetComponent<Player>().team==hit.transform.gameObject.GetComponent<Player>().team)
                                 {
                                     return;
                                 }
-                                if (hit3.transform.GetComponent<PhotonView>().IsMine) return;
                                 GameObject Blood =
                                     Instantiate(PunchImpact, hit3.point,
                                         Quaternion.FromToRotation(Vector3.forward, hit3.normal)) as GameObject;
@@ -325,10 +321,6 @@ public class Tir : MonoBehaviourPunCallbacks
 
                             if (hit3.transform.CompareTag(Tags.PLAYER_TAG)&& Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
                             {
-                                if (gameObject.GetComponent<Player>().team==hit.transform.gameObject.GetComponent<Player>().team)
-                                {
-                                    return;
-                                }
                                 Debug.Log("Hit player");
                                 hit3.transform.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All,
                                     photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage, WeaponName.PUNCH);
