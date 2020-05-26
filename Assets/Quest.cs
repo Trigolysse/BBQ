@@ -8,7 +8,7 @@ using Photon.Realtime;
 
 
 
-public class Quest : MonoBehaviour
+public class Quest : MonoBehaviourPunCallbacks, IPunObservable
 {
 
     public int Goal;
@@ -19,6 +19,23 @@ public class Quest : MonoBehaviour
     private GameObject gamemanager;
     public Canvas alldisp;
     public bool cancomplete;
+
+
+    /* Sync attributs via Secure Stream */
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(Goal);
+            stream.SendNext(Reward);
+        }
+        else
+        {
+            this.Goal = (int)stream.ReceiveNext();
+            this.Reward = (int)stream.ReceiveNext();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +54,10 @@ public class Quest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Debug.Log(Goal);
         Debug.Log(Reward);
+
         if(Input.GetKeyUp(KeyCode.P))
         {
             alldisp.enabled = !alldisp.enabled;
@@ -51,6 +70,7 @@ public class Quest : MonoBehaviour
             else
                 Goaldis[i].enabled = false;
         }
+
         for (int i = 0; i < 4; i++)
         {
             if (i == Reward)

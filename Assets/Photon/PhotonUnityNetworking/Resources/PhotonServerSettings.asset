@@ -49,5 +49,6 @@ MonoBehaviour:
   - RegisterPlayer
   - StartNewGame
   - teleportPlayersToSpawn
+  - ChangeQuest
   DisableAutoOpenWizard: 1
   ShowSettings: 1

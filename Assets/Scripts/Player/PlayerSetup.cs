@@ -9,10 +9,12 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     Behaviour[] componentsToDisable;
     Camera sceneCamera;
     Player player;
+    Quest quest;
 
     private void Awake()
     {
         player = GetComponent<Player>();
+        quest = GetComponent<Quest>();
     }
 
     void Start()
@@ -42,7 +44,9 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         }
 
         photonView.RPC("RegisterPlayer", RpcTarget.All);
-
+        int randomGoal = new System.Random().Next(10);
+        int randomReward = new System.Random().Next(4);
+        photonView.RPC("ChangeQuest", RpcTarget.All, randomGoal, randomReward);
     }
     
     private void OnDisable()
@@ -99,6 +103,16 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         if(photonView.IsMine)
         {
             player.team = team;
+        }
+    }
+
+    [PunRPC]
+    public void ChangeQuest(int randomGoal, int randomReward)
+    {
+        if (photonView.IsMine)
+        {
+            quest.Goal = randomGoal;
+            quest.Reward = randomReward;
         }
     }
 
