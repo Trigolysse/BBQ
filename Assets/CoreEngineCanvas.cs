@@ -16,8 +16,12 @@ public class CoreEngineCanvas : MonoBehaviour
     [SerializeField]
     private Text gameStatus;
 
+    [SerializeField]
+    private Slider gameSlider;
+
     CoreEngine engine;
- 
+
+    private Player player;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +58,14 @@ public class CoreEngineCanvas : MonoBehaviour
         if(gameStatus != null)
         {
             gameStatus.text = $"<color=white>Status: </color><b>{PrettyStatus(engine.gameState)}</b>";
+        }
+
+        if(gameSlider != null)
+        {
+            if(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().team == Teams.BLUE)
+                gameSlider.value = engine.bluescore / engine.wincond;
+            else
+                gameSlider.value = engine.redscore / engine.wincond;
         }
         
     }

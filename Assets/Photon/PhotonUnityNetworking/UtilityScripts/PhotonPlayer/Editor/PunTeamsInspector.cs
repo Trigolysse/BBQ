@@ -13,13 +13,12 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-
 using Photon.Pun;
 using Photon.Realtime;
 
 namespace Photon.Pun.UtilityScripts
 {
-	[CustomEditor(typeof(PunTeams))]
+	/*[CustomEditor(typeof(PunTeams))]
 	public class PunTeamsInspector : Editor {
 
 
@@ -56,5 +55,5 @@ namespace Photon.Pun.UtilityScripts
 				}
 			}
 		}
-	}
+	}*/
 }
