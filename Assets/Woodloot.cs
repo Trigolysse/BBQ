@@ -23,11 +23,11 @@ public class Woodloot : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gamemanager.GetComponent<Woodspawn>().destroyflower(zone);
-            var playerInventory = other.gameObject.GetComponent<Inventory>();
-            if(playerInventory != null)
-            {
-                playerInventory.AddInInventory(new Stack(Items.getItemWithType(ItemType.WOOD), 1));
-            }
+            //var playerInventory = other.gameObject.GetComponent<Inventory>();
+            //if(playerInventory != null)
+            //{
+              //  playerInventory.AddInInventory(new Stack(Items.getItemWithType(ItemType.WOOD), 1));
+            //}
                 
             PhotonNetwork.Destroy(this.gameObject);
             other.GetComponent<SimpleInv>().Add(Loot.Wood, 1);
