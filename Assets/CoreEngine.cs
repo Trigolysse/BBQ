@@ -16,7 +16,9 @@ public class CoreEngine : MonoBehaviourPunCallbacks
 
     // The Loading Clock
     public float loadingClock;
-    private NavMeshAgent agent;
+
+    // The Running Clock
+    public float runningClock;
 
     #endregion
 
@@ -37,6 +39,8 @@ public class CoreEngine : MonoBehaviourPunCallbacks
             {
                 gameState = GameState.RUNNING;
                 teleportPlayersToSpawn();
+                // Set the Game clock to 20 minutes
+                runningClock = 1200f;
             }
             else
                 loadingClock -= Time.deltaTime;
@@ -44,7 +48,13 @@ public class CoreEngine : MonoBehaviourPunCallbacks
 
         if (gameState == GameState.RUNNING)
         {
-
+            //Finished loading
+            if (runningClock <= 0f)
+            {
+                gameState = GameState.STOPPED;
+            }
+            else
+                runningClock -= Time.deltaTime;
         }
     }
 
@@ -66,31 +76,25 @@ public class CoreEngine : MonoBehaviourPunCallbacks
         }
     }
 
-   
-        public void teleportPlayersToSpawn()
-        {
-            
-            
-                GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+    public void teleportPlayersToSpawn()
+    {
+        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
        
-                foreach (GameObject player in allPlayers)
-                {
-                    if (player.GetComponent<Player>().team == Teams.RED)
-                    {
-                        // Teleport RED Team
-                        player.GetComponent<Player>().teleport = true;
-                    }
-                    else
-                    {
-                        // Teleport BLUE Team
-                        player.GetComponent<Player>().teleport = true;
-                    }
-                }
-
-            
-            
+        foreach (GameObject player in allPlayers)
+        {
+            if (player.GetComponent<Player>().team == Teams.RED)
+            {
+                // Teleport RED Team
+                player.GetComponent<Player>().teleport = true;
+            }
+            else
+            {
+                // Teleport BLUE Team
+                player.GetComponent<Player>().teleport = true;
+            }
         }
     }
+}
 
 
 public enum GameState

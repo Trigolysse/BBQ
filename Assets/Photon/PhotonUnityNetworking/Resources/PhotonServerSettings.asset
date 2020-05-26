@@ -48,5 +48,6 @@ MonoBehaviour:
   - AssignTeam
   - RegisterPlayer
   - StartNewGame
+  - teleportPlayersToSpawn
   DisableAutoOpenWizard: 1
   ShowSettings: 1
