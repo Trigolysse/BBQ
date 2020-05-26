@@ -13,6 +13,8 @@ public class CoreEngineCanvas : MonoBehaviour
     [SerializeField]
     private Text gameClock;
 
+    [SerializeField]
+    private Text gameStatus;
     CoreEngine engine;
  
 
@@ -39,9 +41,6 @@ public class CoreEngineCanvas : MonoBehaviour
             // Reflect Loading Clock
             else if (engine.gameState == GameState.LOADING)
                 engineText.text = $"<color=white>Game starting in </color><color=#ffa500><b>{PrettyTime(engine.loadingClock)}s</b></color>";
-
-            else if (engine.gameState == GameState.RUNNING)
-                engineText.text = $"<color=#ffae1a>Game LIVE</color>";
             else
                 engineText.text = "";
         }
@@ -50,6 +49,12 @@ public class CoreEngineCanvas : MonoBehaviour
         {
             gameClock.text = $"<color=white>Time left: </color><color=#ffa500><b>{PrettyTime(engine.runningClock)}s</b></color>";
         }
+
+        if(gameStatus != null)
+        {
+            gameStatus.text = $"<color=white>Status: </color><b>{PrettyStatus(engine.gameState)}</b>";
+        }
+        
     }
 
     public void SetEngine(CoreEngine engine)
@@ -68,5 +73,22 @@ public class CoreEngineCanvas : MonoBehaviour
         int min = Mathf.FloorToInt(seconds / 60);
         int sec = Mathf.FloorToInt(seconds % 60);
         return min.ToString("00") + ":" + sec.ToString("00");
+    }
+
+    private string PrettyStatus(GameState state)
+    {
+       switch(state)
+        {
+            case GameState.LOADING:
+                return "<color=blue>loading</color>";
+            case GameState.PAUSED:
+                return "<color=#ffa500>paused</color>";
+            case GameState.RUNNING:
+                return "<color=#7CFC00>live</color>";
+            case GameState.STOPPED:
+                return "<color=red>stopped</color>";
+            default:
+                return $"<color=white>{state}</color>";
+        }
     }
 }
