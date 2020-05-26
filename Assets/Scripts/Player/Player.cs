@@ -85,7 +85,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         }
 
         /* */
-        healthBar.GetComponent<MonsterHEALTHBAR>().SetHealth(Health);
         DeadCanvas.enabled = false;
         anim = Ernesto.GetComponent<Animator>();
         respawntime = 5;
@@ -104,6 +103,11 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     void Update()
     {
+        if(!photonView.IsOwnerActive)
+        {
+            Destroy(this.gameObject);
+        }
+
         if (!photonView.IsMine)
             return;
         if (team==Teams.RED)
