@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CoreEngine : MonoBehaviourPunCallbacks
 {
@@ -15,6 +16,7 @@ public class CoreEngine : MonoBehaviourPunCallbacks
 
     // The Loading Clock
     public float loadingClock;
+    private NavMeshAgent agent;
 
     #endregion
 
@@ -49,6 +51,7 @@ public class CoreEngine : MonoBehaviourPunCallbacks
     #endregion
 
     [PunRPC] /* Called via chat command */
+    
     public void StartNewGame(float delayBeforeGameRunning = 60f)
     {
         gameState = GameState.LOADING;
@@ -63,25 +66,32 @@ public class CoreEngine : MonoBehaviourPunCallbacks
         }
     }
 
-    public void teleportPlayersToSpawn()
-    {
-        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
-       
-        foreach (GameObject player in allPlayers)
+   
+        public void teleportPlayersToSpawn()
         {
-            if (player.GetComponent<Player>().team == Teams.RED)
-            {
-                // Teleport RED Team
-                player.transform.position = new Vector3(-191.096f, 20, -68.05299f);
-            }
-            else
-            {
-                // Teleport BLUE Team
-                player.transform.position = new Vector3(406.4642f, 6, 536.1269f);
-            }
+            
+            
+                GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+       
+                foreach (GameObject player in allPlayers)
+                {
+                    if (player.GetComponent<Player>().team == Teams.RED)
+                    {
+                        // Teleport RED Team
+                        player.GetComponent<Player>().teleport = true;
+                    }
+                    else
+                    {
+                        // Teleport BLUE Team
+                        player.GetComponent<Player>().teleport = true;
+                    }
+                }
+
+            
+            
         }
     }
-}
+
 
 public enum GameState
 {

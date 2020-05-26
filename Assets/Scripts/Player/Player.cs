@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviourPunCallbacks
 {
+    public bool teleport;
     private int timeblood = 0;
     private bool blood = false;
     private int frames;
@@ -58,7 +59,8 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (!photonView.IsMine)
             return;
-  
+        teleport = false;
+
         // Inject Player reference
         if (PlayerUiPrefab != null)
         {
@@ -80,6 +82,23 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (!photonView.IsMine)
             return;
+        if (teleport)
+        {
+            teleport = false;
+            gameObject.GetComponent<CharacterController>().enabled = false;
+            if (team==Teams.RED)
+            {
+                Debug.Log("red");
+                transform.position = new Vector3(-191.096f, 20, -68.05299f);
+                gameObject.GetComponent<CharacterController>().enabled = true;
+            }
+            else
+            {
+                Debug.Log("blue");
+                transform.position = new Vector3(406.4642f, 6, 536.1269f);
+                gameObject.GetComponent<CharacterController>().enabled = true;
+            }
+        }
         if (isDead)
         {
             anim.SetBool("Dead",true);
@@ -174,6 +193,20 @@ public class Player : MonoBehaviourPunCallbacks
     public void NoTalk()
     {
         talk.SetActive(false);
+    }
+
+    public void Teleport()
+    {
+        if (team==Teams.RED)
+        {
+            Debug.Log("red");
+            transform.position = new Vector3(-191.096f, 20, -68.05299f);
+        }
+        else
+        {
+            Debug.Log("blue");
+            transform.position = new Vector3(406.4642f, 6, 536.1269f);
+        }
     }
 
 }
