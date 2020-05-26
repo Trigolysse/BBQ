@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        if (photonView.IsMine && !player.isDead)
+        if (photonView.IsMine)
             MoveThePlayer();
         else
         {
