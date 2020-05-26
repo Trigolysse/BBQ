@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
-using UnityEditor.Animations;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;

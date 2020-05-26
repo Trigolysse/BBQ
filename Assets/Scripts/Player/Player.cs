@@ -198,6 +198,9 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         
 
         Debug.Log("ApplyDamage");
+        if (GetComponent<SimpleInv>().Bigitem[2])
+            damage -= 15;
+
 
         Health -= damage;
         if (Health<0)
