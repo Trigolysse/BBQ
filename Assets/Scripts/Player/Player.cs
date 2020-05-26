@@ -205,7 +205,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         {
             Health = 0;
         }
-        healthBar.GetComponent<MonsterHEALTHBAR>().SetHealth(Health);
+
         if (Health <= 0)
         {
             Die(_sourceName, weaponName);
