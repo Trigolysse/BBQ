@@ -55,10 +55,7 @@ public class Quest : MonoBehaviourPunCallbacks, IPunObservable
     void Update()
     {
 
-        Debug.Log(Goal);
-        Debug.Log(Reward);
-
-        if(Input.GetKeyUp(KeyCode.P))
+        /*if(Input.GetKeyUp(KeyCode.P))
         {
             alldisp.enabled = !alldisp.enabled;
         }
@@ -77,7 +74,7 @@ public class Quest : MonoBehaviourPunCallbacks, IPunObservable
                 Rewarddis[i].enabled = true;
             else
                 Rewarddis[i].enabled = false;
-        }
+        }*/
     }
 
 
