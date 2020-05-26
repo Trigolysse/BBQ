@@ -26,7 +26,40 @@ public class DragonFOLLOW : MonoBehaviour {
     public AudioSource dragon;
     private bool first;
     private float time;
-    public int patrolDistance;
+    private GameObject Player;
+    private float attackDelay = 0;
+
+
+
+
+    #region Public Fields
+
+    [Tooltip("Distance from a player at which the Orc will start to inflict damage")]
+    [SerializeField]
+    private float attackDistance = 10;
+
+    [Tooltip("Distance from a player at which the Orc will stop its normal behavior and engage the player in combat")]
+    [SerializeField]
+    private float aggroDistance = 20;
+
+    [Tooltip("?? Ulysse write something here")]
+    [SerializeField]
+    private int patrolDistance = 20;
+
+    [Tooltip("Frequency of a unit's basic attacks")]
+    [SerializeField]
+    private float attackSpeed;
+    
+    [Tooltip("Inflicting Damage of the Orc")]
+    [SerializeField]
+    private int damage = 20;
+
+    #endregion
+    
+    
+    
+    
+    
 
     void  Awake ()
     {
@@ -63,6 +96,7 @@ public class DragonFOLLOW : MonoBehaviour {
             }
             else
             {
+                dragon.Stop();
                 voyage = true;
                 
                
@@ -83,10 +117,38 @@ public class DragonFOLLOW : MonoBehaviour {
 
     void  OnTriggerStay ( Collider other  )
     {
-        time += Time.deltaTime;
+    
+        
+        
+        
         
         if(other.CompareTag("Player"))
         {
+            
+            time += Time.deltaTime;
+        
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player"); // Bruh
+            float distance = Mathf.Infinity;
+            foreach (var play in players)
+            {
+                float newdist = Vector3.Distance(Agent.transform.position, play.transform.position);
+                if (newdist <= distance)
+                {
+                    Player = play;
+                    distance = newdist;
+                }
+
+            }
+            //playerpos = Player.transform.position;
+
+            if (attackDelay > 0 )
+            {
+                attackDelay -= Time.deltaTime;
+            }
+
+
+
+
             playerSighted=true;
             if (time>1)
             {
@@ -96,25 +158,48 @@ public class DragonFOLLOW : MonoBehaviour {
             else
             {
                 Debug.Log("TROUVER");
-                Vector3 lookAtPos = other.transform.position;
+                Vector3 lookAtPos = Player.transform.position;
     
                 lookAtPos.y= transform.position.y;
                 transform.LookAt(lookAtPos);
-                if (Vector3.Distance(transform.position,other.transform.position)>=MinDist)
+                if (Vector3.Distance(transform.position,Player.transform.position)>=MinDist)
                 {
                     transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-                    if (Vector3.Distance(transform.position, player.transform.position) <= MaxDist)
+                    if (Vector3.Distance(transform.position, Player.transform.position) <= MaxDist)
                     {
                         EnemyShooting = true;
                         Anim.SetBool("MINDISTANCE", true);
                         Anim.SetBool("VU", false);
-                        dragon.Play();
+                        if (attackDelay <= 0)
+                        {
+                            attackDelay = attackSpeed;
+                            dragon.Play();
+                            Player.GetComponent<Player>().ApplyDamage( "Orc" , this.damage, WeaponName.DRAKE) ; 
+                        }
+                        
                     }
                     else
                     {
-                        Anim.SetBool("MINDISTANCE", false);
-                        Anim.SetBool("VU", true);
-                        dragon.Stop();
+                        if (Vector3.Distance(transform.position, Player.transform.position) <= MaxDist)
+                        {
+                            EnemyShooting = true;
+                            Anim.SetBool("MINDISTANCE", true);
+                            Anim.SetBool("VU", false);
+                            if (attackDelay <= 0)
+                            {
+                                attackDelay = attackSpeed;
+                                dragon.Play();
+                                Player.GetComponent<Player>().ApplyDamage( "Orc" , this.damage, WeaponName.DRAKE) ; 
+                            }
+                        
+                        }
+                        else
+                        {
+                            Anim.SetBool("MINDISTANCE", false);
+                            Anim.SetBool("VU", true);
+                            dragon.Stop();
+                        }
+                        
                     }
 
                 }
@@ -127,6 +212,7 @@ public class DragonFOLLOW : MonoBehaviour {
     void  OnTriggerExit ( Collider other  ){
         if(other.CompareTag("Player"))
         {
+            
             playerSighted=false;
             Anim.SetBool("VU", false);
             EnemyShooting=false;

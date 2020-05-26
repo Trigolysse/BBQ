@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum WeaponName
 {
-    AK47, M14A1, GLOCK, ORC, GRENADE, PUNCH
+    AK47, M14A1, GLOCK, ORC, GRENADE, PUNCH, DRAKE
 }
