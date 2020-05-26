@@ -15,7 +15,8 @@ public class Questmanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Changequest();
+        if (PhotonNetwork.IsMasterClient)
+            Changequest();
 
     }
 
