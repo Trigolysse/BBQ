@@ -64,7 +64,6 @@ public class SimpleInv : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(count[5]);    
         if (!photonView.IsMine)
         {
             return;

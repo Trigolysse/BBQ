@@ -1244,6 +1244,7 @@ MonoBehaviour:
   fireType: 1
   bulletType: 0
   damage: 26
+  speed: 6
   fireRate: 10
   magazineCapacity: 32
   Initialmmunition: 150
@@ -5052,6 +5053,7 @@ MonoBehaviour:
   fireType: 0
   bulletType: 3
   damage: 20
+  speed: 12
   fireRate: 1.5
   magazineCapacity: 20
   Initialmmunition: 0
@@ -6920,6 +6922,7 @@ MonoBehaviour:
   fireType: 0
   bulletType: 3
   damage: 55
+  speed: 8
   fireRate: 1
   magazineCapacity: 999
   Initialmmunition: 0
@@ -9002,8 +9005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ernesto: {fileID: 7376831106272240344}
-  speed: 15
-  jump_Force: 10
+  speed: 5
+  jump_Force: 5
 --- !u!114 &8827100772427584088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10429,15 +10432,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4099901376936650, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1429
+      value: -1.033
       objectReference: {fileID: 0}
     - target: {fileID: 4099901376936650, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.207
+      value: 0.156
       objectReference: {fileID: 0}
     - target: {fileID: 4099901376936650, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0213
+      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 4099901376936650, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
       propertyPath: m_LocalScale.x

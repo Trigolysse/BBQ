@@ -30,7 +30,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     private GameObject engin;
     //public Canvas playerUI;
 
-    /** DO NOT TOUCH IF YOU ARE NOT QUALIFIED 
+    /** DO NOT TOUCH IF YOU ARE NOT QUALIFIED
     Spoiler Alert: You are not qualified */
 
     #region Attributs
@@ -156,7 +156,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
                 }
             }
         }
-       
+
         if (blood)
         {
             timeblood++;
@@ -184,7 +184,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
                 pasthealth = Health;
             }
         }
-        
+
     }
 
     [PunRPC]
@@ -195,12 +195,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
             GetComponent<AudioSource>().Play();
             return;
         }
-        
-
-        Debug.Log("ApplyDamage");
-        if (GetComponent<SimpleInv>().Bigitem[2])
-            damage -= 15;
-
 
         Health -= damage;
         if (Health<0)
@@ -224,7 +218,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         respawnGobj.SetActive(false);
     }
 
-   
+
     private void Die(string _sourceName, WeaponName weaponName)
     {
         respawnGobj.SetActive(true);
@@ -236,7 +230,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         {
             respawntime = 5;
         }
-   
+
         //Destroy(gameObject);
     }
 
@@ -251,12 +245,9 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     public void Teleport()
     {
-       
-            Debug.Log("red");
-            gameObject.GetComponent<CharacterController>().enabled = false;
-            transform.position = new Vector3(-191.096f, -2, -68.05299f);
-            gameObject.GetComponent<CharacterController>().enabled = true;
-       
+        gameObject.GetComponent<CharacterController>().enabled = false;
+        transform.position = new Vector3(-191.096f, -2, -68.05299f);
+        gameObject.GetComponent<CharacterController>().enabled = true;
     }
 
 
