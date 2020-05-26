@@ -25,6 +25,12 @@ public class Player : MonoBehaviourPunCallbacks
     private bool gooddead = false;
 
     public GameObject talk;
+
+    private GameObject redbbq;
+
+    private GameObject bluebbq;
+
+    private GameObject engin;
     //public Canvas playerUI;
 
     /** DO NOT TOUCH IF YOU ARE NOT QUALIFIED 
@@ -59,6 +65,9 @@ public class Player : MonoBehaviourPunCallbacks
         pasthealth = Health; /* ???? nice coding u nerd */
         frames = 0;
         weaponManager = GetComponent<WeaponManager>();
+        bluebbq = GameObject.FindWithTag("BLUEBBQ");
+        redbbq = GameObject.FindWithTag("REDBBQ");
+        engin = GameObject.Find("CoreEngine");
     }
 
     void Start()
@@ -89,6 +98,20 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (!photonView.IsMine)
             return;
+        if (team==Teams.RED)
+        {
+            if (Vector3.Distance(bluebbq.transform.position,transform.position)<2)
+            {
+                engin.GetComponent<CoreEngine>().redscore += Time.deltaTime;
+            }
+        }
+        else
+        {
+            if (Vector3.Distance(redbbq.transform.position,transform.position)<2)
+            {
+                engin.GetComponent<CoreEngine>().bluescore += Time.deltaTime;
+            }
+        }
         if (teleport)
         {
             teleport = false;
