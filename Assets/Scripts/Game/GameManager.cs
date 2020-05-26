@@ -56,6 +56,20 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    private GameObject GetPlayer()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach(GameObject player in players)
+        {
+            if(player.GetComponent<PhotonView>().IsMine)
+            {
+                return player;
+            }
+        }
+        return null;
+    }
+
+
     public void setMenu(bool b)
     {
         
@@ -90,9 +104,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (create)
         {
             if (Input.GetKeyDown(KeyCode.Return))
-            {
+            {             
                 isShowing = !isShowing;
-         
+                GameObject player = GetPlayer();
+                if (isShowing)
+                    player.GetComponent<Player>().isOutOfFocus = true;
+                else
+                    player.GetComponent<Player>().isOutOfFocus = false;
+
                 chatInputField.gameObject.SetActive(isShowing);
                 chatInputField.Select();
                 chatInputField.ActivateInputField();

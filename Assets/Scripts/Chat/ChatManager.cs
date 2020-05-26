@@ -88,6 +88,9 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
                 case "kick":
                     PhotonNetwork.CloseConnection(PhotonNetwork.PlayerList[(int)Random.Range(0, PhotonNetwork.PlayerList.Length-1)]);
                     break;
+                case "money":
+                    
+                    break;
                 default:
                     gameManager.SendMessageToChat($"<color=green><i><b>{senders[0]}</b> is autistic</i></color>");
                     break;
