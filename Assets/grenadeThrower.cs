@@ -13,9 +13,12 @@ public class grenadeThrower : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && GetComponent<SimpleInv>().Bigitem[1])
         {
             ThrowGrenade();
+            GetComponent<SimpleInv>().Bigitem[1] = false;
+            GetComponent<SimpleInv>().allimage[1].color = Color.black;
+            GetComponent<BuySell>().Ui[1].color = Color.white;
         }
     }
 
