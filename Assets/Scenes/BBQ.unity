@@ -14685,6 +14685,7 @@ GameObject:
   - component: {fileID: 348968967}
   - component: {fileID: 348968968}
   - component: {fileID: 348968969}
+  - component: {fileID: 348968970}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Gamemanager
@@ -14902,6 +14903,20 @@ MonoBehaviour:
   respawntime: 5
   alive: 
   restime: []
+--- !u!114 &348968970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348968960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab3f57b795a6ec4d9e7e271d7ee0c51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Goal: 0
+  Reward: 0
 --- !u!4 &350835007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953,
