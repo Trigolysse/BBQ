@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -48,7 +47,7 @@ public class Tir : MonoBehaviourPunCallbacks
     #endregion
 
     #region Mono Callbacks
-    
+
     void Awake()
     {
         player = GetComponent<Player>();
@@ -57,7 +56,7 @@ public class Tir : MonoBehaviourPunCallbacks
         mouseLook = GetComponentInChildren<MouseLook>();
     }
 
-    
+
     void Update()
     {
         if (photonView.IsMine && !player.isOutOfFocus)
@@ -72,7 +71,7 @@ public class Tir : MonoBehaviourPunCallbacks
             {
                 anim.SetBool("Reload",false);
             }
-        }    
+        }
     }
 
     #endregion
@@ -131,12 +130,12 @@ public class Tir : MonoBehaviourPunCallbacks
 
         munition = weapon.Ammunition;
         reload = weapon.recharge;
-        
+
         if (AK.active && munition>0 && !reload)
-        { 
+        {
             RaycastHit hit;
             Vector3 direction = mainCam.transform.TransformDirection(RandomInsideCone(radius).normalized);
-        
+
             if (Physics.Raycast(new Ray(mainCam.transform.position, direction), out hit))
             {
                 Debug.Log("Did hit " + hit.collider.name);
@@ -206,7 +205,7 @@ public class Tir : MonoBehaviourPunCallbacks
 
         if (Punch.active)
         {
-            
+
             /*Collider[] hitplayer = Physics.OverlapSphere(Attakpoint.transform.position, punchrange, PlayerLayer);
             foreach (Collider player in hitplayer)
             {
@@ -222,7 +221,7 @@ public class Tir : MonoBehaviourPunCallbacks
                 Debug.Log("Did hit " + hit2.collider.name);
                 Debug.DrawLine(mainCam.transform.position, hit2.point);
                 if (hit2.transform.GetComponent<Rigidbody>() != null && Vector3.Distance(transform.position,hit2.transform.position)<punchrange)
-                { 
+                {
                     hit2.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
                 }
                 if (hit2.transform.CompareTag("Metal")&& Vector3.Distance(transform.position,hit2.transform.position)<punchrange)
@@ -282,15 +281,15 @@ public class Tir : MonoBehaviourPunCallbacks
         if (Sword.active)
         {
              RaycastHit hit3;
-            
+
                         Vector3 direction3 = mainCam.transform.TransformDirection(RandomInsideCone(radius).normalized);
-            
+
                         if (Physics.Raycast(new Ray(mainCam.transform.position, direction3), out hit3))
                         {
                             Debug.Log("Did hit " + hit3.collider.name);
                             Debug.DrawLine(mainCam.transform.position, hit3.point);
                             if (hit3.transform.GetComponent<Rigidbody>() != null && Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
-                            { 
+                            {
                                 hit3.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
                             }
                             if (hit3.transform.CompareTag("Metal")&& Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
@@ -300,7 +299,7 @@ public class Tir : MonoBehaviourPunCallbacks
                                         Quaternion.FromToRotation(Vector3.forward, hit3.normal)) as GameObject;
                                 Destroy(Gucci, 2f);
                             }
-            
+
                             if (hit3.transform.CompareTag("Player")&& Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
                             {
                                 if (gameObject.GetComponent<Player>().team==hit.transform.gameObject.GetComponent<Player>().team)
@@ -313,7 +312,7 @@ public class Tir : MonoBehaviourPunCallbacks
                                         Quaternion.FromToRotation(Vector3.forward, hit3.normal)) as GameObject;
                                 Destroy(Blood, 2f);
                             }
-            
+
                             if (hit3.transform.CompareTag("Enemy")&& Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
                             {
                                 GameObject Blood =
@@ -323,7 +322,7 @@ public class Tir : MonoBehaviourPunCallbacks
                                 hit3.transform.gameObject.GetComponent<Combatmanager>()
                                     .TakeDamage(weaponManager.GetCurrentSelectedWeapon().damage);
                             }
-            
+
                             if (hit3.transform.CompareTag(Tags.PLAYER_TAG)&& Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
                             {
                                 if (gameObject.GetComponent<Player>().team==hit.transform.gameObject.GetComponent<Player>().team)

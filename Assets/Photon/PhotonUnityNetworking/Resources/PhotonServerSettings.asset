@@ -50,6 +50,5 @@ MonoBehaviour:
   - StartNewGame
   - teleportPlayersToSpawn
   - ChangeQuest
-  - SetName
   DisableAutoOpenWizard: 1
   ShowSettings: 1

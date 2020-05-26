@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
             
 
         moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= speed * Time.deltaTime;
+        moveDirection *= weaponManager.GetCurrentSelectedWeapon().speed * Time.deltaTime;
         ApplyGravity();
         characterController.Move(moveDirection);
     }

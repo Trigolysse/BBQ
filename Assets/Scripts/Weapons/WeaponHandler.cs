@@ -57,6 +57,7 @@ public class WeaponHandler : MonoBehaviour
     public WeaponFireType fireType;
     public WeaponBulletType bulletType;
     public int damage;
+    public int speed;
     public float fireRate;
     public int magazineCapacity;
     public int Initialmmunition;
