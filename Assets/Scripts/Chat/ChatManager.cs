@@ -57,6 +57,18 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
     {
         
     }
+    private GameObject GetPlayer()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            if (player.GetComponent<PhotonView>().IsMine)
+            {
+                return player;
+            }
+        }
+        return null;
+    }
 
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
     {
@@ -89,7 +101,21 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
                     PhotonNetwork.CloseConnection(PhotonNetwork.PlayerList[(int)Random.Range(0, PhotonNetwork.PlayerList.Length-1)]);
                     break;
                 case "money":
-                    
+                    if (args.Length > 1)
+                        GetPlayer().GetComponent<SimpleInv>().money += int.Parse(args[1]);
+                    else
+                        chatClient.PublishMessage("channelNameHere", "<color=red>[ Server ]</color> You need to specify the amount");
+                    break;
+                case "team":
+                    if (args.Length > 1)
+                    {
+                        if (args[1].ToLower() == "blue")
+                            GetPlayer().GetComponent<Player>().team = Teams.BLUE;
+                        if (args[1].ToLower() == "red")
+                            GetPlayer().GetComponent<Player>().team = Teams.RED;
+                    } 
+                    else
+                        chatClient.PublishMessage("channelNameHere", "<color=red>[ Server ]</color> You need to specify a team [red | blue]");
                     break;
                 default:
                     gameManager.SendMessageToChat($"<color=green><i><b>{senders[0]}</b> is autistic</i></color>");
