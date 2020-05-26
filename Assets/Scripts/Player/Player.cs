@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviourPunCallbacks
 {
+    public GameObject respawnGobj;
+    public Text respawntext;
     public float respawntime;
     public bool teleport;
     private int timeblood = 0;
@@ -105,6 +108,7 @@ public class Player : MonoBehaviourPunCallbacks
         }
         if (isDead)
         {
+            respawntext.text = ((int) (respawntime / 1)).ToString();
             if (!gooddead)
             {
                 //anim.SetBool("Dead",true);
@@ -183,11 +187,13 @@ public class Player : MonoBehaviourPunCallbacks
         Health = 100;
         isDead = false;
         teleport = true;
+        respawnGobj.SetActive(false);
     }
 
    
     private void Die(string _sourceName, WeaponName weaponName)
     {
+        respawnGobj.SetActive(true);
 
         isDead = true;
         GameManager.Instance.onPlayerKilledCallback.Invoke(_sourceName, photonView.Owner.NickName, weaponName);
