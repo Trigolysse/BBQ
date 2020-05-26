@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Teamate : MonoBehaviour, Photon.Realtime.IInRoomCallbacks
+public class Teamate : MonoBehaviour
 {
     [SerializeField]
     private Text playerName;
@@ -73,35 +73,6 @@ public class Teamate : MonoBehaviour, Photon.Realtime.IInRoomCallbacks
         }
         // Cache references for efficiency
         this.teamateObject = teamateObject;
-    }
-
-    public void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
-    {
-        if(otherPlayer == teamateObject.player.Value)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-    }
-
-    public void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient)
-    {
-        throw new System.NotImplementedException();
     }
 
     #endregion
