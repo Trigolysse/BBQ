@@ -5,7 +5,7 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviourPunCallbacks
+public class Player : MonoBehaviourPunCallbacks, IPunObservable
 {
     public GameObject respawnGobj;
     public Text respawntext;
@@ -92,6 +92,17 @@ public class Player : MonoBehaviourPunCallbacks
         DeadCanvas.enabled = false;
         anim = Ernesto.GetComponent<Animator>();
         respawntime = 5;
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(team);
+        }
+        else
+        {
+            this.team = (Teams)stream.ReceiveNext();
+        }
     }
 
     void Update()
@@ -248,7 +259,6 @@ public class Player : MonoBehaviourPunCallbacks
        
     }
 
-    
 
 }
 

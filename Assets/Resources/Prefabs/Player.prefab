@@ -9222,7 +9222,8 @@ MonoBehaviour:
   - {fileID: 7724118556637423424}
   - {fileID: 8775017867349572460}
   - {fileID: 5085280035956180277}
-  - {fileID: 0}
+  - {fileID: 8587115477216823279}
+  - {fileID: -3692496282999172885}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
