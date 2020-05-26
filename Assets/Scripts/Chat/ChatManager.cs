@@ -16,6 +16,9 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
     private GameManager gameManager;
     [SerializeField]
     private GameObject broadcastPrefab;
+    [SerializeField]
+    private CoreEngine engine;
+
 
     void Start()
     {
@@ -82,7 +85,8 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
                         GameObject.Find("CoreEngine").GetComponent<PhotonView>().RPC("StartNewGame", RpcTarget.All);
                     break;
                 case "pause":
-                    //GameObject.Find("CoreEngine").GetComponent<PhotonView>().RPC("StartGameEngine", RpcTarget.All);
+                    if (engine != null)
+                        engine.gameState = GameState.PAUSED;
                     break;
                 default:
                     gameManager.SendMessageToChat($"<color=green><i><b>{senders[0]}</b> is autistic</i></color>");

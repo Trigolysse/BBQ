@@ -15,6 +15,7 @@ public class CoreEngineCanvas : MonoBehaviour
 
     [SerializeField]
     private Text gameStatus;
+
     CoreEngine engine;
  
 

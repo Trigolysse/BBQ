@@ -107,7 +107,7 @@ public class Player : MonoBehaviourPunCallbacks
         {
             if (!gooddead)
             {
-                anim.SetBool("Dead",true);
+                //anim.SetBool("Dead",true);
                 gooddead = true;
                 Teleport();
             }
