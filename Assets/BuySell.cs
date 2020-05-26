@@ -20,7 +20,6 @@ public class BuySell : MonoBehaviourPunCallbacks
     public Button[] Sell;
     public Button[] Buy;
     public Image[] Ui;
-    public bool[] canbuy;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +35,7 @@ public class BuySell : MonoBehaviourPunCallbacks
             int a = i;
             Sell[a].onClick.AddListener(() => GetComponent<SimpleInv>().Sell((Loot)a));
         }
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 8; i++)
         {
             int a = i;
             Buy[a].onClick.AddListener(() => GetComponent<SimpleInv>().Buy((Bigitem)a, Ui[a]));
