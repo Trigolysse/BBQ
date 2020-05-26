@@ -54,10 +54,11 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     #endregion
 
     public bool isDead = false;
-    public bool isOutOfFocus = false;
-
+    public bool isOutOfFocus = true;
+   
     private void Awake()
     {
+        team = Teams.NONE;
         Health = 100;
         pasthealth = Health; /* ???? nice coding u nerd */
         frames = 0;
@@ -256,5 +257,5 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
 public enum Teams
 {
-    RED, BLUE
+    RED, BLUE, NONE
 }

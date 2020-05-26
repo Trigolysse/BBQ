@@ -10,6 +10,8 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     Camera sceneCamera;
     Player player;
     Quest quest;
+    [SerializeField]
+    private Canvas teamCanvas;
 
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
 
     void Start()
     {
+       
         //AssignRemoteLayer();
         // If this player is not you
         if (!photonView.IsMine)
@@ -30,21 +33,13 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         }
         else
         {
+            player.isOutOfFocus = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            teamCanvas.GetComponent<Canvas>().enabled = true;
             sceneCamera = Camera.main;
-            if (sceneCamera != null)
-            {
-                //sceneCamera.gameObject.SetActive(false);
-            }
-            //Camera.main.gameObject.SetActive(false);
-            if (UnityEngine.Random.Range(0, 2) == 0)
-                photonView.RPC("AssignTeam", RpcTarget.All, Teams.BLUE);
-            else
-                photonView.RPC("AssignTeam", RpcTarget.All, Teams.RED);
-
-            //photonView.RPC("SetName", RpcTarget.All, Teams.RED);
-
-            
         }
+
         gameObject.name = photonView.Owner.NickName;
         photonView.RPC("RegisterPlayer", RpcTarget.All);
     }
@@ -111,13 +106,30 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         }  
     }
 
-    [PunRPC]
-    private void AssignTeam(Teams team)
+    public void SetBlueTeam()
     {
-        if(photonView.IsMine)
+        player.team = Teams.BLUE;
+        if(teamCanvas != null)
         {
-            player.team = team;
+            teamCanvas.GetComponent<Canvas>().enabled = false;
         }
+        player.isOutOfFocus = false;
+        player.isOutOfFocus = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void SetRedTeam()
+    {
+        player.team = Teams.RED;
+        if (teamCanvas != null)
+        {
+            teamCanvas.GetComponent<Canvas>().enabled = false;
+        }
+        
+        player.isOutOfFocus = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 
