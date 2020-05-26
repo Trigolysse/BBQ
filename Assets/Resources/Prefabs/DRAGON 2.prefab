@@ -1201,6 +1201,7 @@ GameObject:
   - component: {fileID: 9202419574690952036}
   - component: {fileID: 9202419574476088584}
   - component: {fileID: 5117124021122040737}
+  - component: {fileID: 6351364043834368534}
   m_Layer: 0
   m_Name: DRAGON 2
   m_TagString: Untagged
@@ -1279,11 +1280,11 @@ MonoBehaviour:
   pointdecontrole3: {fileID: 0}
   pointdecontrole4: {fileID: 0}
   dragon: {fileID: 0}
-  attackDistance: 10
-  aggroDistance: 20
+  attackDistance: 12
+  aggroDistance: 10
   patrolDistance: 0
-  attackSpeed: 0
-  damage: 20
+  attackSpeed: 6
+  damage: 40
 --- !u!195 &9202419574476088584
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1318,11 +1319,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5028767835b01454cbcd6f45f8442120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  respawntime: 5
-  cimetiere: {x: 0, y: 0, z: 0}
+  maxHealth: 500
+  currentHealth: 500
+  respawntime: 20
+  cimetiere: {x: 0, y: -1000, z: 0}
   healthBar: {fileID: 0}
+--- !u!65 &6351364043834368534
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202419574690885948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.33, y: 1.38, z: 9.18}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9202419574690886888
 GameObject:
   m_ObjectHideFlags: 0
