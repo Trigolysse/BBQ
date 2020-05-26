@@ -24,6 +24,8 @@ public class SimpleInv : MonoBehaviourPunCallbacks
     private int[] Lootprice = { 15, 15, 15, 30, 50, 75 };
     public bool[] Bigitem;
     public Text[] lamoula;
+    public Text[] lamoula2;
+    public Text money2;
     public Text moneytext;
     public Image[] allimage;
     private Player player;
@@ -67,7 +69,11 @@ public class SimpleInv : MonoBehaviourPunCallbacks
         {
             return;
         }
-
+        for(int i = 0; i < 6; i++)
+        {
+            lamoula2[i].text = lamoula[i].text;
+        }
+        money2.text = moneytext.text;
 
 
         moneytext.text = money + " $";
