@@ -52931,6 +52931,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1932570614}
     m_Modifications:
+    - target: {fileID: 5866047709737471897, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890986921397660068, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321728779214418372, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321728779214418372, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058268736743020537, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058268736743020537, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9202419574690579020, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52991,6 +53021,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DRAGON 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9202419574690885948, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 9202419574690952036, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
       propertyPath: dragon
@@ -53000,6 +53035,21 @@ PrefabInstance:
         type: 3}
       propertyPath: patrolDistance
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202419574690952036, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: MinDist
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202419574690952036, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: MaxDist
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202419574690952036, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56ec89332e7e9dd4a8c68703c3c328ed, type: 3}
