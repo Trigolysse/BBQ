@@ -12,6 +12,7 @@ public class Porte : MonoBehaviour
     public GameObject portegauche;
     private bool droit = false;
     private bool ouvert = false;
+    public int team;
     
 
     
@@ -23,32 +24,7 @@ public class Porte : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-        if (droit)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (ouvert)
-                {
-                    portegauche.transform.Rotate(0,angle,0);
-                    portedroite.transform.Rotate(0,-angle,0);
-                    Debug.Log("OUVERT");
-                    ouvert = false;
-                }
-                else
-                {
-                    portegauche.transform.Rotate(0,-angle2,0);
-                    portedroite.transform.Rotate(0,angle2,0);
-                    Debug.Log("FERME");
-                    ouvert = true;
-
-                }
-                
-            }
-        }
-    }
+   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -62,21 +38,34 @@ public class Porte : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {
-        //if (other.transform==Player)
+        if (other.CompareTag("Player"))
         {
-            droit = true;
+            if (Input.GetKeyUp(KeyCode.E) && other.gameObject.GetComponent<SimpleInv>().Bigitem[0])
+            {
+                if (team==0&&other.gameObject.GetComponent<Player>().team==Teams.RED&&!ouvert)
+                {
+                    ouvert = true;
+                    portegauche.transform.Rotate(0,angle,0);
+                    portedroite.transform.Rotate(0,-angle,0);
+
+                }
+                if (team==1&&other.gameObject.GetComponent<Player>().team==Teams.BLUE&&!ouvert)
+                {
+                    ouvert = true;
+                    portegauche.transform.Rotate(0,angle,0);
+                    portedroite.transform.Rotate(0,-angle,0);
+
+                }
+
+                
+            }
+            
 
         }
         
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        //if (other.transform==Player)
-        {
-            droit = false;
-
-        }
         
-    }
+        
+    
+
 }

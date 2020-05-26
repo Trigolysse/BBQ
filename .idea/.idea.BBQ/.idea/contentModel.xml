@@ -333,6 +333,7 @@
           </e>
         </e>
         <e p="PhotonPlayer.cs" t="Include" />
+        <e p="PlayerTopHealthBar.cs" t="Include" />
         <e p="Porte.cs" t="Include" />
         <e p="PORTESHOP.cs" t="Include" />
         <e p="PunchAnim.cs" t="Include" />
