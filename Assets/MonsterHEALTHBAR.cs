@@ -19,4 +19,5 @@ public class MonsterHEALTHBAR : MonoBehaviour
         slider.maxValue = health;
         slider.value = health;
     }
+
 }
