@@ -1,10 +1,12 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class Player : MonoBehaviourPunCallbacks
 {
+    public float respawntime;
     public bool teleport;
     private int timeblood = 0;
     private bool blood = false;
@@ -17,6 +19,7 @@ public class Player : MonoBehaviourPunCallbacks
     public Canvas DeadCanvas;
     public GameObject BloodSight;
     public GameObject healthBar;
+    private bool gooddead = false;
 
     public GameObject talk;
     //public Canvas playerUI;
@@ -76,6 +79,7 @@ public class Player : MonoBehaviourPunCallbacks
         healthBar.GetComponent<MonsterHEALTHBAR>().SetHealth(Health);
         DeadCanvas.enabled = false;
         anim = Ernesto.GetComponent<Animator>();
+        respawntime = 5;
     }
 
     void Update()
@@ -101,14 +105,23 @@ public class Player : MonoBehaviourPunCallbacks
         }
         if (isDead)
         {
-            anim.SetBool("Dead",true);
-            DeadCanvas.enabled = true;
-            this.isOutOfFocus = true;
+            if (!gooddead)
+            {
+                anim.SetBool("Dead",true);
+                gooddead = true;
+                Teleport();
+            }
+            else
+            {
+                respawntime -= Time.deltaTime;
+                if (respawntime<0)
+                {
+                    respawntime = 5;
+                    Respawn();
+                }
+            }
         }
-        else
-        {
-            DeadCanvas.enabled = false;
-        }
+       
         if (blood)
         {
             timeblood++;
@@ -167,8 +180,9 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (!photonView.IsMine)
             return;
+        Health = 100;
         isDead = false;
-        GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = false;
+        teleport = true;
     }
 
    
@@ -180,7 +194,7 @@ public class Player : MonoBehaviourPunCallbacks
 
         if (photonView.IsMine)
         {
-            GameObject.Find("Death Canvas").GetComponent<Canvas>().enabled = true;
+            respawntime = 5;
         }
    
         //Destroy(gameObject);
@@ -197,17 +211,15 @@ public class Player : MonoBehaviourPunCallbacks
 
     public void Teleport()
     {
-        if (team==Teams.RED)
-        {
+       
             Debug.Log("red");
-            transform.position = new Vector3(-191.096f, 20, -68.05299f);
-        }
-        else
-        {
-            Debug.Log("blue");
-            transform.position = new Vector3(406.4642f, 6, 536.1269f);
-        }
+            gameObject.GetComponent<CharacterController>().enabled = false;
+            transform.position = new Vector3(-191.096f, -2, -68.05299f);
+            gameObject.GetComponent<CharacterController>().enabled = true;
+       
     }
+
+    
 
 }
 
