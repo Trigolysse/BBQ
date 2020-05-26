@@ -27,7 +27,6 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             {
                 componentsToDisable[i].enabled = false;
             }
-
         }
         else
         {
@@ -41,8 +40,12 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
                 photonView.RPC("AssignTeam", RpcTarget.All, Teams.BLUE);
             else
                 photonView.RPC("AssignTeam", RpcTarget.All, Teams.RED);
-        }
 
+            //photonView.RPC("SetName", RpcTarget.All, Teams.RED);
+
+            
+        }
+        gameObject.name = photonView.Owner.NickName;
         photonView.RPC("RegisterPlayer", RpcTarget.All);
         int randomGoal = new System.Random().Next(10);
         int randomReward = new System.Random().Next(4);
@@ -82,6 +85,21 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
+    private void SetName()
+    {
+        // If this player is not you
+        if (!photonView.IsMine)
+        {
+            this.transform.GetChild(1).gameObject.layer = 0;
+            //ChangeLayersRecursively(this.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform, 0);
+        }
+        if (photonView.IsMine)
+        {
+            transform.name = photonView.Owner.NickName;
+        }
+    }
+
+    [PunRPC]
     private void RegisterPlayer()
     {
         // If this player is not you
@@ -93,8 +111,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         if(photonView.IsMine)
         {
             transform.name = photonView.Owner.NickName;
-        }
-       
+        }  
     }
 
     [PunRPC]

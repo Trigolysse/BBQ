@@ -55,14 +55,14 @@ public class PlayerUI : MonoBehaviour
         // Reflect the Team
         if (TeamatePrefab != null)
         {
-            
-            Dictionary<int, Photon.Realtime.Player> players = PhotonNetwork.CurrentRoom.Players;
-            foreach (KeyValuePair<int, Photon.Realtime.Player> player in players)
+            GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+
+            foreach (GameObject player in allPlayers)
             {
                 i++;
                 Debug.Log("Dwad");
                 GameObject _uiGo = Instantiate(TeamatePrefab, this.transform);
-                _uiGo.SendMessage("SetTarget", new TeamateObject(player, i, target.team), SendMessageOptions.RequireReceiver);
+                _uiGo.SendMessage("SetTarget", new TeamateObject(player.GetComponent<Player>(), i), SendMessageOptions.RequireReceiver);
             }
         }
     }

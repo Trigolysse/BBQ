@@ -30,18 +30,18 @@ public class Teamate : MonoBehaviour
         // Display playerName
         if (playerName != null)
         {
-            playerName.text = teamateObject.player.Value.NickName;
+            playerName.text = teamateObject.player.name;
         }
 
         // Display indexNumber
         if (indexNumber != null)
         {
-            indexNumber.text = teamateObject.player.Key.ToString();
+            indexNumber.text = teamateObject.index.ToString();
         }
 
         if(teamImage != null)
         {
-            if(teamateObject.team == Teams.BLUE)
+            if(teamateObject.player.team == Teams.BLUE)
             {
                 teamImage.color = Color.cyan;
             }
@@ -80,14 +80,12 @@ public class Teamate : MonoBehaviour
 
 public class TeamateObject
 {
-    public KeyValuePair<int, Photon.Realtime.Player> player;
+    public Player player;
     public int index;
-    public Teams team;
 
-    public TeamateObject(KeyValuePair<int, Photon.Realtime.Player> _target, int index, Teams team)
+    public TeamateObject(Player _target, int index)
     {
         this.player = _target;
         this.index = index;
-        this.team = team;
     }
 }
