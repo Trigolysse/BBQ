@@ -161,10 +161,6 @@ public class Tir : MonoBehaviourPunCallbacks
                 }
                 if (hit.transform.CompareTag("Player"))
                 {
-                    if (gameObject.GetComponent<Player>().team==hit.transform.gameObject.GetComponent<Player>().team)
-                    {
-                        return;
-                    }
                     if (hit.transform.GetComponent<PhotonView>().IsMine) return;
                     GameObject Blood =
                         Instantiate(Bloodeffect, hit.point,
@@ -182,10 +178,7 @@ public class Tir : MonoBehaviourPunCallbacks
 
                 if (hit.transform.CompareTag(Tags.PLAYER_TAG))
                 {
-                    if (gameObject.GetComponent<Player>().team==hit.transform.gameObject.GetComponent<Player>().team)
-                    {
-                        return;
-                    }
+                    
                     Debug.Log("Hit player");
                     hit.transform.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All, photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage, WeaponName.AK47);
                 }
