@@ -114,7 +114,6 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             teamCanvas.GetComponent<Canvas>().enabled = false;
         }
         player.isOutOfFocus = false;
-        player.isOutOfFocus = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
