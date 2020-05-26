@@ -17921,9 +17921,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DayNightCycle_For SmallMaps
       objectReference: {fileID: 0}
+    - target: {fileID: 136712, guid: e54840c748752784da779489681b4ac0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 173110, guid: e54840c748752784da779489681b4ac0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 195412, guid: e54840c748752784da779489681b4ac0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 484086, guid: e54840c748752784da779489681b4ac0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 484086, guid: e54840c748752784da779489681b4ac0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17931,7 +17943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484086, guid: e54840c748752784da779489681b4ac0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 239
       objectReference: {fileID: 0}
     - target: {fileID: 484086, guid: e54840c748752784da779489681b4ac0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -26100,7 +26112,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.25
+  m_Intensity: 0.34
   m_Range: 1
   m_SpotAngle: 21.6
   m_InnerSpotAngle: 9.5
@@ -55541,7 +55553,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.25
+  m_Intensity: 0.29
   m_Range: 1
   m_SpotAngle: 21.6
   m_InnerSpotAngle: 9.5
@@ -55598,7 +55610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203431557}
   m_LocalRotation: {x: 0.914419, y: -0.083388016, z: 0.2450178, w: 0.31120843}
-  m_LocalPosition: {x: 42.40001, y: 254.2, z: 737}
+  m_LocalPosition: {x: 75, y: 268, z: 595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 440061051}
