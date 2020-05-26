@@ -14686,6 +14686,7 @@ GameObject:
   - component: {fileID: 348968968}
   - component: {fileID: 348968969}
   - component: {fileID: 348968970}
+  - component: {fileID: 348968971}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Gamemanager
@@ -14776,10 +14777,10 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 0
+  Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 348968971}
   viewIdField: 6
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -14917,6 +14918,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Goal: 0
   Reward: 0
+--- !u!114 &348968971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348968960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!4 &350835007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953,
@@ -38929,6 +38945,7 @@ GameObject:
   - component: {fileID: 847280453}
   - component: {fileID: 847280455}
   - component: {fileID: 847280454}
+  - component: {fileID: 847280456}
   m_Layer: 0
   m_Name: CoreEngine
   m_TagString: Gamemanager
@@ -38965,6 +38982,11 @@ MonoBehaviour:
   enginePrefab: {fileID: 5773902136651928505, guid: 1917683be36f6d24dab68581b6205d75,
     type: 3}
   gameState: 0
+  wincond: 15
+  redscore: 0
+  bluescore: 0
+  Redwin: {fileID: 0}
+  BlueWin: {fileID: 0}
   loadingClock: 0
   runningClock: 0
 --- !u!114 &847280455
@@ -38989,6 +39011,21 @@ MonoBehaviour:
   viewIdField: 17
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &847280456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847280452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &847657195
 GameObject:
   m_ObjectHideFlags: 0
