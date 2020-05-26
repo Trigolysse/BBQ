@@ -143,6 +143,7 @@ public class WeaponHandler : MonoBehaviour
             new Vector2(-26.35886f, 6.063792f),
             new Vector2(-27.48302f, 4.117367f),
             new Vector2(-28.51692f, 2.143932f),
+            new Vector2(-29.36766f, 0.6144824f),
             new Vector2(-29.36766f, 0.6144824f)
         };
     }

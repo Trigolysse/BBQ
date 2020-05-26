@@ -90,11 +90,11 @@ public class Tir : MonoBehaviourPunCallbacks
 
         if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
-            if (i > 29)
+            if (i >= weapon.magazineCapacity)
                 return;
+            Debug.Log(i);
             mouseLook.ApplyRecoil(weapon.recoil[i].normalized.x *2 , weapon.recoil[i].normalized.y * 2);
             nextTimeToFire = Time.time + 1f / weapon.fireRate; //weaponManager.GetCurrentSelectedWeapon().fireRate
-            weapon.ShootAnimation();
             Shoot();
             i++;
         }
@@ -133,6 +133,7 @@ public class Tir : MonoBehaviourPunCallbacks
 
         if (AK.active && munition>0 && !reload)
         {
+            weapon.ShootAnimation();
             RaycastHit hit;
             Vector3 direction = mainCam.transform.TransformDirection(RandomInsideCone(radius).normalized);
 
@@ -261,7 +262,8 @@ public class Tir : MonoBehaviourPunCallbacks
 
         if (Sword.active)
         {
-             RaycastHit hit3;
+            weapon.ShootAnimation();
+            RaycastHit hit3;
 
                         Vector3 direction3 = mainCam.transform.TransformDirection(RandomInsideCone(radius).normalized);
 

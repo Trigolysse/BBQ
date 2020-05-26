@@ -232,7 +232,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         {
             respawntime = 5;
         }
-
         //Destroy(gameObject);
     }
 
