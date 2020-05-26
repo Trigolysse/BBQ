@@ -138,7 +138,6 @@ public class Tir : MonoBehaviourPunCallbacks
 
             if (Physics.Raycast(new Ray(mainCam.transform.position, direction), out hit))
             {
-                Debug.Log("Did hit " + hit.collider.name);
                 Debug.DrawLine(mainCam.transform.position, hit.point);
                 if (hit.transform.GetComponent<Rigidbody>() != null)
                 {
@@ -218,7 +217,6 @@ public class Tir : MonoBehaviourPunCallbacks
 
             if (Physics.Raycast(new Ray(mainCam.transform.position, direction2), out hit2))
             {
-                Debug.Log("Did hit " + hit2.collider.name);
                 Debug.DrawLine(mainCam.transform.position, hit2.point);
                 if (hit2.transform.GetComponent<Rigidbody>() != null && Vector3.Distance(transform.position,hit2.transform.position)<punchrange)
                 {
@@ -265,8 +263,6 @@ public class Tir : MonoBehaviourPunCallbacks
             else
             {
                 //Did not it...
-                //Debug.DrawRay(mainCam.transform.position, hit.point, Color.white, 2f);
-                Debug.Log("Did not it");
             }
         }
 
