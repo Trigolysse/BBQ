@@ -64,7 +64,7 @@ public class Tir : MonoBehaviourPunCallbacks
         {
             WeaponShoot();
             reload = AK.GetComponent<WeaponHandler>().recharge;
-            if (!Sword.active && reload)
+            if (!Sword.active && reload &&!Punch.active)
             {
                 anim.SetBool("Reload", true);
             }
@@ -277,6 +277,74 @@ public class Tir : MonoBehaviourPunCallbacks
                 //Debug.DrawRay(mainCam.transform.position, hit.point, Color.white, 2f);
                 Debug.Log("Did not it");
             }
+        }
+
+        if (Sword.active)
+        {
+             RaycastHit hit3;
+            
+                        Vector3 direction3 = mainCam.transform.TransformDirection(RandomInsideCone(radius).normalized);
+            
+                        if (Physics.Raycast(new Ray(mainCam.transform.position, direction3), out hit3))
+                        {
+                            Debug.Log("Did hit " + hit3.collider.name);
+                            Debug.DrawLine(mainCam.transform.position, hit3.point);
+                            if (hit3.transform.GetComponent<Rigidbody>() != null && Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
+                            { 
+                                hit3.transform.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
+                            }
+                            if (hit3.transform.CompareTag("Metal")&& Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
+                            {
+                                GameObject Gucci =
+                                    Instantiate(PunchImpact2, hit3.point,
+                                        Quaternion.FromToRotation(Vector3.forward, hit3.normal)) as GameObject;
+                                Destroy(Gucci, 2f);
+                            }
+            
+                            if (hit3.transform.CompareTag("Player")&& Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
+                            {
+                                if (gameObject.GetComponent<Player>().team==hit.transform.gameObject.GetComponent<Player>().team)
+                                {
+                                    return;
+                                }
+                                if (hit3.transform.GetComponent<PhotonView>().IsMine) return;
+                                GameObject Blood =
+                                    Instantiate(PunchImpact, hit3.point,
+                                        Quaternion.FromToRotation(Vector3.forward, hit3.normal)) as GameObject;
+                                Destroy(Blood, 2f);
+                            }
+            
+                            if (hit3.transform.CompareTag("Enemy")&& Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
+                            {
+                                GameObject Blood =
+                                    Instantiate(PunchImpact, hit3.point,
+                                        Quaternion.FromToRotation(Vector3.forward, hit3.normal)) as GameObject;
+                                Destroy(Blood, 2f);
+                                hit3.transform.gameObject.GetComponent<Combatmanager>()
+                                    .TakeDamage(weaponManager.GetCurrentSelectedWeapon().damage);
+                            }
+            
+                            if (hit3.transform.CompareTag(Tags.PLAYER_TAG)&& Vector3.Distance(transform.position,hit3.transform.position)<punchrange)
+                            {
+                                if (gameObject.GetComponent<Player>().team==hit.transform.gameObject.GetComponent<Player>().team)
+                                {
+                                    return;
+                                }
+                                Debug.Log("Hit player");
+                                hit3.transform.gameObject.GetComponent<PhotonView>().RPC("ApplyDamage", RpcTarget.All,
+                                    photonView.Owner.NickName, weaponManager.GetCurrentSelectedWeapon().damage, WeaponName.PUNCH);
+                            }
+                            else
+                            {
+                                //Debug.DrawRay(mainCam.transform.position, hit.point, Color.red, 2f);
+                            }
+                        }
+                        else
+                        {
+                            //Did not it...
+                            //Debug.DrawRay(mainCam.transform.position, hit.point, Color.white, 2f);
+                            Debug.Log("Did not it");
+                        }
         }
 
     }
