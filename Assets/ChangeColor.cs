@@ -25,6 +25,14 @@ public class ChangeColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (Player.GetComponent<Player>().team==Teams.RED)
+        {
+            corps.material.color=Color.red;
+        }
+        else
+        {
+            corps.material.color = Color.blue;
+        }
+    
     }
 }
