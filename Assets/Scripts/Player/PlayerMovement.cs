@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     private WeaponManager weaponManager;
     private Animator anim;
     public GameObject Ernesto;
+    private PlayerSprintAndCrouch playerSprint;
 
     public int Life1 => Life;
 
@@ -30,12 +31,14 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     #endregion
 
     #region Mono Callbacks
+
     void Awake()
     {
         player = GetComponent<Player>();
         characterController = GetComponent<CharacterController>();
         weaponManager = GetComponent<WeaponManager>();
         anim = Ernesto.GetComponent<Animator>();
+        playerSprint = GetComponent<PlayerSprintAndCrouch>();
     }
 
     void Update()
@@ -55,6 +58,11 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
 
     void MoveThePlayer()
     {
+        if (playerSprint.isCrouching)
+            speed = 2;
+        else
+            speed = weaponManager.GetCurrentSelectedWeapon().speed;
+
         if (!player.isOutOfFocus)
             moveDirection = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
 
@@ -71,7 +79,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
             
 
         moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= weaponManager.GetCurrentSelectedWeapon().speed * Time.deltaTime;
+        moveDirection *= speed * Time.deltaTime;
         ApplyGravity();
         characterController.Move(moveDirection);
     }

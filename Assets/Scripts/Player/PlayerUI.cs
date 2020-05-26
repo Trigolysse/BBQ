@@ -60,7 +60,6 @@ public class PlayerUI : MonoBehaviour
             foreach (GameObject player in allPlayers)
             {
                 i++;
-                Debug.Log("Dwad");
                 GameObject _uiGo = Instantiate(TeamatePrefab, this.transform);
                 _uiGo.SendMessage("SetTarget", new TeamateObject(player.GetComponent<Player>(), i), SendMessageOptions.RequireReceiver);
             }

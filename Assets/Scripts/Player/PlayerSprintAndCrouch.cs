@@ -12,16 +12,11 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
     private Transform look_Root;
     private float stand_Height = 1.6f;
     private float crouch_Height = 1f;
-    private bool isCrouching;
-    private float sprint_Volume = 1f;
-    private float crouch_Volume = 0.1f;
-    private float walk_Volume_Min = 0.2f, walk_Volume_Max = 0.6f;
-    private float walk_Step_Distance = 0.4f;
-    private float sprint_Step_Distance = 0.25f;
-    private float crouch_Step_Distance = 0.5f;
+    public bool isCrouching;
     private float sprint_Value = 100f;
     private Animator anim;
     public GameObject Ernesto;
+    private CharacterController characterController;
 
     #endregion
 
@@ -37,8 +32,9 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
     void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        look_Root = transform.GetChild(0);
+        characterController = GetComponent<CharacterController>();
     }
+
     void Start()
     {
         move_Speed = playerMovement.speed;
@@ -59,12 +55,12 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
             if (isCrouching)
             {
                 // if remote player is crouching then set him to crouch postition
-                look_Root.localPosition = new Vector3(0f, crouch_Height, 0f);
+                characterController.height = crouch_Height;
             }
             else
             {
                 // if remote player is not crouching then set him to standing up postition
-                look_Root.localPosition = new Vector3(0f, stand_Height, 0f);
+                characterController.height = stand_Height;
             }
         }
 
@@ -114,19 +110,20 @@ public class PlayerSprintAndCrouch : MonoBehaviourPunCallbacks, IPunObservable
 
     void Crouch()
     {
+     
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             // if we are crouching - stand up
             if (isCrouching)
             {
-                look_Root.localPosition = new Vector3(0f, stand_Height, 0f);
+                characterController.height = stand_Height;
                 playerMovement.speed = move_Speed;
                 isCrouching = false;
             }
             else
             {
                 // if we are not crouching - crouch
-                look_Root.localPosition = new Vector3(0f, crouch_Height, 0f);
+                characterController.height = crouch_Height;
                 playerMovement.speed = crouch_Speed;
                 isCrouching = true;
             }
