@@ -15,6 +15,7 @@
     <explicitExcludes>
       <Path>.git</Path>
       <Path>.idea</Path>
+      <Path>BBQBUILD</Path>
       <Path>Library</Path>
       <Path>Temp</Path>
       <Path>UIElementsSchema</Path>
