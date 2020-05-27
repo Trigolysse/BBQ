@@ -195,7 +195,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (isDead)
         {
-            GetComponent<AudioSource>().Play();
             return;
         }
 
