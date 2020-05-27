@@ -15,7 +15,6 @@
     <explicitExcludes>
       <Path>.git</Path>
       <Path>.idea</Path>
-      <Path>BUILDANDRUN</Path>
       <Path>Library</Path>
       <Path>Temp</Path>
       <Path>UIElementsSchema</Path>
