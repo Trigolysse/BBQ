@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
 
     public float speed = 5f;
     public float jump_Force = 10f;
-
+    public bool freeze = false;
     #endregion
 
     #region Mono Callbacks
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine && freeze == false)
             MoveThePlayer();
         else
         {
