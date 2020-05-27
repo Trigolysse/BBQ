@@ -1717,7 +1717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.7, y: 15.1}
+  m_AnchoredPosition: {x: 24, y: 15.1}
   m_SizeDelta: {x: 30.85, y: 33.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3189025612797998084
@@ -2257,7 +2257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.7, y: 16.1}
+  m_AnchoredPosition: {x: 25, y: 16.1}
   m_SizeDelta: {x: 30.85, y: 33.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3244353658654254131
@@ -3170,7 +3170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8247304980890169783
 Transform:
   m_ObjectHideFlags: 0
@@ -3618,7 +3618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.6, y: 16}
+  m_AnchoredPosition: {x: 27, y: 16}
   m_SizeDelta: {x: 30.85, y: 33.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7463129561454085610
@@ -3695,7 +3695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.7, y: 17.1}
+  m_AnchoredPosition: {x: 25, y: 17.1}
   m_SizeDelta: {x: 30.85, y: 33.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &123715603084015190
@@ -7600,7 +7600,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.6, y: 15.4}
+  m_AnchoredPosition: {x: 29, y: 15.4}
   m_SizeDelta: {x: 30.85, y: 33.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6573799911993208385
@@ -8606,7 +8606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.6, y: 15.6}
+  m_AnchoredPosition: {x: 27, y: 15.6}
   m_SizeDelta: {x: 30.85, y: 33.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5377107953932199164
