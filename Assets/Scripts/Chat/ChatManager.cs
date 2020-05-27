@@ -110,9 +110,15 @@ public class ChatManager : MonoBehaviourPunCallbacks, IChatClientListener
                     if (args.Length > 1)
                     {
                         if (args[1].ToLower() == "blue")
+                        {
                             GetPlayer().GetComponent<Player>().team = Teams.BLUE;
+                            GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<PlayerUI>().SetTeamIndicator(true);
+                        }    
                         if (args[1].ToLower() == "red")
+                        {
                             GetPlayer().GetComponent<Player>().team = Teams.RED;
+                            GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<PlayerUI>().SetTeamIndicator(true);
+                        }     
                     } 
                     else
                         chatClient.PublishMessage("channelNameHere", "<color=red>[ Server ]</color> You need to specify a team [red | blue]");

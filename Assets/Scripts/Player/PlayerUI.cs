@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,7 +41,7 @@ public class PlayerUI : MonoBehaviour
     public WeaponManager weaponManager;
     int i = 0;
     #endregion
-
+    GameObject[] allPlayers;
 
     #region MonoBehaviour Callbacks
 
@@ -52,26 +53,44 @@ public class PlayerUI : MonoBehaviour
     private void Start()
     {
         if (!target.photonView.IsMine) return;
+        allPlayers = GameObject.FindGameObjectsWithTag("Player");
         // Reflect the Team
+        SetTeamIndicator();
+    }
+
+    int count = 0;
+    public void SetTeamIndicator(bool forceRefresh = false)
+    {
+        if (count == GameObject.FindGameObjectsWithTag("Player").Length && forceRefresh == false) return;
+
+        count = GameObject.FindGameObjectsWithTag("Player").Length;
+        allPlayers = GameObject.FindGameObjectsWithTag("Player");
+        if (allPlayers.Length <= 0) return;
+
+        GameObject[] teamates = GameObject.FindGameObjectsWithTag("Teamate");
+        foreach (GameObject teamate in teamates)
+        {
+            Destroy(teamate);
+            i = 0;
+        }
+
         if (TeamatePrefab != null)
         {
-            GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
-
             foreach (GameObject player in allPlayers)
             {
                 i++;
                 GameObject _uiGo = Instantiate(TeamatePrefab, this.transform);
-                _uiGo.SendMessage("SetTarget", new TeamateObject(player.GetComponent<Player>(), i), SendMessageOptions.RequireReceiver);
+                _uiGo.tag = "Teamate";
+                TeamateObject obj = new TeamateObject(player.GetComponent<Player>(), i);
+                _uiGo.SendMessage("SetTarget", obj, SendMessageOptions.RequireReceiver);
             }
         }
     }
 
-
-
     // Update is called once per frame
     void Update()
     {
-      
+        SetTeamIndicator();
 
         // Destroy itself if the target(Player) is null, It's a fail safe when Photon is destroying Instances of a Player over the network
         if (target == null)

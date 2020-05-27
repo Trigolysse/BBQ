@@ -116,6 +116,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         player.isOutOfFocus = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<PlayerUI>().SetTeamIndicator(true);
     }
 
     public void SetRedTeam()
@@ -129,6 +130,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         player.isOutOfFocus = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<PlayerUI>().SetTeamIndicator(true);
     }
 
 

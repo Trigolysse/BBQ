@@ -29,6 +29,8 @@ TagManager:
   - Joueur
   - BLUEBBQ
   - REDBBQ
+  - Teamate
+  - PlayerUI
   layers:
   - Default
   - TransparentFX
