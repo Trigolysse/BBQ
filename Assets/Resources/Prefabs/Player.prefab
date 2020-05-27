@@ -9991,6 +9991,7 @@ MonoBehaviour:
   Ernesto: {fileID: 7376831106272240344}
   speed: 5
   jump_Force: 5
+  freeze: 0
 --- !u!114 &8827100772427584088
 MonoBehaviour:
   m_ObjectHideFlags: 0
