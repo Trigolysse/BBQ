@@ -984,7 +984,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1493124317115547662}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1769,7 +1769,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6440851699150770348}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Components
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4914,7 +4914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 527235731066085740}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Casing Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5652,7 +5652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 762715698676559440}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5684,7 +5684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7873712171156507205}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bullet Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9086,7 +9086,7 @@ GameObject:
   - component: {fileID: 6592514862329090523}
   - component: {fileID: 453703906391843602}
   - component: {fileID: 3460384974543983004}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12436,7 +12436,7 @@ PrefabInstance:
     - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 24375
+      value: 24119
       objectReference: {fileID: 0}
     - target: {fileID: 4611803945366263010, guid: 7067450cb04284847890de006c4435e0,
         type: 3}
@@ -12548,12 +12548,12 @@ PrefabInstance:
     - target: {fileID: -7662192908649055839, guid: a9c960516d63eaa4589ad3bdcd6faa57,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5168865663849748140, guid: a9c960516d63eaa4589ad3bdcd6faa57,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a9c960516d63eaa4589ad3bdcd6faa57,
         type: 3}
@@ -12633,7 +12633,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: a9c960516d63eaa4589ad3bdcd6faa57,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: a9c960516d63eaa4589ad3bdcd6faa57,
         type: 3}
@@ -12643,7 +12643,7 @@ PrefabInstance:
     - target: {fileID: 647896378092029868, guid: a9c960516d63eaa4589ad3bdcd6faa57,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2359200477567297222, guid: a9c960516d63eaa4589ad3bdcd6faa57,
         type: 3}
@@ -12653,17 +12653,17 @@ PrefabInstance:
     - target: {fileID: 4739994320174120387, guid: a9c960516d63eaa4589ad3bdcd6faa57,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5258429763190875689, guid: a9c960516d63eaa4589ad3bdcd6faa57,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8060384291409505013, guid: a9c960516d63eaa4589ad3bdcd6faa57,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9c960516d63eaa4589ad3bdcd6faa57, type: 3}

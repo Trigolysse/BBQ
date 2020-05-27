@@ -109,30 +109,32 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     public void SetBlueTeam()
     {
         player.team = Teams.BLUE;
-        if(teamCanvas != null)
-        {
-            teamCanvas.GetComponent<Canvas>().enabled = false;
-        }
-        player.isOutOfFocus = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<PlayerUI>().SetTeamIndicator(true);
-        player.GetComponent<Player>().Teleport();
-    }
-
-    public void SetRedTeam()
-    {
-        player.team = Teams.RED;
-        if (teamCanvas != null)
-        {
-            teamCanvas.GetComponent<Canvas>().enabled = false;
-        }
         
         player.isOutOfFocus = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<PlayerUI>().SetTeamIndicator(true);
-        player.GetComponent<Player>().Teleport();
+        player.GetComponent<Player>().teleport = true;
+        if (teamCanvas != null)
+        {
+            Destroy(teamCanvas.gameObject);
+        }
+    }
+
+    public void SetRedTeam()
+    {
+        player.team = Teams.RED;
+        
+        
+        player.isOutOfFocus = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<PlayerUI>().SetTeamIndicator(true);
+        player.GetComponent<Player>().teleport = true;
+        if (teamCanvas != null)
+        {
+            Destroy(teamCanvas.gameObject);
+        }
     }
 
 
