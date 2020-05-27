@@ -248,16 +248,8 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     public void Teleport()
     {
         gameObject.GetComponent<CharacterController>().enabled = false;
-        if (team==Teams.RED)
-        {
-            transform.position = new Vector3(-191.096f, 20, -68.05299f);
-            gameObject.GetComponent<CharacterController>().enabled = true;
-        }
-        else
-        {
-            transform.position = new Vector3(406.4642f, 6, 536.1269f);
-            gameObject.GetComponent<CharacterController>().enabled = true;
-        }
+        transform.position = new Vector3(-191.096f, -2, -68.05299f);
+        gameObject.GetComponent<CharacterController>().enabled = true;
     }
 
 

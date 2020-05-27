@@ -108,9 +108,16 @@ public class GameManager : MonoBehaviourPunCallbacks
                 isShowing = !isShowing;
                 GameObject player = GetPlayer();
                 if (isShowing)
+                {
                     player.GetComponent<Player>().isOutOfFocus = true;
+                    player.GetComponent<PlayerMovement>().freeze = true;
+                }
                 else
+                {
                     player.GetComponent<Player>().isOutOfFocus = false;
+                    player.GetComponent<PlayerMovement>().freeze = false;
+                }
+                    
 
                 chatInputField.gameObject.SetActive(isShowing);
                 chatInputField.Select();

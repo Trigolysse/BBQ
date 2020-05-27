@@ -10,6 +10,7 @@ public class Metalspawn : MonoBehaviour
     public List<Vector3[]> allspwan = new List<Vector3[]>();
     public Vector3[] spawn1;
     public Vector3[] spawn2;
+	public Vector3[] spawn3;
     public float respawntime;
     public List<bool> alive;
     public List<float> restime;
@@ -26,6 +27,7 @@ public class Metalspawn : MonoBehaviour
         Random rand = new Random();
         allspwan.Add(spawn1);
         allspwan.Add(spawn2);
+		allspwan.Add(spawn3);
         int i = 0;
         foreach (Vector3[] ranpos in allspwan)
         {
