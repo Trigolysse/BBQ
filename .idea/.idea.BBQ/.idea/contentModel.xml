@@ -366,12 +366,12 @@
           <e p="MainMenu" t="Include">
             <e p="MainMenuController.cs" t="Include" />
             <e p="MultiplayerMenuController.cs" t="Include" />
+            <e p="Network" t="Include">
+              <e p="NetworkController.cs" t="Include" />
+              <e p="StartLobbyController.cs" t="Include" />
+              <e p="StartRoomController.cs" t="Include" />
+            </e>
             <e p="PlayerNameInputField2.cs" t="Include" />
-          </e>
-          <e p="Network" t="Include">
-            <e p="NetworkController.cs" t="Include" />
-            <e p="StartLobbyController.cs" t="Include" />
-            <e p="StartRoomController.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="Crosshair.cs" t="Include" />

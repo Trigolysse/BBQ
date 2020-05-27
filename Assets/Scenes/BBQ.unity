@@ -32740,12 +32740,12 @@ PrefabInstance:
     - target: {fileID: 5117124021122040737, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
       propertyPath: maxHealth
-      value: 299
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 5117124021122040737, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
       propertyPath: currentHealth
-      value: 299
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 5866047709737471897, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
@@ -32891,6 +32891,16 @@ PrefabInstance:
         type: 3}
       propertyPath: attackSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202419574690952036, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: MoveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202419574690952036, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: damage
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9202419574690952037, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
@@ -47885,12 +47895,12 @@ PrefabInstance:
     - target: {fileID: 5117124021122040737, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
       propertyPath: maxHealth
-      value: 299
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 5117124021122040737, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
       propertyPath: currentHealth
-      value: 299
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 5866047709737471897, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
@@ -48036,6 +48046,16 @@ PrefabInstance:
         type: 3}
       propertyPath: attackSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202419574690952036, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: MoveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202419574690952036, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: damage
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9202419574690952037, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}
@@ -59757,6 +59777,11 @@ PrefabInstance:
         type: 3}
       propertyPath: attackSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202419574690952036, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
+        type: 3}
+      propertyPath: MoveSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202419574690952037, guid: 56ec89332e7e9dd4a8c68703c3c328ed,
         type: 3}

@@ -175,7 +175,7 @@ public class orcmove : MonoBehaviour
         transform.LookAt(lookAtPos);      
         NavMeshHit navhit;
         //NavMesh.SamplePosition(playerpos, out navhit, 20f, NavMesh.AllAreas);
-        Agent.SetDestination(playerpos);
+        transform.position += transform.forward * 10 * Time.deltaTime;
     }
 
     private void Attack()
