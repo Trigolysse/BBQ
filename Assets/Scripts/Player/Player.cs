@@ -199,6 +199,11 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
             return;
         }
 
+        if (GetComponent<SimpleInv>().Bigitem[2])
+        {
+            damage -= 15;
+        }
+
         Health -= damage;
         if (Health<0)
         {

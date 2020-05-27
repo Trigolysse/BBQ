@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using System;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,14 @@ public class MainMenuController : MonoBehaviourPunCallbacks
 {
 
     [SerializeField]
-    Button multiplayerButton;
+    public Button multiplayerButton;
+    public Button quitButton;
 
     [SerializeField]
     private int multiplayerMenuIndex;
     [SerializeField]
     private int localPlayIndex;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -42,5 +45,11 @@ public class MainMenuController : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         multiplayerButton.interactable = true;
+        quitButton.interactable = true;
+    }
+
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
     }
 }
