@@ -65,7 +65,7 @@ public class Inventory : MonoBehaviourPunCallbacks
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if(!photonView.IsMine)
         {
@@ -80,7 +80,7 @@ public class Inventory : MonoBehaviourPunCallbacks
             inventoryCanvas.enabled = !inventoryCanvas.enabled;
             player.isOutOfFocus = !player.isOutOfFocus;
         }
-    }
+    }*/
 
     private void CreateCanvas()
     {

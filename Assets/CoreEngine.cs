@@ -55,7 +55,7 @@ public class CoreEngine : MonoBehaviourPunCallbacks
                 gameState = GameState.RUNNING;
                 teleportPlayersToSpawn();
                 // Set the Game clock to 20 minutes
-                runningClock = 1200f;
+                runningClock = 1800f;
             }
             else
                 loadingClock -= Time.deltaTime;

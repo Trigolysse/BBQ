@@ -40,7 +40,7 @@ public class SimpleInv : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        money = 1000;
+        
         foreach(Image im in allimage)
         {
             im.color = Color.black;
