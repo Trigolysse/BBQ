@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Photon.Pun;
 using UnityEngine;
 
 public class Porte : MonoBehaviour
@@ -46,15 +45,15 @@ public class Porte : MonoBehaviour
                 if (team==0&&other.gameObject.GetComponent<Player>().team==Teams.RED&&!ouvert)
                 {
                     ouvert = true;
-                    PhotonNetwork.Destroy(portedroite);
-                    PhotonNetwork.Destroy(portegauche);
+                    portegauche.transform.Rotate(0,angle,0);
+                    portedroite.transform.Rotate(0,-angle,0);
 
                 }
                 if (team==1&&other.gameObject.GetComponent<Player>().team==Teams.BLUE&&!ouvert)
                 {
                     ouvert = true;
-                    PhotonNetwork.Destroy(portedroite);
-                    PhotonNetwork.Destroy(portegauche);
+                    portegauche.transform.Rotate(0,angle,0);
+                    portedroite.transform.Rotate(0,-angle,0);
 
                 }
 
