@@ -16875,7 +16875,7 @@ MonoBehaviour:
   - {x: 300, y: 0, z: 345}
   - {x: 375, y: 0, z: 320}
   - {x: 373, y: 0, z: 398}
-  respawntime: 5
+  respawntime: 15
   alive: 
   restime: []
 --- !u!114 &348968964
@@ -16921,7 +16921,7 @@ MonoBehaviour:
   - {x: -120.626, y: 11.36811, z: 62.33986}
   - {x: -87.2206, y: 5.461935, z: 103.1219}
   - {x: -33.36436, y: 3.845451, z: 143.7495}
-  respawntime: 5
+  respawntime: 15
   alive: 
   restime: []
 --- !u!114 &348968966
@@ -16945,7 +16945,7 @@ MonoBehaviour:
   - {x: 33.68082, y: 0, z: 541.1867}
   - {x: 155.8905, y: 0, z: 375}
   - {x: 87.97272, y: 0, z: 363}
-  respawntime: 3
+  respawntime: 25
   alive: 
   restime: []
 --- !u!114 &348968967
@@ -16969,7 +16969,7 @@ MonoBehaviour:
   - {x: 426.6313, y: 1.794401, z: -103.5129}
   - {x: 432.6173, y: 0.5565777, z: -22.42979}
   - {x: 361.6569, y: 1.218557, z: -82.26852}
-  respawntime: 3
+  respawntime: 40
   alive: 
   restime: []
 --- !u!114 &348968968
@@ -16993,7 +16993,7 @@ MonoBehaviour:
   - {x: 152.3306, y: 0, z: 73}
   - {x: 152.3306, y: 0, z: 121}
   - {x: 243.331, y: 0, z: 68}
-  respawntime: 5
+  respawntime: 15
   alive: 
   restime: []
 --- !u!114 &348968969
@@ -17017,7 +17017,7 @@ MonoBehaviour:
   - {x: -80.0318, y: 6.148248, z: 410.9531}
   - {x: -164.2808, y: 14.63118, z: 445.3761}
   - {x: -60.93685, y: 18.55758, z: 520.9368}
-  respawntime: 5
+  respawntime: 60
   alive: 
   restime: []
 --- !u!114 &348968971
